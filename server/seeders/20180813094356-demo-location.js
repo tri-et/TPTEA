@@ -2,7 +2,7 @@
 
 var GoogleSpreadsheet = require('google-spreadsheet')
 var _d = require('lodash')
-var creds = require('../etm-vn-b3e3daaaadbf.json')
+var creds = require('../TP-TEA-HK-4be78b7ad5f8.json')
 
 // Create a document object using the ID of the spreadsheet - obtained from its URL.
 var doc = new GoogleSpreadsheet('1vN_Wrcc4N5DAnmhBjQQYdcPKYtQpHn_CXfdHyac7akM')
