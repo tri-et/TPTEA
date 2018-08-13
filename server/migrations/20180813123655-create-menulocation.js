@@ -8,11 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      menuid: {
+      menuId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'menus',
+          key: 'id',
+        },
       },
-      locationid: {
+      locationId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'locations',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
