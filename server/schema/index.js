@@ -1,27 +1,7 @@
 import {makeExecutableSchema} from 'graphql-tools'
-import userDef from './user/def'
-import userRes from './user/res'
 
-import productDef from './product/def'
-import productRes from './product/res'
-
-import supplierDef from './supplier/def'
-import supplierRes from './supplier/res'
-
-import sellingDef from './selling/def'
-import sellingRes from './selling/res'
-
-import stockInDef from './stockin/def'
-import stockInRes from './stockin/res'
-
-import stockDef from './stock/def'
-import stockRes from './stock/res'
-
-import clientDef from './client/def'
-import clientRes from './client/res'
-
-import stockoutDef from './stockout/def'
-import stockoutRes from './stockout/res'
+// import userDef from './user/def'
+// import userRes from './user/res'
 
 const SchemaDefinition = `
   schema {
@@ -33,13 +13,6 @@ const SchemaDefinition = `
 const RootQuery = `
   type RootQuery {
     listUser: [User]
-    listProduct: [Product]
-    listSupplier: [Supplier]
-    listSelling: [Selling]
-    listStockIn:[StockIn]
-    listStock:[Stock]
-    listClient: [Client]
-    listStockOut: [StockOut]
   }
 `
 
@@ -49,22 +22,6 @@ const RootMutation = `
     deleteUser(input:[Int]): Int
     createUser(input:UserInput): User
     updateUser(input:UserInput): User
-
-    deleteProduct(input:[Int]): Int
-    updateProduct(input:ProductInput): Product
-
-    deleteSupplier(input:[Int]): Int
-    updateSupplier(input:SupplierInput): Supplier
-
-    deleteSelling(input:[Int]): Int
-    updateSelling(input:SellingInput): Selling
-    deleteStockIn(input:[Int]): Int
-    updateStockIn(input:StockinInput): StockIn
-
-    deleteClient(input:[Int]): Int
-    updateClient(input:ClientInput): Client
-
-    deleteStockOut(input:[Int]): Int
   }
 `
 
@@ -73,14 +30,9 @@ export default makeExecutableSchema({
     SchemaDefinition,
     RootQuery,
     RootMutation,
-    userDef,
-    productDef,
-    supplierDef,
-    stockInDef,
-    stockDef,
-    clientDef,
-    sellingDef,
-    stockoutDef,
+    // userDef,
   ],
-  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes, sellingRes, stockoutRes],
+  resolvers: [
+    // userRes
+  ],
 })

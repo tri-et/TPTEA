@@ -1,7 +1,8 @@
 'use strict'
+
 var GoogleSpreadsheet = require('google-spreadsheet')
 var _d = require('lodash')
-var creds = require('../etm-vn-b3e3daaaadbf.json')
+var creds = require('../TP-TEA-HK-4be78b7ad5f8.json')
 var doc = new GoogleSpreadsheet('1qFpMLDWABXh2JFg_h6VZbZt5OxslSuvjzS1Zn74uSag')
 function getData() {
   return new Promise((resolve, reject) => {
