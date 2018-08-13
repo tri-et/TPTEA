@@ -1,4 +1,4 @@
-;('use strict')
+'use strict'
 var GoogleSpreadsheet = require('google-spreadsheet')
 var _d = require('lodash')
 var creds = require('../etm-vn-b3e3daaaadbf.json')
