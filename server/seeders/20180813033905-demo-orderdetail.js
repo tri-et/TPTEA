@@ -1,7 +1,7 @@
 'use strict'
 var GoogleSpreadsheet = require('google-spreadsheet')
 var _d = require('lodash')
-var creds = '../etm-vn-b3e3daaaadbf.json'
+var creds = '../TP-TEA-HK-4be78b7ad5f8.json'
 var doc = new GoogleSpreadsheet('1GMxPRlBSyukoiGSETq7xU4p0UsOv6zUNr0HyMO0MxoQ')
 
 function getData() {
