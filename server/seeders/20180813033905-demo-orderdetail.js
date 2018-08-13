@@ -1,7 +1,7 @@
 'use strict'
 var GoogleSpreadsheet = require('google-spreadsheet')
 var _d = require('lodash')
-var creds = '../TP-TEA-HK-4be78b7ad5f8.json'
+var creds = require('../TP-TEA-HK-4be78b7ad5f8.json')
 var doc = new GoogleSpreadsheet('1GMxPRlBSyukoiGSETq7xU4p0UsOv6zUNr0HyMO0MxoQ')
 
 function getData() {
@@ -20,7 +20,7 @@ module.exports = {
     var data = await getData().catch(err => console.log(err))
     return queryInterface.bulkInsert(
       'orderdetails',
-      _d.map(data, row => _d.pick(row, 'id', 'orderId', 'menuId', 'quantity', 'price')),
+      _d.map(data, row => _d.pick(row, 'id', 'orderid', 'menuid', 'quantity', 'price')),
       {}
     )
   },
