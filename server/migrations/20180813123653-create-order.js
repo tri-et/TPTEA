@@ -1,32 +1,33 @@
-'use strict';
+'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Locations', {
+    return queryInterface.createTable('Orders', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      code: {
-        type: Sequelize.STRING
-      },
-      name: {
-        type: Sequelize.STRING
+      customerId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'customers',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
         defaultValue: Sequelize.fn('now'),
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
         defaultValue: Sequelize.fn('now'),
-        type: Sequelize.DATE
-      }
-    });
+        type: Sequelize.DATE,
+      },
+    })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Locations');
-  }
-};
+    return queryInterface.dropTable('Orders')
+  },
+}
