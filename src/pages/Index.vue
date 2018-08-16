@@ -1,5 +1,57 @@
 <template>
-  <div>home</div>
+    <q-pull-to-refresh :handler="refresher">
+    <q-page padding class="bg-white">
+      <p class="caption" style="background-color: red;height: 100px;">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+        <q-btn icon="map" absolute-bottom/>
+      </p>
+      <p class="caption" >
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+      <p class="caption">
+        Pull down to refresh on the content below.
+        On desktop it works by dragging the content down.
+      </p>
+    </q-page>
+  </q-pull-to-refresh>
 </template>
 
 <style>
