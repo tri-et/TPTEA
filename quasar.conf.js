@@ -1,5 +1,4 @@
 // Configuration for your app
-
 module.exports = function(ctx) {
   return {
     // app plugins (/src/plugins)
@@ -83,10 +82,17 @@ module.exports = function(ctx) {
         'QCardSeparator',
         'QCardActions',
         'QItemSeparator',
+        'QSpinnerBars',
+
+        // TPTEA
+        'QTabs',
+        'QTab',
+        'QTabPane',
+        'QRouteTab',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
-      plugins: ['Notify', 'AddressbarColor'],
+      plugins: ['Notify', 'AddressbarColor', 'Loading'],
       iconSet: 'material-icons',
       // i18n: 'de' // Quasar language
     },
@@ -99,13 +105,13 @@ module.exports = function(ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},
       manifest: {
-        // name: 'Quasar App',
-        // short_name: 'Quasar-PWA',
-        // description: 'Best PWA App in town!',
+        name: 'Quasar App',
+        short_name: 'TPTEA',
+        description: 'Best PWA App in town!',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#027be3',
+        background_color: 'red',
+        theme_color: 'red',
         icons: [
           {
             src: 'statics/icons/icon-128x128.png',
