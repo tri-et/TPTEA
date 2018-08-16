@@ -1,60 +1,35 @@
 <template>
     <q-pull-to-refresh :handler="refresher">
-    <q-page padding class="bg-white">
-      <p class="caption" style="background-color: red;height: 100px;">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-        <q-btn icon="map" absolute-bottom/>
-      </p>
-      <p class="caption" >
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-      <p class="caption">
-        Pull down to refresh on the content below.
-        On desktop it works by dragging the content down.
-      </p>
-    </q-page>
+    <q-carousel-slide>
+      <div class="custom-caption1" style="margin-bottom: 20px;">
+        <div slot="loading">Loading...</div>
+      <h3>Bring On The Fruit</h3>
+      <p class="caption"></p>
+      <q-btn class="button"
+        rounded
+        dense
+        color:black
+        size="20px"
+        label="Learn More"
+      />
+      </div>
+    </q-carousel-slide>
+    <q-carousel-slide>
+      <div class="custom-caption">
+        <div slot="loading">Loading...</div>
+      <h1>Parallax  Title</h1>
+      <q-btn round color="secondary">
+          <q-icon name="card_giftcard" />
+      </q-btn>
+      </div>
+    </q-carousel-slide>
   </q-pull-to-refresh>
 </template>
 
 <style>
+.button {
+  background-color: white;
+}
 .resizeLogo {
   transform: scale(0.6);
 }
@@ -64,7 +39,10 @@
   top: -47px;
   right: -53px;
 }
-.bg-home {
+.custom-caption {
+  background-image: url('~assets/homeBannerBg.jpg');
+}
+.custom-caption1 {
   background-image: url('~assets/homeBannerBg.jpg');
 }
 </style>
