@@ -1,54 +1,67 @@
-<template>
-    <q-pull-to-refresh :handler="refresher">
-    <q-carousel-slide>
-      <div class="custom-caption1" style="margin-bottom: 20px;">
-        <div slot="loading">Loading...</div>
-      <h3>Bring On The Fruit</h3>
-      <p class="caption"></p>
-      <q-btn class="button"
-        rounded
-        dense
-        color:black
-        size="20px"
-        label="Learn More"
-      />
+<template >
+<div>
+  <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:400px" >
+    <q-carousel-slide img-src="assets/component.jpg">
+      <div class="absolute-top-left custom-caption-top">
+        <div class="q-display-1">Bring on the fruit</div>
+      <q-btn class="fixed-bottom-left btnlearn" rounded >
+        <div>Learn More</div>
+        </q-btn>
       </div>
     </q-carousel-slide>
-    <q-carousel-slide>
-      <div class="custom-caption">
-        <div slot="loading">Loading...</div>
-      <h1>Parallax  Title</h1>
-      <q-btn round color="secondary">
-          <q-icon name="card_giftcard" />
-      </q-btn>
+  </q-carousel>
+  <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:400px" >
+    <q-carousel-slide img-src="assets/component-mid.jpg">
+    <div class="inner-top">Discover coffee</div>
+      <div class="absolute-top-left custom-caption-mid">
+        <div class="q-display-1">Find a new favorite</div>
+      <q-btn class="fixed-bottom-left btnlearn" rounded >
+        <div>Discover coffee</div>
+        </q-btn>
       </div>
     </q-carousel-slide>
-  </q-pull-to-refresh>
+  </q-carousel>
+  </div>
 </template>
 
 <style>
-.button {
+.custom-caption-top {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.custom-caption-mid {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.component-top {
+  padding: 5px 0 10px 0;
+}
+.btnlearn {
+  color: black;
   background-color: white;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
-.resizeLogo {
-  transform: scale(0.6);
+.q-display-1{
+font-size: 40px;
 }
-.light {
-  transform: scale(0.6);
-  position: absolute;
-  top: -47px;
-  right: -53px;
-}
-.custom-caption {
-  background-image: url('~assets/homeBannerBg.jpg');
-}
-.custom-caption1 {
-  background-image: url('~assets/homeBannerBg.jpg');
+.inner-top{
+  font-size: 24px;
+  color: cyan
 }
 </style>
 
 <script>
 export default {
+  data() {
+    return {
+      imageSrc: 'assets/component.jpg',
+    }
+  },
   name: 'PageIndex',
   methods: {
     show(options) {
