@@ -21,6 +21,19 @@
       </div>
     </q-carousel-slide>
   </q-carousel>
+  <q-carousel>
+     <img  src="assets/panel.jpg" alt="Tptea" style="max-width: 700px;margin:auto; height:400px">
+  </q-carousel>
+  <q-carousel>
+     <q-modal v-model="opened">
+    <h4>Basic Modal</h4>
+    <q-btn
+      color="primary"
+      @click="opened = false"
+      label="Close"
+    />
+  </q-modal>
+  </q-carousel>
   </div>
 </template>
 
