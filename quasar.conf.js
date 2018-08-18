@@ -91,7 +91,9 @@ module.exports = function(ctx) {
         'QRouteTab',
         'QCarousel',
         'QCarouselSlide',
-        'QCarouselControl'
+        'QCarouselControl',
+        'QParallax',
+        'QPageSticky',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins

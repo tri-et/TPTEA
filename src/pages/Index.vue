@@ -13,13 +13,22 @@
           <q-item-main :label="modal.label" />
           </q-item>
         </q-btn>
-         <q-modal v-model="basicModal" :content-css="{minWidth: '50vw'}">
-      <div style="padding: 50px">
-        <div class="q-display-1 q-mb-md">Basic Modal</div>
-        <p v-for="n in 25" :key="`a-${n}`">Scroll down to close</p>
-        <q-btn color="primary" @click="basicModal = false" label="Close" />
-      </div>
+<!-- popup modal -->
+   <q-modal v-model="basicModal" :content-css="{minWidth: '48vw', minHeight: '86vh'}">
+      <q-modal-layout>
+        <q-toolbar inverted slot="header" >
+         <q-btn flat class="absolute-top-left" icon="close" @click="basicModal = false"/>
+        </q-toolbar>
+        <div style="padding: 50px">
+                  <div class="q-display-1 q-mb-md">Basic Modal</div>
+                  <p v-for="n in 25" :key="`a-${n}`">Scroll down to close</p>
+                  <q-btn to="/orders" class="Order" rounded>
+                    <div>Order</div>
+                  </q-btn>
+                </div>
+      </q-modal-layout>
     </q-modal>
+    <!-- popup modal -->
       </div>
     </q-carousel-slide>
   </q-carousel>
@@ -78,6 +87,12 @@
 .inner-top {
   font-size: 24px;
   color: cyan;
+}
+.q-layout-header{
+ box-shadow: inherit;
+}
+.Order{
+  background-color: rgb(49, 138, 49);
 }
 </style>
 
