@@ -70,7 +70,8 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-  /* border: 1px solid black; */
+  border-left: 1px solid #d9d2d2;
+  border-right: 1px solid #d9d2d2;
   opacity: 0.01;
   filter: alpha(opacity=60); /* For IE8 and earlier */
   margin-bottom: -38px;
@@ -133,7 +134,7 @@ export default {
   methods: {
     userHasScrolled(scroll) {
       var target = scroll.position / 100
-      var pushtarget = target - scroll.position / 100
+      var pushtarget = target + scroll.position / 100 - 0.1
       if (scroll.direction === 'down') {
         console.log(scroll.position / 1000)
         document.getElementById('labels').style.opacity = target
