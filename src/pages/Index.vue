@@ -16,12 +16,14 @@
 <!-- popup modal -->
    <q-modal v-model="basicModal" :content-css="{minWidth: '48vw', minHeight: '86vh'}">
       <q-modal-layout>
-        <q-toolbar inverted slot="header" >
-         <q-btn flat class="absolute-top-left" icon="close" @click="basicModal = false"/>
-        </q-toolbar>
+        <q-scroll-observable @scroll="userHasScrolled" />
+            <div id="labels" class=" transbox">
+            <q-btn flat icon="close" @click="basicModal = false"/>
+          </div>
+         <img src="assets/header-pop.jpg" alt="ww" style="width: 683px;">
         <div style="padding: 50px">
                   <div class="q-display-1 q-mb-md">Basic Modal</div>
-                  <p v-for="n in 25" :key="`a-${n}`">Scroll down to close</p>
+                  <p v-for="n in 15" :key="`a-${n}`">Scroll down to close</p>
                   <q-btn to="/orders" class="Order" rounded>
                     <div>Order</div>
                   </q-btn>
@@ -60,6 +62,20 @@
 </template>
 
 <style>
+.transbox {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  /* border: 1px solid black; */
+  opacity: 0.01;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  margin-bottom: -38px;
+}
+
 .custom-caption-top {
   text-align: center;
   color: white;
@@ -88,10 +104,10 @@
   font-size: 24px;
   color: cyan;
 }
-.q-layout-header{
- box-shadow: inherit;
+.q-layout-header {
+  box-shadow: inherit;
 }
-.Order{
+.Order {
   background-color: rgb(49, 138, 49);
 }
 </style>
@@ -100,6 +116,7 @@
 export default {
   data() {
     return {
+      opened: false,
       basicModal: false,
       imageSrc: 'assets/component.jpg',
       types: [
@@ -114,14 +131,15 @@ export default {
   },
   name: 'PageIndex',
   methods: {
-    show(options) {
-      this.$q.loading.show(options)
-      setTimeout(() => {
-        this.$q.loading.hide()
-      }, 100000)
-    },
-    noMessage() {
-      this.show()
+    userHasScrolled(scroll) {
+      var target = scroll.position / 100
+      var pushtarget = target - scroll.position / 100
+      if (scroll.direction === 'down') {
+        console.log(scroll.position / 1000)
+        document.getElementById('labels').style.opacity = target
+      } else {
+        document.getElementById('labels').style.opacity = pushtarget
+      }
     },
   },
 }
