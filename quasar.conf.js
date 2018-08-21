@@ -58,7 +58,7 @@ module.exports = function(ctx) {
         'QItem',
         'QItemMain',
         'QItemSide',
-        // VLXD
+        // TPTEA
         'QSearch',
         'QTable',
         'QAlert',
@@ -97,6 +97,7 @@ module.exports = function(ctx) {
     },
     pwa: {
       // workboxPluginMode: 'InjectManifest',
+      workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
         name: 'TP-Tea Hong Kong',
@@ -104,7 +105,7 @@ module.exports = function(ctx) {
         description: 'TP-Tea. The Best Tea in town!',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#222222',
+        background_color: '#383838',
         theme_color: '#027be3',
         icons: [
           {
