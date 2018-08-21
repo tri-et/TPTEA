@@ -99,12 +99,12 @@ module.exports = function(ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},
       manifest: {
-        // name: 'Quasar App',
-        // short_name: 'Quasar-PWA',
-        // description: 'Best PWA App in town!',
+        name: 'TP-Tea Hong Kong',
+        short_name: 'TP-Tea',
+        description: 'TP-Tea. The Best Tea in town!',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
+        background_color: '#222222',
         theme_color: '#027be3',
         icons: [
           {
