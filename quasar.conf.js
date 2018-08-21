@@ -105,7 +105,7 @@ module.exports = function(ctx) {
         description: 'TP-Tea. The Best Tea in town!',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#BFBDAEdeploy',
+        background_color: '#BFBDAE',
         theme_color: '#027be3',
         icons: [
           {
