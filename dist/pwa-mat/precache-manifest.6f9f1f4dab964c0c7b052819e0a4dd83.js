@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "statics/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
-    "url": "statics/quasar-logo.png"
-  },
-  {
     "revision": "bc5073b145d5e37ed998420d805bf337",
     "url": "statics/icons/apple-icon-152x152.png"
+  },
+  {
+    "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
+    "url": "statics/quasar-logo.png"
   },
   {
     "revision": "865b871defdaf8e5ff70",
@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-128x128.png"
   },
   {
-    "revision": "14200d8f3ae1eb3641382821d4b430a3",
-    "url": "statics/icons/favicon-16x16.png"
-  },
-  {
     "revision": "26b84e48f400c7fc9c3432fc05dfc641",
     "url": "statics/icons/favicon-32x32.png"
+  },
+  {
+    "revision": "14200d8f3ae1eb3641382821d4b430a3",
+    "url": "statics/icons/favicon-16x16.png"
   },
   {
     "revision": "cf6613d1adf490972c557a8e318e0868",
