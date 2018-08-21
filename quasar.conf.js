@@ -107,11 +107,6 @@ module.exports = function(ctx) {
       // workboxOptions: {},
       // workboxPluginMode: 'GenerateSW',
       manifest: {
-<<<<<<< HEAD
-        name: 'TP TEA',
-        short_name: 'TPTEA',
-        description: 'Best PWA App in town!',
-=======
         name: 'TP-Tea Hong Kong',
         short_name: 'TP-Tea',
         description: 'TP-Tea. The Best Tea in town!',
@@ -119,7 +114,6 @@ module.exports = function(ctx) {
         orientation: 'portrait',
         background_color: '#383838',
         theme_color: '#027be3',
->>>>>>> develop
         icons: [
           {
             src: 'statics/icons/logo.png',
@@ -147,15 +141,6 @@ module.exports = function(ctx) {
           //   type: 'image/png',
           // },
         ],
-        display: 'fullscreen',
-        orientation: 'portrait',
-        background_color: '#ff0000',
-        theme_color: 'aliceblue',
-        start_url: '/test1',
-        serviceworker: {
-          src: 'service-worker.js',
-          update_via_cache: 'none',
-        },
       },
     },
     cordova: {
