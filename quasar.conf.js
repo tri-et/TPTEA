@@ -58,7 +58,7 @@ module.exports = function(ctx) {
         'QItem',
         'QItemMain',
         'QItemSide',
-        // VLXD
+        // TPTEA
         'QSearch',
         'QTable',
         'QAlert',
@@ -97,6 +97,7 @@ module.exports = function(ctx) {
     },
     pwa: {
       // workboxPluginMode: 'InjectManifest',
+      workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
         name: 'TP-Tea Hong Kong',
