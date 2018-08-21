@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.1a5da17.woff"
   },
   {
-    "revision": "646909cf85c5d62f9c6cd1cc9af8c5af",
+    "revision": "82721da51a0c5f354ee0a78b8ddd082b",
     "url": "index.html"
   },
   {
@@ -53,7 +53,7 @@ self.__precacheManifest = [
   },
   {
     "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
-    "url": "statics/icons/icon-128x128.png"
+    "url": "statics/quasar-logo.png"
   },
   {
     "revision": "bc5073b145d5e37ed998420d805bf337",
@@ -65,7 +65,7 @@ self.__precacheManifest = [
   },
   {
     "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
-    "url": "statics/quasar-logo.png"
+    "url": "statics/icons/icon-128x128.png"
   },
   {
     "revision": "14200d8f3ae1eb3641382821d4b430a3",
