@@ -89,7 +89,6 @@ module.exports = function(ctx) {
         'QTab',
         'QTabPane',
         'QRouteTab',
-        'QPageSticky',
         'QCarousel',
         'QCarouselSlide',
         'QCarouselControl',
