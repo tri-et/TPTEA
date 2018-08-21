@@ -5,13 +5,7 @@
       <div class="absolute-top-left custom-caption-top">
       <div class="q-display-1">Bring on the fruit</div>
       <q-btn class="fixed-bottom-left btnlearn" rounded>
-        <q-item
-          v-for="modal in types"
-          :key="modal.label"
-          @click.native="modal.show()"
-        >
-          <q-item-main :label="modal.label" />
-        </q-item>
+        <div>Learn More</div>
       </q-btn>
       </div>
     </q-carousel-slide>
@@ -22,13 +16,7 @@
       <div class="absolute-top-left custom-caption-mid">
         <div class="q-display-1">Find a new favorite</div>
       <q-btn class="fixed-bottom-left btnlearn" rounded>
-        <q-item
-          v-for="modal in types2"
-          :key="modal.label2"
-          @click.native="modal.show()"
-        >
-          <q-item-main :label="modal.label2" />
-        </q-item>
+      <div>Discover coffe</div>
       </q-btn>
       </div>
     </q-carousel-slide>
@@ -71,7 +59,6 @@
 .q-layout-header {
   box-shadow: inherit;
 }
-
 .q-modal-layout-content {
   overflow-x: hidden;
 }
@@ -80,40 +67,8 @@
 <script>
 export default {
   data() {
-    return {
-      opened: false,
-      basicModal: false,
-      basicModal2: false,
-      imageSrc: 'assets/component.jpg',
-      types: [
-        {
-          label: 'Learn More',
-          show: () => {
-            this.basicModal = true
-          },
-        },
-      ],
-      types2: [
-        {
-          label2: 'Discover coffe',
-          show: () => {
-            this.basicModal2 = true
-          },
-        },
-      ],
-    }
+    return {}
   },
   name: 'PageIndex',
-  methods: {
-    userHasScrolled(scroll) {
-      var target = scroll.position / 100
-      var pushtarget = target - 0.1
-      if (scroll.direction === 'down') {
-        document.getElementById('labels').style.opacity = target / 2
-      } else {
-        document.getElementById('labels').style.opacity = pushtarget / 2
-      }
-    },
-  },
 }
 </script>
