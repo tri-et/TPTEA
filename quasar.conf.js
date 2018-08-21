@@ -89,6 +89,7 @@ module.exports = function(ctx) {
         'QTab',
         'QTabPane',
         'QRouteTab',
+        'QPageSticky',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins

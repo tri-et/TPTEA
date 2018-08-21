@@ -1,5 +1,8 @@
 <template>
   <q-layout view="hHh Lpr lFf">
+    <q-page-sticky position="bottom-right" :offset="[18, 18]">
+      <q-btn rounded color="green" label="Join now" to="/members" class="animate-pop" />
+    </q-page-sticky>
     <q-layout-footer>
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-tabs color="brown-14" inverted align="justify" style="height:57px">
@@ -40,5 +43,10 @@ export default {
 }
 .q-tab-icon {
   font-size: 22px;
+}
+.animate-pop{
+  text-transform: none;
+  font-size: 14px !important;
+  padding: 13px 25px;
 }
 </style>
