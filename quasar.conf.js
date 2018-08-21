@@ -99,46 +99,52 @@ module.exports = function(ctx) {
     // animations: 'all' --- includes all animations
     animations: [],
     ssr: {
-      pwa: false,
+      pwa: true,
     },
     pwa: {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {},
+      // workboxPluginMode: 'GenerateSW',
       manifest: {
-        name: 'Quasar App',
+        name: 'TP TEA',
         short_name: 'TPTEA',
         description: 'Best PWA App in town!',
-        display: 'standalone',
-        orientation: 'portrait',
-        background_color: 'red',
-        theme_color: 'red',
         icons: [
           {
-            src: 'statics/icons/icon-128x128.png',
-            sizes: '128x128',
+            src: 'statics/icons/logo.png',
+            sizes: '150x2570',
             type: 'image/png',
           },
-          {
-            src: 'statics/icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: 'statics/icons/icon-256x256.png',
-            sizes: '256x256',
-            type: 'image/png',
-          },
-          {
-            src: 'statics/icons/icon-384x384.png',
-            sizes: '384x384',
-            type: 'image/png',
-          },
-          {
-            src: 'statics/icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
+          // {
+          //   src: 'statics/icons/icon-192x192.png',
+          //   sizes: '192x192',
+          //   type: 'image/png',
+          // },
+          // {
+          //   src: 'statics/icons/icon-256x256.png',
+          //   sizes: '256x256',
+          //   type: 'image/png',
+          // },
+          // {
+          //   src: 'statics/icons/icon-384x384.png',
+          //   sizes: '384x384',
+          //   type: 'image/png',
+          // },
+          // {
+          //   src: 'statics/icons/icon-512x512.png',
+          //   sizes: '512x512',
+          //   type: 'image/png',
+          // },
         ],
+        display: 'fullscreen',
+        orientation: 'portrait',
+        background_color: '#ff0000',
+        theme_color: 'aliceblue',
+        start_url: '/test1',
+        serviceworker: {
+          src: 'service-worker.js',
+          update_via_cache: 'none',
+        },
       },
     },
     cordova: {

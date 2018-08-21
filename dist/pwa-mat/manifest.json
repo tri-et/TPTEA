@@ -1,0 +1,1 @@
+{"name":"TP TEA","short_name":"TPTEA","description":"Best PWA App in town!","display":"fullscreen","start_url":"/test1","icons":[{"src":"statics/icons/logo.png","sizes":"150x2570","type":"image/png"}],"orientation":"portrait","background_color":"#ff0000","theme_color":"aliceblue","serviceworker":{"src":"service-worker.js","update_via_cache":"none"}}
