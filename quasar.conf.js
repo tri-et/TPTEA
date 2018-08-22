@@ -95,7 +95,6 @@ module.exports = function(ctx) {
         'QParallax',
         'QPageSticky',
         'QScrollObservable',
-        'QToggle',
         'QRadio',
       ],
       directives: ['Ripple', 'CloseOverlay'],
