@@ -12,16 +12,13 @@ const SchemaDefinition = `
 
 const RootQuery = `
   type RootQuery {
-    listUser: [User]
+    listUser: String
   }
 `
 
 const RootMutation = `
   type RootMutation {
-    login(input:LoginInput): String
-    deleteUser(input:[Int]): Int
-    createUser(input:UserInput): User
-    updateUser(input:UserInput): User
+    login(input:String): String
   }
 `
 
