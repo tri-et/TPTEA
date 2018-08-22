@@ -1,5 +1,4 @@
 // Configuration for your app
-
 module.exports = function(ctx) {
   return {
     // app plugins (/src/plugins)
@@ -83,6 +82,19 @@ module.exports = function(ctx) {
         'QCardSeparator',
         'QCardActions',
         'QItemSeparator',
+        'QSpinnerBars',
+
+        // TPTEA
+        'QTabs',
+        'QTab',
+        'QTabPane',
+        'QRouteTab',
+        'QCarousel',
+        'QCarouselSlide',
+        'QCarouselControl',
+        'QParallax',
+        'QPageSticky',
+        'QScrollObservable',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
@@ -105,7 +117,7 @@ module.exports = function(ctx) {
         description: 'TP-Tea. The Best Tea in town!',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#BFBDAE',
+        background_color: '#F6F3EC',
         theme_color: '#027be3',
         icons: [
           {
