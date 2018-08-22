@@ -1,61 +1,17 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-layout-header>
-      <q-toolbar
-        color="primary"
-        :glossy="$q.theme === 'mat'"
-        :inverted="$q.theme === 'ios'"
-      >
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-        >
-          <q-icon name="menu" />
-        </q-btn>
-
-        <q-toolbar-title>
-          Quasar App
-          <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-layout-header>
-
-    <q-layout-drawer
-      v-model="leftDrawerOpen"
-      :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
-    >
-      <q-list
-        no-border
-        link
-        inset-delimiter
-      >
-        <q-list-header>Essential Links</q-list-header>
-        <q-item @click.native="openURL('http://quasar-framework.org')">
-          <q-item-side icon="school" />
-          <q-item-main label="Docs" sublabel="quasar-framework.org" />
-        </q-item>
-        <q-item @click.native="openURL('https://github.com/quasarframework/')">
-          <q-item-side icon="code" />
-          <q-item-main label="GitHub" sublabel="github.com/quasarframework" />
-        </q-item>
-        <q-item @click.native="openURL('https://discord.gg/5TDhbDg')">
-          <q-item-side icon="chat" />
-          <q-item-main label="Discord Chat Channel" sublabel="https://discord.gg/5TDhbDg" />
-        </q-item>
-        <q-item @click.native="openURL('http://forum.quasar-framework.org')">
-          <q-item-side icon="record_voice_over" />
-          <q-item-main label="Forum" sublabel="forum.quasar-framework.org" />
-        </q-item>
-        <q-item @click.native="openURL('https://twitter.com/quasarframework')">
-          <q-item-side icon="rss feed" />
-          <q-item-main label="Twitter" sublabel="@quasarframework" />
-        </q-item>
-      </q-list>
-    </q-layout-drawer>
-
+  <q-layout view="hHh Lpr lFf">
+    <q-page-sticky position="bottom-right"  style="z-index:999999" :offset="[18, 18]">
+      <q-btn rounded color="green" label="Join now" to="/members" class="animate-pop" />
+    </q-page-sticky>
+    <q-layout-footer>
+      <demo-tabs v-if="$q.theme === 'ios'" />
+      <q-tabs color="brown-14" inverted align="justify" style="height:57px">
+        <q-route-tab to="/" default name="news" slot="title" icon="stars" label="Home" class="sml-label" />
+        <q-route-tab to="/orders" name="order" slot="title" icon="free_breakfast" label="Order" class="sml-label" />
+        <q-route-tab to="/stores" name="account" slot="title" icon="store" label="Store" class="sml-label" />
+        <q-route-tab to="/members" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
+      </q-tabs>
+    </q-layout-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -79,4 +35,19 @@ export default {
 </script>
 
 <style>
+.sml-label {
+  font-size: 12px !important;
+}
+.q-layout-footer {
+  box-shadow: 0 -2px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.14), 0 -1px 10px rgba(0, 0, 0, 0.12) !important;
+}
+.q-tab-icon {
+  font-size: 22px;
+}
+.animate-pop{
+  text-transform: none;
+  font-size: 14px !important;
+  padding: 13px 25px;
+  display: block;
+}
 </style>

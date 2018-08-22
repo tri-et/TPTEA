@@ -1,7 +1,7 @@
 {
-  "name": "pwa-vlxd",
+  "name": "pwa-tptea",
   "version": "1.0.0",
-  "description": "The API for VLXD Tran Ngoc",
+  "description": "The API for TP-Tea",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
