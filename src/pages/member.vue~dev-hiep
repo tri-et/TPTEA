@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/pages/Index.vue
 <template >
 <div>
   <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:300px" >
@@ -184,5 +185,15 @@ export default {
       }
     },
   },
+=======
+<template>
+  <div>Member</div>
+</template>
+<script>
+export default {
+  name: 'PageMember',
+>>>>>>> dev-hiep:src/pages/member.vue
 }
 </script>
+<style>
+</style>
