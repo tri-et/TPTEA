@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-page-sticky position="bottom-right"  style="z-index:999999" :offset="[18, 18]">
-      <q-btn rounded color="green" label="Join now" to="/members" class="animate-pop" />
+    <q-page-sticky position="bottom-right" style="z-index:999999" :offset="[18, 18]">
+      <q-btn @click="routeToMember" rounded color="green" to="/members" label="Join now" class="animate-pop" />
     </q-page-sticky>
     <q-layout-footer>
       <demo-tabs v-if="$q.theme === 'ios'" />
@@ -20,6 +20,7 @@
 
 <script>
 import {openURL} from 'quasar'
+import {mapMutations} from 'vuex'
 
 export default {
   name: 'MyLayout',
@@ -30,6 +31,10 @@ export default {
   },
   methods: {
     openURL,
+    ...mapMutations('member', ['setIsReq']),
+    routeToMember() {
+      this.$store.commit('member/setIsReq', true)
+    },
   },
 }
 </script>
@@ -44,7 +49,7 @@ export default {
 .q-tab-icon {
   font-size: 22px;
 }
-.animate-pop{
+.animate-pop {
   text-transform: none;
   font-size: 14px !important;
   padding: 13px 25px;
