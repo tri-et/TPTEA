@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh Lpr lFf">
     <q-page-sticky position="bottom-right" style="z-index:999999" :offset="[18, 18]">
-      <q-btn @click="routeToMember" rounded color="green" to="/members" label="Join now" class="animate-pop" />
+      <q-btn @click="routeToMember" rounded color="green" to="/member/register" label="Join now" class="animate-pop" />
     </q-page-sticky>
     <q-layout-footer>
       <demo-tabs v-if="$q.theme === 'ios'" />
@@ -9,7 +9,7 @@
         <q-route-tab to="/" default name="news" slot="title" icon="stars" label="Home" class="sml-label" />
         <q-route-tab to="/orders" name="order" slot="title" icon="free_breakfast" label="Order" class="sml-label" />
         <q-route-tab to="/stores" name="account" slot="title" icon="store" label="Store" class="sml-label" />
-        <q-route-tab to="/members" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
+        <q-route-tab to="/member" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
       </q-tabs>
     </q-layout-footer>
     <q-page-container>
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     openURL,
-    ...mapMutations('member', ['setIsReq']),
+    ...mapMutations('member', ['setIsReq', 'setCurrentComponent']),
     routeToMember() {
       this.$store.commit('member/setIsReq', true)
     },

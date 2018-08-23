@@ -4,3 +4,7 @@ export const getIsReq = state => {
 export const getIsAuth = state => {
   return state.isAuth
 }
+
+export const getCurrentComponent = state => {
+  return state.currentComponent
+}
