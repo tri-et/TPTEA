@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import routes from './routes'
-
+import {isAuth} from '../util/common'
 Vue.use(VueRouter)
 
 /*
@@ -20,11 +20,9 @@ export default function(/* { store, ssrContext } */) {
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE,
   })
-  localStorage.setItem('isReq', 'false')
-  let isAuth = true // () => !!localStorage.getItem('auth-token')
 
   Router.beforeEach((to, _, next) => {
-    if (isAuth) {
+    if (isAuth()) {
       if (to.path === '/member') {
         next()
         // prevent route to register page
