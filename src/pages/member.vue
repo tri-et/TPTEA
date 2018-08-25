@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Member</h1>
+    member
+    <reg-button />
   </div>
 </template>
 <script>

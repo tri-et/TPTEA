@@ -1,8 +1,9 @@
 // Configuration for your app
+// import webpack from 'webpack'
 module.exports = function(ctx) {
   return {
     // app plugins (/src/plugins)
-    plugins: ['i18n', 'axios', 'vuelidate', 'addressbar-color'],
+    plugins: ['i18n', 'axios', 'vuelidate', 'addressbar-color', 'jquery'],
     css: ['app.styl'],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
@@ -27,6 +28,11 @@ module.exports = function(ctx) {
           loader: 'eslint-loader',
           exclude: /(node_modules|quasar)/,
         })
+        // cfg.plugins.push(
+        //   new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //   })
+        // )
       },
     },
     devServer: {
