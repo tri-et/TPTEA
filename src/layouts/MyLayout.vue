@@ -1,5 +1,8 @@
 <template>
   <q-layout view="hHh Lpr lFf">
+    <q-page-sticky position="bottom-right" style="z-index:999999" :offset="[18, 18]">
+      <q-btn rounded color="green" @click="setIsReq" label="Join now" to="/member/register" class="animate-pop" />
+    </q-page-sticky>
     <q-layout-footer class="max-width-center">
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-tabs color="brown-14" inverted align="justify" style="height:57px">
@@ -18,9 +21,12 @@
 <script>
 import {openURL} from 'quasar'
 import {mapMutations} from 'vuex'
-
+import regButton from '../components/regButton.vue'
 export default {
   name: 'MyLayout',
+  components: {
+    regButton,
+  },
   data() {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
@@ -32,6 +38,13 @@ export default {
     routeToMember() {
       this.$store.commit('member/setIsReq', true)
     },
+  },
+  created() {
+    setTimeout(() => {
+      let tabPage = document.getElementsByClassName('tab-page')
+      tabPage[0].style.height = window.innerHeight - '57' + 'px'
+      console.log(tabPage.clientHeight)
+    }, 10)
   },
 }
 </script>
@@ -53,12 +66,10 @@ export default {
   display: block;
 }
 .tab-page {
-  /* height: 100%;*/
-  height: calc(100% - 57px);
-  position: relative;
   background: #eee;
   overflow-y: scroll;
   overflow-x: hidden;
+  padding-bottom: 0 !important;
 }
 .max-width-center {
   max-width: 700px;
@@ -67,7 +78,7 @@ export default {
 body,
 html,
 .q-app {
-  height: calc(100% - 57px);
+  height: 100%;
   overflow: hidden;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <q-btn rounded color="green" to="/member/register" label="Join now" class="animate-pop" />
+  <q-btn position="bottom-right" rounded color="green" to="/member/register" label="Join now" class="animate-pop" />
 </template>
 <script>
 export default {

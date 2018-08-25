@@ -3,7 +3,7 @@
 module.exports = function(ctx) {
   return {
     // app plugins (/src/plugins)
-    plugins: ['i18n', 'axios', 'vuelidate', 'addressbar-color', 'jquery'],
+    plugins: ['i18n', 'axios', 'vuelidate', 'addressbar-color'],
     css: ['app.styl'],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
@@ -28,11 +28,6 @@ module.exports = function(ctx) {
           loader: 'eslint-loader',
           exclude: /(node_modules|quasar)/,
         })
-        // cfg.plugins.push(
-        //   new webpack.ProvidePlugin({
-        //     $: 'jquery',
-        //   })
-        // )
       },
     },
     devServer: {
