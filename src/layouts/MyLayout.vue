@@ -1,8 +1,5 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-page-sticky position="bottom-right" style="z-index:999999" :offset="[18, 18]">
-      <q-btn rounded color="green" @click="setIsReq" label="Join now" to="/member/register" class="animate-pop" />
-    </q-page-sticky>
     <q-layout-footer class="max-width-center">
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-tabs color="brown-14" inverted align="justify" style="height:57px">
@@ -13,6 +10,9 @@
       </q-tabs>
     </q-layout-footer>
     <q-page-container class="tab-page max-width-center">
+      <div style="position:absolute; bottom:0; right:0; width:127px; height:57px">
+        <reg-button style="position:fixed; z-index:999999" />
+      </div>
       <router-view />
     </q-page-container>
   </q-layout>
@@ -70,6 +70,7 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
   padding-bottom: 0 !important;
+  position: relative;
 }
 .max-width-center {
   max-width: 700px;
