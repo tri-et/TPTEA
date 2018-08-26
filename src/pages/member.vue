@@ -1,7 +1,6 @@
 <template>
   <div>
     member
-    <reg-button />
   </div>
 </template>
 <script>

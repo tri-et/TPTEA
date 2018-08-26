@@ -3,22 +3,20 @@
     <q-layout-footer class="max-width-center">
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-tabs color="brown-14" inverted align="justify" style="height:57px">
-        <q-route-tab to="/" default name="news" slot="title" icon="stars" label="Home" class="sml-label" />
-        <q-route-tab to="/orders" name="order" slot="title" icon="free_breakfast" label="Order" class="sml-label" />
-        <q-route-tab to="/stores" name="account" slot="title" icon="store" label="Store" class="sml-label" />
-        <q-route-tab to="/member" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
+        <q-route-tab @click="showButton()" to="/" default name="news" slot="title" icon="stars" label="Home" class="sml-label" />
+        <q-route-tab @click="showButton()" to="/orders" name="order" slot="title" icon="free_breakfast" label="Order" class="sml-label" />
+        <q-route-tab @click="showButton()" to="/stores" name="account" slot="title" icon="store" label="Store" class="sml-label" />
+        <q-route-tab @click="showButton()" to="/member" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
       </q-tabs>
     </q-layout-footer>
     <q-page-container class="tab-page max-width-center">
-      <reg-button :hidden="false" class="reg-button-wrapper"/>
+      <reg-button v-on:hide-button="hideButton" :hidden=isHiddenReqBtn class="reg-button-wrapper" />
       <router-view class="tab-page-content" />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import {openURL} from 'quasar'
-import {mapMutations} from 'vuex'
 import regButton from '../components/regButton.vue'
 export default {
   name: 'MyLayout',
@@ -28,13 +26,15 @@ export default {
   data() {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
+      isHiddenReqBtn: false,
     }
   },
   methods: {
-    openURL,
-    ...mapMutations('member', ['setIsReq', 'setCurrentComponent']),
-    routeToMember() {
-      this.$store.commit('member/setIsReq', true)
+    hideButton() {
+      this.isHiddenReqBtn = true
+    },
+    showButton() {
+      this.isHiddenReqBtn = false
     },
   },
   created() {
@@ -43,6 +43,26 @@ export default {
       tabPage[0].style.height = window.innerHeight - '57' + 'px'
       console.log(tabPage.clientHeight)
     }, 10)
+  },
+  mounted() {
+    console.log(this.$route.path)
+    switch (this.$route.path) {
+      case '/':
+      case '/stores':
+      case '/orders':
+      case '/member/login':
+        this.hiddenBtnReq = false
+        break
+      default:
+        this.hiddenBtnReq = true
+        break
+    }
+  },
+  computed: {
+    routeName() {
+      console.log(this.$route.params.name)
+      return this.$route.params.name
+    },
   },
 }
 </script>
@@ -69,7 +89,7 @@ export default {
   position: relative;
 }
 .tab-page-content {
-  background:#ccccee;
+  background: #ccccee;
   height: 100%;
 }
 body,
