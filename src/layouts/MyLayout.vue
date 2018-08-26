@@ -10,10 +10,8 @@
       </q-tabs>
     </q-layout-footer>
     <q-page-container class="tab-page max-width-center">
-      <div style="position:absolute; bottom:0; right:0; width:127px; height:57px">
-        <reg-button style="position:fixed; z-index:999999" />
-      </div>
-      <router-view />
+      <reg-button :hidden="false" class="reg-button-wrapper"/>
+      <router-view class="tab-page-content" />
     </q-page-container>
   </q-layout>
 </template>
@@ -59,11 +57,9 @@ export default {
 .q-tab-icon {
   font-size: 22px;
 }
-.animate-pop {
-  text-transform: none;
-  font-size: 14px !important;
-  padding: 13px 25px;
-  display: block;
+.max-width-center {
+  max-width: 700px;
+  margin: 0 auto;
 }
 .tab-page {
   background: #eee;
@@ -72,14 +68,21 @@ export default {
   padding-bottom: 0 !important;
   position: relative;
 }
-.max-width-center {
-  max-width: 700px;
-  margin: 0 auto;
+.tab-page-content {
+  background:#ccccee;
+  height: 100%;
 }
 body,
 html,
 .q-app {
   height: 100%;
   overflow: hidden;
+}
+.reg-button-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 127px;
+  height: 57px;
 }
 </style>
