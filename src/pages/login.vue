@@ -1,15 +1,99 @@
 <template>
-  <div>
-    The setItem() method of the Storage interface, when passed a key name and value, will add that key to the storage, or update that key's value if it already exists. Link to sectionSyntax storage.setItem(keyName, keyValue); Link to sectionParameters keyName A DOMString containing the name of the key you want to create/update. keyValue A DOMString containing the value you want to give the key you are creating/updating. Link to sectionReturn value Void. Link to sectionExceptions setItem() may throw an exception if the storage is full. Particularly, in Mobile Safari (since iOS 5) it always throws when the user enters private mode (Safari sets quota to 0 bytes in private mode, contrary to other browsers, who allow storage in private mode, using separate data containers). Hence developers should make sure to always catch the possible exceptions from setItem(). Link to sectionExample The following function creates three data items inside local storage. function populateStorage() { localStorage.setItem('bgcolor', 'red'); localStorage.setItem('font', 'Helvetica'); localStorage.setItem('image', 'myCat.png'); } Note: To see this used within a real world example, see our Web Storage Demo. Link to sectionSpecifications Specification Status Comment HTML Living Standard The definition of 'Storage.setItem' in that specification. Living Standard Link to sectionBrowser compatibility New compatibility tables are in beta Desktop Mobile Chrome Edge Firefox Internet Explorer Opera Safari Android webview Chrome for Android Edge Mobile Firefox for Android Opera for Android iOS Safari Samsung Internet Basic support Full support 4 Full support 12 Full support 3.5 Full support 8 Full support 10.5 Full support 4 Full support 18 Full support 18 Full support 13 Full support 6 Full support 11 Full support 3.2 ? Legend Full support Full support Compatibility unknown Compatibility unknown Link to sectionSee also Storage.getItem() Storage.removeItem() Using the Web Storage API
-    <p>sdfwsd</p>
-    <h1>gfwgfwf</h1>
-  </div>
+  <q-card square class="et-login center">
+    <q-card-media>
+      <svg class="center" id="logo" viewBox="0 0 483 483"
+        width="128px" height="128px" v-html="getLoginLogo">
+      </svg>
+    </q-card-media>
+    <q-card-title class="text-brown-6">
+      TP@Tea HongKong
+      <div slot="right" class="row items-center">
+        <q-icon name="card_membership" class="q-mr-sm" @click="alert()"/>Memberships
+      </div>
+    </q-card-title>
+    <q-card-main class="q-mb-md">
+      <q-input clearable v-model="username" float-label="Username" class="q-mb-lg" color="light-green-9"/>
+      <q-input v-model="password" float-label="Password" color="red-9" type="password"/>
+    </q-card-main>
+    <q-card-actions>
+      <div class="row justify-center" style="height:160px;width:100%;">
+        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password})">
+          <q-spinner-pie slot="loading" size="25px"/>
+        </q-btn>
+        <q-btn color="grey-2" label="Visit Facebook" class="text-grey-8 q-ma-sm col-10"/>
+        <q-btn color="grey-2" label="Visit Instagram" class="text-grey-8 q-ma-sm col-10"/>
+      </div>
+    </q-card-actions>
+  </q-card>
 </template>
+
 <script>
+import logoData from '../assets/logoData'
+import Vivus from 'vivus'
+import {mapActions, mapGetters} from 'vuex'
 export default {
-  name: 'FromLogin',
+  data() {
+    return {
+      logo: 'Digitalizer',
+      vivus: '',
+      username: '',
+      password: '',
+    }
+  },
+  mounted() {
+    this.startAnimation()
+  },
+  computed: {
+    getLoginLogo() {
+      return logoData[this.logo]
+    },
+    ...mapGetters('customer', ['getIsLoading']),
+  },
+  methods: {
+    ...mapActions('customer', ['loginCustomer']),
+    startAnimation() {
+      this.vivus = new Vivus(
+        'logo',
+        {
+          duration: 400,
+          forceRender: false,
+        },
+        function(myVivus) {
+          for (let item of myVivus.el.children[0].children) {
+            item.setAttribute('style', 'fill:white')
+          }
+        }
+      )
+    },
+  },
 }
 </script>
 <style>
+.q-card {
+  width: 350px;
+}
+.q-card-media {
+  background: url('../assets/login_banner.png') no-repeat center center;
+  background-size: cover;
+  height: 230px;
+  padding: 40px 0;
+}
+.center {
+  margin: auto;
+  display: block;
+}
 
+@media (max-width: 601px) {
+  .et-login {
+    width: 100%;
+  }
+  .q-card-actions {
+    height: calc(100vh - 527px) !important;
+  }
+}
+@media (min-width: 602px) {
+  .q-card-actions {
+    height: 240px !important;
+  }
+}
 </style>

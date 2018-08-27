@@ -30,15 +30,15 @@ const routes = [
             path: '',
             component: pgMember,
           },
-          {
             path: 'login',
+          {
             component: pgLogin,
           },
           {
             path: 'register',
             component: pgRegister,
-          },
         ],
+          },
       },
     ],
   },
