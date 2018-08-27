@@ -10,12 +10,11 @@
       </q-tabs>
     </q-layout-footer>
     <q-page-container class="tab-page max-width-center">
-      <reg-button v-on:hide-button="hideButton" :hidden=isHiddenReqBtn class="reg-button-wrapper" />
+      <reg-button class="reg-button-wrapper" v-on:hide-button="hideButton" :hidden=isHiddenReqBtn />
       <router-view class="tab-page-content" />
     </q-page-container>
   </q-layout>
 </template>
-
 <script>
 import regButton from '../components/regButton.vue'
 export default {
@@ -43,26 +42,6 @@ export default {
       tabPage[0].style.height = window.innerHeight - '57' + 'px'
       console.log(tabPage.clientHeight)
     }, 10)
-  },
-  mounted() {
-    console.log(this.$route.path)
-    switch (this.$route.path) {
-      case '/':
-      case '/stores':
-      case '/orders':
-      case '/member/login':
-        this.hiddenBtnReq = false
-        break
-      default:
-        this.hiddenBtnReq = true
-        break
-    }
-  },
-  computed: {
-    routeName() {
-      console.log(this.$route.params.name)
-      return this.$route.params.name
-    },
   },
 }
 </script>
