@@ -9,7 +9,7 @@
         <q-route-tab @click="showButton()" to="/member" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
       </q-tabs>
     </q-layout-footer>
-    <q-page-container class="tab-page max-width-center">
+    <q-page-container :style="{height:fullHeight}" class="tab-page max-width-center">
       <reg-button class="reg-button-wrapper" v-on:hide-button="hideButton" :hidden=isHiddenReqBtn />
       <router-view class="tab-page-content" />
     </q-page-container>
@@ -26,7 +26,11 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
       isHiddenReqBtn: false,
+      fullHeight: window.innerHeight - '57' + 'px',
     }
+  },
+  beforeDestroy: function() {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     hideButton() {
@@ -35,6 +39,9 @@ export default {
     showButton() {
       this.isHiddenReqBtn = false
     },
+    handleResize(event) {
+      this.fullHeight = window.innerHeight - '57' + 'px'
+    },
   },
   created() {
     setTimeout(() => {
@@ -42,10 +49,10 @@ export default {
       tabPage[0].style.height = window.innerHeight - '57' + 'px'
       console.log(tabPage.clientHeight)
     }, 10)
+    window.addEventListener('resize', this.handleResize)
   },
 }
 </script>
-
 <style>
 .sml-label {
   font-size: 12px !important;
