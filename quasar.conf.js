@@ -96,6 +96,8 @@ module.exports = function(ctx) {
         'QPageSticky',
         'QScrollObservable',
         'QRadio',
+        'QToggle',
+        'QItemTile',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins

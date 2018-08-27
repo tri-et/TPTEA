@@ -2,6 +2,8 @@ import {makeExecutableSchema} from 'graphql-tools'
 
 // import userDef from './user/def'
 // import userRes from './user/res'
+import memberDef from './member/def'
+import memberRes from './member/res'
 
 const SchemaDefinition = `
   schema {
@@ -13,6 +15,8 @@ const SchemaDefinition = `
 const RootQuery = `
   type RootQuery {
     listUser: String
+    listMember:[Member]
+    listOrderHistory:[OrderHistory]
   }
 `
 
@@ -28,8 +32,10 @@ export default makeExecutableSchema({
     RootQuery,
     RootMutation,
     // userDef,
+    memberDef,
   ],
   resolvers: [
     // userRes
+    memberRes,
   ],
 })
