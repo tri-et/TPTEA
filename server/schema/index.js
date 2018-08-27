@@ -1,7 +1,7 @@
 import {makeExecutableSchema} from 'graphql-tools'
 
-// import userDef from './user/def'
-// import userRes from './user/res'
+import customerDef from './customer/def'
+import customerRes from './customer/res'
 
 const SchemaDefinition = `
   schema {
@@ -12,24 +12,17 @@ const SchemaDefinition = `
 
 const RootQuery = `
   type RootQuery {
-    listUser: String
+    getCustomer(input:Int): Customer
   }
 `
 
 const RootMutation = `
   type RootMutation {
-    login(input:String): String
+    login(input:LoginInput): String
   }
 `
 
 export default makeExecutableSchema({
-  typeDefs: [
-    SchemaDefinition,
-    RootQuery,
-    RootMutation,
-    // userDef,
-  ],
-  resolvers: [
-    // userRes
-  ],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef],
+  resolvers: [customerRes],
 })
