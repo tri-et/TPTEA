@@ -1,7 +1,6 @@
 import {_procError, _ax, _post, _alert} from '../../util/common'
-import router from '../../router'
 
-export const loginUser = ({commit}, payload) => {
+export function loginCustomer({commit}, payload) {
   commit('setIsLoading', true)
   _post(
     payload,
@@ -17,8 +16,8 @@ export const loginUser = ({commit}, payload) => {
         localStorage.setItem('auth-token', data.login)
         commit('setToken', data.login)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.login
-        _alert(`Đăng Nhập Thành Công!`, 'positive')
-        router.push('/')
+        _alert(`Logged In Successfully!`, 'positive')
+        this.$router.push('/member')
       }
     })
     .catch(err => {

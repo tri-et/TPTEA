@@ -19,7 +19,7 @@ const routes = [
         component: pgStore,
       },
       {
-        path: 'members',
+        path: 'member',
         component: () => import('layouts/member.vue'),
         children: [
           {

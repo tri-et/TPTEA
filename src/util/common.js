@@ -56,5 +56,6 @@ export const _procAlert = data => {
 }
 
 export const _procError = err => {
-  _alert(`Code: ${err.response.status} - ${err.response.statusText}`, 'negative')
+  if (err.response) _alert(`Code: ${err.response.status} - ${err.response.statusText}`, 'negative')
+  else _alert(`Code: ${err.message}`, 'negative')
 }

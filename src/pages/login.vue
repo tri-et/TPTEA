@@ -17,7 +17,7 @@
     </q-card-main>
     <q-card-actions>
       <div class="row justify-center" style="height:160px;width:100%;">
-        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginUser({username,password})">
+        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password})">
           <q-spinner-pie slot="loading" size="25px"/>
         </q-btn>
         <q-btn color="grey-2" label="Visit Facebook" class="text-grey-8 q-ma-sm col-10"/>
@@ -50,7 +50,7 @@ export default {
     ...mapGetters('customer', ['getIsLoading']),
   },
   methods: {
-    ...mapActions('customer', ['loginUser']),
+    ...mapActions('customer', ['loginCustomer']),
     startAnimation() {
       this.vivus = new Vivus(
         'logo',

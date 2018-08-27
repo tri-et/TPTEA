@@ -23,7 +23,7 @@ app.use(
     schema,
     context: {
       // can access from resolvers, for when token is attached to axios Authorization header
-      authUser: req.user,
+      authCustomer: req.user,
     },
   }))
 )
