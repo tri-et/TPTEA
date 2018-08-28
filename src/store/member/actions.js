@@ -43,7 +43,7 @@ export const fetchOrderHistory = ({commit}) => {
   }`)
     .then(({data}) => {
       // _procAlert(data)
-      commit('setRecs', data.listOrderHistory)
+      commit('setRecsOrderDetail', data.listOrderHistory)
     })
     .catch(err => {
       _procError(err)

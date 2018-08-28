@@ -5,7 +5,7 @@ export const getIsHiddenRegBtn = state => {
 export const getMemberInfo = state => {
   return state.recs
 }
-export const getOrderDetals = state => {
+export const getOrderDetails = state => {
   return state.recsDetails
 }
 

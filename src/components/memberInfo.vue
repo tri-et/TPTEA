@@ -55,7 +55,7 @@
           </div>
         </q-toolbar>
         <div>
-          <q-table v-for="(order,index) in getMemberInfo" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
+          <q-table v-for="(order,index) in getOrderDetails" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
             <q-td slot="body-cell-price" slot-scope="props" :props="props">
               <span>{{ `$${props.value}` }}</span>
             </q-td>
@@ -89,12 +89,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters('member', ['getMemberInfo', 'getCols']),
+    ...mapGetters('member', ['getMemberInfo', 'getCols', 'getOrderDetails']),
+    ...mapGetters('customer', ['getIsAuth']),
     totalPay() {
       var total = 0
-      _.forEach(this.getMemberInfo, ({OrderDetails}) => {
+      _.forEach(this.getOrderDetails, ({OrderDetails}) => {
         total += _.sumBy(OrderDetails, 'price')
       })
+      console.log(localStorage.getItem('auth-token'))
       return '$' + total
     },
   },
@@ -111,6 +113,9 @@ export default {
       localStorage.removeItem('auth-token')
       this.$router.push('/')
     },
+  },
+  mounted() {
+    this.fetchRecs()
   },
 }
 </script>

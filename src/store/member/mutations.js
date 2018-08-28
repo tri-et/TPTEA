@@ -3,6 +3,9 @@ import _d from 'lodash'
 export const setRecs = (state, payload) => {
   state.recs = payload
 }
+export const setRecsOrderDetail = (state, payload) => {
+  state.recsDetails = payload
+}
 
 export const setIsLoading = (state, payload) => {
   state.isLoading = payload

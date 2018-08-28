@@ -1,5 +1,4 @@
 const Member = `
-  scalar Date
   type Member {
     id: Int
     name: String

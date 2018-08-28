@@ -28,17 +28,6 @@ const RootMutation = `
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef],
-  resolvers: [customerRes],
-  typeDefs: [
-    SchemaDefinition,
-    RootQuery,
-    RootMutation,
-    // userDef,
-    memberDef,
-  ],
-  resolvers: [
-    // userRes
-    memberRes,
-  ],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, memberDef],
+  resolvers: [customerRes, memberRes],
 })

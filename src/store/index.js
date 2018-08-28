@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
-import example from './module-example'
 import member from './member'
 import customer from './customer'
 Vue.use(Vuex)

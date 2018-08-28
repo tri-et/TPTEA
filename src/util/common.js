@@ -1,4 +1,4 @@
-  // remove the abundant "data" key from grahql response
+// remove the abundant "data" key from grahql response
 import axios from 'axios'
 import {Notify} from 'quasar'
 
