@@ -10,7 +10,7 @@
     </div>
     <div class="content-member">
       <q-list no-border class="q-mt-md">
-        <q-item class="q-pt-md q-pb-md">
+        <q-item class="q-pt-md q-pb-md" @click.native="fetchRecs">
           <q-item-side icon="attach_money" />
           <q-item-main label="Balance" />
           <q-item-side right>
@@ -37,17 +37,23 @@
             <q-toggle v-model="checked" color="brown-14" />
           </q-item-side>
         </q-item>
-        <q-item class="q-pt-md q-pb-md" to="/">
+        <q-item class="q-pt-md q-pb-md" @click.native="logout">
           <q-item-side icon="power_settings_new" />
           <q-item-main label="Sign Out" />
         </q-item>
       </q-list>
     </div>
     <q-modal v-model="hideModal" :content-css="{minWidth: '50vw'}">
-      <q-btn @click="testing()" round color="primary" class="fixed-bottom-right brown-14 z-max" style="margin: 0 15px 15px 0">
+      <!-- <q-btn @click="testing()" round color="primary" class="fixed-bottom-right brown-14 z-max" style="margin: 0 15px 15px 0">
         <q-icon name="keyboard_arrow_up" />
-      </q-btn>
-      <q-btn flat icon="close" class="absolute-top-right brown-14 z-max" @click="hideModal = false" />
+      </q-btn> -->
+      <div class="total-pay">
+        <div @click="hideModal=false">
+          <i aria-hidden="true" class="q-icon material-icons clsIcon">close</i>
+        </div>
+        <div>Total Spent</div>
+        <div>{{totalPay}}</div>
+      </div>
       <q-table v-for="(order,index) in getMemberInfo" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
         <q-td slot="body-cell-price" slot-scope="props" :props="props">
           <span>{{ `$${props.value}` }}</span>
@@ -81,6 +87,13 @@ export default {
   },
   computed: {
     ...mapGetters('member', ['getMemberInfo', 'getCols']),
+    totalPay() {
+      var total = 0
+      _.forEach(this.getMemberInfo, ({OrderDetails}) => {
+        total += _.sumBy(OrderDetails, 'price')
+      })
+      return '$' + total
+    },
   },
   methods: {
     ...mapActions('member', ['fetchRecs', 'fetchOrderHistory']),
@@ -91,8 +104,9 @@ export default {
     formatDate(date) {
       return date.split('T')[0]
     },
-    testing() {
-      alert('123')
+    logout() {
+      localStorage.removeItem('auth-token')
+      this.$router.push('/')
     },
   },
 }
@@ -131,5 +145,26 @@ export default {
   font-size: 24px;
   color: #5d4037;
   padding-left: 5px;
+}
+.total-pay {
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #d7ccc8;
+  padding: 10px 0;
+  color: #5d4037;
+  margin-bottom: 5px;
+}
+.clsIcon {
+  font-size: 1.4em;
+  margin: 0 8px;
+  cursor: pointer;
+}
+/* .total-pay div:first-child {
+  width: 80%;
+  padding-left: 8px;
+} */
+.total-pay div:last-child {
+  padding-left: 8px;
 }
 </style>

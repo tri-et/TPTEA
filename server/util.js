@@ -1,5 +1,5 @@
 export const _auth = authUser => {
   if (!authUser) {
-    throw new Error('Vui lòng đăng nhập lại!')
+    throw new Error('Plese Login Again!')
   }
 }

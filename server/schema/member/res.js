@@ -1,14 +1,17 @@
 import {Customer, Order, OrderDetail, Menu} from '../../models'
+// import {_auth} from '../../util'
 const resolvers = {
   RootQuery: {
-    async listMember() {
+    async listMember(_, __, {authUser}) {
+      // _auth(authUser)
       return await Customer.findAll({
         where: {
-          id: 15,
+          id: 4,
         },
       })
     },
-    async listOrderHistory() {
+    async listOrderHistory(_, __, {authUser}) {
+      // _auth(authUser)
       return await Order.findAll({
         where: {
           customerId: 4,
