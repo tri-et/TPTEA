@@ -43,29 +43,32 @@
         </q-item>
       </q-list>
     </div>
-    <q-modal v-model="hideModal" :content-css="{minWidth: '50vw'}">
-      <!-- <q-btn @click="testing()" round color="primary" class="fixed-bottom-right brown-14 z-max" style="margin: 0 15px 15px 0">
-        <q-icon name="keyboard_arrow_up" />
-      </q-btn> -->
-      <div class="total-pay">
-        <div @click="hideModal=false">
-          <i aria-hidden="true" class="q-icon material-icons clsIcon">close</i>
+    <q-modal v-model="hideModal" :content-css="{minWidth: '80vw', minHeight: '80vh'}">
+      <q-modal-layout>
+        <q-toolbar slot="header" color="brown-2">
+          <div class="total-pay">
+            <div @click="hideModal=false">
+              <i aria-hidden="true" class="q-icon material-icons clsIcon">close</i>
+            </div>
+            <div class="q-mr-md">Total Spent</div>
+            <div>{{totalPay}}</div>
+          </div>
+        </q-toolbar>
+        <div>
+          <q-table v-for="(order,index) in getMemberInfo" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
+            <q-td slot="body-cell-price" slot-scope="props" :props="props">
+              <span>{{ `$${props.value}` }}</span>
+            </q-td>
+            <div slot="top" slot-scope="props">
+              <span>{{`Order Info (${formatDate(order.createdAt)})`}}</span>
+            </div>
+            <div slot="bottom" slot-scope="props" key="price" class="row fit">
+              <div style="width:80%">Total</div>
+              <div style="padding-left:14px">{{order.OrderDetails|totalPrice}}</div>
+            </div>
+          </q-table>
         </div>
-        <div>Total Spent</div>
-        <div>{{totalPay}}</div>
-      </div>
-      <q-table v-for="(order,index) in getMemberInfo" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
-        <q-td slot="body-cell-price" slot-scope="props" :props="props">
-          <span>{{ `$${props.value}` }}</span>
-        </q-td>
-        <div slot="top" slot-scope="props">
-          <span>{{`Order Info (${formatDate(order.createdAt)})`}}</span>
-        </div>
-        <div slot="bottom" slot-scope="props" key="price" class="row fit">
-          <div style="width:80%">Total</div>
-          <div style="padding-left:14px">{{order.OrderDetails|totalPrice}}</div>
-        </div>
-      </q-table>
+      </q-modal-layout>
     </q-modal>
   </div>
 </template>
@@ -153,18 +156,10 @@ export default {
   background-color: #d7ccc8;
   padding: 10px 0;
   color: #5d4037;
-  margin-bottom: 5px;
 }
 .clsIcon {
   font-size: 1.4em;
   margin: 0 8px;
   cursor: pointer;
-}
-/* .total-pay div:first-child {
-  width: 80%;
-  padding-left: 8px;
-} */
-.total-pay div:last-child {
-  padding-left: 8px;
 }
 </style>

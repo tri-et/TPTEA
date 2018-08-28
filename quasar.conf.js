@@ -99,7 +99,7 @@ module.exports = function(ctx) {
         'QToggle',
         'QItemTile',
       ],
-      directives: ['Ripple', 'CloseOverlay'],
+      directives: ['Ripple', 'CloseOverlay', 'BackToTop'],
       // Quasar plugins
       plugins: ['Notify', 'AddressbarColor'],
       iconSet: 'material-icons',
