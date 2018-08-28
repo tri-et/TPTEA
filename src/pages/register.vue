@@ -4,7 +4,7 @@
       <q-input v-model="form.username" @blur="$v.form.username.$touch" :error="$v.form.username.$error" float-label="User name" />
       <q-input v-model="form.password" @blur="$v.form.password.$touch" :error="$v.form.password.$error" float-label="Password" />
       <q-input v-model="form.email" @blur="$v.form.email.$touch" @keyup.enter="submit" :error="$v.form.email.$error" />
-      <q-btn color="primary" margin @click="submit" style="margin:10px">Submit</q-btn>
+      <q-btn color="primary" margin @click="submit" style="margin:">Submit</q-btn>
     </div>
   </q-page>
 </template>

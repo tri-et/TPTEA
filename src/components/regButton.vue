@@ -1,25 +1,15 @@
 <template>
   <div>
-    <q-btn @click="hide" rounded color="green" to="/member/register" label="Join now" class="reg-button animate-pop" v-bind:class="{ hidden: hidden }" />
+    <q-btn rounded color="green" to="/member/register" label="Join now" class="reg-button animate-pop" />
   </div>
 </template>
 <script>
 export default {
   name: 'RegButton',
-  props: {
-    hidden: {
-      default: false,
-      type: Boolean,
-    },
-  },
   data() {
     return {}
   },
-  methods: {
-    hide() {
-      this.$emit('hide-button', true)
-    },
-  },
+  methods: {},
 }
 </script>
 <style>

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import customer from './customer'
-
+import member from './member'
 Vue.use(Vuex)
 
 /*
@@ -14,6 +14,7 @@ export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       customer,
+      member,
     },
   })
 
