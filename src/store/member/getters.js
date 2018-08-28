@@ -1,3 +1,7 @@
+export const getIsHiddenRegBtn = state => {
+  return state.isHiddenRegBtn
+}
+
 export const getMemberInfo = state => {
   return state.recs
 }

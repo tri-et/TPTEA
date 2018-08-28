@@ -7,6 +7,7 @@ var basename = path.basename(__filename)
 var env = process.env.NODE_ENV || 'development'
 var config = require(__dirname + '/../config/config.js')[env]
 var db = {}
+
 var sequelize
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config)
@@ -24,13 +25,13 @@ fs.readdirSync(__dirname)
   })
 
 Object.keys(db).forEach(modelName => {
-  if (db[modelName] && db[modelName].associate) {
+  if (db[modelName].associate) {
     db[modelName].associate(db)
-    console.log(modelName)
   }
 })
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
+// db.sequelize.sync({force: true})
 module.exports = db

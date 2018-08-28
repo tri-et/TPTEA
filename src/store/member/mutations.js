@@ -27,3 +27,7 @@ export const discardEditingRec = state => {
 export const setIsModalOpened = (state, payload) => {
   state.isModalOpened = payload
 }
+
+export const setIsHiddenRegBtn = (state, payload) => {
+  state.isHiddenRegBtn = payload
+}

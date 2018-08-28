@@ -1,4 +1,5 @@
 // Configuration for your app
+// import webpack from 'webpack'
 module.exports = function(ctx) {
   return {
     // app plugins (/src/plugins)

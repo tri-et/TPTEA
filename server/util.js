@@ -1,5 +1,5 @@
-export const _auth = authUser => {
-  if (!authUser) {
-    throw new Error('Plese Login Again!')
+export const _auth = authCustomer => {
+  if (!authCustomer) {
+    throw new Error('Please login first!')
   }
 }

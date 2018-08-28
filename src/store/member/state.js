@@ -1,4 +1,5 @@
 export default {
+  isHiddenRegBtn: false,
   title: `Thông Tin Sản Phẩm`,
   isLoading: false,
   isModalOpened: false,

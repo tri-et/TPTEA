@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import routes from './routes'
-
+import {isAuth} from '../util/common'
 Vue.use(VueRouter)
 
 /*
@@ -20,6 +20,37 @@ export default function({store}) {
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE,
   })
-  console.log(store)
+
+  Router.beforeEach((to, _, next) => {
+    // set state show/hide register button
+    switch (to.path) {
+      case '/':
+      case '/stores':
+      case '/orders':
+      case '/member/login':
+        store.commit('member/setIsHiddenRegBtn', false)
+        break
+      default:
+        store.commit('member/setIsHiddenRegBtn', true)
+        break
+    }
+    // routing page by authenticate token
+    if (isAuth()) {
+      if (to.path === '/member') {
+        next()
+        // prevent route to register page
+      } else if (to.path === '/member/register' || to.path === '/member/login') {
+        next('/member')
+      } else next()
+    } else {
+      if (
+        to.path === '/member/register' ||
+        to.path === '/member/login' ||
+        (to.path !== '/member/login' && to.path !== '/member') // prevent route to member page
+      ) {
+        next()
+      } else next('/member/login')
+    }
+  })
   return Router
 }
