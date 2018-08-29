@@ -24,6 +24,7 @@ const resolvers = {
       }
       return jwt.sign(
         {
+          id: user.id,
           username: user.username,
           name: user.name,
           add: user.add,

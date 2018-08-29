@@ -51,11 +51,11 @@
               <i aria-hidden="true" class="q-icon material-icons clsIcon">close</i>
             </div>
             <div class="q-mr-md">Total Spent</div>
-            <div>{{totalPay}}</div>
+            <div>{{totalSpent}}</div>
           </div>
         </q-toolbar>
         <div>
-          <q-table v-for="(order,index) in getOrderDetails" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
+          <q-table v-for="(order,index) in getOrderHistory" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
             <q-td slot="body-cell-price" slot-scope="props" :props="props">
               <span>{{ `$${props.value}` }}</span>
             </q-td>
@@ -89,19 +89,19 @@ export default {
     },
   },
   computed: {
-    ...mapGetters('member', ['getMemberInfo', 'getCols', 'getOrderDetails']),
-    ...mapGetters('customer', ['getIsAuth']),
-    totalPay() {
+    ...mapGetters('member', ['getMemberInfo', 'getCols']),
+    ...mapGetters('order', ['getOrderHistory']),
+    totalSpent() {
       var total = 0
-      _.forEach(this.getOrderDetails, ({OrderDetails}) => {
+      _.forEach(this.getOrderHistory, ({OrderDetails}) => {
         total += _.sumBy(OrderDetails, 'price')
       })
-      console.log(localStorage.getItem('auth-token'))
       return '$' + total
     },
   },
   methods: {
-    ...mapActions('member', ['fetchRecs', 'fetchOrderHistory']),
+    ...mapActions('member', ['fetchRecs']),
+    ...mapActions('order', ['fetchOrderHistory']),
     openOrderHistory() {
       this.hideModal = true
       this.fetchOrderHistory()

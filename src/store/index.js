@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import member from './member'
 import customer from './customer'
+import order from './order'
 Vue.use(Vuex)
 
 /*
@@ -14,6 +15,7 @@ export default function(/* { ssrContext } */) {
     modules: {
       customer,
       member,
+      order,
     },
   })
 
