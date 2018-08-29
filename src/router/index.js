@@ -22,20 +22,9 @@ export default function({store}) {
   })
 
   Router.beforeEach((to, _, next) => {
-    // set state show/hide register button
-    switch (to.path) {
-      case '/':
-      case '/stores':
-      case '/orders':
-      case '/member/login':
-        store.commit('member/setIsHiddenRegBtn', false)
-        break
-      default:
-        store.commit('member/setIsHiddenRegBtn', true)
-        break
-    }
     // routing page by authenticate token
     if (isAuth()) {
+      store.commit('member/setIsHiddenRegBtn', true)
       if (to.path === '/member') {
         next()
         // prevent route to register page
@@ -43,6 +32,18 @@ export default function({store}) {
         next('/member')
       } else next()
     } else {
+      // set state show/hide register button
+      switch (to.path) {
+        case '/':
+        case '/stores':
+        case '/orders':
+        case '/member/login':
+          store.commit('member/setIsHiddenRegBtn', false)
+          break
+        default:
+          store.commit('member/setIsHiddenRegBtn', true)
+          break
+      }
       if (
         to.path === '/member/register' ||
         to.path === '/member/login' ||
