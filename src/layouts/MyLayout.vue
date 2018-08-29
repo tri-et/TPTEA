@@ -1,53 +1,55 @@
 <template>
-  <q-layout view="hHh Lpr lFf">
-    <q-page-sticky position="bottom-right"  style="z-index:999999" :offset="[18, 18]">
-      <q-btn rounded color="green" label="Join now" to="/members" class="animate-pop" />
-    </q-page-sticky>
-    <q-layout-footer>
+  <q-layout view="hhh lpr fFf">
+    <q-layout-footer class="max-width-center">
       <demo-tabs v-if="$q.theme === 'ios'" />
-      <q-tabs color="brown-14" inverted align="justify" style="height:57px">
+      <q-tabs inverted position="bottom" color="brown-6" align="justify">
         <q-route-tab to="/" default name="news" slot="title" icon="stars" label="Home" class="sml-label" />
         <q-route-tab to="/orders" name="order" slot="title" icon="free_breakfast" label="Order" class="sml-label" />
         <q-route-tab to="/stores" name="account" slot="title" icon="store" label="Store" class="sml-label" />
-        <q-route-tab to="/members" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
+        <q-route-tab to="/member" name="member" slot="title" icon="account_box" label="Member" class="sml-label" />
       </q-tabs>
     </q-layout-footer>
-    <q-page-container>
+    <q-page-container class="et-home max-width-center">
+      <reg-button class="reg-button-wrapper" :class="getIsHiddenRegBtn?'hidden':''" />
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
-
 <script>
-import {openURL} from 'quasar'
-
+import {mapGetters} from 'vuex'
+import regButton from '../components/regButton.vue'
 export default {
   name: 'MyLayout',
+  components: {
+    regButton,
+  },
   data() {
-    return {
-      leftDrawerOpen: this.$q.platform.is.desktop,
-    }
+    return {}
   },
-  methods: {
-    openURL,
+  computed: {
+    ...mapGetters('member', ['getIsHiddenRegBtn']),
   },
+  methods: {},
 }
 </script>
-
 <style>
-.sml-label {
-  font-size: 12px !important;
+.et-home {
+  overflow: auto;
+  height: calc(100vh - 65px) !important;
+  position: relative;
 }
-.q-layout-footer {
-  box-shadow: 0 -2px 2px -1px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.14), 0 -1px 10px rgba(0, 0, 0, 0.12) !important;
+.q-layout-page-container {
+  padding-bottom: 0px !important;
 }
-.q-tab-icon {
-  font-size: 22px;
+.max-width-center {
+  max-width: 700px;
+  margin: 0 auto;
 }
-.animate-pop{
-  text-transform: none;
-  font-size: 14px !important;
-  padding: 13px 25px;
-  display: block;
+.reg-button-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 57px;
+  width: 127px;
 }
 </style>

@@ -1,4 +1,5 @@
 // Configuration for your app
+// import webpack from 'webpack'
 module.exports = function(ctx) {
   return {
     // app plugins (/src/plugins)
@@ -95,10 +96,13 @@ module.exports = function(ctx) {
         'QParallax',
         'QPageSticky',
         'QScrollObservable',
+        'QRadio',
+        'QToggle',
+        'QItemTile',
       ],
-      directives: ['Ripple', 'CloseOverlay'],
+      directives: ['Ripple', 'CloseOverlay', 'BackToTop'],
       // Quasar plugins
-      plugins: ['Notify', 'AddressbarColor', 'Loading'],
+      plugins: ['Notify', 'AddressbarColor'],
       iconSet: 'material-icons',
       // i18n: 'de' // Quasar language
     },
