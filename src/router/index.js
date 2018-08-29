@@ -32,11 +32,12 @@ export default function({store}) {
         next('/member')
       } else next()
     } else {
-      // set state show/hide register button
+      // handle state show/hide register button
       switch (to.path) {
         case '/':
         case '/stores':
         case '/orders':
+        case '/member':
         case '/member/login':
           store.commit('member/setIsHiddenRegBtn', false)
           break
@@ -44,6 +45,7 @@ export default function({store}) {
           store.commit('member/setIsHiddenRegBtn', true)
           break
       }
+      // handle routing part
       if (
         to.path === '/member/register' ||
         to.path === '/member/login' ||
