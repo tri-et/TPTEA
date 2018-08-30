@@ -99,6 +99,7 @@ module.exports = function(ctx) {
         'QRadio',
         'QToggle',
         'QItemTile',
+        'QCollapsible',
       ],
       directives: ['Ripple', 'CloseOverlay', 'BackToTop'],
       // Quasar plugins
