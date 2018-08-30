@@ -45,6 +45,9 @@
     </div>
     <q-modal v-model="hideModal" :content-css="{minWidth: '80vw', minHeight: '80vh'}">
       <q-modal-layout>
+        <q-page-sticky position="bottom-right z-max" :offset="[25, -30]">
+          <q-btn round color="brown-4" v-back-to-top.animate="{offset: 20, duration: 200}" icon="keyboard_arrow_up" />
+        </q-page-sticky>
         <q-toolbar slot="header" color="brown-2">
           <div class="total-pay">
             <div @click="hideModal=false">
