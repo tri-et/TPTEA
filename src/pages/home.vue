@@ -1,7 +1,9 @@
 <template >
-  <news>
-    <news-details></news-details>
-  </news>
+  <div>
+    <news v-for="item in news" :key="item" :item="item">
+      <news-details :item="item"></news-details>
+    </news>
+  </div>
 </template>
 <script>
 import news from '../components/news'
@@ -11,6 +13,20 @@ export default {
   components: {
     news,
     newsDetails,
+  },
+  data() {
+    return {
+      news: [
+        {
+          img: 'assets/component.jpg',
+          label: 'Learn More',
+        },
+        {
+          img: 'assets/component-mid.jpg',
+          label: 'Learn More',
+        },
+      ],
+    }
   },
 }
 </script>
