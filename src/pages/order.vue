@@ -1,30 +1,27 @@
 <template>
-  <q-page padding>
-    <div style="width: 500px; max-width: 90vw;">
-      <p class="caption">
-        Scroll down
-        <q-icon style="font-size: 3rem" class="animate-bounce" name="keyboard_arrow_down" />
-      </p>
-      <p class="caption">
-        A circular button is set to appear after scrolling 500px.
-        <br> After another 500px another element will appear on the left.
-      </p>
-
-      <q-page-sticky position="top-left" :offset="[18, 18]">
-        <q-btn color="primary" fab v-back-to-top.animate="{offset: 500, duration: 200}" class="animate-pop">
-          <q-icon name="keyboard_arrow_up" />
-        </q-btn>
-      </q-page-sticky>
-
-      <q-page-sticky position="top-left" :offset="[0, 100]">
-        <a v-back-to-top.animate="1000" class="animate-pop play-backtotop non-selectable shadow-2" v-ripple.mat>
-          Back to top
-        </a>
-      </q-page-sticky>
-
-      <p class="caption" v-for="n in 50" :key="n">Keep scrolling...</p>
-    </div>
+  <q-page class="row gutter-xs content-start" style="padding:8px">
+    <menu-category v-for="(item,index) in getMenuCategory" :item="item" :key="`menu${index}`">
+    </menu-category>
   </q-page>
 </template>
-<style>
+<script>
+import menuCategory from '../components/menuCategory'
+import {mapActions, mapGetters} from 'vuex'
+export default {
+  components: {
+    menuCategory,
+  },
+  computed: {
+    ...mapGetters('order', ['getMenuCategory']),
+  },
+  methods: {
+    ...mapActions('order', ['fetchMenuCategory']),
+  },
+  mounted() {
+    this.fetchMenuCategory()
+  },
+}
+</script>
+
+<style scoped>
 </style>

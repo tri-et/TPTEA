@@ -24,3 +24,15 @@ export const fetchOrderHistory = ({commit}) => {
       _procError(err)
     })
 }
+
+export const fetchMenuCategory = ({commit}) => {
+  _get(`{
+    listMenuCategory {
+      name
+      desc
+      img
+    }
+  }`).then(({data}) => {
+    commit('setRecsMenucategory', data.listMenuCategory)
+  })
+}

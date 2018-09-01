@@ -122,7 +122,7 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .q-table-top {
   min-height: 20px !important;
   color: #5d4037 !important;
