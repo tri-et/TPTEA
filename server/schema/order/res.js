@@ -1,4 +1,4 @@
-import {Order, OrderDetail, Menu} from '../../models'
+import {Order, OrderDetail, Menu, MenuCategory} from '../../models'
 import {_auth} from '../../util'
 const resolvers = {
   RootQuery: {
@@ -19,6 +19,10 @@ const resolvers = {
           },
         ],
       })
+    },
+
+    async listMenuCategory(_, __, {authCustomer}) {
+      return await MenuCategory.findAll()
     },
   },
   RootMutation: {},
