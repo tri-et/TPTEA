@@ -1,7 +1,7 @@
 import {makeExecutableSchema} from 'graphql-tools'
 
-import customerDef from 'customer/def'
-import customerRes from 'customer/res'
+import customerDef from './customer/def'
+import customerRes from './customer/res'
 
 const SchemaDefinition = `
   schema {

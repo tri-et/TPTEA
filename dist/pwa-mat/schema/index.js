@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _graphqlTools = require('graphql-tools');
 
-var _def = require('customer/def');
+var _def = require('./customer/def');
 
 var _def2 = _interopRequireDefault(_def);
 
-var _res = require('customer/res');
+var _res = require('./customer/res');
 
 var _res2 = _interopRequireDefault(_res);
 
