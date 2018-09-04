@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
   }, {});
   Location.associate = function (models) {
     // associations can be defined here
-    Location.belongToMany(models.Menu, { through: 'MenuLocation', foreignHey: 'locationId' });
+    Location.belongsToMany(models.Menu, { through: 'MenuLocation', foreignHey: 'locationId' });
   };
   return Location;
 };

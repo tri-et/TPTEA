@@ -19,16 +19,22 @@ module.exports = {
         type: Sequelize.STRING
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       balance: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
+        defaultValue: 0,
+        allowNull: false
       },
       points: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
