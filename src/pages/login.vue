@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import logoData from '../assets/logoData'
+import logoData from '~assets/logoData'
 import Vivus from 'vivus'
 import {mapActions, mapGetters} from 'vuex'
 export default {
@@ -73,7 +73,7 @@ export default {
   width: 350px;
 }
 .q-card-media {
-  background: url('../assets/login_banner.png') no-repeat center center;
+  background: url('~assets/login_banner.png') no-repeat center center;
   background-size: cover;
   height: 230px;
   padding: 40px 0;

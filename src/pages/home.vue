@@ -1,7 +1,7 @@
 <template >
   <div>
     <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:300px">
-      <q-carousel-slide img-src="assets/component.jpg">
+      <q-carousel-slide img-src="~assets/component.jpg">
         <div class="absolute-top-left custom-caption-top">
           <div class="q-display-1">Bring on the fruit</div>
           <q-btn class="fixed-bottom-left btnlearn" rounded>
@@ -18,7 +18,7 @@
                   <div style="margin-left: 10px; text-transform: initial;">Bring on the fruit</div>
                 </q-btn>
               </div>
-              <img src="assets/header-pop.jpg" alt="ww" style="width: 683px; height:300px">
+              <img src="~assets/header-pop.jpg" alt="ww" style="width: 683px; height:300px">
               <q-btn flat icon="close" class="absolute-top-left" @click="basicModal = false" style="color: white;" />
               <div style="padding: 50px">
                 <div class="q-display-1 q-mb-md">Basic Modal</div>
@@ -34,7 +34,7 @@
       </q-carousel-slide>
     </q-carousel>
     <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:300px">
-      <q-carousel-slide img-src="assets/component-mid.jpg">
+      <q-carousel-slide img-src="~assets/component-mid.jpg">
         <div class="inner-top">Discover coffee</div>
         <div class="absolute-top-left custom-caption-mid">
           <div class="q-display-1">Find a new favorite</div>
@@ -52,7 +52,7 @@
                   <div style="margin-left: 10px; text-transform: initial;">Bring on the fruit</div>
                 </q-btn>
               </div>
-              <img src="assets/header-pop.jpg" alt="ww" style="width: 683px;">
+              <img src="~assets/header-pop.jpg" alt="ww" style="width: 683px;">
               <q-btn flat icon="close" class="absolute-top-left" @click="basicModal2 = false" style="color: white;" />
               <div style="padding: 50px">
                 <div class="q-display-1 q-mb-md">Basic Modal</div>
@@ -68,7 +68,7 @@
       </q-carousel-slide>
     </q-carousel>
     <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:300px">
-      <q-carousel-slide img-src="assets/panel.jpg">
+      <q-carousel-slide img-src="~assets/panel.jpg">
       </q-carousel-slide>
     </q-carousel>
     <q-carousel>
@@ -142,7 +142,7 @@ export default {
       opened: false,
       basicModal: false,
       basicModal2: false,
-      imageSrc: 'assets/component.jpg',
+      imageSrc: '~assets/component.jpg',
       types: [
         {
           label: 'Learn More',

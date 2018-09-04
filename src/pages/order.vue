@@ -8,7 +8,7 @@
             <div style="margin-left: 10px; text-transform: initial;">Bring on the fruit</div>
           </q-btn>
         </div>
-         <img src="assets/header-pop.jpg" alt="ww" style="width: 683px; height:300px">
+         <img src="~assets/header-pop.jpg" alt="ww" style="width: 683px; height:300px">
         <q-btn flat icon="close" class="absolute-top-left" @click="basicModal = false" style="color: white;"/>
         <div style="padding: 50px">
           <div class="q-display-1 q-mb-md">Basic Modal</div>

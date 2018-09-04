@@ -125,11 +125,11 @@ module.exports = function(ctx) {
           //   sizes: '128x128',
           //   type: 'image/png',
           // },
-          {
-            src: 'statics/icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
+          // {
+          //   src: 'statics/icons/icon-192x192.png',
+          //   sizes: '192x192',
+          //   type: 'image/png',
+          // },
           // {
           //   src: 'statics/icons/icon-256x256.png',
           //   sizes: '256x256',
