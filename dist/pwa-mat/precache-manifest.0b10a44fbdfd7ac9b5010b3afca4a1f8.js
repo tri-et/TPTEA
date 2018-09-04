@@ -72,16 +72,16 @@ self.__precacheManifest = [
     "url": "statics/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "bc5073b145d5e37ed998420d805bf337",
-    "url": "statics/icons/apple-icon-152x152.png"
+    "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
+    "url": "statics/quasar-logo.png"
   },
   {
     "revision": "476626e054663b21860e",
     "url": "js/app.c22d027.js"
   },
   {
-    "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
-    "url": "statics/quasar-logo.png"
+    "revision": "bc5073b145d5e37ed998420d805bf337",
+    "url": "statics/icons/apple-icon-152x152.png"
   },
   {
     "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
