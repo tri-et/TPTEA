@@ -10,17 +10,23 @@ const Order = `
     menuId : Int
     quantity: Int
     price: Float
-    menuname: String
+    name: String
     menu: [Menu]
   }
   type Menu {
-    name :String
+    id: Int
+    name: String
+    price: String
   }
   type MenuCategory {
     id: Int
     name: String
     desc: String
     img: String
+  }
+  type SubMenuCategory {
+    id: Int
+    subMenu: [Menu]
   }
 `
 export default Order

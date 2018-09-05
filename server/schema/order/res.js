@@ -21,13 +21,29 @@ const resolvers = {
       })
     },
 
-    async listMenuCategory(_, __, {authCustomer}) {
+    async listMenuCategory() {
       return await MenuCategory.findAll()
+    },
+
+    async listSubMenuCategory(_, {input}) {
+      return await MenuCategory.findAll({
+        include: [
+          {
+            model: Menu,
+            as: 'subMenu',
+            required: false,
+            through: {attributes: []},
+          },
+        ],
+        where: {
+          id: input,
+        },
+      })
     },
   },
   RootMutation: {},
   OrderDetail: {
-    async menuname(orderDetail) {
+    async name(orderDetail) {
       return orderDetail.getMenu().get('name')
     },
   },

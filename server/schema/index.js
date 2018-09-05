@@ -21,6 +21,7 @@ const RootQuery = `
     listMember:[Member]
     listOrderHistory:[OrderHistory]
     listMenuCategory:[MenuCategory]
+    listSubMenuCategory(input:Int):[SubMenuCategory]
   }
 `
 

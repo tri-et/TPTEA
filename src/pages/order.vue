@@ -1,15 +1,22 @@
 <template>
   <q-page class="row gutter-xs content-start" style="padding:8px">
-    <menu-category v-for="(item,index) in getMenuCategory" :item="item" :key="`menu${index}`">
-    </menu-category>
+    <menu-card v-for="(item,index) in getMenuCategory" :item="item" :key="`menu${index}`">
+      <menu-card-listing :menuCategory="item">
+        <menu-card-item-detail></menu-card-item-detail>
+      </menu-card-listing>
+    </menu-card>
   </q-page>
 </template>
 <script>
-import menuCategory from '../components/menuCategory'
+import menuCard from '../components/menuCard'
+import menuCardListing from '../components/menuCardListing'
+import menuCardItemDetail from '../components/menuCardItemDetail'
 import {mapActions, mapGetters} from 'vuex'
 export default {
   components: {
-    menuCategory,
+    menuCard,
+    menuCardListing,
+    menuCardItemDetail,
   },
   computed: {
     ...mapGetters('order', ['getMenuCategory']),

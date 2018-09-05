@@ -10,11 +10,11 @@ export default {
   icon: 'shopping_basket',
   cols: [
     {
-      name: 'menuname',
+      name: 'name',
       required: true,
       label: 'Name',
       align: 'left',
-      field: 'menuname',
+      field: 'name',
       sortable: true,
       style: 'width: 60%',
     },
