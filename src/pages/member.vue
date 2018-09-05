@@ -45,7 +45,7 @@
     </div>
     <q-modal v-model="hideModal" :content-css="{minWidth: '80vw', minHeight: '80vh'}">
       <q-modal-layout>
-        <q-page-sticky position="bottom-right z-max" :offset="[25, -30]">
+        <q-page-sticky position="bottom-right" class="z-max" :offset="[25, -30]">
           <q-btn round color="brown-4" v-back-to-top.animate="{offset: 20, duration: 200}" icon="keyboard_arrow_up" />
         </q-page-sticky>
         <q-toolbar slot="header" color="brown-2">
@@ -58,7 +58,7 @@
           </div>
         </q-toolbar>
         <div>
-          <q-table v-for="(order,index) in getOrderHistory" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" row-key="name" class="no-shadow q-pb-sm bg-order-info">
+          <q-table v-for="(order,index) in getOrderHistory" :key="order.createdAt+index" :data="order.OrderDetails" :columns="getCols" :row-key="`${index}name`" class="no-shadow q-pb-sm bg-order-info">
             <q-td slot="body-cell-price" slot-scope="props" :props="props">
               <span>{{ `$${props.value}` }}</span>
             </q-td>
