@@ -1,6 +1,6 @@
 <template>
-  <q-page class="row gutter-xs content-start menu-cat">
-    <div class="col-6" v-for="(item,index) in getMenuCategory" :key="`menucat${index}`">
+  <q-page class="row gutter-xs content-start et-menu-cat">
+    <div class="col-6" v-for="(item,index) in getMenuCategory" :key="index">
       <q-card inline style="border-radius: 8px">
         <q-card-media overlay-position="top">
           <img :src="item.img">
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <style scoped>
-.menu-cat {
+.et-menu-cat {
   padding: 0 8px 8px 0;
   max-width: 560px;
   margin: auto;

@@ -15,7 +15,7 @@ const SchemaDefinition = `
 const RootQuery = `
   type RootQuery {
     getCustomer(input:Int): Customer
-    listMenuCategory:[MenuCategory]
+    listMenuCategory: [MenuCategory]
   }
 `
 
