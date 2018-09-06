@@ -5,6 +5,8 @@ import pgMember from 'pages/member'
 import layoutMember from 'layouts/member'
 import pgRegister from 'pages/register'
 import pgLogin from 'pages/login'
+import cpnMenuCat from 'components/menuCat'
+import cpnMenuCatListing from 'components/menuCatListing'
 const routes = [
   {
     path: '/',
@@ -17,6 +19,17 @@ const routes = [
       {
         path: 'orders',
         component: pgOrder,
+        children: [
+          {
+            path: '',
+            component: cpnMenuCat,
+          },
+          {
+            path: 'catlisting/:id',
+            name: 'catlisting',
+            component: cpnMenuCatListing,
+          },
+        ],
       },
       {
         path: 'stores',

@@ -100,6 +100,8 @@ module.exports = function(ctx) {
         'QToggle',
         'QItemTile',
         'QCollapsible',
+        'QRating',
+        'QBtnGroup',
       ],
       directives: ['Ripple', 'CloseOverlay', 'BackToTop'],
       // Quasar plugins

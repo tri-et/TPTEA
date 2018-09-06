@@ -42,10 +42,12 @@ export const fetchSubMenuCategory = ({commit}, categoryId) => {
   _get(`{
     listSubMenuCategory(input:${categoryId}) {
       id
+      name
       subMenu {
         id
         name
         price
+        desc
       }
     }
   }`).then(({data}) => {

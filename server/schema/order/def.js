@@ -17,6 +17,7 @@ const Order = `
     id: Int
     name: String
     price: String
+    desc: String
   }
   type MenuCategory {
     id: Int
@@ -26,6 +27,7 @@ const Order = `
   }
   type SubMenuCategory {
     id: Int
+    name: String
     subMenu: [Menu]
   }
 `
