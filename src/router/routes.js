@@ -1,6 +1,7 @@
 import pgOrder from 'pages/order'
 import pgStore from 'pages/store'
 import pgHome from 'pages/home'
+import compMenucat from 'components/menuCat'
 const routes = [
   {
     path: '/',
@@ -13,6 +14,12 @@ const routes = [
       {
         path: 'orders',
         component: pgOrder,
+        children: [
+          {
+            path: '',
+            component: compMenucat,
+          },
+        ],
       },
       {
         path: 'stores',
