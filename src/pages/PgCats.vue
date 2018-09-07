@@ -1,20 +1,16 @@
 <template>
   <q-page class="row gutter-xs content-start et-menu-cat">
-    <div class="col-6" v-for="(item,index) in getMenuCategory" :key="index">
-      <q-card inline style="border-radius: 8px">
-        <q-card-media overlay-position="top">
-          <img :src="item.img">
-          <q-card-title slot="overlay">
-            <div slot="subtitle" class="text-right">{{item.name}}</div>
-          </q-card-title>
-        </q-card-media>
-      </q-card>
-    </div>
+    <comp-cat v-for="(dataCat,index) in getMenuCategory" :key="index" :dataCat="dataCat"></comp-cat>
   </q-page>
 </template>
 <script>
 import {mapActions, mapGetters} from 'vuex'
+import compCat from 'components/CompCat'
 export default {
+  name: 'PageOrder',
+  components: {
+    compCat,
+  },
   computed: {
     ...mapGetters('order', ['getMenuCategory']),
   },
