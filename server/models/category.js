@@ -1,7 +1,7 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
-  var MenuCategory = sequelize.define(
-    'MenuCategory',
+  var Category = sequelize.define(
+    'Category',
     {
       name: DataTypes.STRING,
       desc: DataTypes.STRING,
@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   )
-  MenuCategory.associate = function(models) {
+  Category.associate = function(models) {
     // associations can be defined here
   }
-  return MenuCategory
+  return Category
 }

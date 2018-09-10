@@ -1,9 +1,9 @@
-const Order = `
-  type MenuCategory {
+const Category = `
+  type Category {
     id: Int
     name: String
     desc: String
     img: String
   }
 `
-export default Order
+export default Category

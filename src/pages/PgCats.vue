@@ -1,24 +1,24 @@
 <template>
   <q-page class="row gutter-xs content-start et-menu-cat">
-    <comp-cat v-for="(dataCat,index) in getMenuCategory" :key="index" :dataCat="dataCat"></comp-cat>
+    <comp-cat v-for="(dataCat,index) in getRecsCategory" :key="index" :dataCat="dataCat"></comp-cat>
   </q-page>
 </template>
 <script>
 import {mapActions, mapGetters} from 'vuex'
 import compCat from 'components/CompCat'
 export default {
-  name: 'PageOrder',
+  name: 'PgCats',
   components: {
     compCat,
   },
   computed: {
-    ...mapGetters('order', ['getMenuCategory']),
+    ...mapGetters('category', ['getRecsCategory']),
   },
   methods: {
-    ...mapActions('order', ['fetchMenuCategory']),
+    ...mapActions('category', ['fetchCategory']),
   },
   mounted() {
-    this.fetchMenuCategory()
+    this.fetchCategory()
   },
 }
 </script>

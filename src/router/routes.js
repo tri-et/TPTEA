@@ -11,7 +11,7 @@ const routes = [
         component: pgHome,
       },
       {
-        path: 'orders',
+        path: 'categories',
         component: pgCats,
       },
       {

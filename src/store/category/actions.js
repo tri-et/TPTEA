@@ -4,9 +4,9 @@ export function someAction (context) {
 */
 import {_get, _procError} from '../../util/common'
 
-export const fetchMenuCategory = ({commit}) => {
+export const fetchCategory = ({commit}) => {
   _get(`{
-    listMenuCategory {
+    listCategories {
       id
       name
       desc
@@ -14,7 +14,7 @@ export const fetchMenuCategory = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      commit('setRecsMenucategory', data.listMenuCategory)
+      commit('setRecsCategory', data.listCategories)
     })
     .catch(err => {
       _procError(err)
