@@ -1,5 +1,5 @@
 <template>
-  <q-carousel class="component-top" style="max-width: 700px;margin:auto; height:300px">
+  <q-carousel class="component-top" style="max-width: 601px;margin:auto; height:300px">
     <q-carousel-slide :img-src="item.img">
       <div class="absolute-top-left custom-caption-top">
         <div class="subtitle text-white q-ml-sm q-mt-sm" >{{item.subTitle}}</div>
