@@ -1,14 +1,12 @@
 <template>
-  <div class="col-6">
-    <q-card inline style="border-radius: 8px">
-      <q-card-media overlay-position="top">
-        <img :src="cat.img">
-        <q-card-title slot="overlay">
-          <div slot="subtitle" class="text-right">{{cat.name}}</div>
-        </q-card-title>
-      </q-card-media>
-    </q-card>
-  </div>
+  <q-card class="col-6 q-pa-xs no-shadow" style="border-radius: 8px">
+    <q-card-media overlay-position="top">
+      <img :src="cat.img">
+      <q-card-title slot="overlay" class="text-right">
+        {{cat.name}}
+      </q-card-title>
+    </q-card-media>
+  </q-card>
 </template>
 <script>
 export default {

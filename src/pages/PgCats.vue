@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row gutter-xs content-start et-menu-cat">
+  <q-page class="row">
     <comp-cat v-for="(cat,index) in getRecsCategory" :key="index" :cat="cat"></comp-cat>
   </q-page>
 </template>
@@ -23,9 +23,4 @@ export default {
 }
 </script>
 <style scoped>
-.et-menu-cat {
-  padding: 0 8px 8px 0;
-  max-width: 560px;
-  margin: auto;
-}
 </style>
