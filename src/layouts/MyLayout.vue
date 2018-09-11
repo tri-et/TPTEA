@@ -27,7 +27,7 @@ export default {
   methods: {},
 }
 </script>
-<style>
+<style scoped>
 .et-home {
   overflow: auto;
   height: calc(100vh - 65px) !important;
