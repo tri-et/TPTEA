@@ -1,4 +1,4 @@
-import pgOrder from 'pages/order'
+import pgCats from 'pages/Pgcats'
 import pgStore from 'pages/store'
 import pgHome from 'pages/home'
 import pgCustomer from 'pages/customer'
@@ -15,8 +15,8 @@ const routes = [
         component: pgHome,
       },
       {
-        path: 'orders',
-        component: pgOrder,
+        path: 'categories',
+        component: pgCats,
       },
       {
         path: 'stores',
