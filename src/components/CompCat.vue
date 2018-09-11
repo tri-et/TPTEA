@@ -2,9 +2,9 @@
   <div class="col-6">
     <q-card inline style="border-radius: 8px">
       <q-card-media overlay-position="top">
-        <img :src="dataCat.img">
+        <img :src="cat.img">
         <q-card-title slot="overlay">
-          <div slot="subtitle" class="text-right">{{dataCat.name}}</div>
+          <div slot="subtitle" class="text-right">{{cat.name}}</div>
         </q-card-title>
       </q-card-media>
     </q-card>
@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    dataCat: [Object],
+    cat: [Object],
   },
 }
 </script>

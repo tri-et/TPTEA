@@ -1,6 +1,6 @@
 <template>
   <q-page class="row gutter-xs content-start et-menu-cat">
-    <comp-cat v-for="(dataCat,index) in getRecsCategory" :key="index" :dataCat="dataCat"></comp-cat>
+    <comp-cat v-for="(cat,index) in getRecsCategory" :key="index" :cat="cat"></comp-cat>
   </q-page>
 </template>
 <script>
