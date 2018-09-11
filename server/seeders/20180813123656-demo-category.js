@@ -3,7 +3,10 @@
 var GoogleSpreadsheet = require('google-spreadsheet')
 var _d = require('lodash')
 var creds = require('../TP-TEA-HK-4be78b7ad5f8.json')
-var doc = new GoogleSpreadsheet('1qFpMLDWABXh2JFg_h6VZbZt5OxslSuvjzS1Zn74uSag')
+
+// Create a document object using the ID of the spreadsheet - obtained from its URL.
+var doc = new GoogleSpreadsheet('1c1eEUj0nm_PubwJ-LD404aTHZXxyA3StvxDA5FXZq5E')
+
 function getData() {
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
@@ -14,17 +17,19 @@ function getData() {
     })
   })
 }
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     var data = await getData().catch(err => console.log(err))
+    // console.log(data)
     return queryInterface.bulkInsert(
-      'customers',
-      _d.map(data, row => _d.pick(row, 'id', 'name', 'address', 'phone', 'username', 'password', 'points', 'balance')),
+      'categories',
+      _d.map(data, row => _d.pick(row, ['id', 'name', 'desc', 'img'])),
       {}
     )
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('customers', null, {})
+    return queryInterface.bulkDelete('categories', null, {})
   },
 }
