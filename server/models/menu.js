@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'menuId',
     })
     Menu.belongsToMany(models.Location, {
-      through: 'MenuLocation',
+      through: 'menulocation',
       foreignKey: 'menuId',
     })
   }

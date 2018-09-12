@@ -1,6 +1,6 @@
 <template>
   <q-page class="row">
-    <comp-cat v-for="(cat,index) in getRecsCategory" :key="index" :cat="cat"></comp-cat>
+    <comp-cat v-for="(cat,index) in getRecs" :key="index" :cat="cat"></comp-cat>
   </q-page>
 </template>
 <script>
@@ -12,13 +12,13 @@ export default {
     compCat,
   },
   computed: {
-    ...mapGetters('category', ['getRecsCategory']),
+    ...mapGetters('category', ['getRecs']),
   },
   methods: {
-    ...mapActions('category', ['fetchCategory']),
+    ...mapActions('category', ['fetchRecs']),
   },
   mounted() {
-    this.fetchCategory()
+    this.fetchRecs()
   },
 }
 </script>

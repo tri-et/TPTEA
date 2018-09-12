@@ -1,11 +1,11 @@
 import pgCats from 'pages/Pgcats'
+import pgMenus from 'pages/PgMenus'
 import pgStore from 'pages/store'
 import pgHome from 'pages/home'
 import pgCustomer from 'pages/customer'
 import layoutCustomer from 'layouts/customer'
 import pgRegister from 'pages/register'
 import pgLogin from 'pages/login'
-import pgMenus from 'pages/PgMenus'
 const routes = [
   {
     path: '/',
@@ -18,6 +18,10 @@ const routes = [
       {
         path: 'categories',
         component: pgCats,
+      },
+      {
+        path: 'menus/:catId',
+        component: pgMenus,
       },
       {
         path: 'stores',

@@ -1,7 +1,7 @@
 <template>
-  <q-card class="col-6 q-pa-xs no-shadow" style="border-radius: 8px" @click.native="openMenuList()">
+  <q-card class="col-6 q-pa-xs no-shadow" style="border-radius: 8px" @click.native="openMenusListing()">
     <q-card-media overlay-position="top">
-      <img :src="cat.img">
+      <img @click="openMenusListing" :src="cat.img">
       <q-card-title slot="overlay" class="text-right">
         {{cat.name}}
       </q-card-title>
@@ -14,7 +14,7 @@ export default {
     cat: [Object],
   },
   methods: {
-    openMenuList() {
+    openMenusListing() {
       this.$router.push('/menus/' + this.cat.id)
     },
   },
