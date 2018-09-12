@@ -3,20 +3,21 @@ export function someAction (context) {
 }
 */
 
-import {_get, _procError} from '../../util/common'
+import {_post, _procError} from '../../util/common'
 
-export const fetchMenu = ({commit}, payload) => {
-  _get(`{
-    listMenus(input: {
-      id:${payload.id}
-    }) {
-      id
-      name
-      desc
-      price
-      img
-    }
-  }`)
+export const fetchMenus = ({commit}, payload) => {
+  _post(
+    payload,
+    `query ($input: CategoryInput) {
+      listMenus(input: $input) {
+        id
+        name
+        desc
+        price
+        img
+      }
+    }`
+  )
     .then(({data}) => {
       commit('setRecsMenu', data.listMenus)
     })

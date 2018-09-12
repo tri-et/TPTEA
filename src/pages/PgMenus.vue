@@ -47,7 +47,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('menu', ['fetchMenu']),
+    ...mapActions('menu', ['fetchMenus']),
     ...mapMutations({
       setRecsMenu(dispatch, payload) {
         return dispatch('menu/setRecsMenu', payload)
@@ -59,8 +59,8 @@ export default {
     },
   },
   mounted() {
-    this.cat = this.getRecsCategory.find(item => item.id === this.$route.params.catId)
-    this.fetchMenu(this.cat)
+    this.cat = this.getRecsCategory.find(item => item.id === parseInt(this.$route.params.catId))
+    this.fetchMenus(this.cat)
   },
 }
 </script>

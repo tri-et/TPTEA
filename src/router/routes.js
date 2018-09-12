@@ -43,7 +43,6 @@ const routes = [
       },
       {
         path: 'menus/:catId',
-        name: 'menus',
         component: pgMenus,
       },
     ],

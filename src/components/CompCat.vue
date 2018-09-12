@@ -15,12 +15,7 @@ export default {
   },
   methods: {
     openMenuList() {
-      this.$router.push({
-        name: 'menus',
-        params: {
-          catId: this.cat.id,
-        },
-      })
+      this.$router.push('/menus/' + this.cat.id)
     },
   },
 }
