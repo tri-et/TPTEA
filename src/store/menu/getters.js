@@ -1,4 +1,3 @@
-/*
-export function someGetter (state) {
+export const getRecsMenu = state => {
+  return state.recs
 }
-*/

@@ -2,8 +2,8 @@ const Menu = `
   type Menu {
     id: Int
     name: String
-    desc: String
     price: String
+    desc: String
     img: String
   }
 `
