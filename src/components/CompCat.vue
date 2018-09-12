@@ -1,7 +1,7 @@
 <template>
   <q-card class="col-6 q-pa-xs no-shadow" style="border-radius: 8px" @click.native="openMenusListing()">
     <q-card-media overlay-position="top">
-      <img @click="openMenusListing" :src="cat.img">
+      <img :src="cat.img">
       <q-card-title slot="overlay" class="text-right">
         {{cat.name}}
       </q-card-title>
