@@ -10,7 +10,7 @@
       <div style="padding: 50px">
         <div class="q-display-1 q-mb-md">{{item.titleContent}}</div>
         <p>{{item.content}}</p>
-        <q-btn  to="/orders" color="green" class="Order" rounded>
+        <q-btn to="/orders" color="green" class="Order" rounded>
           <div>Order</div>
         </q-btn>
       </div>
