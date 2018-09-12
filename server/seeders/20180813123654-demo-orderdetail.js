@@ -19,13 +19,13 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     var data = await getData().catch(err => console.log(err))
     return queryInterface.bulkInsert(
-      'orderdetail',
+      'orderdetails',
       _d.map(data, row => _d.pick(row, 'id', 'orderid', 'menuid', 'quantity', 'price')),
       {}
     )
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('orderdetail', null, {})
+    return queryInterface.bulkInsert('orderdetails', null, {})
   },
 }

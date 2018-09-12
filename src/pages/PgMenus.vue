@@ -38,7 +38,9 @@ export default {
     CompMenu,
   },
   computed: {
-    ...mapGetters('category', ['getRecsCategory']),
+    ...mapGetters({
+      getRecsCategory: 'category/getRecs',
+    }),
     ...mapGetters('menu', ['getRecsMenu']),
     filterMenu() {
       if (this.getRecsMenu != null) {
