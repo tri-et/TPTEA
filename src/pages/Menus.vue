@@ -11,7 +11,7 @@
         <q-toolbar slot="header" class="q-pt-none" color="brown-6">
           <q-search class="full-width" v-model="search" inverted color="none" />
         </q-toolbar>
-        <comp-menu :menus="filterMenu"></comp-menu>
+        <et-menu :menus="filterMenu"></et-menu>
         <q-toolbar slot="footer" color="brown-6" class="row inline items-center">
           <q-btn label="View Carts" />
           <q-toolbar-title class="text-right">
@@ -25,7 +25,7 @@
 
 <script>
 import {mapActions, mapGetters, mapMutations} from 'vuex'
-import CompMenu from 'components/CompMenu'
+import etMenu from 'components/Menu'
 export default {
   data() {
     return {
@@ -35,13 +35,15 @@ export default {
     }
   },
   components: {
-    CompMenu,
+    etMenu,
   },
   computed: {
     ...mapGetters({
       getRecsCategory: 'category/getRecs',
     }),
-    ...mapGetters('menu', ['getRecsMenu']),
+    ...mapGetters({
+      getRecsMenu: 'menu/getRecs',
+    }),
     filterMenu() {
       if (this.getRecsMenu != null) {
         return this.getRecsMenu.filter(({name}) => name.match(new RegExp(this.search, 'gi')))
@@ -49,20 +51,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions('menu', ['fetchMenus']),
-    ...mapMutations({
-      setRecsMenu(dispatch, payload) {
-        return dispatch('menu/setRecsMenu', payload)
-      },
-    }),
+    ...mapActions('menu', ['fetchRecs']),
+    ...mapMutations('menu', ['setRecs']),
     backToCats() {
-      this.setRecsMenu([])
+      this.setRecs([])
       this.$router.push('/categories')
     },
   },
   mounted() {
     this.cat = this.getRecsCategory.find(item => item.id === parseInt(this.$route.params.catId))
-    this.fetchMenus(this.cat)
+    this.fetchRecs(this.cat)
   },
 }
 </script>

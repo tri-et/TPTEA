@@ -12,17 +12,17 @@
     </q-card-title>
     <q-card-main class="q-mb-md">
       <q-input clearable v-model.trim="$v.username.$model" float-label="Username" color="light-green-9" :error="$v.username.$error" />
-      <q-validator :dirty="$v.username.$dirty" :show="!$v.username.required" msg="Username is required" />
-      <q-validator :dirty="$v.username.$dirty" :show="!$v.username.minLength" msg="Username must have at least 3 letters" />
-      <q-validator :dirty="$v.username.$dirty" :show="!$v.username.alphaNum" msg="Username must be Alphanumeric only" />
+      <et-validator :dirty="$v.username.$dirty" :show="!$v.username.required" msg="Username is required" />
+      <et-validator :dirty="$v.username.$dirty" :show="!$v.username.minLength" msg="Username must have at least 3 letters" />
+      <et-validator :dirty="$v.username.$dirty" :show="!$v.username.alphaNum" msg="Username must be Alphanumeric only" />
 
       <q-input v-model="$v.password.$model" float-label="Password" color="light-green-9" type="password" :error="$v.password.$error" />
-      <q-validator :dirty="$v.password.$dirty" :show="!$v.password.required" msg="Password is required" />
-      <q-validator :dirty="$v.password.$dirty" :show="!$v.password.minLength" msg="Password must have at least 3 letters" />
-      <q-validator :dirty="$v.password.$dirty" :show="!$v.password.noSpace" msg="Password must be not space" />
+      <et-validator :dirty="$v.password.$dirty" :show="!$v.password.required" msg="Password is required" />
+      <et-validator :dirty="$v.password.$dirty" :show="!$v.password.minLength" msg="Password must have at least 3 letters" />
+      <et-validator :dirty="$v.password.$dirty" :show="!$v.password.noSpace" msg="Password must be not space" />
 
       <q-input v-model.trim="$v.passwordConfirm.$model" float-label="Confirm Password" color="light-green-9" type="password" :error="$v.passwordConfirm.$error" />
-      <q-validator :dirty="$v.passwordConfirm.$dirty" :show="!$v.passwordConfirm.sameAsPassword" msg="Passwords must be identical" />
+      <et-validator :dirty="$v.passwordConfirm.$dirty" :show="!$v.passwordConfirm.sameAsPassword" msg="Passwords must be identical" />
 
       <q-collapsible icon="people" class="text-brown-6" label="Optional info" style="margin-top:30px; padding: 0" left>
         <q-input clearable v-model="fullName" float-label="Full name" class="q-mb-lg" color="light-green-9" />
@@ -41,12 +41,12 @@
 </template>
 <script>
 import logoData from '../assets/logoData'
-import qValidator from '../components/qValidator'
+import etValidator from '../components/Validator'
 import {required, minLength, sameAs, alphaNum} from 'vuelidate/lib/validators'
 import {mapActions, mapGetters} from 'vuex'
 export default {
   components: {
-    qValidator,
+    etValidator,
   },
   data() {
     return {
