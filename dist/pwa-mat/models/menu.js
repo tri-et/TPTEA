@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
     name: DataTypes.STRING,
     desc: DataTypes.STRING,
     price: DataTypes.STRING,
-    pic: DataTypes.STRING
+    img: DataTypes.STRING
   }, {});
   Menu.associate = function (models) {
     // associations can be defined here
@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'menuId'
     });
     Menu.belongsToMany(models.Location, {
-      through: 'MenuLocation',
+      through: 'menulocation',
       foreignKey: 'menuId'
     });
   };
