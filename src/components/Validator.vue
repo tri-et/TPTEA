@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'QValidator',
+  name: 'Validator',
   props: {
     dirty: {
       default: false,

@@ -1,3 +1,3 @@
-export const setRecsMenu = (state, payload) => {
+export const setRecs = (state, payload) => {
   state.recs = payload
 }

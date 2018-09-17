@@ -5,7 +5,7 @@ export function someAction (context) {
 
 import {_post, _procError} from '../../util/common'
 
-export const fetchMenus = ({commit}, payload) => {
+export const fetchRecs = ({commit}, payload) => {
   _post(
     payload,
     `query ($input: CategoryInput) {
@@ -19,7 +19,7 @@ export const fetchMenus = ({commit}, payload) => {
     }`
   )
     .then(({data}) => {
-      commit('setRecsMenu', data.listMenus)
+      commit('setRecs', data.listMenus)
     })
     .catch(err => {
       _procError(err)

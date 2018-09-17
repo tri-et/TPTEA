@@ -1,15 +1,15 @@
 <template>
   <q-page class="row">
-    <comp-cat v-for="(cat,index) in getRecs" :key="index" :cat="cat"></comp-cat>
+    <et-category v-for="(cat,index) in getRecs" :key="index" :cat="cat"></et-category>
   </q-page>
 </template>
 <script>
 import {mapActions, mapGetters} from 'vuex'
-import compCat from 'components/CompCat'
+import etCategory from 'components/Category'
 export default {
-  name: 'PgCats',
+  name: 'Cats',
   components: {
-    compCat,
+    etCategory,
   },
   computed: {
     ...mapGetters('category', ['getRecs']),

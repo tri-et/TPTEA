@@ -1,3 +1,3 @@
-export const getRecsMenu = state => {
+export const getRecs = state => {
   return state.recs
 }

@@ -1,18 +1,18 @@
 <template >
   <div>
-    <news v-for="(item,index) in news" :key="index" :item="item">
-      <news-details :item="item"></news-details>
-    </news>
+    <et-news v-for="(item,index) in news" :key="index" :item="item">
+      <et-news-detail :item="item"></et-news-detail>
+    </et-news>
   </div>
 </template>
 <script>
-import news from '../components/news'
-import newsDetails from '../components/newsDetails'
+import etNews from '../components/News'
+import etNewsDetail from '../components/NewsDetail'
 export default {
   name: 'PageIndex',
   components: {
-    news,
-    newsDetails,
+    etNews,
+    etNewsDetail,
   },
   data() {
     return {
