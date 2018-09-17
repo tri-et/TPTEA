@@ -84,12 +84,12 @@ self.__precacheManifest = [
     "url": "js/app.c3187f8.js"
   },
   {
-    "revision": "3e29aabebf8a9f37298de2dd7f046539",
-    "url": "statics/category-08.jpg"
-  },
-  {
     "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
     "url": "statics/icons/icon-128x128.png"
+  },
+  {
+    "revision": "3e29aabebf8a9f37298de2dd7f046539",
+    "url": "statics/category-08.jpg"
   },
   {
     "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
@@ -100,16 +100,16 @@ self.__precacheManifest = [
     "url": "statics/category-04.jpg"
   },
   {
-    "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
-    "url": "statics/news-bottom.jpg"
-  },
-  {
     "revision": "bc5073b145d5e37ed998420d805bf337",
     "url": "statics/icons/apple-icon-152x152.png"
   },
   {
     "revision": "35e74ac9161242fa4c215e4924888120",
     "url": "statics/icons/ms-icon-144x144.png"
+  },
+  {
+    "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
+    "url": "statics/news-bottom.jpg"
   },
   {
     "revision": "c5d9e177706b54d0e7d89b524899ce29",
