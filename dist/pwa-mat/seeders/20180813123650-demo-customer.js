@@ -31,7 +31,7 @@ module.exports = {
             case 2:
               data = _context.sent;
               return _context.abrupt('return', queryInterface.bulkInsert('customers', _d.map(data, function (row) {
-                return _d.pick(row, 'id', 'name', 'add', 'phone', 'username', 'password', 'points', 'balance');
+                return _d.pick(row, 'id', 'name', 'address', 'phone', 'username', 'password', 'points', 'balance');
               }), {}));
 
             case 4:

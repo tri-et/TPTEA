@@ -24,6 +24,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+var SALT = 10;
+
 var resolvers = {
   Date: _graphqlDate2.default,
   RootQuery: {
@@ -116,6 +118,75 @@ var resolvers = {
       }
 
       return login;
+    }(),
+    reg: function () {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(_, _ref6) {
+        var input = _ref6.input;
+        var user;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return _models.Customer.findOne({ where: { username: input.username } });
+
+              case 2:
+                user = _context4.sent;
+
+                if (!user) {
+                  _context4.next = 5;
+                  break;
+                }
+
+                throw new Error('Account is existed!');
+
+              case 5:
+                input.password = _bcrypt2.default.hashSync(input.password, SALT);
+                _context4.next = 8;
+                return _models.Customer.upsert(input).then(_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                  return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                    while (1) {
+                      switch (_context3.prev = _context3.next) {
+                        case 0:
+                          _context3.next = 2;
+                          return _models.Customer.findOne({ where: { username: input.username } });
+
+                        case 2:
+                          user = _context3.sent;
+                          return _context3.abrupt('return', _jsonwebtoken2.default.sign({
+                            id: user.id,
+                            username: user.username,
+                            name: user.name,
+                            add: user.add,
+                            phone: user.phone,
+                            balance: user.balance,
+                            points: user.points
+                          }, process.env.JWT_SECRET, { expiresIn: '1y' }));
+
+                        case 4:
+                        case 'end':
+                          return _context3.stop();
+                      }
+                    }
+                  }, _callee3, this);
+                })));
+
+              case 8:
+                return _context4.abrupt('return', _context4.sent);
+
+              case 9:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function reg(_x6, _x7) {
+        return _ref7.apply(this, arguments);
+      }
+
+      return reg;
     }()
   }
 };

@@ -1,10 +1,11 @@
-import pgCats from 'pages/Pgcats'
-import pgStore from 'pages/store'
-import pgHome from 'pages/home'
-import pgCustomer from 'pages/customer'
-import layoutCustomer from 'layouts/customer'
-import pgRegister from 'pages/register'
-import pgLogin from 'pages/login'
+import pgCats from 'pages/Cats'
+import pgMenus from 'pages/Menus'
+import pgStores from 'pages/Stores'
+import pgHome from 'pages/Home'
+import pgCustomer from 'pages/Customer'
+import loCustomer from 'layouts/Customer'
+import pgRegister from 'pages/Register'
+import pgLogin from 'pages/Login'
 const routes = [
   {
     path: '/',
@@ -19,12 +20,16 @@ const routes = [
         component: pgCats,
       },
       {
+        path: 'menus/:catId',
+        component: pgMenus,
+      },
+      {
         path: 'stores',
-        component: pgStore,
+        component: pgStores,
       },
       {
         path: 'customer',
-        component: layoutCustomer,
+        component: loCustomer,
         children: [
           {
             path: '',
@@ -39,6 +44,10 @@ const routes = [
             component: pgRegister,
           },
         ],
+      },
+      {
+        path: 'menus/:catId',
+        component: pgMenus,
       },
     ],
   },

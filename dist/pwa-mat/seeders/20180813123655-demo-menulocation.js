@@ -34,7 +34,7 @@ module.exports = {
 
             case 2:
               data = _context.sent;
-              return _context.abrupt('return', queryInterface.bulkInsert('menulocations', _d.map(data, function (row) {
+              return _context.abrupt('return', queryInterface.bulkInsert('menulocation', _d.map(data, function (row) {
                 return _d.pick(row, ['id', 'menuid', 'locationid']);
               }), {}));
 
@@ -55,6 +55,6 @@ module.exports = {
 
 
   down: function down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('menulocations', null, {});
+    return queryInterface.bulkDelete('menulocation', null, {});
   }
 };

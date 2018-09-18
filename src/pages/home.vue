@@ -1,24 +1,24 @@
 <template >
   <div>
-    <news v-for="(item,index) in news" :key="index" :item="item">
-      <news-details :item="item"></news-details>
-    </news>
+    <et-news v-for="(item,index) in news" :key="index" :item="item">
+      <et-news-detail :item="item"></et-news-detail>
+    </et-news>
   </div>
 </template>
 <script>
-import news from '../components/news'
-import newsDetails from '../components/newsDetails'
+import etNews from '../components/News'
+import etNewsDetail from '../components/NewsDetail'
 export default {
   name: 'PageIndex',
   components: {
-    news,
-    newsDetails,
+    etNews,
+    etNewsDetail,
   },
   data() {
     return {
       news: [
         {
-          img: 'assets/component.jpg',
+          img: 'statics/news1.jpg',
           isBtnHidden: false,
           label: 'Learn More',
           title: 'Bring on the fruit',
@@ -31,7 +31,7 @@ export default {
             In 2016, TP TEA became the top choice for tea drinks with more than 260 stores in Taiwan.`,
         },
         {
-          img: 'assets/component-mid.jpg',
+          img: 'statics/news2.jpg',
           isBtnHidden: false,
           label: 'Discover Coffee',
           title: 'Find a new favorite',
@@ -43,7 +43,7 @@ export default {
           the company will open stores to reach southeast Asia and northeast Asia with its wonderful tea drinks.`,
         },
         {
-          img: 'assets/panel.jpg',
+          img: 'statics/news-bottom.jpg',
           isBtnHidden: true,
         },
       ],
