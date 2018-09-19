@@ -3,7 +3,7 @@
     <q-item link class="q-pt-sm q-pb-sm" v-for="(menu,index) in menus" :key="index">
       <q-item-side>
         <q-item-tile avatar>
-          <img :src="menu.img">
+          <img :src="'statics/'+menu.img">
         </q-item-tile>
       </q-item-side>
       <q-item-main>

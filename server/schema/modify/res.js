@@ -3,7 +3,7 @@ const resolvers = {
   RootQuery: {
     async listModifies(_, {input}) {
       var menu = new Menu(input)
-      return await menu.getModifies()
+      return await menu.getModifiers()
     },
   },
   RootMutation: {},

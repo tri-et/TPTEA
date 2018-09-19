@@ -1,9 +1,9 @@
 <template>
   <div class="row justify-center q-mt-md q-mb-md">
     <q-btn-group rounded>
-      <q-btn icon="remove" text-color="brown-14" :disable="getCounter===0" @click="counter(false)" />
+      <q-btn icon="remove" text-color="brown-14" :disable="getCounter===0" @click="changeCount(false)" />
       <q-btn :label="getCounter.toString()" />
-      <q-btn icon="add" text-color="brown-14" @click="counter(true)" />
+      <q-btn icon="add" text-color="brown-14" @click="changeCount(true)" />
     </q-btn-group>
   </div>
 </template>
@@ -14,12 +14,8 @@ export default {
     ...mapGetters('menu', ['getCounter']),
   },
   methods: {
-    ...mapMutations({
-      setCounter(dispatch, payload) {
-        return dispatch('menu/setCounter', payload)
-      },
-    }),
-    counter(type) {
+    ...mapMutations('menu', ['setCounter']),
+    changeCount(type) {
       var counter = this.getCounter
       type ? counter++ : counter--
       this.setCounter(counter)

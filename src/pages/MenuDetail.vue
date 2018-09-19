@@ -7,7 +7,7 @@
         </q-page-sticky>
         <q-card>
           <q-card-media>
-            <img :src="menu.img">
+            <img :src="'/statics/'+menu.img">
             <q-card-title slot="overlay">
               {{menu.name}}
               <span slot="subtitle">{{menu.desc}}</span>
@@ -71,17 +71,13 @@ export default {
     },
   },
   methods: {
-    ...mapActions('modifier', ['fetchRecs']),
-    ...mapMutations({
-      setCounter(dispatch, payload) {
-        return dispatch('menu/setCounter', payload)
-      },
-    }),
+    ...mapActions('modifier', ['fetchModifiers']),
+    ...mapMutations('menu', ['setCounter']),
     backToMenu() {
       this.$router.go(-1)
       this.setCounter(0)
     },
-    calcPrice() {
+    calculatePrice() {
       var price = this.menu.price * this.getCounter
       var extraprice =
         _.sumBy(this.extra, ({price}) => {
@@ -91,7 +87,7 @@ export default {
       return extraprice + price + chosePrice
     },
     onChangeExtra() {
-      this.currentPrice = this.calcPrice()
+      this.currentPrice = this.calculatePrice()
     },
   },
   watch: {
@@ -102,12 +98,12 @@ export default {
       this.chosesize = modify !== undefined ? modify : {}
     },
     getCounter(val) {
-      this.currentPrice = this.calcPrice()
+      this.currentPrice = this.calculatePrice()
     },
   },
   mounted() {
     this.menu = this.getRecs.find(item => item.id === parseFloat(this.$route.params.menuId))
-    this.fetchRecs(this.menu)
+    this.fetchModifiers(this.menu)
   },
 }
 </script>

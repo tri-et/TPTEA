@@ -1,7 +1,7 @@
 import {_post, _procError} from '../../util/common'
 import _ from 'lodash'
 
-export const fetchRecs = ({commit}, payload) => {
+export const fetchModifiers = ({commit}, payload) => {
   _post(
     payload,
     `query ($input: MenuInput) {

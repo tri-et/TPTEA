@@ -5,7 +5,7 @@ var _d = require('lodash')
 var creds = require('../TP-TEA-HK-4be78b7ad5f8.json')
 
 // Create a document object using the ID of the spreadsheet - obtained from its URL.
-var doc = new GoogleSpreadsheet('1ZX_2fPQS17VRemtTF4m74Y_XFmjOHyqWEn8JXDdmyDI')
+var doc = new GoogleSpreadsheet('1hj2n03kXu7NAx9bkEg6TcgCBeyzEo_fumoiNQZQfQKs')
 
 function getData() {
   return new Promise((resolve, reject) => {
@@ -23,13 +23,13 @@ module.exports = {
     var data = await getData().catch(err => console.log(err))
     // console.log(data)
     return queryInterface.bulkInsert(
-      'modifies',
-      _d.map(data, row => _d.pick(row, ['id', 'name', 'price', 'type'])),
+      'menumodifies',
+      _d.map(data, row => _d.pick(row, ['id', 'menuid', 'modifierid'])),
       {}
     )
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('modifies', null, {})
+    return queryInterface.bulkDelete('menumodifies', null, {})
   },
 }

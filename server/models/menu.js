@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       through: 'menulocation',
       foreignKey: 'menuId',
     })
-    Menu.belongsToMany(models.Modify, {
+    Menu.belongsToMany(models.Modifier, {
       through: 'menumodifies',
       foreignKey: 'menuId',
     })

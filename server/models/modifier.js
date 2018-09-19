@@ -1,7 +1,7 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
-  var Modify = sequelize.define(
-    'Modify',
+  var Modifier = sequelize.define(
+    'Modifier',
     {
       name: DataTypes.STRING,
       price: DataTypes.STRING,
@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   )
-  Modify.associate = function(models) {
+  Modifier.associate = function(models) {
     // associations can be defined here
   }
-  return Modify
+  return Modifier
 }

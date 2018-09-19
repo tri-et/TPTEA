@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     'menumodify',
     {
       menuId: DataTypes.INTEGER,
-      modifyId: DataTypes.INTEGER,
+      modifierId: DataTypes.INTEGER,
     },
     {}
   )
