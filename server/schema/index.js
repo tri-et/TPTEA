@@ -6,6 +6,8 @@ import categoryDef from './category/def'
 import categoryRes from './category/res'
 import menuDef from './menu/def'
 import menuRes from './menu/res'
+import modifyDef from './modify/def'
+import modifyRes from './modify/res'
 
 const SchemaDefinition = `
   schema {
@@ -19,6 +21,7 @@ const RootQuery = `
     getCustomer(input:Int): Customer
     listCategories: [Category]
     listMenus(input:CategoryInput): [Menu]
+    listModifies(input:MenuInput): [Modify]
   }
 `
 
@@ -30,6 +33,6 @@ const RootMutation = `
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, categoryDef, menuDef],
-  resolvers: [customerRes, categoryRes, menuRes],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, categoryDef, menuDef, modifyDef],
+  resolvers: [customerRes, categoryRes, menuRes, modifyRes],
 })

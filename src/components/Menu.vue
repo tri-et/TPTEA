@@ -12,7 +12,7 @@
       </q-item-main>
       <q-item-side right>
         <div class="row items-center justify-between no-wrap">
-          <q-btn size="14px" round dense color="brown" icon="add" class="q-mr-sm" />
+          <q-btn size="14px" round dense color="brown" icon="add" class="q-mr-sm" @click="openMenuDetail(menu.id)" />
         </div>
       </q-item-side>
     </q-item>
@@ -23,6 +23,11 @@
 export default {
   props: {
     menus: [Array],
+  },
+  methods: {
+    openMenuDetail(menuId) {
+      this.$router.push('/menudetail/' + menuId)
+    },
   },
 }
 </script>
