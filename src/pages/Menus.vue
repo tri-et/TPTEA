@@ -3,7 +3,7 @@
     <q-modal v-model="opened" maximized :content-css="{maxWidth: '601px'}">
       <q-modal-layout>
         <q-toolbar slot="header" class="q-pt-none q-pb-none" color="brown-6">
-          <q-btn flat round dense icon="reply" @click="backToCats()" />
+          <q-btn flat round dense icon="reply" @click="backToCategories()" />
           <q-toolbar-title>
             {{cat.name}}
           </q-toolbar-title>
@@ -53,7 +53,7 @@ export default {
   methods: {
     ...mapActions('menu', ['fetchRecs']),
     ...mapMutations('menu', ['setRecs']),
-    backToCats() {
+    backToCategories() {
       this.setRecs([])
       this.$router.push('/categories')
     },
