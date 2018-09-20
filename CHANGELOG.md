@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 ### Added
 - Menus Listing after clicking a single Catefory
+- Register link at login page
+### Removed 
+- Join now button
+### Fixed
+- createdAt/updatedAt remove default val [#reason](default val is autogen when using upsert/update in sequelize)
+- Register layout
 
 ## 0.0.1 - 2018-09-17
 ### Fixed

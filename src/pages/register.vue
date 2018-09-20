@@ -6,9 +6,6 @@
     </q-card-media>
     <q-card-title class="text-brown-6">
       TP@Tea HongKong
-      <div slot="right" class="row items-center">
-        <q-icon name="card_membership" class="q-mr-sm" @click="alert()" />Memberships
-      </div>
     </q-card-title>
     <q-card-main class="q-mb-md">
       <q-input clearable v-model.trim="$v.username.$model" float-label="Username" color="light-green-9" :error="$v.username.$error" />
@@ -43,6 +40,7 @@
 import logoData from '../assets/logoData'
 import etValidator from '../components/Validator'
 import {required, minLength, sameAs, alphaNum} from 'vuelidate/lib/validators'
+import Vivus from 'vivus'
 import {mapActions, mapGetters} from 'vuex'
 export default {
   components: {
@@ -77,6 +75,9 @@ export default {
       sameAsPassword: sameAs('password'),
     },
   },
+  mounted() {
+    this.startAnimation()
+  },
   computed: {
     getLoginLogo() {
       return logoData[this.logo]
@@ -85,6 +86,20 @@ export default {
   },
   methods: {
     ...mapActions('customer', ['regCustomer']),
+    startAnimation() {
+      this.vivus = new Vivus(
+        'logo',
+        {
+          duration: 400,
+          forceRender: false,
+        },
+        function(myVivus) {
+          for (let item of myVivus.el.children[0].children) {
+            item.setAttribute('style', 'fill:white')
+          }
+        }
+      )
+    },
     registerCustomer(payload) {
       this.$v.$touch()
       if (this.$v.$error) return
@@ -93,5 +108,32 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
+.q-card {
+  width: 350px;
+}
+.q-card-media {
+  background: url('~assets/login_banner.png') no-repeat center center;
+  background-size: cover;
+  height: 230px;
+  padding: 40px 0;
+}
+.center {
+  margin: auto;
+  display: block;
+}
+
+@media (max-width: 601px) {
+  .et-login {
+    width: 100%;
+  }
+  .q-card-actions {
+    height: calc(100vh - 527px) !important;
+  }
+}
+@media (min-width: 602px) {
+  .q-card-actions {
+    height: 240px !important;
+  }
+}
 </style>
