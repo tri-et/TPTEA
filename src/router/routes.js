@@ -6,6 +6,7 @@ import pgCustomer from 'pages/Customer'
 import loCustomer from 'layouts/Customer'
 import pgRegister from 'pages/Register'
 import pgLogin from 'pages/Login'
+import pgMenuDetail from 'pages/MenuDetail'
 const routes = [
   {
     path: '/',
@@ -48,6 +49,10 @@ const routes = [
       {
         path: 'menus/:catId',
         component: pgMenus,
+      },
+      {
+        path: 'menudetail/:menuId',
+        component: pgMenuDetail,
       },
     ],
   },
