@@ -5,7 +5,7 @@ export const fetchModifiers = ({commit}, payload) => {
   _post(
     payload,
     `query ($input: MenuInput) {
-      listModifies(input: $input) {
+      fetchModifiers(input: $input) {
         id
         name
         price
@@ -14,7 +14,7 @@ export const fetchModifiers = ({commit}, payload) => {
     }`
   )
     .then(({data}) => {
-      commit('setRecs', _.sortBy(data.listModifies, ['type']).reverse())
+      commit('setRecs', _.sortBy(data.fetchModifiers, ['type']).reverse())
     })
     .catch(err => {
       _procError(err)

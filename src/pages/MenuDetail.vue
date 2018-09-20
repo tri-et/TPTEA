@@ -7,7 +7,7 @@
         </q-page-sticky>
         <q-card>
           <q-card-media>
-            <img :src="'/statics/'+menu.img">
+            <img :src="'statics/'+menu.img">
             <q-card-title slot="overlay">
               {{menu.name}}
               <span slot="subtitle">{{menu.desc}}</span>

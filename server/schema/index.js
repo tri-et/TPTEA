@@ -21,7 +21,7 @@ const RootQuery = `
     getCustomer(input:Int): Customer
     listCategories: [Category]
     listMenus(input:CategoryInput): [Menu]
-    listModifies(input:MenuInput): [Modify]
+    fetchModifiers(input:MenuInput): [Modify]
   }
 `
 

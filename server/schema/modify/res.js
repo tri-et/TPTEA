@@ -1,7 +1,7 @@
 import {Menu} from '../../models'
 const resolvers = {
   RootQuery: {
-    async listModifies(_, {input}) {
+    async fetchModifiers(_, {input}) {
       var menu = new Menu(input)
       return await menu.getModifiers()
     },
