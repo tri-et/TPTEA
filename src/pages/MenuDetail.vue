@@ -3,14 +3,14 @@
     <q-modal v-model="opened" maximized :content-css="{maxWidth: '601px'}" no-backdrop-dismiss>
       <q-modal-layout>
         <q-page-sticky position="top-left" class="z-max absolute">
-          <q-btn flat round dense color="brown-14" icon="reply" @click="backToMenu()" />
+          <q-btn round color="brown-14" class="q-ml-sm q-mt-sm" icon="reply" @click="backToMenu()" />
         </q-page-sticky>
         <q-card>
           <q-card-media>
             <img :src="'statics/'+menu.img">
             <q-card-title slot="overlay">
-              {{menu.name}}
-              <span slot="subtitle">{{menu.desc}}</span>
+              <span style="font-size:22px">{{menu.name}}</span>
+              <span style="font-size:19px" slot="subtitle">{{menu.desc}}</span>
             </q-card-title>
           </q-card-media>
         </q-card>
@@ -29,7 +29,7 @@
         <q-toolbar slot="footer" color="brown-6 row">
           <q-btn icon="add_shopping_cart" flat label="Add To Cart" />
           <q-toolbar-title class="text-right">
-            {{'$'+currentPrice}}
+            {{'$'+currentPrice.toFixed(2)}}
           </q-toolbar-title>
         </q-toolbar>
       </q-modal-layout>
