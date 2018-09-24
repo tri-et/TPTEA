@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - createdAt/updatedAt remove default val [#reason](default val is autogen when using upsert/update in sequelize)
 - Register layout
+- Change style reply botton and font size desc  [@john](https://github.com/tri-et/TPTEA/tree/feature/menu-detail)
+- Change wrong routing at news detail page (orders->categories)
 
 ## 0.0.1 - 2018-09-17
 ### Fixed

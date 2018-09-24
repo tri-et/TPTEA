@@ -1,4 +1,4 @@
-import pgCats from 'pages/Cats'
+import pgCategories from 'pages/Categories'
 import pgMenus from 'pages/Menus'
 import pgStores from 'pages/Stores'
 import pgHome from 'pages/Home'
@@ -18,7 +18,7 @@ const routes = [
       },
       {
         path: 'categories',
-        component: pgCats,
+        component: pgCategories,
       },
       {
         path: 'menus/:catId',

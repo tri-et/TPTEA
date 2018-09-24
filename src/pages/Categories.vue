@@ -7,7 +7,7 @@
 import {mapActions, mapGetters} from 'vuex'
 import etCategory from 'components/Category'
 export default {
-  name: 'Cats',
+  name: 'Categories',
   components: {
     etCategory,
   },
