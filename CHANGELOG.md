@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Remove pull to refresh
 - Use statics assets instead of google drive image download links
+- Change default value for counter [@john](https://github.com/tri-et/TPTEA/tree/feature/fix-bugs-counter)
 ### Added
 - Customer Login feature
 - Customer Register feature

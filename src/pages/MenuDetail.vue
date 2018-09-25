@@ -83,7 +83,7 @@ export default {
         _.sumBy(this.extra, ({price}) => {
           return parseFloat(price)
         }) * this.getCounter
-      var chosePrice = parseFloat(this.chosesize.price) * this.getCounter
+      var chosePrice = parseFloat(this.chosesize.price || 0) * this.getCounter
       return extraprice + price + chosePrice
     },
     onChangeExtra() {
@@ -103,6 +103,7 @@ export default {
   },
   mounted() {
     this.menu = this.getRecs.find(item => item.id === parseFloat(this.$route.params.menuId))
+    this.currentPrice = this.calculatePrice()
     this.fetchModifiers(this.menu)
   },
 }
