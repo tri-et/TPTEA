@@ -36,7 +36,7 @@ const resolvers = {
         {expiresIn: '1y'}
       )
     },
-    async reg(_, {input}) {
+    async register(_, {input}) {
       var user = await Customer.findOne({where: {username: input.username, type: input.type}})
       if (user) {
         throw new Error('Account is existed!')
@@ -59,7 +59,7 @@ const resolvers = {
         )
       })
     },
-    async loginFB(_, {input}) {
+    async loginFb(_, {input}) {
       const user = await Customer.findOne({where: {username: input.username}})
       if (!user) {
         throw new Error('Account not existed!')
@@ -77,7 +77,7 @@ const resolvers = {
         {expiresIn: '1y'}
       )
     },
-    async regFB(_, {input}) {
+    async registerFb(_, {input}) {
       var user = await Customer.findOne({where: {username: input.username, type: input.type}})
       var msgRes = ''
       if (user) {

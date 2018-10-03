@@ -22,7 +22,7 @@
       <et-validator :dirty="$v.passwordConfirm.$dirty" :show="!$v.passwordConfirm.sameAsPassword" msg="Passwords must be identical" />
 
       <q-collapsible icon="people" class="text-brown-6" label="Optional info" style="margin-top:30px; padding: 0" left>
-        <q-input clearable v-model="fullName" float-label="Full name" class="q-mb-lg" color="light-green-9" />
+        <q-input clearable v-model="name" float-label="Full name" class="q-mb-lg" color="light-green-9" />
         <q-input clearable v-model="phone" float-label="Phone" class="q-mb-lg" color="light-green-9" />
         <q-input clearable v-model="address" float-label="Address" class="q-mb-lg" color="light-green-9" />
       </q-collapsible>

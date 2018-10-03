@@ -12,7 +12,7 @@
           <a class="text-warning">Register</a>
         </router-link>
         <q-icon name="card_membership" class="q-mr-sm q-ml-sm" />
-        <a class="text-warning cursor-pointer reg-fb" @click="registerFB()">Register Facebook</a>
+        <a class="text-warning cursor-pointer reg-fb" @click="registerFb()">Register Facebook</a>
       </div>
     </q-card-title>
     <q-card-main class="q-mb-md">
@@ -24,7 +24,7 @@
         <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password,type:'password'})">
           <q-spinner-pie slot="loading" size="25px" />
         </q-btn>
-        <q-btn color="blue-7" label="Sign in Facebook" @click="loginFB()" class="text-white q-ma-sm col-10" />
+        <q-btn color="blue-7" label="Sign in Facebook" @click="loginFb()" class="text-white q-ma-sm col-10" />
       </div>
     </q-card-actions>
   </q-card>
@@ -53,7 +53,7 @@ export default {
     ...mapGetters('customer', ['getIsLoading']),
   },
   methods: {
-    ...mapActions('customer', ['loginCustomer', 'regCustomer', 'loginCustumerFB', 'regCustomerFB']),
+    ...mapActions('customer', ['loginCustomer', 'regCustomer', 'loginFb', 'registerFb']),
     startAnimation() {
       this.vivus = new Vivus(
         'logo',
@@ -67,36 +67,6 @@ export default {
           }
         }
       )
-    },
-    loginFB() {
-      window.FB.login(res => {
-        if (res.status === 'connected') {
-          window.FB.api('/me?fields=email', person => {
-            this.loginCustumerFB({
-              username: person.email,
-              password: '',
-              type: 'facebook',
-            })
-          })
-        }
-      })
-    },
-    registerFB() {
-      window.FB.login(res => {
-        if (res.status === 'connected') {
-          window.FB.api('/me?fields=name,email', person => {
-            this.regCustomerFB({
-              username: person.email,
-              password: '',
-              passwordConfirm: '',
-              name: person.name,
-              phone: '',
-              address: '',
-              type: 'facebook',
-            })
-          })
-        }
-      })
     },
   },
 }

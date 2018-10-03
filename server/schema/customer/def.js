@@ -26,7 +26,7 @@ const Customer = `
     password: String!
     type: String
   }
-  input RegInput {
+  input RegisterInput {
     username: String!
     password: String!
     passwordConfirm: String!
@@ -35,7 +35,7 @@ const Customer = `
     address: String
     type: String
   }
-  type RegFbRes {
+  type RegisterFbResponse {
     token :String
     msg: String
   }
