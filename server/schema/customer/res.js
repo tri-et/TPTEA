@@ -1,8 +1,8 @@
 import {Customer} from '../../models'
 import GraphQLDate from 'graphql-date'
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
 import {_auth} from '../../util'
+import {generateLoginJwt} from './mutations'
 const SALT = 10
 
 const resolvers = {
@@ -23,18 +23,7 @@ const resolvers = {
       if (!valid) {
         throw new Error('Wrong Password ...')
       }
-      return jwt.sign(
-        {
-          username: user.username,
-          name: user.name,
-          add: user.add,
-          phone: user.phone,
-          balance: user.balance,
-          points: user.points,
-        },
-        process.env.JWT_SECRET,
-        {expiresIn: '1y'}
-      )
+      return generateLoginJwt(Customer, input)
     },
     async register(_, {input}) {
       var user = await Customer.findOne({where: {username: input.username, type: input.type}})
@@ -43,39 +32,15 @@ const resolvers = {
       }
       input.password = bcrypt.hashSync(input.password, SALT)
       return await Customer.upsert(input).then(async function() {
-        user = await Customer.findOne({where: {username: input.username}})
-        return jwt.sign(
-          {
-            id: user.id,
-            username: user.username,
-            name: user.name,
-            add: user.add,
-            phone: user.phone,
-            balance: user.balance,
-            points: user.points,
-          },
-          process.env.JWT_SECRET,
-          {expiresIn: '1y'}
-        )
+        return generateLoginJwt(Customer, input)
       })
     },
     async loginFb(_, {input}) {
       const user = await Customer.findOne({where: {username: input.username}})
       if (!user) {
-        throw new Error('Account not existed!')
+        throw new Error('Account not found!')
       }
-      return jwt.sign(
-        {
-          username: user.username,
-          name: user.name,
-          add: user.add,
-          phone: user.phone,
-          balance: user.balance,
-          points: user.points,
-        },
-        process.env.JWT_SECRET,
-        {expiresIn: '1y'}
-      )
+      return generateLoginJwt(Customer, input)
     },
     async registerFb(_, {input}) {
       var user = await Customer.findOne({where: {username: input.username, type: input.type}})
@@ -87,23 +52,7 @@ const resolvers = {
         msgRes = 'Regitered Successfully!'
       }
       return await Customer.upsert(input).then(async function() {
-        user = await Customer.findOne({where: {username: input.username}})
-        return {
-          token: jwt.sign(
-            {
-              id: user.id,
-              username: user.username,
-              name: user.name,
-              add: user.add,
-              phone: user.phone,
-              balance: user.balance,
-              points: user.points,
-            },
-            process.env.JWT_SECRET,
-            {expiresIn: '1y'}
-          ),
-          msg: msgRes,
-        }
+        return generateLoginJwt(Customer, input, msgRes)
       })
     },
   },

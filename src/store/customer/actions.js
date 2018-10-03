@@ -39,9 +39,9 @@ export function regCustomer({commit}, payload) {
       if (data.errors) _alert(data.errors[0].message, 'warning')
       else {
         // register successfully
-        localStorage.setItem('auth-token', data.reg)
-        commit('setToken', data.reg)
-        _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.reg
+        localStorage.setItem('auth-token', data.register)
+        commit('setToken', data.register)
+        _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.register
         _alert(`Regitered Successfully!`, 'positive')
         this.$router.push('/customer')
       }
