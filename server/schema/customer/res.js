@@ -86,7 +86,6 @@ const resolvers = {
       } else {
         msgRes = 'Regitered Successfully!'
       }
-      input.password = bcrypt.hashSync(input.password, SALT)
       return await Customer.upsert(input).then(async function() {
         user = await Customer.findOne({where: {username: input.username}})
         return {
