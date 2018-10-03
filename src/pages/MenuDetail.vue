@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal v-model="opened" maximized :content-css="{maxWidth: '601px'}" no-backdrop-dismiss>
+    <q-modal v-model="opened" maximized class="max-width-center-h" no-backdrop-dismiss>
       <q-modal-layout>
         <q-page-sticky position="top-left" class="z-max absolute">
           <q-btn round color="brown-14" class="q-ml-sm q-mt-sm" icon="reply" @click="backToMenu()" />
@@ -105,5 +105,5 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style>
 </style>
