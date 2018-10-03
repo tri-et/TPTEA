@@ -29,6 +29,8 @@ const RootMutation = `
   type RootMutation {
     login(input:LoginInput): String
     reg(input:RegInput): String
+    loginFB(input:LoginInput): String
+    regFB(input:RegInput): RegFbRes
   }
 `
 

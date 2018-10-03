@@ -37,7 +37,7 @@ const resolvers = {
       )
     },
     async reg(_, {input}) {
-      var user = await Customer.findOne({where: {username: input.username}})
+      var user = await Customer.findOne({where: {username: input.username, type: input.type}})
       if (user) {
         throw new Error('Account is existed!')
       }
@@ -57,6 +57,54 @@ const resolvers = {
           process.env.JWT_SECRET,
           {expiresIn: '1y'}
         )
+      })
+    },
+    async loginFB(_, {input}) {
+      const user = await Customer.findOne({where: {username: input.username}})
+      if (!user) {
+        throw new Error('Account not existed!')
+      }
+      return jwt.sign(
+        {
+          username: user.username,
+          name: user.name,
+          add: user.add,
+          phone: user.phone,
+          balance: user.balance,
+          points: user.points,
+        },
+        process.env.JWT_SECRET,
+        {expiresIn: '1y'}
+      )
+    },
+    async regFB(_, {input}) {
+      var user = await Customer.findOne({where: {username: input.username, type: input.type}})
+      var msgRes = ''
+      if (user) {
+        msgRes = 'Account is existed!'
+        input.id = user.id
+      } else {
+        msgRes = 'Regitered Successfully!'
+      }
+      input.password = bcrypt.hashSync(input.password, SALT)
+      return await Customer.upsert(input).then(async function() {
+        user = await Customer.findOne({where: {username: input.username}})
+        return {
+          token: jwt.sign(
+            {
+              id: user.id,
+              username: user.username,
+              name: user.name,
+              add: user.add,
+              phone: user.phone,
+              balance: user.balance,
+              points: user.points,
+            },
+            process.env.JWT_SECRET,
+            {expiresIn: '1y'}
+          ),
+          msg: msgRes,
+        }
       })
     },
   },

@@ -7,10 +7,12 @@
     <q-card-title class="text-brown-6">
       TP@Tea HongKong
       <div slot="right" class="row items-center">
-        <q-icon name="card_membership" class="q-mr-sm"/>
+        <q-icon name="card_membership" class="q-mr-sm" />
         <router-link to="/customer/register" tag="a">
           <a class="text-warning">Register</a>
         </router-link>
+        <q-icon name="card_membership" class="q-mr-sm q-ml-sm" />
+        <a class="text-warning cursor-pointer reg-fb" @click="registerFB()">Register Facebook</a>
       </div>
     </q-card-title>
     <q-card-main class="q-mb-md">
@@ -18,12 +20,11 @@
       <q-input v-model="password" float-label="Password" color="red-9" type="password" />
     </q-card-main>
     <q-card-actions>
-      <div class="row justify-center" style="height:160px;width:100%;">
-        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password})">
+      <div class="row justify-center" style="height:120px;width:100%;">
+        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password,type:'password'})">
           <q-spinner-pie slot="loading" size="25px" />
         </q-btn>
-        <q-btn color="grey-2" label="Visit Facebook" class="text-grey-8 q-ma-sm col-10" />
-        <q-btn color="grey-2" label="Visit Instagram" class="text-grey-8 q-ma-sm col-10" />
+        <q-btn color="blue-7" label="Sign in Facebook" @click="loginFB()" class="text-white q-ma-sm col-10" />
       </div>
     </q-card-actions>
   </q-card>
@@ -52,7 +53,7 @@ export default {
     ...mapGetters('customer', ['getIsLoading']),
   },
   methods: {
-    ...mapActions('customer', ['loginCustomer']),
+    ...mapActions('customer', ['loginCustomer', 'regCustomer', 'loginCustumerFB', 'regCustomerFB']),
     startAnimation() {
       this.vivus = new Vivus(
         'logo',
@@ -66,6 +67,36 @@ export default {
           }
         }
       )
+    },
+    loginFB() {
+      window.FB.login(res => {
+        if (res.status === 'connected') {
+          window.FB.api('/me?fields=email', person => {
+            this.loginCustumerFB({
+              username: person.email,
+              password: '',
+              type: 'facebook',
+            })
+          })
+        }
+      })
+    },
+    registerFB() {
+      window.FB.login(res => {
+        if (res.status === 'connected') {
+          window.FB.api('/me?fields=name,email', person => {
+            this.regCustomerFB({
+              username: person.email,
+              password: '',
+              passwordConfirm: '',
+              name: person.name,
+              phone: '',
+              address: '',
+              type: 'facebook',
+            })
+          })
+        }
+      })
     },
   },
 }
@@ -84,6 +115,9 @@ export default {
   margin: auto;
   display: block;
 }
+.reg-fb {
+  text-decoration: underline;
+}
 
 @media (max-width: 601px) {
   .et-login {
@@ -98,5 +132,4 @@ export default {
     height: 240px !important;
   }
 }
-
 </style>

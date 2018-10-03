@@ -24,14 +24,20 @@ const Customer = `
   input LoginInput {
     username: String!
     password: String!
+    type: String
   }
   input RegInput {
     username: String!
     password: String!
     passwordConfirm: String!
-    fullName: String,
+    name: String,
     phone: String
     address: String
+    type: String
+  }
+  type RegFbRes {
+    token :String
+    msg: String
   }
 `
 export default Customer
