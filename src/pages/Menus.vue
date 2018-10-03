@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal v-model="opened" maximized :content-css="{maxWidth: '601px'}">
+    <q-modal v-model="opened" maximized class="max-width-center-h">
       <q-modal-layout>
         <q-toolbar slot="header" class="q-pt-none q-pb-none" color="brown-6">
           <q-btn flat round dense icon="reply" @click="backToCategories()" />
@@ -64,3 +64,5 @@ export default {
   },
 }
 </script>
+<style>
+</style>
