@@ -1,5 +1,5 @@
 <template>
-  <q-modal v-model="opened" style="max-width: 601px; margin:auto">
+  <q-modal v-model="opened" class="max-width-center-vh">
     <q-modal-layout >
       <div>
         <q-btn flat icon="close" @click="opened = false" >
