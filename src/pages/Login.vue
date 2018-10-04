@@ -11,6 +11,8 @@
         <router-link to="/customer/register" tag="a">
           <a class="text-warning">Register</a>
         </router-link>
+        <q-icon name="card_membership" class="q-mr-sm q-ml-sm" />
+        <a class="text-warning cursor-pointer reg-fb" @click="registerFb()">Register Facebook</a>
       </div>
     </q-card-title>
     <q-card-main class="q-mb-md">
@@ -18,12 +20,11 @@
       <q-input v-model="password" float-label="Password" color="red-9" type="password" />
     </q-card-main>
     <q-card-actions>
-      <div class="row justify-center" style="height:160px;width:100%;">
-        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password})">
+      <div class="row justify-center" style="height:120px;width:100%;">
+        <q-btn :loading="getIsLoading" color="amber-3" label="Sign In" class="text-brown-6 q-ma-sm col-10" @click="loginCustomer({username,password,type:'password'})">
           <q-spinner-pie slot="loading" size="25px" />
         </q-btn>
-        <q-btn color="grey-2" label="Visit Facebook" class="text-grey-8 q-ma-sm col-10" />
-        <q-btn color="grey-2" label="Visit Instagram" class="text-grey-8 q-ma-sm col-10" />
+        <q-btn color="blue-7" label="Sign in Facebook" @click="loginFb()" class="text-white q-ma-sm col-10" />
       </div>
     </q-card-actions>
   </q-card>
@@ -52,7 +53,7 @@ export default {
     ...mapGetters('customer', ['getIsLoading']),
   },
   methods: {
-    ...mapActions('customer', ['loginCustomer']),
+    ...mapActions('customer', ['loginCustomer', 'regCustomer', 'loginFb', 'registerFb']),
     startAnimation() {
       this.vivus = new Vivus(
         'logo',

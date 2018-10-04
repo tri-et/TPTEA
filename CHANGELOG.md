@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
+- Register facebook
 - Stylus all pages & components (maxwidth = $breakpoint-xs quasar's variable)
 ### Removed 
 - Join now button
@@ -18,6 +19,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Missing images due to improper using of assets images
 - Remove dist/ from .gitignore [#reason](in-order to be able to upload to heroku)
+- Change field fullname to name
 ### Changed
 - Remove pull to refresh
 - Use statics assets instead of google drive image download links
