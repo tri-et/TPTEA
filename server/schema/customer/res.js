@@ -4,9 +4,9 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import {_auth} from '../../util'
 const SALT = 10
-async function generateLoginJwt(input, msg = '') {
-  var user = await Customer.findOne({where: {username: input.username}})
-  var tokenJwt = jwt.sign(
+async function generateLoginJwt({username}, msg = '') {
+  var user = await Customer.findOne({where: {username}})
+  var token = jwt.sign(
     {
       id: user.id,
       username: user.username,
@@ -19,7 +19,7 @@ async function generateLoginJwt(input, msg = '') {
     process.env.JWT_SECRET,
     {expiresIn: '1y'}
   )
-  return msg === '' ? tokenJwt : {token: tokenJwt, msg: msg}
+  return msg === '' ? token : {token, msg}
 }
 
 const resolvers = {
