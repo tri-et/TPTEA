@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - Menus Listing after clicking a single Catefory
 - Register link at login page
 - Register facebook
+- Stylus all pages & components (maxwidth = $breakpoint-xs quasar's variable)
 ### Removed 
 - Join now button
 ### Fixed
@@ -23,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Remove pull to refresh
 - Use statics assets instead of google drive image download links
 - Change default value for counter [@john](https://github.com/tri-et/TPTEA/tree/feature/fix-bugs-counter)
+- Rename variable  to camel case in page MenuDetail 
 ### Added
 - Customer Login feature
 - Customer Register feature
