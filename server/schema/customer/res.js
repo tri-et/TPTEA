@@ -34,7 +34,7 @@ const resolvers = {
     async login(_, {input}) {
       const user = await Customer.findOne({where: {username: input.username}})
       if (!user) {
-        throw new Error('Account not found!')
+        throw new Error('Account not found. Please try again!')
       }
       const valid = await bcrypt.compare(input.password, user.password)
       if (!valid) {
@@ -55,7 +55,7 @@ const resolvers = {
     async loginFb(_, {input}) {
       const user = await Customer.findOne({where: {username: input.username}})
       if (!user) {
-        throw new Error('Account not found!')
+        throw new Error('Account not found. Please Register by Facebook First!')
       }
       return generateLoginJwt(input)
     },
