@@ -4,9 +4,17 @@
       <svg class="center" id="logo" viewBox="0 0 483 483" width="128px" height="128px" v-html="getLoginLogo">
       </svg>
     </q-card-media>
-    <q-card-title class="text-brown-6">
-      TP@Tea HongKong
-    </q-card-title>
+    <div class="row justify-center q-mt-md">
+      <q-btn color="blue-7" class="col-10" @click="registerFb()" label="REGISTER with FACEBOOK" />
+    </div>
+    <div class="row justify-center q-mt-md">
+      <div class="col-10 row items-center">
+        <hr class="q-hr col-4">
+        Or
+        <hr class="q-hr col-4">
+      </div>
+    </div>
+
     <q-card-main class="q-mb-md">
       <q-input clearable v-model.trim="$v.username.$model" float-label="Username" color="light-green-9" :error="$v.username.$error" />
       <et-validator :dirty="$v.username.$dirty" :show="!$v.username.required" msg="Username is required" />
@@ -85,7 +93,7 @@ export default {
     ...mapGetters('customer', ['getIsLoading']),
   },
   methods: {
-    ...mapActions('customer', ['regCustomer']),
+    ...mapActions('customer', ['regCustomer', 'registerFb']),
     startAnimation() {
       this.vivus = new Vivus(
         'logo',
