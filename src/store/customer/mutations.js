@@ -5,3 +5,7 @@ export const setToken = (state, payload) => {
 export const setIsLoading = (state, payload) => {
   state.isLoading = payload
 }
+
+export const setCustomer = (state, payload) => {
+  state.customer = payload
+}

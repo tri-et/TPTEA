@@ -100,6 +100,7 @@ module.exports = function(ctx) {
         'QCheckbox',
         'QRadio',
         'QBtnGroup',
+        'QToggle',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
