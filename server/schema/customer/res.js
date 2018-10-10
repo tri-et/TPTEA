@@ -27,7 +27,7 @@ const resolvers = {
   RootQuery: {
     async getCustomer(_, __, {authCustomer}) {
       _auth(authCustomer)
-      return await Customer.findOne({where: {id: authCustomer.id}})
+      return await Customer.findById(authCustomer.id)
     },
   },
   RootMutation: {
