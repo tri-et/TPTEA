@@ -1,4 +1,4 @@
-import {_procError, _ax, _post, _alert} from '../../util/common'
+import {_procError, _ax, _post, _alert, _get} from '../../util/common'
 
 export function loginCustomer({commit}, payload) {
   commit('setIsLoading', true)
@@ -126,4 +126,19 @@ async function getUserFbInfo() {
       {scope: 'public_profile,email'}
     )
   })
+}
+export const fetchCustomer = ({commit}) => {
+  _get(`{
+    getCustomer {
+      name
+      balance
+      points
+    }
+  }`)
+    .then(({data}) => {
+      commit('setCustomer', data.getCustomer)
+    })
+    .catch(err => {
+      _procError(err)
+    })
 }
