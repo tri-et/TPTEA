@@ -25,9 +25,9 @@ async function generateLoginJwt({username}, msg = '') {
 const resolvers = {
   Date: GraphQLDate,
   RootQuery: {
-    async getCustomer(_, {input}, {authCustomer}) {
+    async getCustomer(_, __, {authCustomer}) {
       _auth(authCustomer)
-      return await Customer.findOne({where: {id: input}})
+      return await Customer.findById(authCustomer.id)
     },
   },
   RootMutation: {

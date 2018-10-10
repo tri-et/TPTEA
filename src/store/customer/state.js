@@ -3,4 +3,5 @@ export default {
   isLoading: false,
   name: '',
   role: '',
+  customer: {},
 }
