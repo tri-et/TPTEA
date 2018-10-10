@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - Register facebook
 - Stylus all pages & components (maxwidth = $breakpoint-xs quasar's variable)
 - Admin Default layout & Login
+- Customer Detail Page with Sign-Out feaature
 ### Removed 
 - Join now button
 ### Fixed
