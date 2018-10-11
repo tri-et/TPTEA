@@ -31,7 +31,7 @@
           <q-item-side icon="store" />
           <q-item-main label="Nhà Cung Cấp" />
         </q-item>
-         <q-item to="/clients">
+        <q-item to="/clients">
           <q-item-side icon="people" />
           <q-item-main label="Khách Hàng" />
         </q-item>
@@ -77,8 +77,8 @@ export default {
   },
   methods: {
     logout() {
-      localStorage.removeItem('auth-token')
-      this.$router.push('/login')
+      localStorage.removeItem('auth-token-admin')
+      this.$router.push('admin/login')
     },
   },
 }
