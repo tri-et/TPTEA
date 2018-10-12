@@ -8,6 +8,8 @@ import menuDef from './menu/def'
 import menuRes from './menu/res'
 import modifyDef from './modify/def'
 import modifyRes from './modify/res'
+import adminDef from './admin/def'
+import adminRes from './admin/res'
 
 const SchemaDefinition = `
   schema {
@@ -31,10 +33,11 @@ const RootMutation = `
     register(input:RegisterInput): String
     loginFb(input:LoginInput): String
     registerFb(input:RegisterInput): RegisterFbResponse
+    loginAdmin(input:AdminLoginInput): String
   }
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, categoryDef, menuDef, modifyDef],
-  resolvers: [customerRes, categoryRes, menuRes, modifyRes],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, categoryDef, menuDef, modifyDef,adminDef],
+  resolvers: [customerRes, categoryRes, menuRes, modifyRes,adminRes],
 })
