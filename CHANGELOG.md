@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Stylus all pages & components (maxwidth = $breakpoint-xs quasar's variable)
 - Admin Default layout & Login
 - Customer Detail Page with Sign-Out feaature
+- Schema Admin (res loginAdmin,def type Admin,input AdminLoginInput)[@john]
 ### Removed 
 - Join now button
 ### Fixed
