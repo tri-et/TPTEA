@@ -7,11 +7,11 @@ const resolvers = {
     async loginAdmin(_, {input}) {
       const admin = await Admin.findOne({where: {username: input.username}})
       if (!admin) {
-        throw new Error('Account not found. Please try again!')
+        throw new Error('Admin Account not found. Please try again!')
       }
       const valid = await bcrypt.compare(input.password, admin.password)
       if (!valid) {
-        throw new Error('Wrong Password ...')
+        throw new Error('Wrong Admin Password ...')
       }
       return (
         jwt.sign(
