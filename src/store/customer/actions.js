@@ -136,7 +136,8 @@ export const fetchCustomer = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      commit('setCustomer', data.getCustomer)
+      if (data.errors) _alert(data.errors[0].message, 'warning')
+      else commit('setCustomer', data.getCustomer)
     })
     .catch(err => {
       _procError(err)
