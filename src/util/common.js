@@ -11,7 +11,11 @@ export const _ax = axios.create({
 })
 
 // get auth token, to make sure all _get _post require got auth-token attached
-let getToken = () => localStorage.getItem('auth-token')
+let getToken = () => {
+  if (localStorage.getItem('auth-token')) {
+    return localStorage.getItem('auth-token').slice(0, -1)
+  }
+}
 let setToken = () => {
   let token = getToken()
   if (token) {

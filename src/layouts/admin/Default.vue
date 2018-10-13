@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     logout() {
-      localStorage.removeItem('auth-token-admin')
+      localStorage.removeItem('auth-token')
       this.$router.push('admin/login')
     },
   },
