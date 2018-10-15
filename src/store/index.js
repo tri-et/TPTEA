@@ -5,6 +5,7 @@ import customer from './customer'
 import category from './category'
 import menu from './menu'
 import modifier from './modifier'
+import admin from './admin'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ export default function(/* { ssrContext } */) {
       category,
       menu,
       modifier,
+      admin,
     },
   })
 

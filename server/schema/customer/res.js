@@ -6,19 +6,20 @@ import {_auth} from '../../util'
 const SALT = 10
 async function generateLoginJwt({username}, msg = '') {
   var user = await Customer.findOne({where: {username}})
-  var token = jwt.sign(
-    {
-      id: user.id,
-      username: user.username,
-      name: user.name,
-      address: user.address,
-      phone: user.phone,
-      balance: user.balance,
-      points: user.points,
-    },
-    process.env.JWT_SECRET,
-    {expiresIn: '1y'}
-  )
+  var token =
+    jwt.sign(
+      {
+        id: user.id,
+        username: user.username,
+        name: user.name,
+        address: user.address,
+        phone: user.phone,
+        balance: user.balance,
+        points: user.points,
+      },
+      process.env.JWT_SECRET,
+      {expiresIn: '1y'}
+    ) + 'c'
   return msg === '' ? token : {token, msg}
 }
 
