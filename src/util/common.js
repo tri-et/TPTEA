@@ -15,6 +15,7 @@ let getToken = () => {
   if (localStorage.getItem('auth-token')) {
     return localStorage.getItem('auth-token').slice(0, -1)
   }
+  return null
 }
 let setToken = () => {
   let token = getToken()
