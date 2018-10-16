@@ -30,7 +30,7 @@ const resolvers = {
       _auth(loggedInUser)
       return await Customer.findById(loggedInUser.id)
     },
-    async listCustomers(_, __, {loggedInUser}) {
+    async fetchCustomers(_, __, {loggedInUser}) {
       _authAdmin(loggedInUser)
       return await Customer.findAll()
     },
@@ -77,7 +77,7 @@ const resolvers = {
         return generateLoginJwt(input, msgRes)
       })
     },
-    async deleteCustomer(_, {input}, {loggedInUser}) {
+    async deleteCustomers(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
       return await Customer.destroy({
         where: {
