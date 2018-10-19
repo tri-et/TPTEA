@@ -24,6 +24,7 @@ const RootQuery = `
     listCategories: [Category]
     listMenus(input:CategoryInput): [Menu]
     fetchModifiers(input:MenuInput): [Modify]
+    fetchAdmin(input:Int): Admin
     fetchCustomers: [Customer]
   }
 `
