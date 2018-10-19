@@ -12,6 +12,7 @@ import pgCustomer from 'pages/Customer'
 import pgRegister from 'pages/Register'
 import pgMenuDetail from 'pages/MenuDetail'
 import pgError404 from 'pages/Error404'
+import pgAdminCustomer from 'pages/admin/Customer'
 
 const routes = [
   {
@@ -69,6 +70,10 @@ const routes = [
       {
         path: '',
         component: pgAdminHome,
+      },
+      {
+        path: 'customers',
+        component: pgAdminCustomer,
       },
     ],
   },

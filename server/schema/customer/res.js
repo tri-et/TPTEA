@@ -89,7 +89,11 @@ const resolvers = {
     },
     async updateCustomer(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
-      return await Customer.upsert(input).then(() => {
+      return await Customer.update(input, {
+        where: {
+          id: input.id,
+        },
+      }).then(() => {
         return input
       })
     },
