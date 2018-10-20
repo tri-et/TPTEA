@@ -26,6 +26,13 @@ export default {
       sortable: true,
     },
     {
+      name: 'username',
+      label: 'User Name',
+      align: 'left',
+      field: 'username',
+      sortable: true,
+    },
+    {
       name: 'address',
       label: 'Address',
       align: 'left',
@@ -70,6 +77,12 @@ export default {
       label: 'User Name',
       type: 'text',
       icon: 'account_box',
+    },
+    {
+      name: 'password',
+      label: 'PassWord',
+      type: 'text',
+      icon: 'vpn_key',
     },
     {
       name: 'address',

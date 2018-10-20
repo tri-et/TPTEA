@@ -159,8 +159,8 @@ export const fetchCustomers = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else commit('setRecs', data.fetchCustomers)
+      _procAlert(data)
+      commit('setRecs', data.fetchCustomers)
       commit('setIsLoading', false)
     })
     .catch(err => {
@@ -192,7 +192,6 @@ export const delCustomers = ({commit, getters}) => {
 
 export const updateCustomer = ({commit, getters}) => {
   commit('setIsLoading', true)
-  console.log(getters.getEditingRec)
   _post(
     _.omit(getters.getEditingRec, ['__index']),
     `mutation ($input: CustomerInput) {
@@ -212,6 +211,36 @@ export const updateCustomer = ({commit, getters}) => {
       _procAlert(data)
       commit('setIsLoading', false)
       commit('setIsModalOpened', false)
+    })
+    .catch(err => {
+      _procError(err)
+      commit('setIsLoading', false)
+    })
+}
+
+export function createCustomer({commit, getters}) {
+  commit('setIsLoading', true)
+  _post(
+    getters.getEditingRec,
+    `mutation ($input: CustomerInput) {
+      createCustomer(input: $input) {
+        id
+        username
+        password
+        name
+        address
+        phone
+        balance
+        points
+      }
+    }`
+  )
+    .then(({data}) => {
+      commit('setIsLoading', false)
+      _procAlert(data)
+      commit('setIsModalOpened', false)
+      getters.getRecs.push(data.createCustomer)
+      commit('setRecs', _.clone(getters.getRecs))
     })
     .catch(err => {
       _procError(err)

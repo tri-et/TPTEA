@@ -20,6 +20,7 @@ export const setSelected = (state, payload) => {
 }
 
 export const setEditingRec = (state, payload) => {
+  payload.password = ''
   state.editingRec = payload
   state.backupRec = _.clone(payload)
   state.isModalOpened = true

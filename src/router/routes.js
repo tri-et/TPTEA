@@ -12,7 +12,7 @@ import pgCustomer from 'pages/Customer'
 import pgRegister from 'pages/Register'
 import pgMenuDetail from 'pages/MenuDetail'
 import pgError404 from 'pages/Error404'
-import pgAdminCustomer from 'pages/admin/Customer'
+import pgAdminCustomers from 'pages/admin/Customers'
 
 const routes = [
   {
@@ -73,7 +73,7 @@ const routes = [
       },
       {
         path: 'customers',
-        component: pgAdminCustomer,
+        component: pgAdminCustomers,
       },
     ],
   },

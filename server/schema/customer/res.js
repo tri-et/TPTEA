@@ -89,12 +89,28 @@ const resolvers = {
     },
     async updateCustomer(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
+      if (input.password !== '') {
+        input.password = bcrypt.hashSync(input.password, SALT)
+      } else {
+        delete input.password
+      }
       return await Customer.update(input, {
         where: {
           id: input.id,
         },
       }).then(() => {
         return input
+      })
+    },
+    async createCustomer(_, {input}, {loggedInUser}) {
+      _authAdmin(loggedInUser)
+      var user = await Customer.findOne({where: {username: input.username, type: 'password'}})
+      if (user) {
+        throw new Error('Account is existed!')
+      }
+      input.password = bcrypt.hashSync(input.password, SALT)
+      return await Customer.create(input).then(async function(customer) {
+        return customer
       })
     },
   },
