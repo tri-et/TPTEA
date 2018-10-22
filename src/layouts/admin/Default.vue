@@ -21,7 +21,7 @@
       </div>
     </q-layout-footer>
 
-    <q-layout-drawer v-model="leftDrawerOpen" :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null">
+    <q-layout-drawer v-model="leftDrawerOpen" :content-class="$q.theme === 'mat' ? 'neutral' : null">
       <q-list no-border link inset-delimiter>
         <q-item to="admin/customers">
           <q-item-side icon="people" />
