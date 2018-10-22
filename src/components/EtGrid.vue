@@ -26,7 +26,7 @@
     <template slot="top-selection" slot-scope="props">
       <div class="q-table-control">
         <!-- wrap with div.q-table-control to fix jumpimg padding-->
-        <q-btn :loading="getIsLoading" color="red" style="margin-right:5px" @click="delRecs">
+        <q-btn :loading="getIsLoading" color="negative" class="q-mr-sm" @click="delRecs">
           <q-icon name="delete" class="icon" />
           <q-spinner-pie slot="loading" class="icon" />
         </q-btn>
