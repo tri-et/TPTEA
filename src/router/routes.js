@@ -76,6 +76,7 @@ const routes = [
         path: 'giftcards',
         component: pgAdminGiftCards,
       },
+      {
         path: 'customers',
         component: pgAdminCustomers,
       },

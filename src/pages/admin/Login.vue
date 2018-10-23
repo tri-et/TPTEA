@@ -15,9 +15,9 @@
     </q-card-main>
     <q-card-actions>
       <div class="row justify-center btn-signin">
-        <q-btn :loading="getIsLoading" color="secondary" label="Sign In" class="text-secondary q-ma-sm col-10" @click="login({username,password,type:'password'})">
+        <q-btn :loading="getIsLoading" color="secondary" label="Sign In" class="text-secondary q-ma-sm col-10" @click="login({username,password})">
           <q-spinner-pie slot="loading" size="25px" />
-        </q-btn> 
+        </q-btn>
       </div>
     </q-card-actions>
   </q-card>
@@ -112,5 +112,5 @@ export default {
 
 .btn-signin
   height 60px
-  width 100%  
+  width 100%
 </style>

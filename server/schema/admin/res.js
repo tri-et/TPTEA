@@ -13,7 +13,7 @@ const resolvers = {
     async loginAdmin(_, {input}) {
       const admin = await Admin.findOne({where: {username: input.username}})
       if (!admin) {
-        throw new Error('Admin Account not found. Please try again!')
+        throw new Error('Admin account not found. Please try again!')
       }
       const valid = await bcrypt.compare(input.password, admin.password)
       if (!valid) {

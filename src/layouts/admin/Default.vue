@@ -27,7 +27,7 @@
           <q-item-side icon="store" />
           <q-item-main label="Gift Cards" />
         </q-item>
-        <q-item to="admin/customers">
+        <q-item to="/admin/customers">
           <q-item-side icon="people" />
           <q-item-main label="Customers" />
         </q-item>
@@ -51,7 +51,7 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem('auth-token')
-      this.$router.push('admin/login')
+      this.$router.push('/admin/login')
     },
   },
 }
