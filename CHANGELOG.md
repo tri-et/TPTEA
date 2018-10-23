@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Routing algorithm with new token of Admin & Customer[@phillip](https://github.com/hemvanh/TPTEA/pull/33)
 - Automation test routing [@phillip](https://github.com/hemvanh/TPTEA/pull/33)
 - Schema Admin (res loginAdmin,def type Admin,input AdminLoginInput)[@john]
+- Demo QR code scanner
 - Admin Login validator
 ### Removed 
 - Join now button
