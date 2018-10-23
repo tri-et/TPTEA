@@ -23,6 +23,10 @@
 
     <q-layout-drawer v-model="leftDrawerOpen" :content-class="$q.theme === 'mat' ? 'neutral' : null">
       <q-list no-border link inset-delimiter>
+        <q-item to="/admin/giftcards">
+          <q-item-side icon="store" />
+          <q-item-main label="Gift Cards" />
+        </q-item>
         <q-item to="admin/customers">
           <q-item-side icon="people" />
           <q-item-main label="Customers" />
