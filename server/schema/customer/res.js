@@ -104,10 +104,11 @@ const resolvers = {
     },
     async createCustomer(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
-      var user = await Customer.findOne({where: {username: input.username, type: 'password'}})
+      var user = await Customer.findOne({where: {username: input.username}})
       if (user) {
         throw new Error('Account is existed!')
       }
+      input.type = 'password'
       input.password = bcrypt.hashSync(input.password, SALT)
       return await Customer.create(input).then(async function(customer) {
         return customer

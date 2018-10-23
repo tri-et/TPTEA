@@ -2,13 +2,13 @@
   <q-table :data="getRecs" :columns="getCols" :filter="filter" :rows-per-page-options="[15,20,25,50,0]" :loading="getIsLoading" :pagination.sync="pagination" :selected-rows-label="selectedLabel" :selected.sync="selected" selection="multiple" table-class="et-grid" dense row-key="id" color="primary" separator="cell" no-results-label="No records found ..." rows-per-page-label="Show">
     <template slot="top-left" slot-scope="props">
       <q-btn :loading="getIsLoading" color="secondary" @click="fetchRecs" class="q-mr-sm">
-        <q-icon name="refresh" class="icon" />
-        <q-spinner-pie slot="loading" class="icon" />
+        <q-icon name="refresh" class="et-icon" />
+        <q-spinner-pie slot="loading" class="et-icon" />
       </q-btn>
       <q-btn wait-for-ripple :disabled="getIsLoading" color="secondary" class="q-mr-sm" :class="{'q-hide-add':hideAdd}" @click="setEditingRec({})">
-        <q-icon name="add" class="icon" />
+        <q-icon name="add" class="et-icon" />
       </q-btn>
-      <q-icon :name="getIcon" class="icon" />
+      <q-icon :name="getIcon" class="et-icon" />
       <cite>{{getTitle}}</cite>
     </template>
     <template slot="top-right" slot-scope="props">
@@ -28,9 +28,9 @@
         <!-- wrap with div.q-table-control to fix jumpimg padding-->
         <q-btn :loading="getIsLoading" color="negative" class="q-mr-sm" @click="delRecs">
           <q-icon name="delete" class="icon" />
-          <q-spinner-pie slot="loading" class="icon" />
+          <q-spinner-pie slot="loading" class="et-icon" />
         </q-btn>
-        <q-icon :name="getIcon" class="icon" />
+        <q-icon :name="getIcon" class="et-icon" />
         <cite>{{getTitle}}</cite>
       </div>
     </template>
@@ -127,6 +127,6 @@ export default {
 .input-search
   width 300px
 
-.icon
+.et-icon
   font-size 25px
 </style>
