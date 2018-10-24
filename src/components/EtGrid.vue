@@ -110,14 +110,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@media (max-width: 601px)
-  .et-grid
-    height calc(100vh - 232px) !important
-
-@media (min-width: 602px)
-  .et-grid
-    height calc(100vh - 180px) !important
-
 .q-pa-none
   padding 0 !important
 

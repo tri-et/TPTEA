@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Change wrong routing at news detail page (orders->categories)
 - Rename MyLayout to Default
 - Rename auth-token-admin to auth-token
+- Responsive customer grid
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
