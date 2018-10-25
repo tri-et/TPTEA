@@ -19,7 +19,7 @@ export const _authAdmin = loggedInUser => {
   }
 }
 
-export const genGiftCardQR = (amount, expiry) => {
+export const genGiftCard = (amount, expiry) => {
   var isNumber = _.every([amount, expiry], item => {
     return typeof item === 'number'
   })
@@ -33,6 +33,6 @@ export const genGiftCardQR = (amount, expiry) => {
       amount,
       expiry,
     },
-    process.env.JWT_SECRET
+    process.env.JWT_GIFT_SECRET
   )
 }
