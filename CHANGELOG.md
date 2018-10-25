@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Schema Admin (res loginAdmin,def type Admin,input AdminLoginInput)[@john]
 - Demo QR code scanner
 - Admin Login validator
+- Generate gift card QR
 ### Removed 
 - Join now button
 ### Fixed
