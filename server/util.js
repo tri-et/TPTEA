@@ -1,6 +1,5 @@
 import uuidv4 from 'uuid/v4'
 import jwt from 'jsonwebtoken'
-import _ from 'lodash'
 export const _auth = loggedInUser => {
   if (!loggedInUser) {
     throw new Error('Please login first!')
@@ -20,16 +19,13 @@ export const _authAdmin = loggedInUser => {
 }
 
 export const genGiftCard = (amount, expiry) => {
-  var isNumber = _.every([amount, expiry], item => {
-    return typeof item === 'number'
-  })
-  if (!isNumber) {
+  if (typeof amount !== 'number' || typeof expiry !== 'number') {
     throw new Error('Amount and Expiry must be number!')
   }
   return jwt.sign(
     {
-      unique: uuidv4(),
-      createdDate: new Date(),
+      guid: uuidv4(),
+      createdDate: new Date().getTime(),
       amount,
       expiry,
     },
