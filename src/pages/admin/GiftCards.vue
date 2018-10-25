@@ -1,42 +1,48 @@
 <template>
   <div>
-    <label>Demo Scanner QRCode</label>
-    <q-input clearable v-model="codeQR" float-label="QR Code" color="sencondary" placeholder="Please move camera focus to qr code image" />
-    <QrcodeReader @decode="onDecode" @init="onInit">
-      <div class="decoded-content">{{ content }}</div>
-      <LoadingIndicator v-show="loading" />
-    </QrcodeReader>
+    <q-card-actions>
+      <h5>Demo Scanner QRCode</h5>
+      <q-input v-model="codeQR" class="col-11" float-label="QR Code" color="sencondary" /><br />
+      <q-btn color="secondary" label="Open Scanner" class="text-secondary q-ma-sm col-3" @click="openScanner()"></q-btn>
+    </q-card-actions>
+    <q-modal v-model="openedScanner" maximized>
+      <q-modal-layout>
+        <div>
+          <q-btn class="modal-title" flat icon="close" @click="closeScanner()"></q-btn>
+        </div>
+        <div>
+          <component @scanned="receiveScannerCode" ref="scanner" v-bind:is="currentQRCodeScanner"></component>
+        </div>
+      </q-modal-layout>
+    </q-modal>
   </div>
 </template>
-
 <script>
-import {QrcodeReader} from 'vue-qrcode-reader'
-import QRCodeInitHandler from '../../mixins/QRCodeInitHandler'
+import QRCodeScanner from '../../components/qrcode/QRCodeScanner'
 export default {
-  components: {QrcodeReader},
-  mixins: [QRCodeInitHandler],
+  components: {QRCodeScanner},
   data() {
     return {
       codeQR: '',
+      openedScanner: false,
+      currentQRCodeScanner: null,
     }
   },
   methods: {
-    onDecode(content) {
-      this.codeQR = content
-      this.opened = false
+    receiveScannerCode(code) {
+      this.codeQR = code
+      this.closeScanner()
+    },
+    closeScanner() {
+      this.openedScanner = false
+      this.currentQRCodeScanner = null
+    },
+    openScanner() {
+      this.openedScanner = true
+      this.currentQRCodeScanner = QRCodeScanner
     },
   },
 }
 </script>
 <style scoped lang="stylus">
-.decoded-content
-  position absolute
-  bottom 0
-  left 0
-  right 0
-  max-width 100%
-  color #fff
-  font-weight bold
-  padding 10px
-  background-color rgba(0, 0, 0, 0.5)
 </style>
