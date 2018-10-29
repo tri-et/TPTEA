@@ -31,7 +31,7 @@ export const fetchAdmin = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      _procAlert(data)
+      _procAlert(data, true)
       commit('setAdmin', data.fetchAdmin)
     })
     .catch(err => {

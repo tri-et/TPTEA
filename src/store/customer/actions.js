@@ -132,7 +132,7 @@ export const fetchCustomer = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      _procAlert(data, 'Successfully!')
+      _procAlert(data, true)
       commit('setCustomer', data.getCustomer)
     })
     .catch(err => {
@@ -155,7 +155,7 @@ export const fetchCustomers = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      _procAlert(data, 'Successfully!')
+      _procAlert(data, true)
       commit('setRecs', data.fetchCustomers)
       commit('setIsLoading', false)
     })
@@ -174,7 +174,7 @@ export const delCustomers = ({commit, getters}) => {
       deleteCustomers(input: $input)
     }`
   ).then(({data}) => {
-    _procAlert(data, 'Successfully!')
+    _procAlert(data, true)
     commit('setIsLoading', false)
     _.remove(getters.getRecs, rec => {
       return ids.includes(rec.id)
@@ -204,7 +204,7 @@ export const updateCustomer = ({commit, getters}) => {
     }`
   )
     .then(({data}) => {
-      _procAlert(data, 'Successfully!')
+      _procAlert(data, true)
       commit('setIsLoading', false)
       commit('setIsModalOpened', false)
     })
@@ -233,7 +233,7 @@ export function createCustomer({commit, getters}) {
   )
     .then(({data}) => {
       commit('setIsLoading', false)
-      _procAlert(data, 'Successfully!')
+      _procAlert(data, true)
       commit('setIsModalOpened', false)
       getters.getRecs.push(data.createCustomer)
       commit('setRecs', _.clone(getters.getRecs))
