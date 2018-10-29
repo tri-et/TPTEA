@@ -10,13 +10,12 @@ export function loginAdmin({commit}, payload) {
   )
     .then(({data}) => {
       commit('setIsLoading', false)
-      _procAlert(data, false)
+      _procAlert(data, `Logged In Successfully!`)
       if (!data.errors) {
         // Login successfully
         localStorage.setItem('auth-token', data.loginAdmin)
         commit('setToken', data.loginAdmin)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.loginAdmin
-        _procAlert(data, false, `Logged In Successfully!`)
         this.$router.push('/admin')
       }
     })
@@ -32,7 +31,7 @@ export const fetchAdmin = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      _procAlert(data, false)
+      _procAlert(data)
       commit('setAdmin', data.fetchAdmin)
     })
     .catch(err => {
