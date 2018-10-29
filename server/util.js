@@ -32,3 +32,13 @@ export const genGiftCard = (amount, expiry) => {
     process.env.JWT_GIFT_SECRET
   )
 }
+
+export const authGiftCard = jwtGiftCard => {
+  var giftCard = jwt.verify(jwtGiftCard, process.env.JWT_GIFT_SECRET)
+  var elapsedTime = new Date().getTime() - giftCard.createdDate
+  let expired = giftCard.expiry * 86400000 < elapsedTime
+  return {
+    giftCard,
+    expired,
+  }
+}
