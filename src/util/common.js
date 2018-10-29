@@ -53,10 +53,12 @@ export const _alert = (message, type) => {
   })
 }
 
-export const _procAlert = data => {
+export const _procAlert = (data, isAlert = true, succssMessage) => {
   if (data.errors) _alert(data.errors[0].message, 'warning')
-  else {
+  else if (isAlert) {
     _alert('Success', 'positive')
+  } else if (succssMessage !== undefined) {
+    _alert(succssMessage, 'positive')
   }
 }
 

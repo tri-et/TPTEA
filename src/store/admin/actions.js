@@ -1,4 +1,4 @@
-import {_procError, _ax, _post, _alert, _get} from '../../util/common'
+import {_procError, _ax, _post, _get, _procAlert} from '../../util/common'
 
 export function loginAdmin({commit}, payload) {
   commit('setIsLoading', true)
@@ -10,13 +10,13 @@ export function loginAdmin({commit}, payload) {
   )
     .then(({data}) => {
       commit('setIsLoading', false)
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else {
+      _procAlert(data, false)
+      if (!data.errors) {
         // Login successfully
         localStorage.setItem('auth-token', data.loginAdmin)
         commit('setToken', data.loginAdmin)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.loginAdmin
-        _alert(`Logged In Successfully!`, 'positive')
+        _procAlert(data, false, `Logged In Successfully!`)
         this.$router.push('/admin')
       }
     })
@@ -32,8 +32,8 @@ export const fetchAdmin = ({commit}) => {
     }
   }`)
     .then(({data}) => {
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else commit('setAdmin', data.fetchAdmin)
+      _procAlert(data, false)
+      commit('setAdmin', data.fetchAdmin)
     })
     .catch(err => {
       _procError(err)

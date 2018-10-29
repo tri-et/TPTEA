@@ -10,13 +10,13 @@ export function loginCustomer({commit}, payload) {
   )
     .then(({data}) => {
       commit('setIsLoading', false)
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else {
+      _procAlert(data, false)
+      if (!data.errors) {
         // Login successfully
         localStorage.setItem('auth-token', data.login)
         commit('setToken', data.login)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.login
-        _alert(`Logged In Successfully!`, 'positive')
+        _procAlert(data, false, 'Logged In Successfully!')
         this.$router.push('/customer')
       }
     })
@@ -36,13 +36,13 @@ export function regCustomer({commit}, payload) {
   )
     .then(({data}) => {
       commit('setIsLoading', false)
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else {
+      _procAlert(data, false)
+      if (!data.errors) {
         // register successfully
         localStorage.setItem('auth-token', data.register)
         commit('setToken', data.register)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.register
-        _alert(`Regitered Successfully!`, 'positive')
+        _procAlert(data, false, 'Regitered Successfully!')
         this.$router.push('/customer')
       }
     })
@@ -52,7 +52,7 @@ export function regCustomer({commit}, payload) {
     })
 }
 
-export async function loginFb({commit}, payload) {
+export async function loginFb({commit}) {
   var user = await getUserFbInfo()
   _post(
     {
@@ -65,13 +65,13 @@ export async function loginFb({commit}, payload) {
     }`
   )
     .then(({data}) => {
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else {
+      _procAlert(data, false)
+      if (!data.errors) {
         // Login successfully
         localStorage.setItem('auth-token', data.loginFb)
         commit('setToken', data.loginFb)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.loginFb
-        _alert(`Logged In Successfully!`, 'positive')
+        _procAlert(data, false, 'Logged In Successfully!')
         this.$router.push('/customer')
       }
     })
@@ -99,13 +99,13 @@ export async function registerFb({commit}) {
     }`
   )
     .then(({data}) => {
-      if (data.errors) _alert(data.errors[0].message, 'warning')
-      else {
+      _procAlert(data, false)
+      if (!data.errors) {
         // register successfully
         localStorage.setItem('auth-token', data.registerFb.token)
-        commit('setToken', data.regFB)
+        commit('setToken', data.registerFb)
         _ax.defaults.headers.common['Authorization'] = 'Bearer ' + data.registerFb.token
-        _alert(data.registerFb.msg, 'positive')
+        _procAlert(data, false, data.registerFb.msg)
         this.$router.push('/customer')
       }
     })
