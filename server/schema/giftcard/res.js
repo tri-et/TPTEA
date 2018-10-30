@@ -14,9 +14,9 @@ const resolvers = {
     },
   },
   GiftCard: {
-    async userName(giftcard, _, {loggedInUser}) {
+    async userName(giftCard, _, {loggedInUser}) {
       _authAdmin(loggedInUser)
-      return await giftcard.getCustomer().get('username')
+      return (await giftCard.get('customerId')) !== null ? giftCard.getCustomer().get('username') : ''
     },
   },
 }

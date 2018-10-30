@@ -8,12 +8,12 @@ const GiftCard = `
 
   input GiftCardInput {
     id: Int
-    code: String
+    code: String!
   }
 
   input GenGiftCardInput {
-    amount: Int
-    expiry: Int
+    amount: Int!
+    expiry: Int!
   }
 `
 export default GiftCard

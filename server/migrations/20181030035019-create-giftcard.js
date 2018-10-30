@@ -13,6 +13,10 @@ module.exports = {
       },
       customerId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'customers',
+          key: 'id',
+        },
       },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
