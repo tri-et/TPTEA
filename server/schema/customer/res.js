@@ -116,15 +116,13 @@ const resolvers = {
     },
     async applyGiftCard(_, {input}, {loggedInUser}) {
       _auth(loggedInUser)
-      var giftCard = authGiftCard(input.jwt)
+      let giftCard = authGiftCard(input.jwt)
       if (giftCard.expired) {
         throw new Error('This gift card has expired!')
       }
-      var user = await Customer.findById(input.customerId)
-      var balance = user.get('balance') + giftCard.giftCard.amount
-      return await user.update({balance}).then(user => {
-        return user.get('balance')
-      })
+      let user = await Customer.findById(input.customerId)
+      let balance = user.get('balance') + giftCard.giftCard.amount
+      return await user.update({balance}).then(() => balance)
     },
   },
 }
