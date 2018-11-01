@@ -28,6 +28,9 @@ export const genGiftCard = giftCardId => {
 export const authGiftCard = async jwtGiftCard => {
   let giftCardId = jwt.verify(jwtGiftCard, process.env.JWT_GIFT_SECRET)
   let giftCard = await GiftCard.findById(giftCardId)
+  if (giftCard === null) {
+    throw new Error('This gift card not available!')
+  }
   var elapsedTime = new Date().getTime() - new Date(giftCard.createdAt).getTime()
   let expired = giftCard.expiry * 86400000 < elapsedTime
   return {
