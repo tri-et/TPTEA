@@ -19,7 +19,7 @@ export const _authAdmin = loggedInUser => {
 
 export const genGiftCard = giftCardId => {
   if (typeof giftCardId !== 'number') {
-    throw new Error('Amount must be number!')
+    throw new Error('Gift card id must be number!')
   }
   return jwt.sign(giftCardId, process.env.JWT_GIFT_SECRET)
 }
