@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import {GiftCard} from './models'
 export const _auth = loggedInUser => {
   if (!loggedInUser) {
     throw new Error('Please login first!')
@@ -24,9 +25,10 @@ export const genGiftCard = giftCardId => {
   return jwt.sign(giftCardId, process.env.JWT_GIFT_SECRET)
 }
 
-export const authGiftCard = jwtGiftCard => {
-  var giftCard = jwt.verify(jwtGiftCard, process.env.JWT_GIFT_SECRET)
-  var elapsedTime = new Date().getTime() - giftCard.createdDate
+export const authGiftCard = async jwtGiftCard => {
+  let giftCardId = jwt.verify(jwtGiftCard, process.env.JWT_GIFT_SECRET)
+  let giftCard = await GiftCard.findById(giftCardId)
+  var elapsedTime = new Date().getTime() - new Date(giftCard.createdAt).getTime()
   let expired = giftCard.expiry * 86400000 < elapsedTime
   return {
     giftCard,
