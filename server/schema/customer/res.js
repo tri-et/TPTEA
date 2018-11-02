@@ -121,10 +121,12 @@ const resolvers = {
         throw new Error(giftCard.expired ? 'This gift card has expired!' : 'This gift card not available!')
       }
       let user = await Customer.findById(input.customerId)
-      let balance = user.get('balance') + giftCard.giftCard.amount
-      return await user.update({balance}).then(async function() {
-        return await giftCard.giftCard.update({customerId: input.customerId}).then(() => balance)
-      })
+      if (user) {
+        let balance = user.get('balance') + giftCard.giftCard.amount
+        return await user.update({balance}).then(async function() {
+          return await giftCard.giftCard.update({customerId: input.customerId}).then(() => balance)
+        })
+      } else throw new Error('Cannot top up gift card!')
     },
   },
 }
