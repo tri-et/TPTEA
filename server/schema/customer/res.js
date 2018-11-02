@@ -54,7 +54,7 @@ const resolvers = {
       }
       input.password = bcrypt.hashSync(input.password, SALT)
       return await Customer.upsert(input).then(async () => {
-        return generateLoginJwt(input)
+        return await generateLoginJwt(input)
       })
     },
     async loginFb(_, {input}) {
@@ -110,13 +110,13 @@ const resolvers = {
       }
       input.type = 'password'
       input.password = bcrypt.hashSync(input.password, SALT)
-      return await Customer.create(input).then(async customer => customer)
+      return await Customer.create(input).then(customer => customer)
     },
     async applyGiftCard(_, {input}, {loggedInUser}) {
-      // _auth(loggedInUser)
+      _auth(loggedInUser)
       let {giftCard, expired} = await authGiftCard(input.jwt)
       if (expired) throw new Error('This gift card has expired!')
-      if (giftCard.customerId) throw new Error('This gift card not available!')
+      if (giftCard.customerId) throw new Error('The gift card is not available anymore!')
       let user = await Customer.findById(input.customerId)
       if (user) {
         let balance = user.get('balance') + giftCard.amount
