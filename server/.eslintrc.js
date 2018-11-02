@@ -26,5 +26,6 @@ module.exports = {
     ],
     'comma-dangle': ['error', 'always-multiline'],
     'no-console': 0,
+    'space-before-function-paren': ['error', {anonymous: 'always', named: 'never', asyncArrow: 'always'}],
   },
 }

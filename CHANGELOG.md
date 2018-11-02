@@ -45,6 +45,7 @@ All notable changes to this project will be documented in this file.
 - Remove register facebook button from login page into register page
 - Adjust createGiftCard, simplify and shorten jwt by moving Gift Card info DB
 - Adjust authGiftCard
+- Adjust applyGiftCard (update customerId to GiftCard table)
 ### Added
 - Customer Login feature
 - Customer Register feature
@@ -53,3 +54,4 @@ All notable changes to this project will be documented in this file.
 - Logins fields validation
 - Login admin
 - Fetch admin -> fetch Admin info (username) and show to admin default logged in page
+- Creat seeders GiftCard add amount, expiry
