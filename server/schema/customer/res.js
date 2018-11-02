@@ -53,7 +53,7 @@ const resolvers = {
         throw new Error('Account is existed!')
       }
       input.password = bcrypt.hashSync(input.password, SALT)
-      return await Customer.upsert(input).then(async function() {
+      return await Customer.upsert(input).then(async () => {
         return generateLoginJwt(input)
       })
     },
@@ -73,7 +73,7 @@ const resolvers = {
       } else {
         msgRes = 'Regitered Successfully!'
       }
-      return await Customer.upsert(input).then(async function() {
+      return await Customer.upsert(input).then(async () => {
         return generateLoginJwt(input, msgRes)
       })
     },
@@ -110,23 +110,20 @@ const resolvers = {
       }
       input.type = 'password'
       input.password = bcrypt.hashSync(input.password, SALT)
-      return await Customer.create(input).then(async function(customer) {
-        return customer
-      })
+      return await Customer.create(input).then(async customer => customer)
     },
     async applyGiftCard(_, {input}, {loggedInUser}) {
-      _auth(loggedInUser)
-      let giftCard = await authGiftCard(input.jwt)
-      if (giftCard.expired || giftCard.giftCard.customerId) {
-        throw new Error(giftCard.expired ? 'This gift card has expired!' : 'This gift card not available!')
-      }
+      // _auth(loggedInUser)
+      let {giftCard, expired} = await authGiftCard(input.jwt)
+      if (expired) throw new Error('This gift card has expired!')
+      if (giftCard.customerId) throw new Error('This gift card not available!')
       let user = await Customer.findById(input.customerId)
       if (user) {
-        let balance = user.get('balance') + giftCard.giftCard.amount
-        return await user.update({balance}).then(async function() {
-          return await giftCard.giftCard.update({customerId: input.customerId}).then(() => balance)
+        let balance = user.get('balance') + giftCard.amount
+        return await user.update({balance}).then(async () => {
+          return await giftCard.update({customerId: input.customerId}).then(() => balance)
         })
-      } else throw new Error('Cannot top up gift card!')
+      } else throw new Error('Not found Customer info!')
     },
   },
 }
