@@ -1,7 +1,7 @@
 <template>
-<div>
-  <canvas id="canvas"></canvas>
-</div>
+  <div>
+    <canvas id="canvas"></canvas>
+  </div>
 </template>
 <script>
 import {_procError} from '../util/common'
@@ -25,17 +25,27 @@ export default {
       default: () => 5,
     },
   },
+  methods: {
+    drawImage(qrcode) {
+      var canvas = this.$el.querySelector('#canvas')
+      QRCode.toCanvas(canvas, qrcode, {
+        color: {
+          dark: this.dark,
+          light: this.light,
+        },
+        version: this.version,
+      }).catch(err => {
+        _procError(err)
+      })
+    },
+  },
   mounted() {
-    var canvas = this.$el.querySelector('#canvas')
-    QRCode.toCanvas(canvas, this.qrcode, {
-      color: {
-        dark: this.dark,
-        light: this.light,
-      },
-      version: this.version,
-    }).catch(err => {
-      _procError(err)
-    })
+    this.drawImage(this.qrcode)
+  },
+  watch: {
+    qrcode(newQRCode, oldQRCode) {
+      this.drawImage(newQRCode)
+    },
   },
 }
 </script>
