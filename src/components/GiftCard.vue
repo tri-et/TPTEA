@@ -8,20 +8,20 @@
           <q-item-side icon="payment" />
           <q-item-main class="q-ml-none" label="Amount:" />
           <q-item-side right>
-            <q-item-tile color="secondary">{{"$"+giftCard.amount}}</q-item-tile>
+            <q-item-tile color="secondary">{{"$"+amount}}</q-item-tile>
           </q-item-side>
         </q-item>
         <q-item>
           <q-item-side icon="timer" />
           <q-item-main label="Expired Date:" />
           <q-item-side right>
-            <q-item-tile color="secondary">{{giftCard.createAt|calculateExpiredDate(giftCard.expiry)}}</q-item-tile>
+            <q-item-tile color="secondary">{{createdDate|calculateExpiredDate(expiry)}}</q-item-tile>
           </q-item-side>
         </q-item>
       </q-list>
     </div>
     <div class="col-5">
-      <gen-qr-code dark="#000" :qrcode="giftCard.code" />
+      <gen-qr-code dark="#000" :qrcode="code" />
     </div>
   </div>
 </template>
@@ -30,7 +30,22 @@ import genQrCode from './GenQRCode'
 import {date} from 'quasar'
 export default {
   props: {
-    giftCard: [Object],
+    code: {
+      type: String,
+      default: 'xxx',
+    },
+    amount: {
+      type: Number,
+      default: 0,
+    },
+    expiry: {
+      type: Number,
+      default: 0,
+    },
+    createdDate: {
+      type: String,
+      default: new Date().toDateString(),
+    },
   },
   components: {
     genQrCode,
