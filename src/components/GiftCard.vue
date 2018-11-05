@@ -15,7 +15,7 @@
           <q-item-side icon="timer" />
           <q-item-main label="Expired Date:" />
           <q-item-side right>
-            <q-item-tile color="secondary">{{createdDate|calculateExpiredDate(expiry)}}</q-item-tile>
+            <q-item-tile color="secondary">{{createdAt|calculateExpiredDate(expiry)}}</q-item-tile>
           </q-item-side>
         </q-item>
       </q-list>
@@ -42,7 +42,7 @@ export default {
       type: Number,
       default: 0,
     },
-    createdDate: {
+    createdAt: {
       type: String,
       default: new Date().toDateString(),
     },
