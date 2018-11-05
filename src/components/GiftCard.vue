@@ -43,8 +43,8 @@ export default {
       default: 0,
     },
     createdAt: {
-      type: String,
-      default: new Date().toDateString(),
+      type: Number,
+      default: new Date().getTime(),
     },
   },
   components: {
@@ -53,7 +53,7 @@ export default {
   filters: {
     calculateExpiredDate(val, expiry) {
       let {addToDate} = date
-      return date.formatDate(addToDate(new Date(val), {days: expiry}), 'DD/MM/YYYY')
+      return date.formatDate(addToDate(val, {days: expiry}), 'DD/MM/YYYY')
     },
   },
 }
