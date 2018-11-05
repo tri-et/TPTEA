@@ -15,7 +15,7 @@
           <q-item-side icon="timer" />
           <q-item-main label="Expired Date:" />
           <q-item-side right>
-            <q-item-tile color="secondary">{{giftCard.createAt|calculatorExpiredDate(giftCard.expiry)}}</q-item-tile>
+            <q-item-tile color="secondary">{{giftCard.createAt|calculateExpiredDate(giftCard.expiry)}}</q-item-tile>
           </q-item-side>
         </q-item>
       </q-list>
@@ -27,21 +27,18 @@
 </template>
 <script>
 import genQrCode from './GenQRCode'
+import {date} from 'quasar'
 export default {
   props: {
-    giftCard: {
-      type: Object,
-      default: () => {},
-    },
+    giftCard: [Object],
   },
   components: {
     genQrCode,
   },
   filters: {
-    calculatorExpiredDate(val, expiry) {
-      let l10nEN = new Intl.DateTimeFormat('en-GB')
-      let createDate = new Date(val)
-      return l10nEN.format(new Date(createDate.setDate(createDate.getDate() + expiry)))
+    calculateExpiredDate(val, expiry) {
+      let {addToDate} = date
+      return date.formatDate(addToDate(new Date(val), {days: expiry}), 'DD/MM/YYYY')
     },
   },
 }

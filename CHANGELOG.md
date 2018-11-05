@@ -55,4 +55,4 @@ All notable changes to this project will be documented in this file.
 - Login admin
 - Fetch admin -> fetch Admin info (username) and show to admin default logged in page
 - Creat seeders GiftCard add amount, expiry
-- Gift card component
+- A single GiftCard component used for printing
