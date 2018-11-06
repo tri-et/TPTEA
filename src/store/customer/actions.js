@@ -126,6 +126,7 @@ async function getUserFbInfo() {
 export const fetchCustomer = ({commit}) => {
   _get(`{
     getCustomer {
+      id
       name
       balance
       points
@@ -241,5 +242,30 @@ export function createCustomer({commit, getters}) {
     .catch(err => {
       _procError(err)
       commit('setIsLoading', false)
+    })
+}
+
+export const applyGiftCard = ({commit}, payload) => {
+  commit('setIsLoading', true)
+  _post(
+    payload,
+    `mutation ($input: ApplyGiftCardInput) {
+      applyGiftCard(input: $input){
+        balance
+        amount
+      } 
+    }`
+  )
+    .then(({data}) => {
+      let amount = (data.applyGiftCard && data.applyGiftCard.amount) || 0
+      _procAlert(data, `$${amount} has just been applied successfully`)
+      if (data.applyGiftCard) commit('setCustomerBalance', data.applyGiftCard.balance)
+    })
+    .catch(err => {
+      _procError(err)
+    })
+    .finally(() => {
+      commit('setIsLoading', false)
+      commit('setCurrentScannedGiftCardCode', '')
     })
 }
