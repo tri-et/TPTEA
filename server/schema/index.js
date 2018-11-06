@@ -47,7 +47,7 @@ const RootMutation = `
     genGiftCard(input:GenGiftCardInput): String
     deleteGiftCards(input:[Int]): Int
     createGiftCard(input:GiftCardInput): GiftCard
-    applyGiftCard(input:ApplyGiftCardInput): Int
+    applyGiftCard(input:ApplyGiftCardInput): ApplyGiftCardOutput
   }
 `
 
