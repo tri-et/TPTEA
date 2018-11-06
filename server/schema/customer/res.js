@@ -37,18 +37,14 @@ const resolvers = {
     async genCustomerPaymentId(_, {input}, {loggedInUser}) {
       _auth(loggedInUser)
       let user = await Customer.findById(input)
-      if (user) return jwt.sign({customerId: input}, process.env.JWT_SECRET, {expiresIn: '30s'})
+      if (user) return jwt.sign({id: input}, process.env.JWT_SECRET, {expiresIn: '30s'})
       else throw new Error('Customer not found!')
     },
     async verifyCustomerPaymentId(_, {input}, {loggedInUser}) {
       _auth(loggedInUser)
       return jwt.verify(input, process.env.JWT_SECRET, async (err, jwtDecode) => {
         if (err) throw new Error(err.message)
-        else {
-          let user = await Customer.findById(jwtDecode.customerId)
-          if (user) return user
-          else throw new Error('Customer not found!')
-        }
+        else return (await Customer.findById(jwtDecode.id)) || new Error('Customer not found!')
       })
     },
   },
