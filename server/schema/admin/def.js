@@ -9,5 +9,14 @@ const Admin = `
     username: String!
     password: String!
   }
+  input ReceivePaymentInput {
+    amount: Int!
+    jwtPayment: String!
+  }
+  type ReceivePayment {
+    balance: Float
+    username: String
+    chargedAmount: Float
+  }
 `
 export default Admin
