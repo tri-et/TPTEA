@@ -10,7 +10,7 @@ const Admin = `
     password: String!
   }
   input ReceivePaymentInput {
-    amount: Int!
+    amount: Float!
     jwtPayment: String!
   }
   type ReceivePayment {

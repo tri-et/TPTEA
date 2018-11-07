@@ -33,12 +33,13 @@ const resolvers = {
     },
     async receivePayment(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
-      let user = await verifyCustomerPaymentId(input.jwtPayment)
+      let {amount, jwtPayment} = input
+      let user = await verifyCustomerPaymentId(jwtPayment)
       let balance = user.get('balance')
-      if (balance < input.amount) throw new Error('Balance not enough!')
+      if (balance < amount) throw new Error('Customer`s Balance is not enough!')
       else {
-        return await user.update({balance: balance - input.amount}).then(({balance, username}) => {
-          return {balance, username, chargedAmount: input.amount}
+        return await user.update({balance: balance - amount}).then(({balance, username}) => {
+          return {balance, username, chargedAmount: amount}
         })
       }
     },

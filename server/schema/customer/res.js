@@ -35,20 +35,11 @@ const resolvers = {
       return await Customer.findAll()
     },
     async genCustomerPaymentId(_, {input}, {loggedInUser}) {
-      // _auth(loggedInUser)
+      _auth(loggedInUser)
       let user = await Customer.findById(input)
       if (user) return jwt.sign(`${input}_${new Date().getTime()}`, process.env.JWT_SECRET)
       else throw new Error('Customer not found!')
     },
-    // async verifyCustomerPaymentId(_, {input}, {loggedInUser}) {
-    //   // _auth(loggedInUser)
-    //   let jwtDecode = jwt
-    //     .verify(input, process.env.JWT_SECRET)
-    //     .split('_')
-    //     .map(number => parseInt(number))
-    //   if (new Date().getTime() - jwtDecode[1] > 30000) throw new Error('Customer Payment Id is expired!')
-    //   else return (await Customer.findById(jwtDecode[0])) || new Error('Customer not found!')
-    // },
   },
   RootMutation: {
     async login(_, {input}) {
