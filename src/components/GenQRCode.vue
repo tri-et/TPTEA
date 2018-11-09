@@ -43,6 +43,10 @@ export default {
     qrcode(newQRCode, oldQRCode) {
       this.drawImage(newQRCode)
     },
+    dark(newColor, oldColor) {
+      this.dark = newColor
+      this.drawImage(this.qrcode)
+    },
   },
 }
 </script>
