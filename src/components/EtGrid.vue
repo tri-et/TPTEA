@@ -34,6 +34,9 @@
           <q-icon name="delete" class="icon" />
           <q-spinner-pie slot="loading" class="et-icon" />
         </q-btn>
+        <q-btn wait-for-ripple :disabled="getIsLoading" v-show="supportGiftCardsPrinting" color="secondary" class="q-mr-sm" :class="{'q-hide-add':hideAdd}" @click="setPrintingRec()">
+          <q-icon name="print" class="et-icon" />
+        </q-btn>
         <q-icon :name="getIcon" class="et-icon" />
         <cite>{{getTitle}}</cite>
       </div>
@@ -70,6 +73,10 @@ export default {
     },
     hideSelection: Boolean,
     hideAdd: Boolean,
+    supportGiftCardsPrinting: {
+      default: false,
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -124,6 +131,9 @@ export default {
     ...mapMutations({
       setEditingRec(dispatch, payload) {
         return dispatch(this.type + '/setEditingRec', payload)
+      },
+      setPrintingRec(dispatch, payload) {
+        return dispatch(this.type + '/setPrintingRec', payload)
       },
     }),
     selectedLabel(rowsNo) {
