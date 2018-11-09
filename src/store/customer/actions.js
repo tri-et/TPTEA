@@ -269,3 +269,25 @@ export const applyGiftCard = ({commit}, payload) => {
       commit('setCurrentScannedGiftCardCode', '')
     })
 }
+export function genCustomerPaymentId({commit, getters}) {
+  var customer = getters.getCustomer
+  commit('setIsLoading', true)
+  _post(
+    customer.id,
+    `query ($input: Int) {
+      genCustomerPaymentId(input: $input)
+    }`
+  )
+    .then(({data}) => {
+      _procAlert(data, true)
+      if (!data.errors) {
+        commit('setQRCodePaymentId', data.genCustomerPaymentId)
+      }
+    })
+    .catch(err => {
+      _procError(err)
+    })
+    .finally(() => {
+      commit('setIsLoading', false)
+    })
+}
