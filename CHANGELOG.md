@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 0.0.2b - 2018-11-09
+## 0.0.2c - 2018-11-09
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
