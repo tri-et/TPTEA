@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "c38f90d42db60f76c44a13d9ca345b04",
-    "url": "statics/category-02.jpg"
+    "revision": "a54d4cff09320803d08dc3c14eb436ad",
+    "url": "statics/category-01.jpg"
   },
   {
-    "revision": "d2e32e2c51ed0b2fe2e3b4df82277889",
+    "revision": "9c2049d0c5b5c70f95088b68247d32a4",
     "url": "index.html"
   },
   {
-    "revision": "3a2503fe1eef8a18403b",
-    "url": "js/vendor.3a2503f.js"
+    "revision": "31dea7b6a3d913cc15a7",
+    "url": "js/vendor.31dea7b.js"
   },
   {
     "revision": "99a878dbec0760ceeaec97283cf400f5",
@@ -44,16 +44,16 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-192x192.png"
   },
   {
-    "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
-    "url": "statics/news-bottom.jpg"
-  },
-  {
-    "revision": "14200d8f3ae1eb3641382821d4b430a3",
-    "url": "statics/icons/favicon-16x16.png"
+    "revision": "35e74ac9161242fa4c215e4924888120",
+    "url": "statics/icons/ms-icon-144x144.png"
   },
   {
     "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
     "url": "statics/fb-api-v3.1.js"
+  },
+  {
+    "revision": "14200d8f3ae1eb3641382821d4b430a3",
+    "url": "statics/icons/favicon-16x16.png"
   },
   {
     "revision": "26b84e48f400c7fc9c3432fc05dfc641",
@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "statics/category-07.jpg"
   },
   {
-    "revision": "a54d4cff09320803d08dc3c14eb436ad",
-    "url": "statics/category-01.jpg"
+    "revision": "c38f90d42db60f76c44a13d9ca345b04",
+    "url": "statics/category-02.jpg"
   },
   {
-    "revision": "db91f6610b71fe8c0498",
-    "url": "js/app.a1eb223.js"
+    "revision": "047b78af0e7fcc8b80c2",
+    "url": "js/app.e72f2f8.js"
   },
   {
     "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
@@ -100,8 +100,8 @@ self.__precacheManifest = [
     "url": "statics/icons/apple-icon-152x152.png"
   },
   {
-    "revision": "35e74ac9161242fa4c215e4924888120",
-    "url": "statics/icons/ms-icon-144x144.png"
+    "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
+    "url": "statics/news-bottom.jpg"
   },
   {
     "revision": "d9c608dcea837a8f2c275b0b874da757",
@@ -140,7 +140,7 @@ self.__precacheManifest = [
     "url": "fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "db91f6610b71fe8c0498",
-    "url": "css/app.c08e1f33.css"
+    "revision": "047b78af0e7fcc8b80c2",
+    "url": "css/app.8657fefa.css"
   }
 ];
