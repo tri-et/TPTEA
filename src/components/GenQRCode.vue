@@ -22,7 +22,7 @@ export default {
     },
     version: {
       type: Number,
-      default: () => 5,
+      default: () => 6,
     },
   },
   methods: {

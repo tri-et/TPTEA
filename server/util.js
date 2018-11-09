@@ -43,6 +43,6 @@ export const verifyCustomerPaymentId = async jwtPayment => {
     .verify(jwtPayment, process.env.JWT_SECRET)
     .split('_')
     .map(number => parseInt(number))
-  if (new Date().getTime() - jwtDecode[1] > 30000) throw new Error('Customer Payment Id is expired!')
+  if (new Date().getTime() - jwtDecode[1] > 86400000) throw new Error('Customer Payment Id is expired!')
   else return (await Customer.findById(jwtDecode[0])) || new Error('Customer not found!')
 }
