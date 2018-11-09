@@ -4,7 +4,7 @@
       <q-input type="number" color="secondary" placeholder="Amount" v-model="amount" />
     </q-field>
     <q-btn label="Receive Payment" :disable="getIsDisable" icon="payment" color="secondary" @click="openScaner()" />
-    <q-modal v-model="getIsOpenDialog" no-backdrop-dismiss no-esc-dismiss minimized :content-css="{maxWidth: '290px',minWidth:'230px'} ">
+    <q-modal v-model="getIsDialogOpenned" no-backdrop-dismiss no-esc-dismiss minimized :content-css="{maxWidth: '290px',minWidth:'230px'} ">
       <q-modal-layout class=" q-pt-md q-pr-md q-pl-md q-pb-md">
         <div class="row justify-center">
           <div class="title-receive q-pb-md">Receive Payment Info</div>
@@ -43,7 +43,7 @@ export default {
   },
   components: {QRCodeScanner},
   computed: {
-    ...mapGetters('admin', ['getIsOpenDialog', 'getReceived', 'getIsDisable']),
+    ...mapGetters('admin', ['getIsDialogOpenned', 'getReceived', 'getIsDisable']),
   },
   methods: {
     ...mapActions('admin', ['receivePayment', 'setIsOpenDialog']),
