@@ -60,3 +60,4 @@ All notable changes to this project will be documented in this file.
 - Verify and generate customer payment Id
 - Add IsPrinted to Giftcard
 - Receive payment function
+- Grid recive payment
