@@ -3,7 +3,7 @@
     <et-grid type="giftcard" :disableEditting="true" :expandedCol="expandedCol" supportGiftCardsPrinting />
     <modal-create-gift-card />
     <modal-q-r-code :qrcode="getCurrentGenGiftCardCode" />
-    <gift-cards-printing>
+    <gift-cards-printing />
   </div>
 </template>
 <script>
