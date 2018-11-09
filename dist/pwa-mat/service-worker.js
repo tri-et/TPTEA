@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.590f1cc13998dd53ac2535bca7c2198d.js"
+  "precache-manifest.03d1595d5d8797ef94f05ef8ab8b8cab.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tptea"});
