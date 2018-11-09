@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     ...mapActions('admin', ['receivePayment', 'setIsOpenDialog']),
-    ...mapMutations('admin', ['setIsOpenDialog']),
+    ...mapMutations('admin', ['setIsDialogOpenned']),
     receiveScannerCode(jwtPayment) {
       this.closeScanner()
       this.receivePayment({amount: this.amount, jwtPayment})
@@ -61,7 +61,7 @@ export default {
       this.theScanner = QRCodeScanner
     },
     closeDialog() {
-      this.setIsOpenDialog(false)
+      this.setIsDialogOpenned(false)
       this.amount = ''
     },
   },
