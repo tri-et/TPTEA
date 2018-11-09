@@ -2,17 +2,20 @@
 
 module.exports = {
   up: function up(queryInterface, Sequelize) {
-    return queryInterface.createTable('locations', {
+    return queryInterface.createTable('admins', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      code: {
+      username: {
         type: Sequelize.STRING
       },
-      name: {
+      password: {
+        type: Sequelize.STRING
+      },
+      roles: {
         type: Sequelize.STRING
       },
       createdAt: Sequelize.DATE,
@@ -20,6 +23,6 @@ module.exports = {
     });
   },
   down: function down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('locations');
+    return queryInterface.dropTable('admins');
   }
 };

@@ -5,7 +5,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var GoogleSpreadsheet = require('google-spreadsheet');
 var _d = require('lodash');
 var creds = require('../TP-TEA-HK-4be78b7ad5f8.json');
-var doc = new GoogleSpreadsheet('1qFpMLDWABXh2JFg_h6VZbZt5OxslSuvjzS1Zn74uSag');
+var doc = new GoogleSpreadsheet('1UrGAyKHOciuOgkLYafm3l8kaIVSMlZrc8fFnMPRzScA');
 function getData() {
   return new Promise(function (resolve, reject) {
     doc.useServiceAccountAuth(creds, function (err) {
@@ -30,8 +30,8 @@ module.exports = {
 
             case 2:
               data = _context.sent;
-              return _context.abrupt('return', queryInterface.bulkInsert('customers', _d.map(data, function (row) {
-                return _d.pick(row, 'id', 'name', 'address', 'phone', 'username', 'password', 'points', 'balance', 'type');
+              return _context.abrupt('return', queryInterface.bulkInsert('admins', _d.map(data, function (row) {
+                return _d.pick(row, 'id', 'username', 'password', 'roles');
               }), {}));
 
             case 4:
@@ -51,6 +51,6 @@ module.exports = {
 
 
   down: function down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('customers', null, {});
+    return queryInterface.bulkDelete('admins', null, {});
   }
 };

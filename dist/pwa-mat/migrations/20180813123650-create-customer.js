@@ -36,16 +36,12 @@ module.exports = {
         defaultValue: 0,
         allowNull: false
       },
-      createdAt: {
-        allowNull: false,
-        defaultValue: Sequelize.fn('now'),
-        type: Sequelize.DATE
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      updatedAt: {
-        allowNull: false,
-        defaultValue: Sequelize.fn('now'),
-        type: Sequelize.DATE
-      }
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE
     });
   },
   down: function down(queryInterface, Sequelize) {

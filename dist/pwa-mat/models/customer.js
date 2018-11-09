@@ -8,11 +8,15 @@ module.exports = function (sequelize, DataTypes) {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     balance: DataTypes.FLOAT,
-    points: DataTypes.INTEGER
+    points: DataTypes.INTEGER,
+    type: DataTypes.STRING
   }, {});
   Customer.associate = function (models) {
     // associations can be defined here
     Customer.hasMany(models.Order, {
+      foreignKey: 'customerId'
+    });
+    Customer.hasMany(models.GiftCard, {
       foreignKey: 'customerId'
     });
   };

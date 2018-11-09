@@ -2,38 +2,37 @@
 
 module.exports = {
   up: function up(queryInterface, Sequelize) {
-    return queryInterface.createTable('orderdetails', {
+    return queryInterface.createTable('giftcards', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      orderId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'orders',
-          key: 'id'
-        }
+      code: {
+        type: Sequelize.TEXT
       },
-      menuId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'menus',
-          key: 'id'
-        }
-      },
-      quantity: {
+      amount: {
         type: Sequelize.INTEGER
       },
-      price: {
-        type: Sequelize.FLOAT
+      expiry: {
+        type: Sequelize.INTEGER
+      },
+      isprinted: {
+        type: Sequelize.BOOLEAN
+      },
+      customerId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'customers',
+          key: 'id'
+        }
       },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE
     });
   },
   down: function down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('orderdetails');
+    return queryInterface.dropTable('giftcards');
   }
 };

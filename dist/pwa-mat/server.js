@@ -42,7 +42,7 @@ app.use('/api', _bodyParser2.default.json(), auth, (0, _apolloServerExpress.grap
     schema: _schema2.default,
     context: {
       // can access from resolvers, for when token is attached to axios Authorization header
-      authCustomer: req.user
+      loggedInUser: req.user
     }
   };
 }));

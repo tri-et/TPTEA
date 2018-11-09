@@ -2,17 +2,20 @@
 
 module.exports = {
   up: function up(queryInterface, Sequelize) {
-    return queryInterface.createTable('locations', {
+    return queryInterface.createTable('modifiers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      code: {
+      name: {
         type: Sequelize.STRING
       },
-      name: {
+      price: {
+        type: Sequelize.STRING
+      },
+      type: {
         type: Sequelize.STRING
       },
       createdAt: Sequelize.DATE,
@@ -20,6 +23,6 @@ module.exports = {
     });
   },
   down: function down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('locations');
+    return queryInterface.dropTable('modifiers');
   }
 };

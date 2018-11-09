@@ -5,7 +5,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var GoogleSpreadsheet = require('google-spreadsheet');
 var _d = require('lodash');
 var creds = require('../TP-TEA-HK-4be78b7ad5f8.json');
-var doc = new GoogleSpreadsheet('1qFpMLDWABXh2JFg_h6VZbZt5OxslSuvjzS1Zn74uSag');
+
+// Create a document object using the ID of the spreadsheet - obtained from its URL.
+var doc = new GoogleSpreadsheet('1ZX_2fPQS17VRemtTF4m74Y_XFmjOHyqWEn8JXDdmyDI');
+
 function getData() {
   return new Promise(function (resolve, reject) {
     doc.useServiceAccountAuth(creds, function (err) {
@@ -15,6 +18,7 @@ function getData() {
     });
   });
 }
+
 module.exports = {
   up: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(queryInterface, Sequelize) {
@@ -30,8 +34,8 @@ module.exports = {
 
             case 2:
               data = _context.sent;
-              return _context.abrupt('return', queryInterface.bulkInsert('customers', _d.map(data, function (row) {
-                return _d.pick(row, 'id', 'name', 'address', 'phone', 'username', 'password', 'points', 'balance', 'type');
+              return _context.abrupt('return', queryInterface.bulkInsert('modifiers', _d.map(data, function (row) {
+                return _d.pick(row, ['id', 'name', 'price', 'type']);
               }), {}));
 
             case 4:
@@ -51,6 +55,6 @@ module.exports = {
 
 
   down: function down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('customers', null, {});
+    return queryInterface.bulkDelete('modifiers', null, {});
   }
 };
