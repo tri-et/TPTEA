@@ -279,7 +279,7 @@ export function genCustomerPaymentId({commit, getters}) {
     }`
   )
     .then(({data}) => {
-      _procAlert(data, true)
+      _procAlert(data, 'Payment Id Generated!')
       if (!data.errors) {
         commit('setQRCodePaymentId', data.genCustomerPaymentId)
       }
