@@ -46,7 +46,7 @@ export default {
     ...mapGetters('admin', ['getIsDialogOpenned', 'getReceived', 'getIsDisabled']),
   },
   methods: {
-    ...mapActions('admin', ['receivePayment', 'setIsOpenDialog']),
+    ...mapActions('admin', ['receivePayment']),
     ...mapMutations('admin', ['setIsDialogOpenned']),
     receiveScannerCode(jwtPayment) {
       this.closeScanner()
