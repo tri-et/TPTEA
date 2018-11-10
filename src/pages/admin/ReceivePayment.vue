@@ -19,12 +19,8 @@
     </q-modal>
     <q-modal v-model="scannerStarted" maximized>
       <q-modal-layout>
-        <div>
-          <q-btn class="modal-title" flat icon="close" @click="closeScanner()"  ></q-btn>
-        </div>
-        <div>
-          <component @scanned="receiveScannerCode" ref="scanner" v-bind:is="theScanner"></component>
-        </div>
+        <q-btn class="modal-title" flat icon="close" @click="closeScanner()" />
+        <component @scanned="receiveScannerCode" ref="scanner" v-bind:is="theScanner" />
       </q-modal-layout>
     </q-modal>
   </div>
