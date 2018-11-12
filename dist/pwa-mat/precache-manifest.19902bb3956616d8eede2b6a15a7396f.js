@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "a54d4cff09320803d08dc3c14eb436ad",
-    "url": "statics/category-01.jpg"
+    "revision": "c38f90d42db60f76c44a13d9ca345b04",
+    "url": "statics/category-02.jpg"
   },
   {
-    "revision": "9c2049d0c5b5c70f95088b68247d32a4",
+    "revision": "74680c350260785285ef96cae8f0e4b0",
     "url": "index.html"
   },
   {
@@ -16,20 +16,20 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-512x512.png"
   },
   {
-    "revision": "7640eba83f30ae641fe5f84b347da70d",
-    "url": "statics/category-06.jpg"
-  },
-  {
     "revision": "f404ba74744bcd8c4c7b4e39e8477734",
     "url": "statics/icons/icon-384x384.png"
   },
   {
-    "revision": "28b2ac819fdc080cc5be4f5099fa0b9b",
-    "url": "statics/news2.jpg"
-  },
-  {
     "revision": "ca020dc88ada0257913d4457e0b03f28",
     "url": "statics/icons/icon-256x256.png"
+  },
+  {
+    "revision": "7640eba83f30ae641fe5f84b347da70d",
+    "url": "statics/category-06.jpg"
+  },
+  {
+    "revision": "28b2ac819fdc080cc5be4f5099fa0b9b",
+    "url": "statics/news2.jpg"
   },
   {
     "revision": "791d460848051485414e037bfbcf3452",
@@ -48,16 +48,16 @@ self.__precacheManifest = [
     "url": "statics/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
-    "url": "statics/fb-api-v3.1.js"
-  },
-  {
     "revision": "14200d8f3ae1eb3641382821d4b430a3",
     "url": "statics/icons/favicon-16x16.png"
   },
   {
     "revision": "26b84e48f400c7fc9c3432fc05dfc641",
     "url": "statics/icons/favicon-32x32.png"
+  },
+  {
+    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
+    "url": "statics/fb-api-v3.1.js"
   },
   {
     "revision": "644d672e528a3a2c937bb8156ee55e73",
@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "statics/category-07.jpg"
   },
   {
-    "revision": "c38f90d42db60f76c44a13d9ca345b04",
-    "url": "statics/category-02.jpg"
+    "revision": "a54d4cff09320803d08dc3c14eb436ad",
+    "url": "statics/category-01.jpg"
   },
   {
-    "revision": "047b78af0e7fcc8b80c2",
-    "url": "js/app.e72f2f8.js"
+    "revision": "d1a3e8c1d5666b3c7519",
+    "url": "js/app.1a9317f.js"
   },
   {
     "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
@@ -140,7 +140,7 @@ self.__precacheManifest = [
     "url": "fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "047b78af0e7fcc8b80c2",
-    "url": "css/app.8657fefa.css"
+    "revision": "d1a3e8c1d5666b3c7519",
+    "url": "css/app.4e5296d8.css"
   }
 ];
