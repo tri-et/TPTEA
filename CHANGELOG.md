@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 0.0.2f - 2018-11-12
+## 0.0.2g - 2018-11-12
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
@@ -34,6 +34,7 @@ All notable changes to this project will be documented in this file.
 - Responsive customer grid
 - CSS fix for Topup & Login page
 - Add button export for printing
+- Remove pwa icon transparency
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
