@@ -1,9 +1,9 @@
 <template>
   <div class="gift-card row">
-    <div class="col-7">
+    <div class="col-7  row items-center">
       <q-list no-border class="q-mt-md q-pt-none">
         <q-list-header class="text-center q-pa-none">TPT TEA</q-list-header>
-        <q-item-separator />
+        <q-item-separator class="q-ml-md" />
         <q-item class="q-ml-none">
           <q-item-side icon="payment" />
           <q-item-main class="q-ml-none" label="Amount:" />
