@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
-    "url": "statics/icons/ms-icon-144x144.png"
+    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
+    "url": "statics/icons/icon-384x384.png"
   },
   {
-    "revision": "92f2bcffb7c3ed38393c5bd49ac3c3a3",
+    "revision": "bc5240177cee8a8bf46b0912d2eaf3cf",
     "url": "index.html"
   },
   {
@@ -20,32 +20,32 @@ self.__precacheManifest = [
     "url": "statics/news2.jpg"
   },
   {
-    "revision": "34e14a8932d3d3f4cc568db480b7e503",
-    "url": "statics/category-05.jpg"
+    "revision": "2395d308a523880f18adc8766737b569",
+    "url": "statics/splash/ipadpro2_splash.png"
+  },
+  {
+    "revision": "94cb9352c4322707de27fdcaf751381b",
+    "url": "statics/splash/ipadpro3_splash.png"
+  },
+  {
+    "revision": "2fcfa369fab9a867d400ac4509afcae0",
+    "url": "statics/splash/iphonexsmax_splash.png"
+  },
+  {
+    "revision": "168b6a13f64839dc17af513920138f94",
+    "url": "statics/splash/ipadpro1_splash.png"
   },
   {
     "revision": "791d460848051485414e037bfbcf3452",
     "url": "statics/news1.jpg"
   },
   {
-    "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
-    "url": "statics/news-bottom.jpg"
+    "revision": "b120218c83f31dbb7e71cbec16ad3635",
+    "url": "statics/splash/ipad_splash.png"
   },
   {
-    "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
-    "url": "statics/quasar-logo.png"
-  },
-  {
-    "revision": "fb12fdfd6f762c27f2d5d1cf86748c02",
-    "url": "statics/category-04.jpg"
-  },
-  {
-    "revision": "3e29aabebf8a9f37298de2dd7f046539",
-    "url": "statics/category-08.jpg"
-  },
-  {
-    "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
-    "url": "statics/category-03.jpg"
+    "revision": "34e14a8932d3d3f4cc568db480b7e503",
+    "url": "statics/category-05.jpg"
   },
   {
     "revision": "94927b05c26b2a1b4d585c7305b9d04d",
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "statics/icons/favicon-16x16.png"
   },
   {
-    "revision": "7d658a65f98809eb34686beb06e127d3",
-    "url": "statics/icons/icon-128x128.png"
+    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
+    "url": "statics/fb-api-v3.1.js"
   },
   {
     "revision": "943b239ce0d615228200f7190de047d8",
@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-192x192.png"
   },
   {
-    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
-    "url": "statics/fb-api-v3.1.js"
+    "revision": "7d658a65f98809eb34686beb06e127d3",
+    "url": "statics/icons/icon-128x128.png"
   },
   {
-    "revision": "1ec90b6d9067c08feb3b",
-    "url": "js/app.32b3916.js"
+    "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
+    "url": "statics/icons/ms-icon-144x144.png"
   },
   {
     "revision": "644d672e528a3a2c937bb8156ee55e73",
@@ -88,12 +88,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-256x256.png"
   },
   {
-    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
-    "url": "statics/icons/icon-384x384.png"
-  },
-  {
     "revision": "c2b35452f36dcfc83a03c07a8ead6104",
     "url": "statics/icons/icon-512x512.png"
+  },
+  {
+    "revision": "1ec90b6d9067c08feb3b",
+    "url": "js/app.e9b24fd.js"
   },
   {
     "revision": "a54d4cff09320803d08dc3c14eb436ad",
@@ -102,6 +102,46 @@ self.__precacheManifest = [
   {
     "revision": "c38f90d42db60f76c44a13d9ca345b04",
     "url": "statics/category-02.jpg"
+  },
+  {
+    "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
+    "url": "statics/category-03.jpg"
+  },
+  {
+    "revision": "3e29aabebf8a9f37298de2dd7f046539",
+    "url": "statics/category-08.jpg"
+  },
+  {
+    "revision": "dc6ae0779b40cefaa09d95e6a9dfd3ba",
+    "url": "statics/quasar-logo.png"
+  },
+  {
+    "revision": "a60c4f6c85d21275288056b7c615ec13",
+    "url": "statics/splash/iphone5_splash.png"
+  },
+  {
+    "revision": "fb12fdfd6f762c27f2d5d1cf86748c02",
+    "url": "statics/category-04.jpg"
+  },
+  {
+    "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
+    "url": "statics/news-bottom.jpg"
+  },
+  {
+    "revision": "9ff42bb0678a2bc4994c0a6bf2237e4e",
+    "url": "statics/splash/iphone6_splash.png"
+  },
+  {
+    "revision": "6eba63fc46f208110dc9150b252eb22f",
+    "url": "statics/splash/iphonexr_splash.png"
+  },
+  {
+    "revision": "d8317a3b86ddb9ac0589d2e2ce4ccd08",
+    "url": "statics/splash/iphonex_splash.png"
+  },
+  {
+    "revision": "7f0be28d45e35421cd14d38ab7266970",
+    "url": "statics/splash/iphoneplus_splash.png"
   },
   {
     "revision": "d9c608dcea837a8f2c275b0b874da757",
