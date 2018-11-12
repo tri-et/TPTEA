@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 0.0.2j - 2018-11-12
+## 0.0.2k - 2018-11-12
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file.
 - Topup page
 - Authenticate a GiftCard utility function
 - GiftCard page [@phillip](https://github.com/hemvanh/TPTEA/pull/55)
-- iOS splash screen
+- iOS splash screen - dark
 ### Removed 
 - Join now button
 - Remove parameter "expiry" and change parameter "amount" to "giftCardid" in genGiftCard function
