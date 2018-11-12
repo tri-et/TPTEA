@@ -48,7 +48,7 @@
           <q-toggle v-model="notification" color="primary" />
         </q-item-side>
       </q-item>
-      <q-item class="q-pt-md q-pb-md" @click.native="signOut()">
+      <q-item class="q-pt-md q-pb-md" @click.native="signOut()" link>
         <q-item-side icon="power_settings_new" />
         <q-item-main label="Sign Out" />
       </q-item>
