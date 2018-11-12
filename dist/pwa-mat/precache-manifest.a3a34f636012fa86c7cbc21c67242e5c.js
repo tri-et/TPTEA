@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "644d672e528a3a2c937bb8156ee55e73",
-    "url": "statics/qr-code-sample.png"
+    "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
+    "url": "statics/icons/ms-icon-144x144.png"
   },
   {
     "revision": "29fef2f5b7951e82bb2906b9bf93b763",
@@ -48,11 +48,7 @@ self.__precacheManifest = [
     "url": "statics/category-03.jpg"
   },
   {
-    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
-    "url": "statics/fb-api-v3.1.js"
-  },
-  {
-    "revision": "6b1f9313b271eaba4d6b95728bfbcb61",
+    "revision": "94927b05c26b2a1b4d585c7305b9d04d",
     "url": "statics/icons/apple-icon-152x152.png"
   },
   {
@@ -60,40 +56,44 @@ self.__precacheManifest = [
     "url": "statics/icons/favicon-16x16.png"
   },
   {
-    "revision": "58c8b0afc3d0b6d27d0bf10ab1869491",
-    "url": "statics/icons/icon-128x128.png"
-  },
-  {
     "revision": "943b239ce0d615228200f7190de047d8",
     "url": "statics/icons/favicon-32x32.png"
   },
   {
-    "revision": "e4639257c50370e3d3717204bb987eb7",
-    "url": "statics/icons/ms-icon-144x144.png"
+    "revision": "7d658a65f98809eb34686beb06e127d3",
+    "url": "statics/icons/icon-128x128.png"
+  },
+  {
+    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
+    "url": "statics/fb-api-v3.1.js"
+  },
+  {
+    "revision": "77bce50393376332bc7b948a33f1143f",
+    "url": "statics/icons/icon-192x192.png"
   },
   {
     "revision": "1ec90b6d9067c08feb3b",
     "url": "js/app.a3d2b97.js"
   },
   {
+    "revision": "644d672e528a3a2c937bb8156ee55e73",
+    "url": "statics/qr-code-sample.png"
+  },
+  {
     "revision": "9be51b3fc732ce5f5931631c5fe6a42e",
     "url": "statics/category-07.jpg"
   },
   {
-    "revision": "68ba2048d7649e56425de168821251c5",
-    "url": "statics/icons/icon-192x192.png"
-  },
-  {
-    "revision": "5dedad983719afa917ba350123a9eb83",
+    "revision": "28f75e604a5048ee11cf3665ce1ba471",
     "url": "statics/icons/icon-256x256.png"
   },
   {
-    "revision": "33a69da1397ff0dcdfb63a5ac5d0a092",
-    "url": "statics/icons/icon-384x384.png"
+    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
+    "url": "statics/icons/icon-512x512.png"
   },
   {
-    "revision": "2c6458e36b6e27de26fc2f19ce3a6413",
-    "url": "statics/icons/icon-512x512.png"
+    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
+    "url": "statics/icons/icon-384x384.png"
   },
   {
     "revision": "a54d4cff09320803d08dc3c14eb436ad",
