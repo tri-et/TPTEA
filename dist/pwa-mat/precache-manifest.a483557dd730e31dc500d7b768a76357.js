@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "statics/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "29fef2f5b7951e82bb2906b9bf93b763",
+    "revision": "92f2bcffb7c3ed38393c5bd49ac3c3a3",
     "url": "index.html"
   },
   {
@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "statics/news2.jpg"
   },
   {
-    "revision": "791d460848051485414e037bfbcf3452",
-    "url": "statics/news1.jpg"
-  },
-  {
     "revision": "34e14a8932d3d3f4cc568db480b7e503",
     "url": "statics/category-05.jpg"
+  },
+  {
+    "revision": "791d460848051485414e037bfbcf3452",
+    "url": "statics/news1.jpg"
   },
   {
     "revision": "94ba98e9f9ccb0d51f88f3e0037bce1e",
@@ -56,24 +56,24 @@ self.__precacheManifest = [
     "url": "statics/icons/favicon-16x16.png"
   },
   {
-    "revision": "943b239ce0d615228200f7190de047d8",
-    "url": "statics/icons/favicon-32x32.png"
-  },
-  {
     "revision": "7d658a65f98809eb34686beb06e127d3",
     "url": "statics/icons/icon-128x128.png"
   },
   {
-    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
-    "url": "statics/fb-api-v3.1.js"
+    "revision": "943b239ce0d615228200f7190de047d8",
+    "url": "statics/icons/favicon-32x32.png"
   },
   {
     "revision": "77bce50393376332bc7b948a33f1143f",
     "url": "statics/icons/icon-192x192.png"
   },
   {
+    "revision": "e95d86c037f6a8c38e1e64cea5f508b5",
+    "url": "statics/fb-api-v3.1.js"
+  },
+  {
     "revision": "1ec90b6d9067c08feb3b",
-    "url": "js/app.a3d2b97.js"
+    "url": "js/app.32b3916.js"
   },
   {
     "revision": "644d672e528a3a2c937bb8156ee55e73",
@@ -88,12 +88,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-256x256.png"
   },
   {
-    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
-    "url": "statics/icons/icon-512x512.png"
-  },
-  {
     "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
     "url": "statics/icons/icon-384x384.png"
+  },
+  {
+    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
+    "url": "statics/icons/icon-512x512.png"
   },
   {
     "revision": "a54d4cff09320803d08dc3c14eb436ad",
