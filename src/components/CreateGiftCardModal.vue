@@ -12,7 +12,7 @@
             <et-validator :dirty="$v.expiry.$dirty" :show="!$v.expiry.integer" msg="expiry must have a interger" />
             <et-validator :dirty="$v.expiry.$dirty" :show="!$v.expiry.between" msg="expiry is <=1 and <= 1000 " />
           </q-field>
-          <q-field color="secondary" class="q-mb-md col-11" label-width="3" icon="attach_money" label="Amout">
+          <q-field color="secondary" class="q-mb-md col-11" label-width="3" icon="attach_money" label="Amount">
             <q-input v-model="amount" type="number" prefix="$" color="secondary" :error="$v.amount.$error" />
             <et-validator :dirty="$v.amount.$dirty" :show="!$v.amount.required" msg="amount is required" />
             <et-validator :dirty="$v.amount.$dirty" :show="!$v.amount.numeric" msg="amount must have a numeric" />

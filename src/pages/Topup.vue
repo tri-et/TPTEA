@@ -6,7 +6,7 @@
             <q-card-media></q-card-media>
             <q-item class="q-pt-md q-pb-md col-11">
               <q-item-side icon="attach_money" />
-              <q-item-main label="Balance Amout" />
+              <q-item-main label="Balance Amount" />
               <q-item-side right>
                 <q-item-tile color="secondary">$ {{getCustomer.balance}}</q-item-tile>
               </q-item-side>
