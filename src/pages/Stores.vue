@@ -46,7 +46,7 @@ export default {
       lat: 31.2292,
       lng: 121.5186,
     },
-    zoom: 12,
+    zoom: 16,
     currentStore: {
       name: 'New World Store',
       position: {lat: 31.2056323, lng: 121.46787489999997},
