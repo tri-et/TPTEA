@@ -1,4 +1,4 @@
-import {_procError, _ax, _post, _get, _procAlert} from '../../util/common'
+import {_procError, _ax, _post, _get, _procAlert, getTokenFB} from '../../util/common'
 import _ from 'lodash'
 export function loginCustomer({commit}, payload) {
   commit('setIsLoading', true)
@@ -110,17 +110,11 @@ export async function registerFb({commit}) {
     })
 }
 async function getUserFbInfo() {
+  let token = await getTokenFB()
   return new Promise(resolve => {
-    window.FB.login(
-      res => {
-        if (res.status === 'connected') {
-          window.FB.api('/me?fields=name,email', person => {
-            resolve(person)
-          })
-        }
-      },
-      {scope: 'public_profile,email'}
-    )
+    window.FB.api('/me?fields=name,email&access_token=' + token + '', person => {
+      resolve(person)
+    })
   })
 }
 export const fetchCustomer = ({commit}) => {
