@@ -73,3 +73,43 @@ export function getUserType() {
   let token = localStorage.getItem('auth-token')
   return token ? token.substr(token.length - 1) : null
 }
+
+export async function getTokenFB() {
+  let popup = window.open(
+    'https://www.facebook.com/v3.1/dialog/oauth?client_id=253998778647702&scope=email&display=popup&response_type=token,granted_scopes&auth_type=rerequest&redirect_uri=' +
+      window.location.origin +
+      '/fb-login-receiver.html',
+    'Facebook Login',
+    'width=500,height=500'
+  )
+  let token = new Promise((resolve, reject) => {
+    var finished = false
+    let listener = e => {
+      finished = true
+      let url = new URL(e.data)
+      let hash = url.hash.substring(1)
+      let splitted = hash.split('&')
+      let dct = {}
+      for (let s of splitted) {
+        var spltd = s.split('=')
+        dct[spltd[0]] = spltd[1]
+      }
+      if (dct['granted_scopes'].indexOf('email') < 0) {
+        reject(new Error('Email required'))
+        return
+      }
+      resolve(dct['access_token'])
+    }
+    addEventListener('message', listener)
+    let intervalChecker = setInterval(() => {
+      if (popup.closed) {
+        clearInterval(intervalChecker)
+        removeEventListener('message', listener)
+        if (!finished) {
+          reject(new Error('Login canceled'))
+        }
+      }
+    }, 10)
+  })
+  return token
+}
