@@ -41,14 +41,13 @@ export default {
   methods: {
     gotoStore(position, name) {
       document.getElementById('stores').parentNode.scrollTo(0, 0)
-      var me = this
       // fix lost marker icon when scroll top
-      setTimeout(function() {
-        me.currentStore = {
+      setTimeout(() => {
+        this.currentStore = {
           name: name,
           position: position,
         }
-        me.center = position
+        this.center = position
       }, 300)
     },
   },
