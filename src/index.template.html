@@ -63,7 +63,29 @@
       rel="apple-touch-startup-image"
     />
 
-    <script src="statics/fb-api-v3.1.js"></script>
+    <script>
+      window.fbAsyncInit = function() {
+        window.FB.init({
+          appId: '253998778647702',
+          cookie: true,
+          xfbml: true,
+          version: 'v3.2',
+        })
+
+        window.FB.AppEvents.logPageView()
+      }
+      ;(function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) {
+          return
+        }
+        js = d.createElement(s)
+        js.id = id
+        js.src = 'https://connect.facebook.net/en_US/sdk.js'
+        fjs.parentNode.insertBefore(js, fjs)
+      })(document, 'script', 'facebook-jssdk')
+    </script>
 
     <link rel="icon" href="statics/quasar-logo.png" type="image/x-icon" />
     <link rel="icon" type="image/png" sizes="32x32" href="statics/icons/favicon-32x32.png" />
