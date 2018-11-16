@@ -76,7 +76,7 @@ export function getUserType() {
 
 export async function getTokenFB() {
   let popup = window.open(
-    'https://www.facebook.com/v3.1/dialog/oauth?client_id=253998778647702&scope=email&display=popup&response_type=token,granted_scopes&auth_type=rerequest&redirect_uri=' +
+    'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&scope=email&display=popup&response_type=token,granted_scopes&auth_type=rerequest&redirect_uri=' +
       window.location.origin +
       '/fb-login-receiver.html',
     'Facebook Login',
@@ -109,7 +109,7 @@ export async function getTokenFB() {
           reject(new Error('Login canceled'))
         }
       }
-    }, 10)
+    }, 1000)
   })
   return token
 }
