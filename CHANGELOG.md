@@ -38,6 +38,7 @@ All notable changes to this project will be documented in this file.
 - CSS fix for Topup & Login page
 - Add button export for printing
 - Remove pwa icon transparency
+- Reset current order to 1 after going back to menus
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
