@@ -75,7 +75,7 @@ export default {
     ...mapMutations('menu', ['setCounter']),
     backToMenu() {
       this.$router.go(-1)
-      this.setCounter(0)
+      this.setCounter(1)
     },
     calculatePrice() {
       var modifierPrice = _.sumBy(this.modifiers, ({price}) => {
