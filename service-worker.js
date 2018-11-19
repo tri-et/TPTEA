@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.07f105370f58a3e1926241093aaaaa89.js"
+  "precache-manifest.cb4825ff85a46634ab8d834c644ca37b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tptea"});
