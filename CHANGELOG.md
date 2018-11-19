@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 0.0.2o - 2018-11-12
+## 0.0.2q - 2018-11-12
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file.
 - Add button export for printing
 - Remove pwa icon transparency
 - Reset current order to 1 after going back to menus
+- Adjust gulp to copy over the fb-login-receiver to dist folder
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
