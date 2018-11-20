@@ -109,14 +109,7 @@ export async function registerFb({commit}) {
       _procError(err)
     })
 }
-// async function getUserFbInfo() {
-//   let token = await getTokenFB()
-//   return new Promise(resolve => {
-//     window.FB.api('/me?fields=name,email&access_token=' + token + '', person => {
-//       resolve(person)
-//     })
-//   })
-// }
+
 export const fetchCustomer = ({commit}) => {
   _get(`{
     getCustomer {
