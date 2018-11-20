@@ -83,14 +83,17 @@ export async function getUserFbInfo() {
     'width=500px,height=500px'
   )
   return new Promise(resolve => {
-    window.addEventListener('message', function handler() {
-      popup.close()
-      window.removeEventListener('message', handler)
-      window.FB.getLoginStatus(() => {
-        window.FB.api('/me', {fields: 'name,email'}, person => {
-          resolve(person)
+    window.addEventListener(
+      'message',
+      () => {
+        popup.close()
+        window.FB.getLoginStatus(() => {
+          window.FB.api('/me', {fields: 'name,email'}, person => {
+            resolve(person)
+          })
         })
-      })
-    })
+      },
+      {once: true}
+    )
   })
 }
