@@ -74,9 +74,9 @@ export function getUserType() {
   return token ? token.substr(token.length - 1) : null
 }
 
-export async function getTokenFB() {
-  window.open(
-    'https://www.facebook.com/v3.1/dialog/oauth?client_id=253998778647702&scope=email&response_type=token,granted_scopes&redirect_uri=' +
+export async function getUserFbInfo() {
+  let popup = window.open(
+    'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&redirect_uri=' +
       window.location.origin +
       '/fb-login-receiver.html',
     'Facebook Login',
@@ -85,11 +85,15 @@ export async function getTokenFB() {
   return new Promise(resolve => {
     window.addEventListener(
       'message',
-      event => {
-        let url = new URL(event.data).hash.substring(1).split('=')
-        resolve(url[1])
+      () => {
+        popup.close()
+        window.FB.getLoginStatus(() => {
+          window.FB.api('/me', {fields: 'name,email'}, person => {
+            resolve(person)
+          })
+        })
       },
-      false
+      {once: true}
     )
   })
 }
