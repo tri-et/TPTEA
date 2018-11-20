@@ -76,22 +76,21 @@ export function getUserType() {
 
 export async function getUserFbInfo() {
   let popup = window.open(
-    'https://www.facebook.com/v3.1/dialog/oauth?client_id=253998778647702&scope=email&response_type=token,granted_scopes&redirect_uri=' +
+    'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&redirect_uri=' +
       window.location.origin +
       '/fb-login-receiver.html',
     'Facebook Login',
     'width=500px,height=500px'
   )
   return new Promise(resolve => {
-    let listener = () => {
+    window.addEventListener('message', function handler() {
       popup.close()
+      window.removeEventListener('message', handler)
       window.FB.getLoginStatus(() => {
-        window.FB.api('/me?fields=name,email', person => {
+        window.FB.api('/me', {fields: 'name,email'}, person => {
           resolve(person)
-          window.removeEventListener('message', listener, false)
         })
       })
-    }
-    window.addEventListener('message', listener, false)
+    })
   })
 }
