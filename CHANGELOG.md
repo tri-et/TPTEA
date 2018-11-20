@@ -40,6 +40,7 @@ All notable changes to this project will be documented in this file.
 - Remove pwa icon transparency
 - Reset current order to 1 after going back to menus
 - Adjust gulp to copy over the fb-login-receiver to dist folder
+- Smooth out scrolling in all page
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
