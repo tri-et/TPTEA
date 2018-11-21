@@ -62,8 +62,14 @@
       media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
       rel="apple-touch-startup-image"
     />
-
-    <script>
+    <link rel="icon" href="statics/quasar-logo.png" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="32x32" href="statics/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="statics/icons/favicon-16x16.png" />
+  </head>
+  <body>
+    <!-- DO NOT touch the following DIV -->
+    <div id="q-app"></div>
+    <script async>
       window.fbAsyncInit = function() {
         window.FB.init({
           appId: '253998778647702',
@@ -86,13 +92,5 @@
         fjs.parentNode.insertBefore(js, fjs)
       })(document, 'script', 'facebook-jssdk')
     </script>
-
-    <link rel="icon" href="statics/quasar-logo.png" type="image/x-icon" />
-    <link rel="icon" type="image/png" sizes="32x32" href="statics/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="statics/icons/favicon-16x16.png" />
-  </head>
-  <body>
-    <!-- DO NOT touch the following DIV -->
-    <div id="q-app"></div>
   </body>
 </html>
