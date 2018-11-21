@@ -1,25 +1,21 @@
 <template>
-  <q-page>
-    <q-modal v-model="isOpenedPayment" maximized>
-      <q-btn class="absolute-top-left" color="primary" flat round dense icon="reply" @click="closePayment()"></q-btn>
-      <div>
-        <div class="q-title row justify-center q-mt-sm text-grey">{{getCustomer.name}}</div>
-        <div class="row justify-center q-mt-sm">Give this code to the cashier for payment</div>
-        <div class="q-pa-lg">
-          <et-gen-q-r-code :dark='dark' :qrcode='getQRCodePaymentId' class="row justify-center" />
-        </div>
-        <span id="countdown" class="row justify-center"></span>
-        <div class="row justify-center q-mt-xl">
-          <q-btn :loading="getIsLoading" :disabled="disabled" color="secondary" @click="genCustomerPaymentId" label="Get New Code">
-            <q-spinner-pie slot="loading" size="25px" />
-          </q-btn>
-        </div>
-      </div>
-    </q-modal>
-  </q-page>
+  <modal-page @close="closePayment">
+    <div class="q-title row justify-center q-mt-sm text-grey">{{getCustomer.name}}</div>
+    <div class="row justify-center q-mt-sm">Give this code to the cashier for payment</div>
+    <div class="q-pa-lg">
+      <et-gen-q-r-code :dark='dark' :qrcode='getQRCodePaymentId' class="row justify-center" />
+    </div>
+    <span id="countdown" class="row justify-center"></span>
+    <div class="row justify-center q-mt-xl">
+      <q-btn :loading="getIsLoading" :disabled="disabled" color="secondary" @click="genCustomerPaymentId" label="Get New Code">
+        <q-spinner-pie slot="loading" size="25px" />
+      </q-btn>
+    </div>
+  </modal-page>
 </template>
 <script>
 import etGenQRCode from '../components/GenQRCode'
+import ModalPage from '../components/EtModalPage'
 import {mapGetters, mapActions, mapMutations} from 'vuex'
 const VALID_COLOR = '#00F'
 const EXPIRED_COLOR = '#F00'
@@ -34,6 +30,7 @@ export default {
   },
   components: {
     etGenQRCode,
+    ModalPage,
   },
   computed: {
     ...mapGetters('customer', ['getCustomer', 'getQRCodePaymentId', 'getIsLoading']),
