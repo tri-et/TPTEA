@@ -25,7 +25,7 @@
           <q-btn :loading="getIsLoading" color="secondary" label="Sign In" class="text-secondary q-ma-sm col-10" @click="login({username,password,type:'password'})">
             <q-spinner-pie slot="loading" size="25px" />
           </q-btn>
-          <q-btn color="facebook" label="Sign in Facebook" @click="loginFb()" class="text-white q-ma-sm col-10" />
+          <q-btn color="facebook" label="Sign in Facebook" @click="loginFacebook" class="text-white q-ma-sm col-10" />
         </div>
       </q-card-actions>
     </q-card>
@@ -62,6 +62,7 @@ export default {
   },
   mounted() {
     this.startAnimation()
+    if (localStorage.getItem('fb_access_token')) this.loginFb()
   },
   computed: {
     getLoginLogo() {
@@ -71,6 +72,12 @@ export default {
   },
   methods: {
     ...mapActions('customer', ['loginCustomer', 'regCustomer', 'loginFb']),
+    loginFacebook() {
+      window.location =
+        'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&response_type=token&redirect_uri=' +
+        window.location.origin +
+        '/fb-login-receiver.html'
+    },
     startAnimation() {
       this.vivus = new Vivus(
         'logo',
