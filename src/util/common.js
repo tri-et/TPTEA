@@ -75,45 +75,29 @@ export function getUserType() {
 }
 
 export async function getUserFbInfo() {
-  // let popup = window.open(
-  //   'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&redirect_uri=' +
-  //     window.location.origin +
-  //     '/fb-login-receiver.html',
-  //   'Facebook Login',
-  //   'width=500px,height=500px'
-  // )
-  // return new Promise(resolve => {
-  //   window.addEventListener(
-  //     'message',
-  //     () => {
-  //       popup.close()
-  //       window.FB.getLoginStatus(() => {
-  //         window.FB.api('/me', {fields: 'name,email'}, person => {
-  //           resolve(person)
-  //         })
-  //       })
-  //     },
-  //     {once: true}
-  //   )
-  // })
+  window.open(
+    'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&response_type=token&redirect_uri=' +
+      window.location.origin +
+      '/fb-login-receiver.html',
+    'Facebook Login',
+    'width=500px,height=500px'
+  )
   return new Promise(resolve => {
-    _ax
-      .get('https://graph.facebook.com/me', {
-        params: {
-          fields: 'id,name,email',
-          access_token: localStorage.getItem('fb_access_token'),
-        },
-      })
-      .then(res => {
-        console.log(res)
-        resolve(res.data)
-      })
-
-    // window.FB.getLoginStatus(() => {
-    //   window.FB.api('/me?access_token=' + localStorage.getItem('fb_access_token'), {fields: 'name,email'}, person => {
-    //     console.log(person)
-    //     resolve(person)
-    //   })
-    // })
+    window.addEventListener(
+      'message',
+      ({data}) => {
+        _ax
+          .get('https://graph.facebook.com/me', {
+            params: {
+              fields: 'id,name,email',
+              access_token: data,
+            },
+          })
+          .then(({data}) => {
+            resolve(data)
+          })
+      },
+      {once: true}
+    )
   })
 }

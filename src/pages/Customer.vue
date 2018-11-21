@@ -73,7 +73,6 @@ export default {
     ...mapActions('customer', ['fetchCustomer']),
     signOut() {
       localStorage.removeItem('auth-token')
-      localStorage.removeItem('fb_access_token')
       this.$router.push('/')
     },
   },
