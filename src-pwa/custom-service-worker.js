@@ -4,7 +4,6 @@
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
 // eslint-disable-next-line no-undef
-console.log(workbox)
 
 if (self.workbox) {
   self.workbox.precaching.precache(self.__precacheManifest)
@@ -16,5 +15,4 @@ if (self.workbox) {
       })
     )
   })
-  console.log(self.workbox.core.cacheNames.precache)
 }
