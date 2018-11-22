@@ -115,8 +115,8 @@ module.exports = function(ctx) {
       pwa: false,
     },
     pwa: {
-      // workboxPluginMode: 'InjectManifest',
-      workboxPluginMode: 'GenerateSW',
+      workboxPluginMode: 'InjectManifest',
+      // workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
         name: 'TP-Tea Hong Kong',
@@ -126,6 +126,7 @@ module.exports = function(ctx) {
         orientation: 'portrait',
         background_color: '#F6F3EC',
         theme_color: '#027be3',
+        start_url: '/',
         icons: [
           {
             src: 'statics/icons/icon-128x128.png',

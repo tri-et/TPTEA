@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- Login FB with redirect
 
 ## 0.0.2s - 2018-11-12
 ### Added

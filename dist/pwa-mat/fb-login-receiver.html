@@ -7,7 +7,9 @@
   <body>
     Facebook login completed.
     <script type="text/javascript">
-      window.opener.postMessage(window.location.toString(), window.location.href)
+      const urlParams = new URLSearchParams(window.location.hash.split('#')[1])
+      window.opener.postMessage(urlParams.get('access_token'), window.location.href)
+      window.close()
     </script>
   </body>
 </html>

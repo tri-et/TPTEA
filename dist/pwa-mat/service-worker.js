@@ -1,29 +1,23 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
+importScripts("precache-manifest.080b5171108f744ad28152754d35ff9c.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+
+/*
+ * This file (which will be your service worker)
+ * is picked up by the build system ONLY if
+ * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
+// eslint-disable-next-line no-undef
+console.log(workbox)
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+if (self.workbox) {
+  self.workbox.precaching.precache(self.__precacheManifest)
 
-importScripts(
-  "precache-manifest.6c5da3641bb257f4e361bc2b259e4231.js"
-);
+  self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      caches.match(event.request).then(function(response) {
+        return response || fetch(event.request)
+      })
+    )
+  })
+  console.log(self.workbox.core.cacheNames.precache)
+}
 
-workbox.core.setCacheNameDetails({prefix: "tptea"});
-
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
