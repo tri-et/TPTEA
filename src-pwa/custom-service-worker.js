@@ -3,9 +3,11 @@
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
+// eslint-disable-next-line no-undef
+console.log(workbox)
 
-if (window.workbox) {
-  window.workbox.precaching.precache(self.__precacheManifest)
+if (self.workbox) {
+  self.workbox.precaching.precache(self.__precacheManifest)
 
   self.addEventListener('fetch', function(event) {
     event.respondWith(
@@ -14,5 +16,5 @@ if (window.workbox) {
       })
     )
   })
-  console.log(window.workbox.core.cacheNames.precache)
+  console.log(self.workbox.core.cacheNames.precache)
 }

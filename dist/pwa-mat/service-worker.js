@@ -1,13 +1,15 @@
-importScripts("precache-manifest.1f9d5950502e106292a3115b8073c05f.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.080b5171108f744ad28152754d35ff9c.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
+// eslint-disable-next-line no-undef
+console.log(workbox)
 
-if (window.workbox) {
-  window.workbox.precaching.precache(self.__precacheManifest)
+if (self.workbox) {
+  self.workbox.precaching.precache(self.__precacheManifest)
 
   self.addEventListener('fetch', function(event) {
     event.respondWith(
@@ -16,6 +18,6 @@ if (window.workbox) {
       })
     )
   })
-  console.log(window.workbox.core.cacheNames.precache)
+  console.log(self.workbox.core.cacheNames.precache)
 }
 
