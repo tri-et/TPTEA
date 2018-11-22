@@ -20,23 +20,6 @@ register(process.env.SERVICE_WORKER_FILE, {
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
     console.log('New content is available; please refresh.')
-    alert('New content is available. The App will Reload now!')
-    window.location.reload(true)
-    if (window.Notify) {
-      window.Notify({
-        message: 'New content is available; please refresh',
-        timeout: 10000,
-        type: 'info',
-        actions: [
-          {
-            label: 'Reload',
-            handler: () => {
-              window.location.reload(true)
-            },
-          },
-        ],
-      })
-    }
   },
   offline() {
     console.log('No internet connection found. App is running in offline mode.')
