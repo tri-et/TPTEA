@@ -20,18 +20,16 @@ register(process.env.SERVICE_WORKER_FILE, {
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
     console.log('New content is available; please refresh.')
-    console.log(window.QNotify)
-    alert('New content is available; please refresh.')
-    if (window.QNotify) {
-      window.QNotify({
-        message: window.store.getters.text.global.newVersionAvailable,
+    if (window.Notify) {
+      window.Notify({
+        message: 'New content is available; please refresh',
         timeout: 10000,
         type: 'info',
         actions: [
           {
-            label: window.store.getters.text.global.refresh,
-            handler: function() {
-              window.location.reload()
+            label: 'Reload',
+            handler: () => {
+              window.location.reload(true)
             },
           },
         ],

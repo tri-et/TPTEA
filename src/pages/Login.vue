@@ -25,7 +25,7 @@
           <q-btn :loading="getIsLoading" color="secondary" label="Sign In" class="text-secondary q-ma-sm col-10" @click="login({username,password,type:'password'})">
             <q-spinner-pie slot="loading" size="25px" />
           </q-btn>
-          <q-btn color="facebook" label="Sign in Facebook" @click="xxx" class="text-white q-ma-sm col-10" />
+          <q-btn color="facebook" label="Sign in Facebook" @click="loginFb" class="text-white q-ma-sm col-10" />
         </div>
       </q-card-actions>
     </q-card>
@@ -71,9 +71,6 @@ export default {
   },
   methods: {
     ...mapActions('customer', ['loginCustomer', 'regCustomer', 'loginFb']),
-    xxx() {
-      window.location = window.location.origin + '/fb-login-receiver.html'
-    },
     startAnimation() {
       this.vivus = new Vivus(
         'logo',
