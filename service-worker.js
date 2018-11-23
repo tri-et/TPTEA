@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.49f2fa8b04d66c8170e0d853b11fd9fb.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("/precache-manifest.b204bdfdb2941465023a337be8e42852.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -7,7 +7,7 @@ importScripts("/precache-manifest.49f2fa8b04d66c8170e0d853b11fd9fb.js", "https:/
  */
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js')
-const CACHE_NAME = 'V3'
+const CACHE_NAME = 'V6'
 workbox.precaching.precacheAndRoute([])
 workbox.routing.registerRoute(
   new RegExp('/'),
