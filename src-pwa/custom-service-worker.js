@@ -5,7 +5,7 @@
  */
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js')
-const CACHE_NAME = 'V8'
+const CACHE_NAME = 'V11'
 workbox.precaching.precacheAndRoute([])
 workbox.routing.registerRoute(
   new RegExp('/'),
