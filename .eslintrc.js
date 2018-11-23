@@ -20,6 +20,8 @@ module.exports = {
     ga: true, // Google Analytics
     cordova: true,
     __statics: true,
+    importScripts: true,
+    workbox: true,
   },
   // add your custom rules here
   rules: {

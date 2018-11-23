@@ -14,7 +14,7 @@ module.exports = function(ctx) {
     supportIE: false,
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'hash',
+      vueRouterMode: 'history',
       publicPath: '',
       // gzip: true,
       // vueCompiler: true,
@@ -115,8 +115,8 @@ module.exports = function(ctx) {
       pwa: false,
     },
     pwa: {
-      // workboxPluginMode: 'InjectManifest',
-      workboxPluginMode: 'GenerateSW',
+      workboxPluginMode: 'InjectManifest',
+      // workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
         name: 'TP-Tea Hong Kong',

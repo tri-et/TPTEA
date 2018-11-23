@@ -1,29 +1,18 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
+importScripts("/precache-manifest.49f2fa8b04d66c8170e0d853b11fd9fb.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+
+/*
+ * This file (which will be your service worker)
+ * is picked up by the build system ONLY if
+ * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js')
+const CACHE_NAME = 'V3'
+workbox.precaching.precacheAndRoute([])
+workbox.routing.registerRoute(
+  new RegExp('/'),
+  workbox.strategies.staleWhileRevalidate({
+    cacheName: CACHE_NAME,
+  })
+)
 
-importScripts(
-  "precache-manifest.6c5da3641bb257f4e361bc2b259e4231.js"
-);
-
-workbox.core.setCacheNameDetails({prefix: "tptea"});
-
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
