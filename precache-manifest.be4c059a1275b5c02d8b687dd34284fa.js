@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/statics/icons/icon-256x256.png"
   },
   {
-    "revision": "490469f65a8564b91d49a7b6ffdc5471",
+    "revision": "4e316dc5cb5d27373365aab6434e042d",
     "url": "/index.html"
   },
   {
@@ -56,10 +56,6 @@ self.__precacheManifest = [
     "url": "/statics/icons/china-flag.png"
   },
   {
-    "revision": "e7d738849c406fb0708b6e212dabf9a2",
-    "url": "/statics/icons/favicon-16x16.png"
-  },
-  {
     "revision": "943b239ce0d615228200f7190de047d8",
     "url": "/statics/icons/favicon-32x32.png"
   },
@@ -70,6 +66,10 @@ self.__precacheManifest = [
   {
     "revision": "77bce50393376332bc7b948a33f1143f",
     "url": "/statics/icons/icon-192x192.png"
+  },
+  {
+    "revision": "e7d738849c406fb0708b6e212dabf9a2",
+    "url": "/statics/icons/favicon-16x16.png"
   },
   {
     "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
@@ -96,8 +96,8 @@ self.__precacheManifest = [
     "url": "/statics/icons/hongkong-flag.png"
   },
   {
-    "revision": "b43bce77fca4fd28d1c2",
-    "url": "/js/app.7bd4c54.js"
+    "revision": "96454effadff79f3d3a7",
+    "url": "/js/app.91a4576.js"
   },
   {
     "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
@@ -148,12 +148,12 @@ self.__precacheManifest = [
     "url": "/statics/splash/iphonexr_splash.png"
   },
   {
-    "revision": "9f28eba222b46312144302066bcf5445",
-    "url": "/statics/splash/iphoneplus_splash.png"
-  },
-  {
     "revision": "cdec18eac0fb4339eba6bdeff36f75c4",
     "url": "/statics/splash/iphonex_splash.png"
+  },
+  {
+    "revision": "9f28eba222b46312144302066bcf5445",
+    "url": "/statics/splash/iphoneplus_splash.png"
   },
   {
     "revision": "d9c608dcea837a8f2c275b0b874da757",
@@ -192,7 +192,7 @@ self.__precacheManifest = [
     "url": "/fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "b43bce77fca4fd28d1c2",
+    "revision": "96454effadff79f3d3a7",
     "url": "/css/app.0e77feaa.css"
   }
 ];
