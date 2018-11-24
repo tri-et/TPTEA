@@ -30,7 +30,7 @@ module.exports = function(ctx) {
       },
     },
     devServer: {
-      https: true,
+      https: false,
       // port: 8080,
       open: true, // opens browser window automatically
       proxy: {
@@ -115,8 +115,8 @@ module.exports = function(ctx) {
       pwa: false,
     },
     pwa: {
-      // workboxPluginMode: 'InjectManifest',
-      workboxPluginMode: 'GenerateSW',
+      workboxPluginMode: 'InjectManifest',
+      // workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
         name: 'TP-Tea Hong Kong',

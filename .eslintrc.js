@@ -22,6 +22,7 @@ module.exports = {
     __statics: true,
     importScripts: true,
     workbox: true,
+    ServiceWorkerGlobalScope: true,
   },
   // add your custom rules here
   rules: {

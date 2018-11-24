@@ -12,17 +12,17 @@ register(process.env.SERVICE_WORKER_FILE, {
   registered(registration) {
     // registration -> a ServiceWorkerRegistration instance
     console.log('Service worker has been registered.')
-    alert('Service worker has been registered.')
   },
   cached(registration) {
     // registration -> a ServiceWorkerRegistration instance
     console.log('Content has been cached for offline use.')
-    alert('Content has been cached for offline use.')
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    console.log('New content is available; please refresh.')
-    alert('New content is available; please refresh.')
+    var r = confirm('New content is available please refresh!')
+    if (r === true) {
+      registration.waiting.postMessage('skipWaiting')
+    }
   },
   offline() {
     console.log('No internet connection found. App is running in offline mode.')
