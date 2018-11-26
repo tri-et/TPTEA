@@ -3,11 +3,12 @@
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
-const CACHE_NAME = 'V_4'
-self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(self.__precacheManifest)))
-})
-
+// const CACHE_NAME = 'V_4'
+// self.addEventListener('install', event => {
+//   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(self.__precacheManifest)))
+// })
+workbox.core.setCacheNameDetails({prefix: 'tptea_v1'})
+self.workbox.precaching.precache(self.__precacheManifest)
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
