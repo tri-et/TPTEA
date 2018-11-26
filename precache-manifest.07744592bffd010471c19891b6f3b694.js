@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/statics/icons/icon-256x256.png"
   },
   {
-    "revision": "490469f65a8564b91d49a7b6ffdc5471",
+    "revision": "4e316dc5cb5d27373365aab6434e042d",
     "url": "/index.html"
   },
   {
@@ -96,16 +96,16 @@ self.__precacheManifest = [
     "url": "/statics/icons/hongkong-flag.png"
   },
   {
-    "revision": "b43bce77fca4fd28d1c2",
-    "url": "/js/app.7bd4c54.js"
-  },
-  {
-    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
-    "url": "/statics/icons/icon-512x512.png"
+    "revision": "96454effadff79f3d3a7",
+    "url": "/js/app.91a4576.js"
   },
   {
     "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
     "url": "/statics/icons/icon-384x384.png"
+  },
+  {
+    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
+    "url": "/statics/icons/icon-512x512.png"
   },
   {
     "revision": "a54d4cff09320803d08dc3c14eb436ad",
@@ -192,7 +192,7 @@ self.__precacheManifest = [
     "url": "/fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "b43bce77fca4fd28d1c2",
+    "revision": "96454effadff79f3d3a7",
     "url": "/css/app.0e77feaa.css"
   }
 ];
