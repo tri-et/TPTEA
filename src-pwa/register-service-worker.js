@@ -18,12 +18,11 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    // console.log(Dialog)
-    // var popup = confirm('New content is available please refresh!')
-    // if (popup === true) {
-    //   registration.waiting.postMessage('skipWaiting')
-    //   window.location.reload(true)
-    // }
+    var popup = confirm('New content is available please refresh!')
+    if (popup === true) {
+      registration.waiting.postMessage('skipWaiting')
+      // window.location.reload(true)
+    }
   },
   offline() {
     console.log('No internet connection found. App is running in offline mode.')

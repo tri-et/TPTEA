@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "28f75e604a5048ee11cf3665ce1ba471",
-    "url": "statics/icons/icon-256x256.png"
+    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
+    "url": "statics/icons/icon-384x384.png"
   },
   {
-    "revision": "0addaa87a36698377761f7d9f94ccb81",
+    "revision": "65d1b4f28173aec6c3ed44dc21d68e32",
     "url": "index.html"
   },
   {
@@ -24,12 +24,12 @@ self.__precacheManifest = [
     "url": "statics/splash/ipadpro2_splash.png"
   },
   {
-    "revision": "e0e41797ce02ad7afa59302519f65062",
-    "url": "statics/splash/iphonexsmax_splash.png"
-  },
-  {
     "revision": "5ca0bb2397976925b63560b620c8fddd",
     "url": "statics/splash/ipadpro3_splash.png"
+  },
+  {
+    "revision": "e0e41797ce02ad7afa59302519f65062",
+    "url": "statics/splash/iphonexsmax_splash.png"
   },
   {
     "revision": "e823136824cab8b5cad0a52aee5596ef",
@@ -44,12 +44,8 @@ self.__precacheManifest = [
     "url": "statics/news1.jpg"
   },
   {
-    "revision": "3f8b06faef3cc025af3fc047245920a9",
-    "url": "statics/splash/iphonexr_splash.png"
-  },
-  {
-    "revision": "e7d738849c406fb0708b6e212dabf9a2",
-    "url": "statics/icons/favicon-16x16.png"
+    "revision": "34e14a8932d3d3f4cc568db480b7e503",
+    "url": "statics/category-05.jpg"
   },
   {
     "revision": "94927b05c26b2a1b4d585c7305b9d04d",
@@ -58,6 +54,10 @@ self.__precacheManifest = [
   {
     "revision": "943b239ce0d615228200f7190de047d8",
     "url": "statics/icons/favicon-32x32.png"
+  },
+  {
+    "revision": "e7d738849c406fb0708b6e212dabf9a2",
+    "url": "statics/icons/favicon-16x16.png"
   },
   {
     "revision": "c285996d6f7dbef24ebbbfbe630e812a",
@@ -72,12 +72,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-128x128.png"
   },
   {
-    "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
-    "url": "statics/icons/ms-icon-144x144.png"
-  },
-  {
     "revision": "262f954ddadfae773a3548b2330ea819",
     "url": "statics/icons/taiwan-flag.png"
+  },
+  {
+    "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
+    "url": "statics/icons/ms-icon-144x144.png"
   },
   {
     "revision": "6af85f4c91ff8304e9448667906a39c4",
@@ -96,24 +96,24 @@ self.__precacheManifest = [
     "url": "statics/icons/hongkong-flag.png"
   },
   {
-    "revision": "9636706b47b2f617fbd3",
-    "url": "js/app.2f8a710.js"
+    "revision": "9750eff7b10df9bdc7ff",
+    "url": "js/app.db2d214.js"
   },
   {
     "revision": "c2b35452f36dcfc83a03c07a8ead6104",
     "url": "statics/icons/icon-512x512.png"
   },
   {
-    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
-    "url": "statics/icons/icon-384x384.png"
-  },
-  {
-    "revision": "a54d4cff09320803d08dc3c14eb436ad",
-    "url": "statics/category-01.jpg"
+    "revision": "28f75e604a5048ee11cf3665ce1ba471",
+    "url": "statics/icons/icon-256x256.png"
   },
   {
     "revision": "c38f90d42db60f76c44a13d9ca345b04",
     "url": "statics/category-02.jpg"
+  },
+  {
+    "revision": "a54d4cff09320803d08dc3c14eb436ad",
+    "url": "statics/category-01.jpg"
   },
   {
     "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
@@ -144,16 +144,16 @@ self.__precacheManifest = [
     "url": "statics/splash/iphone6_splash.png"
   },
   {
+    "revision": "3f8b06faef3cc025af3fc047245920a9",
+    "url": "statics/splash/iphonexr_splash.png"
+  },
+  {
     "revision": "9f28eba222b46312144302066bcf5445",
     "url": "statics/splash/iphoneplus_splash.png"
   },
   {
     "revision": "cdec18eac0fb4339eba6bdeff36f75c4",
     "url": "statics/splash/iphonex_splash.png"
-  },
-  {
-    "revision": "34e14a8932d3d3f4cc568db480b7e503",
-    "url": "statics/category-05.jpg"
   },
   {
     "revision": "d9c608dcea837a8f2c275b0b874da757",
@@ -192,7 +192,7 @@ self.__precacheManifest = [
     "url": "fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "9636706b47b2f617fbd3",
+    "revision": "9750eff7b10df9bdc7ff",
     "url": "css/app.0e77feaa.css"
   }
 ];
