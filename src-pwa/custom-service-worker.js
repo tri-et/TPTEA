@@ -3,18 +3,17 @@
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
-const CACHE_NAME = 'V31'
+const CACHE_NAME = 'V53'
 workbox.routing.registerRoute(
   new RegExp('/'),
-  workbox.strategies.staleWhileRevalidate({
+  workbox.strategies.cacheFirst({
     cacheName: CACHE_NAME,
   })
 )
 self.addEventListener('message', messageEvent => {
   if (messageEvent.data === 'skipWaiting') {
-    self.skipWaiting().then(() => {
-      messageEvent.source.navigate(self.location.origin)
-    })
+    self.skipWaiting()
+    self.clients.claim()
   }
 })
 self.addEventListener('activate', function(event) {

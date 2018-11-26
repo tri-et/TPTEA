@@ -19,9 +19,11 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
+    console.log(registration)
     var r = confirm('New content is available please refresh!')
     if (r === true) {
       registration.waiting.postMessage('skipWaiting')
+      window.location.reload(true)
     }
   },
   offline() {
