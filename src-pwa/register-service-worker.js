@@ -4,7 +4,6 @@
  */
 
 import {register} from 'register-service-worker'
-
 register(process.env.SERVICE_WORKER_FILE, {
   ready() {
     console.log('App is being served from cache by a service worker.')
@@ -19,9 +18,9 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    console.log(registration)
-    var r = confirm('New content is available please refresh!')
-    if (r === true) {
+    // console.log(Dialog)
+    var popup = confirm('New content is available please refresh!')
+    if (popup === true) {
       registration.waiting.postMessage('skipWaiting')
       window.location.reload(true)
     }
