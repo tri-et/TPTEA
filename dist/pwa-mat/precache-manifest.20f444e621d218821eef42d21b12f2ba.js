@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/statics/category-05.jpg"
   },
   {
-    "revision": "c285996d6f7dbef24ebbbfbe630e812a",
-    "url": "/statics/icons/china-flag.png"
-  },
-  {
     "revision": "94927b05c26b2a1b4d585c7305b9d04d",
     "url": "/statics/icons/apple-icon-152x152.png"
+  },
+  {
+    "revision": "c285996d6f7dbef24ebbbfbe630e812a",
+    "url": "/statics/icons/china-flag.png"
   },
   {
     "revision": "e7d738849c406fb0708b6e212dabf9a2",
