@@ -1,11 +1,11 @@
-importScripts("/precache-manifest.806c6b27e02882c27ce6d940bb2633b9.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("/precache-manifest.c95fa418cb2188c56d249365ed1a2556.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
-const CACHE_NAME = 'V589'
+const CACHE_NAME = 'V598'
 workbox.routing.registerRoute(
   new RegExp('/'),
   workbox.strategies.cacheFirst({
