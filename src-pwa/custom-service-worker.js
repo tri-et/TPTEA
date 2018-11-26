@@ -4,6 +4,7 @@
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
 // const CACHE_NAME = 'V_3'
+console.log(self.__precacheManifest)
 self.workbox.precaching.precache(self.__precacheManifest)
 // workbox.routing.registerRoute(
 //   new RegExp('/'),
