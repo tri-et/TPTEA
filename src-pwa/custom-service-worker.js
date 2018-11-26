@@ -3,7 +3,7 @@
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
-const CACHE_NAME = 'V_1'
+const CACHE_NAME = 'V_2'
 workbox.routing.registerRoute(
   new RegExp('/'),
   workbox.strategies.staleWhileRevalidate({
