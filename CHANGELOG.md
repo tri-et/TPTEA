@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 - Login FB with redirect
 
-## 0.0.2s - 2018-11-12
+## 0.0.2t - 2018-11-12
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file.
 - Reset current order to 1 after going back to menus
 - Adjust gulp to copy over the fb-login-receiver to dist folder
 - Smooth out scrolling in all page
+- Fix FB login/register in pwa
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
