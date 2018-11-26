@@ -1,29 +1,42 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
+importScripts("precache-manifest.3c5db67561d6b91738504a2e9fe388be.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+
+/*
+ * This file (which will be your service worker)
+ * is picked up by the build system ONLY if
+ * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
+const CACHE_NAME = 'V_4'
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(self.__precacheManifest)))
+})
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request)
+    })
+  )
+})
+// workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.cacheFirst())
+self.addEventListener('message', messageEvent => {
+  if (messageEvent.data === 'skipWaiting') {
+    return self.skipWaiting()
+  }
+})
+// self.addEventListener('activate', function(event) {
+//   event.waitUntil(
+//     caches.keys().then(cacheNames => {
+//       let validCacheSet = new Set(Object.values(workbox.core.cacheNames))
+//       return Promise.all(
+//         cacheNames
+//           .filter(cacheName => {
+//             return !validCacheSet.has(cacheName)
+//           })
+//           .map(cacheName => {
+//             return caches.delete(cacheName)
+//           })
+//       )
+//     })
+//   )
+// })
 
-importScripts(
-  "precache-manifest.728553bb726a8128c90df4c1d28aa86e.js"
-);
-
-workbox.core.setCacheNameDetails({prefix: "tptea"});
-
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
