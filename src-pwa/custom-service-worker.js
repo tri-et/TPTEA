@@ -4,14 +4,16 @@
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  */
 // const CACHE_NAME = 'V_3'
-console.log(self.__precacheManifest)
 self.workbox.precaching.precache(self.__precacheManifest)
-// workbox.routing.registerRoute(
-//   new RegExp('/'),
-//   workbox.strategies.staleWhileRevalidate({
-//     cacheName: CACHE_NAME,
-//   })
-// )
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request)
+    })
+  )
+})
+// workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.cacheFirst())
 // self.addEventListener('message', messageEvent => {
 //   if (messageEvent.data === 'skipWaiting') {
 //     self.skipWaiting()
