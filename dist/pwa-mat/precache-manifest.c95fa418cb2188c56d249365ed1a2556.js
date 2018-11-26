@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/statics/icons/icon-256x256.png"
   },
   {
-    "revision": "fad20a7feebfa650d92305629b763cd4",
+    "revision": "9452b2a47e6dd1705c651629feffdd28",
     "url": "/index.html"
   },
   {
@@ -40,24 +40,24 @@ self.__precacheManifest = [
     "url": "/statics/splash/ipad_splash.png"
   },
   {
-    "revision": "34e14a8932d3d3f4cc568db480b7e503",
-    "url": "/statics/category-05.jpg"
-  },
-  {
     "revision": "791d460848051485414e037bfbcf3452",
     "url": "/statics/news1.jpg"
   },
   {
-    "revision": "94927b05c26b2a1b4d585c7305b9d04d",
-    "url": "/statics/icons/apple-icon-152x152.png"
+    "revision": "34e14a8932d3d3f4cc568db480b7e503",
+    "url": "/statics/category-05.jpg"
+  },
+  {
+    "revision": "e7d738849c406fb0708b6e212dabf9a2",
+    "url": "/statics/icons/favicon-16x16.png"
   },
   {
     "revision": "c285996d6f7dbef24ebbbfbe630e812a",
     "url": "/statics/icons/china-flag.png"
   },
   {
-    "revision": "e7d738849c406fb0708b6e212dabf9a2",
-    "url": "/statics/icons/favicon-16x16.png"
+    "revision": "94927b05c26b2a1b4d585c7305b9d04d",
+    "url": "/statics/icons/apple-icon-152x152.png"
   },
   {
     "revision": "943b239ce0d615228200f7190de047d8",
@@ -96,8 +96,8 @@ self.__precacheManifest = [
     "url": "/statics/icons/hongkong-flag.png"
   },
   {
-    "revision": "5182b4fe2cc5a01bf97c",
-    "url": "/js/app.1528c3e.js"
+    "revision": "f70b39d0060982307748",
+    "url": "/js/app.d0eba21.js"
   },
   {
     "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
@@ -192,7 +192,7 @@ self.__precacheManifest = [
     "url": "/fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "5182b4fe2cc5a01bf97c",
+    "revision": "f70b39d0060982307748",
     "url": "/css/app.0e77feaa.css"
   }
 ];
