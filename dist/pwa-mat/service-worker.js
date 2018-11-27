@@ -1,4 +1,4 @@
-importScripts("precache-manifest.c2db29d9163610587457ec9124f2ba85.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.7b1ff4b675ec837efa127c9a320e393d.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -11,7 +11,7 @@ importScripts("precache-manifest.c2db29d9163610587457ec9124f2ba85.js", "https://
 // })
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
-workbox.routing.registerRoute(new RegExp('/api'), workbox.strategies.staleWhileRevalidate())
+workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.staleWhileRevalidate())
 
 self.addEventListener('fetch', event => {
   event.respondWith(
