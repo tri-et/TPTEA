@@ -1,4 +1,4 @@
-importScripts("precache-manifest.a052314d7e28093ad552e114f722fa29.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.37beb90933510df1d05d7641d45fa7c6.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -26,6 +26,9 @@ self.addEventListener('message', ({data}) => {
 })
 self.addEventListener('controllerchange', function() {
   console.log('testing')
+})
+self.addEventListener('activate', function(event) {
+  return self.clients.claim()
 })
 // self.addEventListener('activate', function(event) {
 //   event.waitUntil(

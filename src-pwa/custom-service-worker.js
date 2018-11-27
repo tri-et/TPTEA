@@ -25,6 +25,9 @@ self.addEventListener('message', ({data}) => {
 self.addEventListener('controllerchange', function() {
   console.log('testing')
 })
+self.addEventListener('activate', function(event) {
+  return self.clients.claim()
+})
 // self.addEventListener('activate', function(event) {
 //   event.waitUntil(
 //     caches.keys().then(cacheNames => {
