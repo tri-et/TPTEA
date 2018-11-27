@@ -16,18 +16,14 @@ self.addEventListener('fetch', event => {
     })
   )
 })
-// workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.cacheFirst())
 self.addEventListener('message', ({data}) => {
   if (data === 'skipWaiting') {
-    return self.skipWaiting()
+    self.skipWaiting()
   }
 })
-self.addEventListener('controllerchange', function() {
-  console.log('testing')
-})
-self.addEventListener('activate', function(event) {
-  return self.clients.claim()
-})
+// self.addEventListener('controllerchange', function() {
+//   console.log('testing')
+// })
 // self.addEventListener('activate', function(event) {
 //   event.waitUntil(
 //     caches.keys().then(cacheNames => {
