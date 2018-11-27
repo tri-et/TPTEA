@@ -9,6 +9,8 @@
 // })
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
+workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.staleWhileRevalidate())
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
