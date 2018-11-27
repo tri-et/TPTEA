@@ -7,11 +7,6 @@
 <script>
 export default {
   name: 'App',
-  created() {
-    ServiceWorkerGlobalScope.onmessage = function(MessageEvent) {
-      console.log(MessageEvent)
-    }
-  },
 }
 </script>
 
