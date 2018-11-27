@@ -7,7 +7,7 @@
 // self.addEventListener('install', event => {
 //   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(self.__precacheManifest)))
 // })
-workbox.core.setCacheNameDetails({prefix: 'tptea_v1'})
+workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
 self.addEventListener('fetch', event => {
   event.respondWith(
@@ -18,7 +18,7 @@ self.addEventListener('fetch', event => {
 })
 self.addEventListener('message', ({data}) => {
   if (data === 'skipWaiting') {
-    return self.skipWaiting()
+    self.skipWaiting()
   }
 })
 // self.addEventListener('controllerchange', function() {
@@ -40,15 +40,3 @@ self.addEventListener('message', ({data}) => {
 //     })
 //   )
 // })
-
-if (self.workbox) {
-  self.workbox.precaching.precache(self.__precacheManifest)
-
-  self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      caches.match(event.request).then(function(response) {
-        return response || fetch(event.request)
-      })
-    )
-  })
-}

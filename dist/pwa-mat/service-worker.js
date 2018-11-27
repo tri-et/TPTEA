@@ -1,4 +1,4 @@
-importScripts("precache-manifest.72d8324b66ce0713799fa22c14c99af9.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.fb05a6d15060bb8bb579abf6df725849.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -9,7 +9,7 @@ importScripts("precache-manifest.72d8324b66ce0713799fa22c14c99af9.js", "https://
 // self.addEventListener('install', event => {
 //   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(self.__precacheManifest)))
 // })
-workbox.core.setCacheNameDetails({prefix: 'tptea_v1'})
+workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
 self.addEventListener('fetch', event => {
   event.respondWith(
@@ -42,16 +42,4 @@ self.addEventListener('message', ({data}) => {
 //     })
 //   )
 // })
-
-if (self.workbox) {
-  self.workbox.precaching.precache(self.__precacheManifest)
-
-  self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      caches.match(event.request).then(function(response) {
-        return response || fetch(event.request)
-      })
-    )
-  })
-}
 
