@@ -8,8 +8,8 @@
 export default {
   name: 'App',
   created() {
-    addEventListener('message', messageEvent => {
-      console.log(messageEvent.data)
+    self.addEventListener('message', messageEvent => {
+      console.log(messageEvent)
     })
   },
 }
