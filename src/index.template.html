@@ -78,11 +78,8 @@
     <!-- DO NOT touch the following DIV -->
     <div id="q-app"></div>
     <script>
-      let refreshing
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (refreshing) return
         window.location.reload()
-        refreshing = true
       })
     </script>
   </body>
