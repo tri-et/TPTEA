@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
-    "url": "statics/icons/icon-512x512.png"
+    "revision": "fabe8a34c563317f60041f7d7bd0ffe6",
+    "url": "statics/icons/hongkong-flag.png"
   },
   {
     "revision": "b7d0bc5b3fa190b8371b6f53d0fd182d",
@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "statics/icons/apple-icon-152x152.png"
   },
   {
-    "revision": "943b239ce0d615228200f7190de047d8",
-    "url": "statics/icons/favicon-32x32.png"
-  },
-  {
     "revision": "c285996d6f7dbef24ebbbfbe630e812a",
     "url": "statics/icons/china-flag.png"
+  },
+  {
+    "revision": "943b239ce0d615228200f7190de047d8",
+    "url": "statics/icons/favicon-32x32.png"
   },
   {
     "revision": "e7d738849c406fb0708b6e212dabf9a2",
@@ -72,12 +72,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-192x192.png"
   },
   {
-    "revision": "262f954ddadfae773a3548b2330ea819",
-    "url": "statics/icons/taiwan-flag.png"
-  },
-  {
     "revision": "c3033218b49491bb0ac4cc87d10c8ed8",
     "url": "statics/icons/ms-icon-144x144.png"
+  },
+  {
+    "revision": "262f954ddadfae773a3548b2330ea819",
+    "url": "statics/icons/taiwan-flag.png"
   },
   {
     "revision": "6af85f4c91ff8304e9448667906a39c4",
@@ -92,20 +92,20 @@ self.__precacheManifest = [
     "url": "statics/category-07.jpg"
   },
   {
-    "revision": "fabe8a34c563317f60041f7d7bd0ffe6",
-    "url": "statics/icons/hongkong-flag.png"
+    "revision": "28f75e604a5048ee11cf3665ce1ba471",
+    "url": "statics/icons/icon-256x256.png"
   },
   {
     "revision": "07320f407719d620d33e",
     "url": "js/app.ac0a68b.js"
   },
   {
-    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
-    "url": "statics/icons/icon-384x384.png"
+    "revision": "c2b35452f36dcfc83a03c07a8ead6104",
+    "url": "statics/icons/icon-512x512.png"
   },
   {
-    "revision": "28f75e604a5048ee11cf3665ce1ba471",
-    "url": "statics/icons/icon-256x256.png"
+    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
+    "url": "statics/icons/icon-384x384.png"
   },
   {
     "revision": "c38f90d42db60f76c44a13d9ca345b04",
