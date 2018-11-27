@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'App',
+  created() {
+    addEventListener('message', messageEvent => {
+      console.log(messageEvent.data)
+    })
+  },
 }
 </script>
 
