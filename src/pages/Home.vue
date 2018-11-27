@@ -22,7 +22,7 @@ export default {
     return {
       news: [
         {
-          img: 'statics/news2.jpg',
+          img: 'statics/news1.jpg',
           isBtnHidden: false,
           label: 'Learn More',
           title: 'Bring on the fruit',
@@ -35,7 +35,7 @@ export default {
             In 2016, TP TEA became the top choice for tea drinks with more than 260 stores in Taiwan.`,
         },
         {
-          img: 'statics/news1.jpg',
+          img: 'statics/news2.jpg',
           isBtnHidden: false,
           label: 'Discover Coffee',
           title: 'Find a new favorite',

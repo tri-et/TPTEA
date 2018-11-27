@@ -18,8 +18,8 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    var popup = confirm('New content is available please refresh!')
-    if (popup === true) {
+    var popup = confirm('New Version is available. Reload TP-Tea ?')
+    if (popup) {
       registration.waiting.postMessage('skipWaiting')
     }
   },
