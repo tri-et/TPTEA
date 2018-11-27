@@ -1,4 +1,4 @@
-importScripts("precache-manifest.fb05a6d15060bb8bb579abf6df725849.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.7dc6f2ffd3434d4185fe659d9574287b.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -20,26 +20,7 @@ self.addEventListener('fetch', event => {
 })
 self.addEventListener('message', ({data}) => {
   if (data === 'skipWaiting') {
-    return self.skipWaiting()
+    self.skipWaiting()
   }
 })
-// self.addEventListener('controllerchange', function() {
-//   console.log('testing')
-// })
-// self.addEventListener('activate', function(event) {
-//   event.waitUntil(
-//     caches.keys().then(cacheNames => {
-//       let validCacheSet = new Set(Object.values(workbox.core.cacheNames))
-//       return Promise.all(
-//         cacheNames
-//           .filter(cacheName => {
-//             return !validCacheSet.has(cacheName)
-//           })
-//           .map(cacheName => {
-//             return caches.delete(cacheName)
-//           })
-//       )
-//     })
-//   )
-// })
 

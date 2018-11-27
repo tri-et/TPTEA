@@ -21,22 +21,3 @@ self.addEventListener('message', ({data}) => {
     self.skipWaiting()
   }
 })
-// self.addEventListener('controllerchange', function() {
-//   console.log('testing')
-// })
-// self.addEventListener('activate', function(event) {
-//   event.waitUntil(
-//     caches.keys().then(cacheNames => {
-//       let validCacheSet = new Set(Object.values(workbox.core.cacheNames))
-//       return Promise.all(
-//         cacheNames
-//           .filter(cacheName => {
-//             return !validCacheSet.has(cacheName)
-//           })
-//           .map(cacheName => {
-//             return caches.delete(cacheName)
-//           })
-//       )
-//     })
-//   )
-// })
