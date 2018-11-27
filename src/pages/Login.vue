@@ -25,13 +25,12 @@
           <q-btn :loading="getIsLoading" color="secondary" label="Sign In" class="text-secondary q-ma-sm col-10" @click="login({username,password,type:'password'})">
             <q-spinner-pie slot="loading" size="25px" />
           </q-btn>
-          <q-btn color="facebook" label="Sign in Facebook" @click="loginFb()" class="text-white q-ma-sm col-10" />
+          <q-btn color="facebook" label="Sign in Facebook" @click="loginFb" class="text-white q-ma-sm col-10" />
         </div>
       </q-card-actions>
     </q-card>
   </modal-page>
 </template>
-
 <script>
 import logoData from '../assets/logoData'
 import etValidator from '../components/Validator'
@@ -39,6 +38,7 @@ import {required} from 'vuelidate/lib/validators'
 import Vivus from 'vivus'
 import {mapActions, mapGetters} from 'vuex'
 import ModalPage from '../components/EtModalPage'
+import {getFbToken} from '../util/common'
 export default {
   components: {
     etValidator,
@@ -62,6 +62,10 @@ export default {
   },
   mounted() {
     this.startAnimation()
+
+    // login TPTEA after logged in facebook successfully on browser
+    // only apply for device don't support open popup webview
+    if (getFbToken()) this.loginFb()
   },
   computed: {
     getLoginLogo() {
