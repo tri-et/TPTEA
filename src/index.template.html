@@ -80,6 +80,7 @@
     <script>
       let refreshing
       navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return
         window.location.reload()
         refreshing = true
       })
