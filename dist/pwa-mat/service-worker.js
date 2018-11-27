@@ -1,4 +1,4 @@
-importScripts("precache-manifest.0933e2e364dfe9f8521857926f89968a.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.ee84f98c6187f2d1aee37baa755bd4df.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -23,6 +23,9 @@ self.addEventListener('message', messageEvent => {
   if (messageEvent.data === 'skipWaiting') {
     return self.skipWaiting()
   }
+})
+self.addEventListener('controllerchange', function() {
+  console.log('testing')
 })
 // self.addEventListener('activate', function(event) {
 //   event.waitUntil(

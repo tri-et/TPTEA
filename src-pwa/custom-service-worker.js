@@ -22,6 +22,9 @@ self.addEventListener('message', messageEvent => {
     return self.skipWaiting()
   }
 })
+self.addEventListener('controllerchange', function() {
+  console.log('testing')
+})
 // self.addEventListener('activate', function(event) {
 //   event.waitUntil(
 //     caches.keys().then(cacheNames => {
