@@ -9,7 +9,7 @@
 // })
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
-workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.staleWhileRevalidate())
+workbox.routing.registerRoute(new RegExp('/api'), workbox.strategies.staleWhileRevalidate())
 
 self.addEventListener('fetch', event => {
   event.respondWith(
