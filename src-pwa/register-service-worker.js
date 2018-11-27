@@ -11,6 +11,9 @@ register(process.env.SERVICE_WORKER_FILE, {
   registered(registration) {
     // registration -> a ServiceWorkerRegistration instance
     console.log('Service worker has been registered.')
+    registration.addEventListener('controllerchange', function() {
+      console.log('test')
+    })
   },
   cached(registration) {
     // registration -> a ServiceWorkerRegistration instance
