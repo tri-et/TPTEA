@@ -21,7 +21,6 @@ register(process.env.SERVICE_WORKER_FILE, {
     var popup = confirm('New content is available please refresh!')
     if (popup === true) {
       registration.waiting.postMessage('skipWaiting')
-      // window.location.reload(true)
     }
   },
   offline() {

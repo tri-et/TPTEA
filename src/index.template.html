@@ -77,5 +77,13 @@
   <body ontouchstart="">
     <!-- DO NOT touch the following DIV -->
     <div id="q-app"></div>
+    <script>
+      var refreshing
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return
+        refreshing = true
+        window.location.reload()
+      })
+    </script>
   </body>
 </html>

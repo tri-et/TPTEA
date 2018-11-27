@@ -18,7 +18,7 @@ self.addEventListener('fetch', event => {
 })
 self.addEventListener('message', ({data}) => {
   if (data === 'skipWaiting') {
-    self.skipWaiting()
+    return self.skipWaiting()
   }
 })
 // self.addEventListener('controllerchange', function() {
