@@ -8,9 +8,9 @@
 export default {
   name: 'App',
   created() {
-    self.addEventListener('message', messageEvent => {
-      console.log(messageEvent)
-    })
+    ServiceWorkerGlobalScope.onmessage = function(MessageEvent) {
+      console.log(MessageEvent)
+    }
   },
 }
 </script>
