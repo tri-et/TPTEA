@@ -19,7 +19,7 @@ self.addEventListener('fetch', event => {
 // workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.cacheFirst())
 self.addEventListener('message', ({data}) => {
   if (data === 'skipWaiting') {
-    self.skipWaiting()
+    return self.skipWaiting()
   }
 })
 self.addEventListener('controllerchange', function() {

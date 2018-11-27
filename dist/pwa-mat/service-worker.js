@@ -1,4 +1,4 @@
-importScripts("precache-manifest.37beb90933510df1d05d7641d45fa7c6.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.7c6d21c3a10505645ec1ee3d444bb447.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -21,7 +21,7 @@ self.addEventListener('fetch', event => {
 // workbox.routing.registerRoute(new RegExp('/'), workbox.strategies.cacheFirst())
 self.addEventListener('message', ({data}) => {
   if (data === 'skipWaiting') {
-    self.skipWaiting()
+    return self.skipWaiting()
   }
 })
 self.addEventListener('controllerchange', function() {
