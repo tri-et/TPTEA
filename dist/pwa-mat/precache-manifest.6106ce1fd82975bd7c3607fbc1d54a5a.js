@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "statics/splash/iphonexsmax_splash.png"
   },
   {
-    "revision": "791d460848051485414e037bfbcf3452",
-    "url": "statics/news1.jpg"
-  },
-  {
     "revision": "4f11d96ddf31938e9cdb732d7c15e151",
     "url": "statics/splash/ipad_splash.png"
+  },
+  {
+    "revision": "791d460848051485414e037bfbcf3452",
+    "url": "statics/news1.jpg"
   },
   {
     "revision": "34e14a8932d3d3f4cc568db480b7e503",
@@ -148,12 +148,12 @@ self.__precacheManifest = [
     "url": "statics/splash/iphonexr_splash.png"
   },
   {
-    "revision": "cdec18eac0fb4339eba6bdeff36f75c4",
-    "url": "statics/splash/iphonex_splash.png"
-  },
-  {
     "revision": "9f28eba222b46312144302066bcf5445",
     "url": "statics/splash/iphoneplus_splash.png"
+  },
+  {
+    "revision": "cdec18eac0fb4339eba6bdeff36f75c4",
+    "url": "statics/splash/iphonex_splash.png"
   },
   {
     "revision": "d9c608dcea837a8f2c275b0b874da757",
