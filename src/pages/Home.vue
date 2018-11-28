@@ -1,10 +1,6 @@
 <template >
   <div>
-    <et-news
-      v-for="(item,index) in news"
-      :key="index"
-      :item="item"
-    >
+    <et-news v-for="(item,index) in news" :key="index" :item="item">
       <et-news-detail :item="item"></et-news-detail>
     </et-news>
   </div>
