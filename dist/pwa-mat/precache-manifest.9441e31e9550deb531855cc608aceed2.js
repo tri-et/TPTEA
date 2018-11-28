@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "statics/splash/iphonexsmax_splash.png"
   },
   {
-    "revision": "791d460848051485414e037bfbcf3452",
-    "url": "statics/news1.jpg"
-  },
-  {
     "revision": "4f11d96ddf31938e9cdb732d7c15e151",
     "url": "statics/splash/ipad_splash.png"
+  },
+  {
+    "revision": "791d460848051485414e037bfbcf3452",
+    "url": "statics/news1.jpg"
   },
   {
     "revision": "34e14a8932d3d3f4cc568db480b7e503",
@@ -76,16 +76,16 @@ self.__precacheManifest = [
     "url": "statics/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "262f954ddadfae773a3548b2330ea819",
-    "url": "statics/icons/taiwan-flag.png"
-  },
-  {
     "revision": "6af85f4c91ff8304e9448667906a39c4",
     "url": "statics/icons/tptea-marker-icon.png"
   },
   {
     "revision": "644d672e528a3a2c937bb8156ee55e73",
     "url": "statics/qr-code-sample.png"
+  },
+  {
+    "revision": "262f954ddadfae773a3548b2330ea819",
+    "url": "statics/icons/taiwan-flag.png"
   },
   {
     "revision": "9be51b3fc732ce5f5931631c5fe6a42e",
