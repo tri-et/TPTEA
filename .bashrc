@@ -11,7 +11,7 @@ deploytest() {
     npm run build
     git add -A 
     git commit -m "$*"
-    git subtree push --prefix dist/pwa-mat origin livetest
+    git push origin `git subtree split --prefix dist/pwa-mat origin livetest`:livetest --force
 }
 
 dev() {
