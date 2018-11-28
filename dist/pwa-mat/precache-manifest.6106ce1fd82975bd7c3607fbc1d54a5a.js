@@ -76,16 +76,16 @@ self.__precacheManifest = [
     "url": "statics/icons/ms-icon-144x144.png"
   },
   {
+    "revision": "262f954ddadfae773a3548b2330ea819",
+    "url": "statics/icons/taiwan-flag.png"
+  },
+  {
     "revision": "6af85f4c91ff8304e9448667906a39c4",
     "url": "statics/icons/tptea-marker-icon.png"
   },
   {
     "revision": "644d672e528a3a2c937bb8156ee55e73",
     "url": "statics/qr-code-sample.png"
-  },
-  {
-    "revision": "262f954ddadfae773a3548b2330ea819",
-    "url": "statics/icons/taiwan-flag.png"
   },
   {
     "revision": "9be51b3fc732ce5f5931631c5fe6a42e",
@@ -108,12 +108,12 @@ self.__precacheManifest = [
     "url": "statics/icons/icon-512x512.png"
   },
   {
-    "revision": "c38f90d42db60f76c44a13d9ca345b04",
-    "url": "statics/category-02.jpg"
-  },
-  {
     "revision": "a54d4cff09320803d08dc3c14eb436ad",
     "url": "statics/category-01.jpg"
+  },
+  {
+    "revision": "c38f90d42db60f76c44a13d9ca345b04",
+    "url": "statics/category-02.jpg"
   },
   {
     "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
