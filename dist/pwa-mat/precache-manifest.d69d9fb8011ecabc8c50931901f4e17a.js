@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "28f75e604a5048ee11cf3665ce1ba471",
-    "url": "statics/icons/icon-256x256.png"
+    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
+    "url": "statics/icons/icon-384x384.png"
   },
   {
     "revision": "1ce4f7baed4ec700bf7d9c057bdaf621",
@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "statics/icons/apple-icon-152x152.png"
   },
   {
-    "revision": "c285996d6f7dbef24ebbbfbe630e812a",
-    "url": "statics/icons/china-flag.png"
-  },
-  {
     "revision": "e7d738849c406fb0708b6e212dabf9a2",
     "url": "statics/icons/favicon-16x16.png"
+  },
+  {
+    "revision": "c285996d6f7dbef24ebbbfbe630e812a",
+    "url": "statics/icons/china-flag.png"
   },
   {
     "revision": "943b239ce0d615228200f7190de047d8",
@@ -88,20 +88,16 @@ self.__precacheManifest = [
     "url": "statics/qr-code-sample.png"
   },
   {
-    "revision": "9be51b3fc732ce5f5931631c5fe6a42e",
-    "url": "statics/category-07.jpg"
-  },
-  {
     "revision": "fabe8a34c563317f60041f7d7bd0ffe6",
     "url": "statics/icons/hongkong-flag.png"
   },
   {
-    "revision": "d6e949ca31e7a83354eb",
-    "url": "js/app.2e4c3bc.js"
+    "revision": "28f75e604a5048ee11cf3665ce1ba471",
+    "url": "statics/icons/icon-256x256.png"
   },
   {
-    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
-    "url": "statics/icons/icon-384x384.png"
+    "revision": "d6e949ca31e7a83354eb",
+    "url": "js/app.2e4c3bc.js"
   },
   {
     "revision": "c2b35452f36dcfc83a03c07a8ead6104",
@@ -118,6 +114,10 @@ self.__precacheManifest = [
   {
     "revision": "b3b5cd863f68ad9e430a1df56904a8d2",
     "url": "statics/category-03.jpg"
+  },
+  {
+    "revision": "9be51b3fc732ce5f5931631c5fe6a42e",
+    "url": "statics/category-07.jpg"
   },
   {
     "revision": "3e29aabebf8a9f37298de2dd7f046539",
@@ -148,12 +148,12 @@ self.__precacheManifest = [
     "url": "statics/splash/iphonexr_splash.png"
   },
   {
-    "revision": "9f28eba222b46312144302066bcf5445",
-    "url": "statics/splash/iphoneplus_splash.png"
-  },
-  {
     "revision": "cdec18eac0fb4339eba6bdeff36f75c4",
     "url": "statics/splash/iphonex_splash.png"
+  },
+  {
+    "revision": "9f28eba222b46312144302066bcf5445",
+    "url": "statics/splash/iphoneplus_splash.png"
   },
   {
     "revision": "d9c608dcea837a8f2c275b0b874da757",
