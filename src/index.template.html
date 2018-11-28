@@ -74,9 +74,7 @@
       }
     </style>
     <script>
-      if (window.location.protocol !== 'https:') {
-        window.location.href = 'https://' + window.location.host
-      }
+      if (window.location.protocol !== 'https:') window.location.href = 'https://' + window.location.host
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         window.location.reload()
       })
