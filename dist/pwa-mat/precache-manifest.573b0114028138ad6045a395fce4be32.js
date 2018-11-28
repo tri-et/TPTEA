@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "statics/icons/apple-icon-152x152.png"
   },
   {
-    "revision": "c285996d6f7dbef24ebbbfbe630e812a",
-    "url": "statics/icons/china-flag.png"
-  },
-  {
     "revision": "e7d738849c406fb0708b6e212dabf9a2",
     "url": "statics/icons/favicon-16x16.png"
+  },
+  {
+    "revision": "c285996d6f7dbef24ebbbfbe630e812a",
+    "url": "statics/icons/china-flag.png"
   },
   {
     "revision": "943b239ce0d615228200f7190de047d8",
@@ -100,12 +100,12 @@ self.__precacheManifest = [
     "url": "js/app.2e4c3bc.js"
   },
   {
-    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
-    "url": "statics/icons/icon-384x384.png"
-  },
-  {
     "revision": "c2b35452f36dcfc83a03c07a8ead6104",
     "url": "statics/icons/icon-512x512.png"
+  },
+  {
+    "revision": "33fa3c71f424a8e2cbc06ddeadce0779",
+    "url": "statics/icons/icon-384x384.png"
   },
   {
     "revision": "a54d4cff09320803d08dc3c14eb436ad",
