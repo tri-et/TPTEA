@@ -73,6 +73,11 @@
         -webkit-touch-callout: none;
       }
     </style>
+    <script>
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload()
+      })
+    </script>
   </head>
   <body ontouchstart="">
     <!-- DO NOT touch the following DIV -->

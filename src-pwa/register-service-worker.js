@@ -4,7 +4,6 @@
  */
 
 import {register} from 'register-service-worker'
-
 register(process.env.SERVICE_WORKER_FILE, {
   ready() {
     console.log('App is being served from cache by a service worker.')
@@ -19,7 +18,10 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    console.log('New content is available; please refresh.')
+    let popup = confirm('New Version is available. Reload TP-Tea ?')
+    if (popup) {
+      registration.waiting.postMessage('skipWaiting')
+    }
   },
   offline() {
     console.log('No internet connection found. App is running in offline mode.')
