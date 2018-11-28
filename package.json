@@ -1,6 +1,6 @@
 {
   "name": "tptea",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TPTEA Management App",
   "productName": "TPTEA",
   "cordovaId": "org.cordova.quasar.app",

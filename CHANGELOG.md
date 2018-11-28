@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 - Login FB with redirect
 
-## 0.0.2t - 2018-11-12
+## 0.0.2u - 2018-11-12
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 - QRCodeCapture for test PWA iOS
 - ModalPage component (use for page is a modal/popup) [@phillip](https://github.com/hemvanh/TPTEA/pull/85)
 - ModalPage to Register & Login page
+- Pwa Cache busting when new version updated
 ### Removed 
 - Join now button
 - Remove parameter "expiry" and change parameter "amount" to "giftCardid" in genGiftCard function
