@@ -8,9 +8,11 @@ self.workbox.precaching.precache(self.__precacheManifest)
 workbox.routing.registerRoute(({url}) => {
   return new RegExp('listCategories').test(url.search)
 }, workbox.strategies.staleWhileRevalidate())
+
 workbox.routing.registerRoute(({url}) => {
   return new RegExp('getCustomer').test(url.search)
 }, workbox.strategies.networkFirst())
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {

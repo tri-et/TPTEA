@@ -1,4 +1,4 @@
-importScripts("precache-manifest.b1135d295ecfdec5e0c456b5ef48bfee.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("precache-manifest.e731c2be099957d87979340bfef893ce.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
@@ -10,9 +10,11 @@ self.workbox.precaching.precache(self.__precacheManifest)
 workbox.routing.registerRoute(({url}) => {
   return new RegExp('listCategories').test(url.search)
 }, workbox.strategies.staleWhileRevalidate())
+
 workbox.routing.registerRoute(({url}) => {
   return new RegExp('getCustomer').test(url.search)
 }, workbox.strategies.networkFirst())
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
