@@ -56,7 +56,7 @@ export const receivePayment = ({commit}, payload) => {
         commit('setIsDialogOpenned', true)
         commit('setIsDisabled', false)
         commit('setReceived', data.receivePayment)
-        commit('setCustomerBalance', data.receivePayment.balance)
+        // commit('setCustomerBalance', data.receivePayment.balance)
       }
     })
     .catch(err => {

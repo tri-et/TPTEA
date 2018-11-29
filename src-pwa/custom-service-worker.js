@@ -5,8 +5,8 @@
  */
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
-workbox.routing.registerRoute(new RegExp('/api'), workbox.strategies.staleWhileRevalidate())
-
+workbox.routing.registerRoute(new RegExp('/categories'), workbox.strategies.staleWhileRevalidate())
+workbox.routing.registerRoute(new RegExp('/api'), workbox.strategies.networkFirst())
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
