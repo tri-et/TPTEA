@@ -5,7 +5,13 @@
  */
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
-workbox.routing.registerRoute(new RegExp('/api'), workbox.strategies.staleWhileRevalidate())
+workbox.routing.registerRoute(({url}) => {
+  return url.search.includes('listCategories')
+}, workbox.strategies.staleWhileRevalidate())
+
+workbox.routing.registerRoute(({url}) => {
+  return url.search.includes('getCustomer')
+}, workbox.strategies.networkFirst())
 
 self.addEventListener('fetch', event => {
   event.respondWith(
