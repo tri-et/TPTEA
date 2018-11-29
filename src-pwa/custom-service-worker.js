@@ -7,7 +7,7 @@ workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
 const matchCb = ({url, event}) => {
   console.log(url)
-  return url.pathname === '/categories'
+  return new RegExp('listCategories').test(url.search)
 }
 // workbox.routing.registerRoute(new RegExp('/#/categories'), workbox.strategies.staleWhileRevalidate())
 // workbox.routing.registerRoute(new RegExp('/#/customer'), workbox.strategies.networkFirst())
