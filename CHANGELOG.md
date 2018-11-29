@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 0.0.2x - 2018-11-12
+## 0.0.2y - 2018-11-12
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
@@ -46,7 +46,7 @@ All notable changes to this project will be documented in this file.
 - Adjust gulp to copy over the fb-login-receiver to dist folder
 - Smooth out scrolling in all page
 - Fix FB login/register in pwa
-- Fix layout MakePayment page
+- Fix jumping layout in Make Payment page
 - Updating balance after leaving the topup page & make payment page
 - Provide scope with email/public_profile for FB Access token grant request
 
