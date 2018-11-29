@@ -46,6 +46,7 @@ All notable changes to this project will be documented in this file.
 - Adjust gulp to copy over the fb-login-receiver to dist folder
 - Smooth out scrolling in all page
 - Fix FB login/register in pwa
+- Updating balance after leaving the topup page & make payment page
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
