@@ -85,7 +85,7 @@ export async function getUserFbInfo() {
     })
   } else {
     window.open(
-      'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&response_type=token&scope=name,email,public_profile&redirect_uri=' +
+      'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&response_type=token&scope=email,public_profile&redirect_uri=' +
         window.location.origin +
         '/fb-login-receiver.html',
       'Facebook Login',

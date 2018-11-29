@@ -47,7 +47,7 @@ All notable changes to this project will be documented in this file.
 - Smooth out scrolling in all page
 - Fix FB login/register in pwa
 - Updating balance after leaving the topup page & make payment page
-- Provide scope with email/name/public_profile for FB Access token grant request
+- Provide scope with email/public_profile for FB Access token grant request
 
 ## 0.0.1 - 2018-09-17
 ### Fixed
