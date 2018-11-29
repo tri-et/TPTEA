@@ -5,8 +5,13 @@
  */
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
-workbox.routing.registerRoute(new RegExp('/#/categories'), workbox.strategies.staleWhileRevalidate({cacheName: 'categories-cache'}))
-workbox.routing.registerRoute(new RegExp('/#/customer'), workbox.strategies.networkFirst({cacheName: 'customer-cache'}))
+const matchCb = ({url, event}) => {
+  console.log(url)
+  return url.pathname === '/categories'
+}
+// workbox.routing.registerRoute(new RegExp('/#/categories'), workbox.strategies.staleWhileRevalidate())
+// workbox.routing.registerRoute(new RegExp('/#/customer'), workbox.strategies.networkFirst())
+workbox.routing.registerRoute(matchCb, workbox.strategies.staleWhileRevalidate())
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
