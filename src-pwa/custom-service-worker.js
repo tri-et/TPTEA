@@ -6,11 +6,11 @@
 workbox.core.setCacheNameDetails({prefix: 'tptea'})
 self.workbox.precaching.precache(self.__precacheManifest)
 workbox.routing.registerRoute(({url}) => {
-  return url.search.includes('listCategories')
+  return url.search.indexOf('listCategories') > -1
 }, workbox.strategies.staleWhileRevalidate())
 
 workbox.routing.registerRoute(({url}) => {
-  return url.search.includes('getCustomer')
+  return url.search.indexOf('getCustomer') > -1
 }, workbox.strategies.networkFirst())
 
 self.addEventListener('fetch', event => {
