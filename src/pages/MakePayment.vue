@@ -1,7 +1,7 @@
 <template>
   <modal-page @close="closePayment">
     <div class="q-title row justify-center q-mt-sm text-grey">{{getCustomer.name}}</div>
-    <div class="row justify-center q-mt-sm">Give this code to the cashier for payment</div>
+    <div class="row justify-center q-mt-sm">Kindly pass the QR Code to our cashier</div>
     <div class="q-pa-lg">
       <et-gen-q-r-code :dark="dark" :qrcode="getQRCodePaymentId" class="row justify-center"/>
     </div>
