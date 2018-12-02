@@ -1,7 +1,7 @@
 <template>
   <div class="q-pt-md row justify-center receive-payment">
-    <q-field icon="attach_money" class="q-mb-md">
-      <input type="number" v-model="amount" placeholder="Amount">
+    <q-field icon="attach_money" class="q-mb-md" :label-width="4">
+      <q-input color="secondary" placeholder="Amount" v-model="amount"/>
     </q-field>
     <q-btn label="Receive Payment" :disable="isDisabled" icon="payment" color="secondary" @click="openScaner()"/>
     <q-modal v-model="getIsDialogOpenned" no-backdrop-dismiss no-esc-dismiss minimized :content-css="{maxWidth: '290px',minWidth:'230px'} ">
@@ -41,7 +41,8 @@ export default {
   computed: {
     ...mapGetters('admin', ['getIsDialogOpenned', 'getReceived', 'getIsDisabled']),
     isDisabled() {
-      return ['', '0'].indexOf(this.amount) >= 0 || (this.getIsDisabled && this.amount !== '')
+      let reg = new RegExp(/^[1-9]+(\.?\d{1,})?$/)
+      return !reg.test(this.amount) || this.getIsDisabled
     },
   },
   methods: {
@@ -54,6 +55,7 @@ export default {
     closeScanner() {
       this.scannerStarted = false
       this.theScanner = null
+      this.setIsDisabled(false)
     },
     openScaner() {
       this.scannerStarted = true
@@ -65,11 +67,16 @@ export default {
       this.amount = ''
     },
   },
+  mounted() {
+    addEventListener('keypress', evt => {
+      let charCode = evt.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46) evt.preventDefault()
+      else return true
+    })
+  },
 }
 </script>
 <style lang="stylus" scoped>
-@import '~variables'
-
 .receive-payment
   max-width 350px
   margin auto
@@ -79,12 +86,4 @@ export default {
 
 .receive-content
   max-width 213px
-
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
-  -webkit-appearance none
-  margin 0
-
-input[type=number]
-  outline-color $secondary
-  width 135px
 </style>
