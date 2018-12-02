@@ -52,9 +52,9 @@ export const receivePayment = ({commit}, payload) => {
   )
     .then(({data}) => {
       _procAlert(data, `Receive payment In Successfully!`)
+      commit('setIsDisabled', false)
       if (!data.errors) {
         commit('setIsDialogOpenned', true)
-        commit('setIsDisabled', false)
         commit('setReceived', data.receivePayment)
       }
     })
