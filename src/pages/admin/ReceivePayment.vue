@@ -3,7 +3,7 @@
     <q-field icon="attach_money" class="q-mb-md" :label-width="4">
       <q-input color="secondary" placeholder="Amount" v-model="amount"/>
     </q-field>
-    <q-btn label="Receive Payment" :disable="validateNumberInput" icon="payment" color="secondary" @click="openScaner()"/>
+    <q-btn label="Receive Payment" :disable="validateNumberFormat" icon="payment" color="secondary" @click="openScaner()"/>
     <q-modal v-model="getIsDialogOpenned" no-backdrop-dismiss no-esc-dismiss minimized :content-css="{maxWidth: '290px',minWidth:'230px'} ">
       <q-modal-layout class="q-pt-md q-pr-md q-pl-md q-pb-md">
         <div class="row justify-center">
@@ -40,7 +40,7 @@ export default {
   components: {QRCodeScanner},
   computed: {
     ...mapGetters('admin', ['getIsDialogOpenned', 'getReceived', 'getIsDisabled']),
-    validateNumberInput() {
+    validateNumberFormat() {
       let reg = /^[1-9]+(\.?\d{1,})?$/
       return !reg.test(this.amount) || this.getIsDisabled
     },
@@ -66,16 +66,16 @@ export default {
       this.setIsDialogOpenned(false)
       this.amount = ''
     },
-    validateNumber(evt) {
-      let reg = /[0-9.]/
-      if (reg.test(evt.key)) return true
-      else evt.preventDefault()
+    maskNumberInput() {
+      this.$el.querySelector('input').addEventListener('keypress', evt => {
+        let reg = /[0-9.]/
+        if (reg.test(evt.key)) return true
+        else evt.preventDefault()
+      })
     },
   },
   mounted() {
-    this.$el.querySelector('input').addEventListener('keypress', evt => {
-      this.validateNumber(evt)
-    })
+    this.maskNumberInput()
   },
 }
 </script>
