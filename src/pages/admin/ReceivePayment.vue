@@ -68,17 +68,11 @@ export default {
     },
   },
   mounted() {
-    addEventListener(
-      'keypress',
-      evt => {
-        let charCode = evt.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46) evt.preventDefault()
-        else return true
-      },
-      {
-        once: true,
-      }
-    )
+    addEventListener('keypress', evt => {
+      let charCode = evt.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46) evt.preventDefault()
+      else return true
+    })
   },
 }
 </script>
