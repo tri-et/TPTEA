@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters('admin', ['getIsDialogOpenned', 'getReceived', 'getIsDisabled']),
     isDisabled() {
-      let reg = new RegExp(/^[1-9]+(\.?\d{1,})?$/)
+      let reg = /^[1-9]+(\.?\d{1,})?$/
       return !reg.test(this.amount) || this.getIsDisabled
     },
   },
