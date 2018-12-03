@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 - Register facebook
 - Stylus all pages & components (maxwidth = $breakpoint-xs quasar's variable)
 - Admin Default layout & Login
-- Customer Detail Page with Sign-Out feaature
+- Customer Detail Page with Sign-Out feature
 - Validator Login form[@phillip](https://github.com/hemvanh/TPTEA/pull/23)
 - Routing algorithm with new token of Admin & Customer[@phillip](https://github.com/hemvanh/TPTEA/pull/33)
 - Automation test routing [@phillip](https://github.com/hemvanh/TPTEA/pull/33)
@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 - ModalPage to Register & Login page
 - Pwa Cache busting when new version updated
 - Auto redirect from http to https protocol
+- Sign-Out confirmation
 ### Removed 
 - Join now button
 - Remove parameter "expiry" and change parameter "amount" to "giftCardid" in genGiftCard function
