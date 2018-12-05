@@ -5,7 +5,9 @@
         <q-btn dense @click="leftDrawerOpen = !leftDrawerOpen" aria-label="Menu">
           <q-icon name="menu"/>
         </q-btn>
-        <q-toolbar-title>TP-TEA</q-toolbar-title>
+        <q-toolbar-title>TP-Tea Admin
+          <ver/>
+        </q-toolbar-title>
         <q-btn dense round @click="showSignOutModal" aria-label="Menu">
           <q-icon name="power_off"/>
         </q-btn>
@@ -46,6 +48,7 @@
 </template>
 
 <script>
+import ver from 'components/Version'
 export default {
   name: 'LayoutDefault',
   data() {
@@ -53,6 +56,9 @@ export default {
       leftDrawerOpen: this.$q.platform.is.desktop,
       signOutDialogModel: false,
     }
+  },
+  components: {
+    ver,
   },
   methods: {
     signOut() {

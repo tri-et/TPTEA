@@ -56,10 +56,14 @@
     <q-dialog v-model="signOutDialogModel" message="Do you really want to sign out?" cancel="Cancel" @ok="signOut" no-backdrop-dismiss>
       <span slot="title">Confirm</span>
     </q-dialog>
+    <div class="absolute-bottom text-center text-italic q-mb-md text-secondary">TP-Tea
+      <ver/>
+    </div>
   </q-page>
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex'
+import ver from 'components/Version'
 export default {
   name: 'PageCustomer',
   data() {
@@ -69,6 +73,9 @@ export default {
       customerInfo: {},
       signOutDialogModel: false,
     }
+  },
+  components: {
+    ver,
   },
   computed: {
     ...mapGetters('customer', ['getCustomer']),

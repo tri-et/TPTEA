@@ -13,6 +13,10 @@ workbox.routing.registerRoute(({url}) => {
   return url.search.indexOf('getCustomer') > -1
 }, workbox.strategies.networkFirst())
 
+workbox.routing.registerRoute(({url}) => {
+  return url.search.indexOf('CHANGELOG.md') > -1
+}, workbox.strategies.networkFirst())
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
