@@ -13,7 +13,7 @@ workbox.routing.registerRoute(({url}) => {
   return url.search.indexOf('getCustomer') > -1
 }, workbox.strategies.networkFirst())
 
-workbox.precaching.precache([{url: '/CHANGELOG.md', revision: new Date().getTime().toString()}])
+workbox.precaching.precache([{url: '/CHANGELOGS.md', revision: new Date().getTime().toString()}])
 
 self.addEventListener('fetch', event => {
   event.respondWith(
