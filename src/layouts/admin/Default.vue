@@ -6,7 +6,7 @@
           <q-icon name="menu"/>
         </q-btn>
         <q-toolbar-title>TP-Tea Admin
-          <version/>
+          <app-version/>
         </q-toolbar-title>
         <q-btn dense round @click="showSignOutModal" aria-label="Menu">
           <q-icon name="power_off"/>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import version from 'components/AppVersion'
+import appVersion from 'components/AppVersion'
 export default {
   name: 'LayoutDefault',
   data() {
@@ -58,7 +58,7 @@ export default {
     }
   },
   components: {
-    version,
+    appVersion,
   },
   methods: {
     signOut() {

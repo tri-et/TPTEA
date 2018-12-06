@@ -18,7 +18,7 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    alert('New Version is available. Reload TP-Tea ?')
+    alert('New Version available. TP-Tea is reloading now!')
   },
   offline() {
     console.log('No internet connection found. App is running in offline mode.')

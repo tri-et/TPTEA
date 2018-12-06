@@ -22,11 +22,6 @@ self.addEventListener('fetch', event => {
     })
   )
 })
-self.addEventListener('message', ({data}) => {
-  if (data === 'skipWaiting') {
-    self.skipWaiting()
-  }
-})
 
 workbox.skipWaiting()
 workbox.clientsClaim()
