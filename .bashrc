@@ -4,7 +4,7 @@ deploy() {
     git add -A 
     git commit -m "$*"
     git push origin master
-    git push origin `git subtree split --prefix dist/pwa-mat live`:live --force
+    git push origin `git subtree split --prefix dist/pwa-mat develop`:live --force
 }
 
 deploytest() {
