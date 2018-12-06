@@ -13,6 +13,8 @@ workbox.routing.registerRoute(({url}) => {
   return url.search.indexOf('getCustomer') > -1
 }, workbox.strategies.networkFirst())
 
+workbox.precaching.precache([{url: '/CHANGELOGS.md', revision: new Date().getTime().toString()}])
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
@@ -20,8 +22,6 @@ self.addEventListener('fetch', event => {
     })
   )
 })
-self.addEventListener('message', ({data}) => {
-  if (data === 'skipWaiting') {
-    self.skipWaiting()
-  }
-})
+
+workbox.skipWaiting()
+workbox.clientsClaim()

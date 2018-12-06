@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="q-ma-xl">Welcome {{getAdmin.username}} to TP-TEA Admin Page</h4>
+    <h4 class="q-ma-xl">Welcome {{getAdmin.username}} to TP-Tea Admin Page</h4>
   </div>
 </template>
 
