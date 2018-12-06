@@ -18,10 +18,7 @@ register(process.env.SERVICE_WORKER_FILE, {
   },
   updated(registration) {
     // registration -> a ServiceWorkerRegistration instance
-    let popup = confirm('New Version is available. Reload TP-Tea ?')
-    if (popup) {
-      registration.waiting.postMessage('skipWaiting')
-    }
+    alert('New Version is available. Reload TP-Tea ?')
   },
   offline() {
     console.log('No internet connection found. App is running in offline mode.')

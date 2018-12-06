@@ -13,9 +13,7 @@ workbox.routing.registerRoute(({url}) => {
   return url.search.indexOf('getCustomer') > -1
 }, workbox.strategies.networkFirst())
 
-workbox.routing.registerRoute(({url}) => {
-  return url.search.indexOf('CHANGELOG.md') > -1
-}, workbox.strategies.networkFirst())
+workbox.precaching.precache([{url: '/CHANGELOG.md', revision: new Date().getTime().toString()}])
 
 self.addEventListener('fetch', event => {
   event.respondWith(
@@ -29,3 +27,6 @@ self.addEventListener('message', ({data}) => {
     self.skipWaiting()
   }
 })
+
+workbox.skipWaiting()
+workbox.clientsClaim()
