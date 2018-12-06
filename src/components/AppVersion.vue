@@ -13,7 +13,7 @@ export default {
       let textChangeLog = await this.$axios.get('CHANGELOG.md').then(({data}) => {
         return data
       })
-      if (textChangeLog) this.version = `v${textChangeLog.match(/##.\d.\d.\dz/)[0].replace(/#|z/g, '')}`
+      if (textChangeLog) this.version = `v${textChangeLog.match(/##\s.*\d{4}-\d{1,2}-\d{1,2}\b/)[0].replace(/#|\s|-|\d{4}-\d{1,2}-\d{1,2}/g, '')}`
     },
   },
   mounted() {
