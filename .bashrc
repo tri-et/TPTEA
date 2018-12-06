@@ -4,14 +4,14 @@ deploy() {
     git add -A 
     git commit -m "$*"
     git push origin master
-    git subtree push -f --prefix dist/pwa-mat origin live
+    git push origin `git subtree split --prefix dist/pwa-mat live`:live --force
 }
 
 deploytest() {
     npm run build
     git add -A 
     git commit -m "$*"
-    git subtree push -f --prefix dist/pwa-mat origin live
+    git subtree push --prefix dist/pwa-mat origin live
 }
 
 dev() {
