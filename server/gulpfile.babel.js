@@ -2,7 +2,7 @@ import gulp from 'gulp'
 import babel from 'gulp-babel'
 
 gulp.task('package', () =>
-  gulp.src(['./package.json', '.env', '../src/fb-login-receiver.html']).pipe(gulp.dest('../dist/pwa-mat'))
+  gulp.src(['./package.json', '.env', '../src/fb-login-receiver.html', '../src/CHANGELOGS.md']).pipe(gulp.dest('../dist/pwa-mat'))
 )
 gulp.task('es6', ['package'], () =>
   gulp
