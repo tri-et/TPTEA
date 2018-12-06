@@ -57,13 +57,13 @@
       <span slot="title">Confirm</span>
     </q-dialog>
     <div class="absolute-bottom text-center text-italic q-mb-md text-secondary">TP-Tea
-      <ver/>
+      <version/>
     </div>
   </q-page>
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex'
-import ver from 'components/Version'
+import version from 'components/AppVersion'
 export default {
   name: 'PageCustomer',
   data() {
@@ -75,7 +75,7 @@ export default {
     }
   },
   components: {
-    ver,
+    version,
   },
   computed: {
     ...mapGetters('customer', ['getCustomer']),

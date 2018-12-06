@@ -10,10 +10,10 @@ export default {
   },
   methods: {
     async readVersion() {
-      let data = await this.$axios.get('CHANGELOG.md').then(({data}) => {
+      let textChangeLog = await this.$axios.get('CHANGELOG.md').then(({data}) => {
         return data
       })
-      if (data) this.version = 'v' + data.match(/##.\d.\d.\dz/)[0].replace(/#|z/g, '')
+      if (textChangeLog) this.version = `v${textChangeLog.match(/##.\d.\d.\dz/)[0].replace(/#|z/g, '')}`
     },
   },
   mounted() {
