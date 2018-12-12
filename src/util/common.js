@@ -76,21 +76,32 @@ export function getUserType() {
 export function getFbToken() {
   return localStorage.getItem('access_token')
 }
-
-export async function getUserFbInfo() {
-  let token = getFbToken()
+export async function getUserFbInfo(commit) {
+  let popup,
+    token = getFbToken()
   if (token) {
     return new Promise(resolve => {
       getUserFbInfoByToken(token, resolve)
     })
   } else {
-    window.open(
+    popup = window.open(
       'https://www.facebook.com/v3.2/dialog/oauth?client_id=253998778647702&response_type=token&scope=email,public_profile&redirect_uri=' +
         window.location.origin +
         '/fb-login-receiver.html',
       'Facebook Login',
       'width=500px,height=500px'
     )
+
+    let checkPopupClose = () => {
+      if (popup.closed) {
+        if (commit) {
+          commit('setIsLoadingFB', false)
+        }
+        clearInterval(timer)
+      }
+    }
+    let timer = setInterval(checkPopupClose, 500)
+
     return new Promise(resolve => {
       window.addEventListener(
         'message',
@@ -102,7 +113,7 @@ export async function getUserFbInfo() {
     })
   }
 }
-export async function getUserFbInfoByToken(token, resolve) {
+export function getUserFbInfoByToken(token, resolve) {
   _ax
     .get('https://graph.facebook.com/me', {
       params: {
