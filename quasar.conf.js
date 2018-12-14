@@ -30,7 +30,7 @@ module.exports = function(ctx) {
       },
     },
     devServer: {
-      https: false,
+      https: true,
       // port: 8080,
       open: true, // opens browser window automatically
       proxy: {
