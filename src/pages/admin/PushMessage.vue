@@ -1,6 +1,6 @@
 <template>
   <div class="push-msg q-pt-md">
-    <q-input v-model="msgPush" type="textarea" placeholder="Push Message" rows="2"/>
+    <q-input v-model="msgPush" type="textarea" placeholder="Push Message"/>
     <q-btn :disable="msgPush==''" class="q-mt-md" label="Push Message" color="secondary" @click="pushMessage(msgPush)"/>
   </div>
 </template>

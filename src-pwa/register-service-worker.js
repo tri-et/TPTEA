@@ -42,8 +42,7 @@ register(process.env.SERVICE_WORKER_FILE, {
           }
         })
       } else {
-        // We have a subscription, update the database
-        console.log('Subscription object: ', JSON.stringify(sub.toJSON()))
+        return registration.pushManager.getSubscription()
       }
     })
   },
