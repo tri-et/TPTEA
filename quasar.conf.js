@@ -30,7 +30,7 @@ module.exports = function(ctx) {
       },
     },
     devServer: {
-      https: true,
+      https: false,
       // port: 8080,
       open: true, // opens browser window automatically
       proxy: {
@@ -120,6 +120,7 @@ module.exports = function(ctx) {
       // workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
+        gcm_sender_id: '889927801023',
         name: 'TP-Tea Hong Kong',
         short_name: 'TP-Tea',
         description: 'TP-Tea. The Best Tea in town!',

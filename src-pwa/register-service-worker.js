@@ -4,6 +4,29 @@
  */
 
 import {register} from 'register-service-worker'
+const subscribeUser = registration => {
+  registration.pushManager
+    .subscribe({
+      userVisibleOnly: true,
+    })
+    .then(sub => {
+      let subJson = sub.toJSON()
+      fetch(`${window.location.origin}/api?query={registerPushSubscription(input:{
+        endpoint: "${subJson.endpoint}",
+        auth: "${subJson.keys.auth}",
+        p256dh: "${subJson.keys.p256dh}"
+      })}`).then(() => {
+        console.log('User is subscribed')
+      })
+    })
+    .catch(function(e) {
+      if (Notification.permission === 'denied') {
+        console.warn('Permission for notifications was denied')
+      } else {
+        console.error('Unable to subscribe to push', e)
+      }
+    })
+}
 register(process.env.SERVICE_WORKER_FILE, {
   ready() {
     console.log('App is being served from cache by a service worker.')
@@ -11,6 +34,18 @@ register(process.env.SERVICE_WORKER_FILE, {
   registered(registration) {
     // registration -> a ServiceWorkerRegistration instance
     console.log('Service worker has been registered.')
+    registration.pushManager.getSubscription().then(sub => {
+      if (sub === null) {
+        Notification.requestPermission(result => {
+          if (result === 'granted') {
+            subscribeUser(registration)
+          }
+        })
+      } else {
+        // We have a subscription, update the database
+        console.log('Subscription object: ', JSON.stringify(sub.toJSON()))
+      }
+    })
   },
   cached(registration) {
     // registration -> a ServiceWorkerRegistration instance

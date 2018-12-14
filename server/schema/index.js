@@ -31,6 +31,7 @@ const RootQuery = `
     fetchGiftCards: [GiftCard]
     genCustomerPaymentId(input:Int): String
     verifyCustomerPaymentId(input:String): Customer
+    registerPushSubscription(input:PushSubscriptionInput): String
   }
 `
 
@@ -49,6 +50,7 @@ const RootMutation = `
     createGiftCard(input:GiftCardInput): GiftCard
     applyGiftCard(input:ApplyGiftCardInput): ApplyGiftCardOutput
     receivePayment(input:ReceivePaymentInput): ReceivePayment
+    pushMessage(input:String): String
   }
 `
 

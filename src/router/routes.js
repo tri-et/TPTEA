@@ -17,6 +17,7 @@ import pgAdminCustomers from 'pages/admin/Customers'
 import pgTopup from 'pages/Topup'
 import pgMakePayment from 'pages/MakePayment'
 import pgAdminReceivePayment from 'pages/admin/ReceivePayment'
+import pgAdminPushMessage from 'pages/admin/PushMessage'
 
 const routes = [
   {
@@ -94,6 +95,10 @@ const routes = [
       {
         path: 'receivepayment',
         component: pgAdminReceivePayment,
+      },
+      {
+        path: 'pushmessage',
+        component: pgAdminPushMessage,
       },
     ],
   },

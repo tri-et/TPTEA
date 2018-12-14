@@ -22,6 +22,32 @@ self.addEventListener('fetch', event => {
     })
   )
 })
-
+self.addEventListener('push', function(e) {
+  var options = {
+    body: e.data.text(),
+    icon: 'statics/icons/apple-icon-152x152.png',
+  }
+  e.waitUntil(self.registration.showNotification('TPTEA', options))
+})
+self.addEventListener('notificationclick', function(event) {
+  self.registration.getNotifications().then(function(notifications) {
+    notifications.forEach(function(notification) {
+      notification.close()
+    })
+  })
+  event.waitUntil(
+    clients
+      .matchAll({
+        type: 'window',
+      })
+      .then(function(clientList) {
+        for (var i = 0; i < clientList.length; i++) {
+          var client = clientList[i]
+          if (client.url === '/' && 'focus' in client) return client.focus()
+        }
+        if (clients.openWindow) return clients.openWindow('/')
+      })
+  )
+})
 workbox.skipWaiting()
 workbox.clientsClaim()
