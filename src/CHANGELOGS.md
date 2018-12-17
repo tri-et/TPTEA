@@ -83,3 +83,4 @@ All notable changes to this project will be documented in this file.
 - Add IsPrinted to Giftcard
 - Receive payment function
 - Grid recive payment
+- Push notification
