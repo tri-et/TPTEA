@@ -10,11 +10,11 @@ const subscribeUser = registration => {
       userVisibleOnly: true,
     })
     .then(sub => {
-      let subJson = sub.toJSON()
+      let {endpoint, keys} = sub.toJSON()
       fetch(`${window.location.origin}/api?query={registerPushSubscription(input:{
-        endpoint: "${subJson.endpoint}",
-        auth: "${subJson.keys.auth}",
-        p256dh: "${subJson.keys.p256dh}"
+        endpoint: "${endpoint}",
+        auth: "${keys.auth}",
+        p256dh: "${keys.p256dh}"
       })}`).then(() => {
         console.log('User is subscribed')
       })
