@@ -41,7 +41,7 @@ const resolvers = {
       else throw new Error('Customer not found!')
     },
     async registerPushSubscription(_, {input}) {
-      return await PushSubscription.create(input).then(async () => {
+      return await PushSubscription.create(input).then(() => {
         return 'Create Success'
       })
     },

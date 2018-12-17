@@ -66,15 +66,12 @@ const resolvers = {
     async pushMessage(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
       let data = await PushSubscription.findAll()
-      let pushComlepted = Promise.resolve()
-      data.forEach(subscription => {
-        pushComlepted = pushComlepted.then(() => {
+      await Promise.all(
+        data.map(subscription => {
           return pushMsg(subscription, input)
         })
-      })
-      let {statusCode} = await pushComlepted
-      if (statusCode !== 201) throw new Error('Can`t push message to all clients')
-      else
+      )
+      if (endPointUrlExpired.length) {
         return await PushSubscription.destroy({
           where: {
             id: {
@@ -85,6 +82,7 @@ const resolvers = {
           endPointUrlExpired = []
           return 'Success'
         })
+      } else return 'Success'
     },
   },
 }

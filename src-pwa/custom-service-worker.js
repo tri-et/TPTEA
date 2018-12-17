@@ -22,19 +22,15 @@ self.addEventListener('fetch', event => {
     })
   )
 })
-self.addEventListener('push', function(e) {
+self.addEventListener('push', event => {
   var options = {
-    body: e.data.text(),
+    body: event.data.text(),
     icon: 'statics/icons/apple-icon-152x152.png',
   }
-  e.waitUntil(self.registration.showNotification('TPTEA', options))
+  event.waitUntil(self.registration.showNotification('TPTEA', options))
 })
-self.addEventListener('notificationclick', function(event) {
-  self.registration.getNotifications().then(function(notifications) {
-    notifications.forEach(function(notification) {
-      notification.close()
-    })
-  })
+self.addEventListener('notificationclick', event => {
+  self.notification.close()
   event.waitUntil(clients.openWindow('/'))
 })
 workbox.skipWaiting()

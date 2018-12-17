@@ -35,7 +35,7 @@ register(process.env.SERVICE_WORKER_FILE, {
     // registration -> a ServiceWorkerRegistration instance
     console.log('Service worker has been registered.')
     registration.pushManager.getSubscription().then(sub => {
-      if (sub === null) {
+      if (!sub) {
         Notification.requestPermission(result => {
           if (result === 'granted') {
             subscribeUser(registration)
