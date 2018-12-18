@@ -48,5 +48,10 @@ const Customer = `
     balance: Float
     amount: Int
   }
+  input PushSubscriptionInput {
+    endpoint: String
+    auth: String
+    p256dh: String
+  }
 `
 export default Customer

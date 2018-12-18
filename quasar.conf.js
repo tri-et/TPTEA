@@ -120,6 +120,7 @@ module.exports = function(ctx) {
       // workboxPluginMode: 'GenerateSW',
       // workboxOptions: {},
       manifest: {
+        gcm_sender_id: '889927801023',
         name: 'TP-Tea Hong Kong',
         short_name: 'TP-Tea',
         description: 'TP-Tea. The Best Tea in town!',

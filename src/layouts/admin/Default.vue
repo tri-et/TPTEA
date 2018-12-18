@@ -38,6 +38,10 @@
           <q-item-side icon="payment"/>
           <q-item-main label="Receive Payment"/>
         </q-item>
+        <q-item to="/admin/pushmessage">
+          <q-item-side icon="payment"/>
+          <q-item-main label="Push Message"/>
+        </q-item>
       </q-list>
     </q-layout-drawer>
 

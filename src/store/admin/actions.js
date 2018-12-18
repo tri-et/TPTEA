@@ -62,3 +62,18 @@ export const receivePayment = ({commit}, payload) => {
       _procError(err)
     })
 }
+export const pushMessage = (_, payload) => {
+  _post(
+    payload,
+    `mutation ($input: String) {
+      pushMessage(input: $input)
+    }`
+  )
+    .then(({data}) => {
+      _procAlert(data, `Pussh Message Successfully!`)
+      console.log(data)
+    })
+    .catch(err => {
+      _procError(err)
+    })
+}
