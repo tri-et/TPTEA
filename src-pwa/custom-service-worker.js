@@ -22,6 +22,16 @@ self.addEventListener('fetch', event => {
     })
   )
 })
-
+self.addEventListener('push', event => {
+  var options = {
+    body: event.data.text(),
+    icon: 'statics/icons/apple-icon-152x152.png',
+  }
+  event.waitUntil(self.registration.showNotification('TPTEA', options))
+})
+self.addEventListener('notificationclick', event => {
+  self.notification.close()
+  event.waitUntil(clients.openWindow('/'))
+})
 workbox.skipWaiting()
 workbox.clientsClaim()

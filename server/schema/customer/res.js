@@ -1,4 +1,4 @@
-import {Customer} from '../../models'
+import {Customer, PushSubscription} from '../../models'
 import GraphQLDate from 'graphql-date'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -39,6 +39,11 @@ const resolvers = {
       let user = await Customer.findById(input)
       if (user) return jwt.sign(`${input}_${new Date().getTime()}`, process.env.JWT_SECRET)
       else throw new Error('Customer not found!')
+    },
+    async registerPushSubscription(_, {input}) {
+      return await PushSubscription.create(input).then(() => {
+        return 'Create Success'
+      })
     },
   },
   RootMutation: {
