@@ -100,12 +100,12 @@ const routes = [
         component: pgCategories,
       },
       {
-        path: 'menudetail/:menuId',
-        component: pgMenuDetail,
-      },
-      {
         path: 'categories/:catId',
         component: pgMenus,
+      },
+      {
+        path: 'menudetail/:menuId',
+        component: pgMenuDetail,
       },
     ],
   },
