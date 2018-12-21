@@ -1,6 +1,7 @@
 import loDefault from 'layouts/Default'
 import loAdminDefault from 'layouts/admin/Default'
 import loCustomer from 'layouts/Customer'
+import loOrder from 'layouts/Order'
 import pgLogin from 'pages/Login'
 import pgAdminLogin from 'pages/admin/Login'
 import pgHome from 'pages/Home'
@@ -29,16 +30,8 @@ const routes = [
         component: pgHome,
       },
       {
-        path: 'categories',
-        component: pgCategories,
-      },
-      {
         path: 'stores',
         component: pgStores,
-      },
-      {
-        path: 'menus/:catId',
-        component: pgMenus,
       },
       {
         path: 'customer',
@@ -65,14 +58,6 @@ const routes = [
             component: pgMakePayment,
           },
         ],
-      },
-      {
-        path: 'menus/:catId',
-        component: pgMenus,
-      },
-      {
-        path: 'menudetail/:menuId',
-        component: pgMenuDetail,
       },
     ],
   },
@@ -105,6 +90,24 @@ const routes = [
   {
     path: '/admin/login',
     component: pgAdminLogin,
+  },
+  {
+    path: '/order',
+    component: loOrder,
+    children: [
+      {
+        path: 'categories/:mainCatId',
+        component: pgCategories,
+      },
+      {
+        path: 'menus/:catId',
+        component: pgMenus,
+      },
+      {
+        path: 'menu-detail/:menuId',
+        component: pgMenuDetail,
+      },
+    ],
   },
 ]
 
