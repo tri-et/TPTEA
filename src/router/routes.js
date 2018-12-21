@@ -96,15 +96,15 @@ const routes = [
     component: loOrder,
     children: [
       {
-        path: 'maincategories/:mainCatId',
+        path: 'categories/:mainCatId',
         component: pgCategories,
       },
       {
-        path: 'categories/:catId',
+        path: 'menus/:catId',
         component: pgMenus,
       },
       {
-        path: 'menudetail/:menuId',
+        path: 'menu-detail/:menuId',
         component: pgMenuDetail,
       },
     ],
