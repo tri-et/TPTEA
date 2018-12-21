@@ -30,10 +30,6 @@ const routes = [
         component: pgHome,
       },
       {
-        path: 'categories',
-        component: pgCategories,
-      },
-      {
         path: 'stores',
         component: pgStores,
       },
@@ -96,32 +92,20 @@ const routes = [
     component: pgAdminLogin,
   },
   {
-    path: '/categories',
+    path: '/order',
     component: loOrder,
     children: [
       {
-        path: ':catId',
-        component: pgMenus,
-      },
-    ],
-  },
-  {
-    path: '/maincategories',
-    component: loOrder,
-    children: [
-      {
-        path: ':mainCatId',
+        path: 'maincategories/:mainCatId',
         component: pgCategories,
       },
-    ],
-  },
-  {
-    path: '/menudetail',
-    component: loOrder,
-    children: [
       {
-        path: ':menuId',
+        path: 'menudetail/:menuId',
         component: pgMenuDetail,
+      },
+      {
+        path: 'categories/:catId',
+        component: pgMenus,
       },
     ],
   },

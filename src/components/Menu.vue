@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     openMenuDetail(menuId) {
-      this.$router.push('/menudetail/' + menuId)
+      this.$router.push('/order/menudetail/' + menuId)
     },
   },
 }

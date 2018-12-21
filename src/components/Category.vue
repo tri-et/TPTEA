@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     openMenusListing() {
-      this.$router.push('/categories/' + this.cat.id)
+      this.$router.push('/order/categories/' + this.cat.id)
     },
   },
 }
