@@ -6,13 +6,14 @@ import categoryDef from './category/def'
 import categoryRes from './category/res'
 import menuDef from './menu/def'
 import menuRes from './menu/res'
-import modifyDef from './modify/def'
-import modifyRes from './modify/res'
+import modifierDef from './modifier/def'
+import modifierRes from './modifier/res'
 import adminDef from './admin/def'
 import adminRes from './admin/res'
 import giftCardDef from './giftcard/def'
 import giftCardRes from './giftcard/res'
-
+import mainCategoryDef from './maincategory/def'
+import mainCategoryRes from './maincategory/res'
 const SchemaDefinition = `
   schema {
     query: RootQuery,
@@ -25,13 +26,14 @@ const RootQuery = `
     getCustomer(input:Int): Customer
     listCategories(input:Int): [Category]
     listMenus(input:CategoryInput): [Menu]
-    fetchModifiers(input:MenuInput): [Modify]
+    fetchModifiers(input:MenuInput): [Modifier]
     fetchAdmin(input:Int): Admin
     fetchCustomers: [Customer]
     fetchGiftCards: [GiftCard]
     genCustomerPaymentId(input:Int): String
     verifyCustomerPaymentId(input:String): Customer
     registerPushSubscription(input:PushSubscriptionInput): String
+    fetchMainCategories:[MainCategory]
   }
 `
 
@@ -55,6 +57,6 @@ const RootMutation = `
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, categoryDef, menuDef, modifyDef, adminDef, giftCardDef],
-  resolvers: [customerRes, categoryRes, menuRes, modifyRes, adminRes, giftCardRes],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, customerDef, categoryDef, menuDef, modifierDef, adminDef, giftCardDef, mainCategoryDef],
+  resolvers: [customerRes, categoryRes, menuRes, modifierRes, adminRes, giftCardRes, mainCategoryRes],
 })

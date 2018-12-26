@@ -23,13 +23,13 @@ module.exports = {
     var data = await getData().catch(err => console.log(err))
     // console.log(data)
     return queryInterface.bulkInsert(
-      'menumodifies',
+      'menumodifier',
       _d.map(data, row => _d.pick(row, ['id', 'menuid', 'modifierid'])),
       {}
     )
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('menumodifies', null, {})
+    return queryInterface.bulkDelete('menumodifier', null, {})
   },
 }

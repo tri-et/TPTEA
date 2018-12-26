@@ -83,10 +83,10 @@ export default {
   },
   watch: {
     getRecsModifier(data) {
-      var modify = _.find(data, menu => {
+      var modifier = _.find(data, menu => {
         return menu.type === 'size' && menu.price === '0'
       })
-      this.sizes = modify !== undefined ? modify : {}
+      this.sizes = modifier !== undefined ? modifier : {}
     },
     getCounter(val) {
       this.addToCartPrice = this.calculatePrice()
