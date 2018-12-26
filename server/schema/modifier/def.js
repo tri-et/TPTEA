@@ -1,9 +1,9 @@
-const Modify = `
-  type Modify {
+const Modifier = `
+  type Modifier {
     id: Int
     name: String
     price: String
     type: String
   }
 `
-export default Modify
+export default Modifier

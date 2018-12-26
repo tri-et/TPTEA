@@ -17,7 +17,13 @@ module.exports = {
       img: {
         type: Sequelize.TEXT,
       },
-      mainCategoryId: Sequelize.INTEGER,
+      mainCategoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'maincategories',
+          key: 'id',
+        },
+      },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
     })
