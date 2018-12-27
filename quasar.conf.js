@@ -30,7 +30,7 @@ module.exports = function(ctx) {
       },
     },
     devServer: {
-      https: true,
+      https: false,
       // port: 8080,
       open: true, // opens browser window automatically
       proxy: {
@@ -103,12 +103,13 @@ module.exports = function(ctx) {
         'QToggle',
         'QTree',
         'QDialog',
+        'QOptionGroup',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
       plugins: ['Notify', 'AddressbarColor'],
       iconSet: 'material-icons',
-      // i18n: 'de' // Quasar language
+      i18n: 'de', // Quasar language
     },
     // animations: 'all' --- includes all animations
     animations: [],

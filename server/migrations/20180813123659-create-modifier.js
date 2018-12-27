@@ -14,7 +14,10 @@ module.exports = {
       price: {
         type: Sequelize.STRING,
       },
-      type: {
+      groupTitle: {
+        type: Sequelize.STRING,
+      },
+      groupType: {
         type: Sequelize.STRING,
       },
       createdAt: Sequelize.DATE,
