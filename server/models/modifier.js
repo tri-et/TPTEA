@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       price: DataTypes.STRING,
       groupTitle: DataTypes.STRING,
       groupType: DataTypes.STRING,
+      isDefault: DataTypes.BOOLEAN,
     },
     {}
   )

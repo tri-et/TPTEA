@@ -9,6 +9,7 @@ export const fetchModifiers = ({commit}, payload) => {
           id
           name
           price
+          isDefault
         }
         groupType
         groupTitle

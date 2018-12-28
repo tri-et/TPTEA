@@ -8,6 +8,7 @@ const Modifier = `
     id: Int
     name: String
     price: String
+    isDefault: Boolean
   }
 `
 export default Modifier

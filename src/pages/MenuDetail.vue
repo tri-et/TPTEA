@@ -8,7 +8,7 @@
         <img :src="'statics/'+menu.img">
       </q-card-media>
     </q-card>
-    <q-collapsible :label="menu.name" class="text-bold">
+    <q-collapsible :label="menu.name" class="text-bold" header-style="font-size:18px">
       <div class="desc">{{menu.desc}}</div>
     </q-collapsible>
     <modifiers-group
@@ -37,9 +37,6 @@ export default {
   data() {
     return {
       opened: true,
-      sizes: {},
-      addToCartPrice: 0,
-      modifiers: [],
       menu: {},
     }
   },
@@ -54,18 +51,11 @@ export default {
   methods: {
     ...mapActions('modifier', ['fetchModifiers']),
     ...mapMutations('menu', ['setCounter']),
+    ...mapMutations('modifier', ['setRecs']),
     backToMenu() {
+      this.setRecs([])
       this.$router.go(-1)
       this.setCounter(1)
-    },
-    calculatePrice() {
-      var modifierPrice = _.sumBy(this.modifiers, ({price}) => {
-        return parseFloat(price)
-      })
-      return (modifierPrice + parseFloat(this.menu.price) + parseFloat(this.sizes.price || 0)) * this.getCounter
-    },
-    onChangeModifier() {
-      this.addToCartPrice = this.calculatePrice()
     },
   },
   watch: {
@@ -81,7 +71,6 @@ export default {
   },
   mounted() {
     this.menu = this.getRecs.find(item => item.id === parseFloat(this.$route.params.menuId))
-    this.addToCartPrice = this.calculatePrice()
     this.fetchModifiers(this.menu)
   },
 }
@@ -100,6 +89,6 @@ export default {
   padding-left 10px
   margin-top -5px
 
-.q-collapsible-sub-item
-  padding 0 !important
+.q-card-media > img
+  max-height 350px
 </style>

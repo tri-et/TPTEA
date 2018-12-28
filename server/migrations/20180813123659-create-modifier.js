@@ -20,6 +20,9 @@ module.exports = {
       groupType: {
         type: Sequelize.STRING,
       },
+      isDefault: {
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
     })
