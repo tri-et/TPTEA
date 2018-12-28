@@ -22,7 +22,11 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     var data = await getData().catch(err => console.log(err))
     // console.log(data)
-    return queryInterface.bulkInsert('modifiers', _d.map(data, row => _d.pick(row, ['id', 'name', 'price', 'grouptitle', 'grouptype'])), {})
+    return queryInterface.bulkInsert(
+      'modifiers',
+      _d.map(data, row => _d.pick(row, ['id', 'name', 'price', 'grouptitle', 'grouptype', 'isdefault'])),
+      {}
+    )
   },
 
   down: (queryInterface, Sequelize) => {
