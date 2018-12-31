@@ -7,7 +7,7 @@
           <q-radio class="fit" v-if="groupType==='radio'" v-model="defaultModifiers" :val="modifier" :label="modifier.name" color="primary"/>
           <q-checkbox class="fit" v-else v-model="defaultModifiers" :label="modifier.name" :val="modifier" color="primary"/>
         </q-item-main>
-        <q-item-side right class="text-secondary">{{modifier.price|price}}</q-item-side>
+        <q-item-side right class="text-secondary">{{modifier.price|formatPrice}}</q-item-side>
       </q-item>
     </q-list>
   </div>
@@ -29,7 +29,7 @@ export default {
     }
   },
   filters: {
-    price(val) {
+    formatPrice(val) {
       var formatedPrice = ''
       if (val.includes('-')) {
         formatedPrice = '-$' + val.replace('-', '')
