@@ -109,7 +109,7 @@ module.exports = function(ctx) {
       // Quasar plugins
       plugins: ['Notify', 'AddressbarColor'],
       iconSet: 'material-icons',
-      i18n: 'de', // Quasar language
+      // i18n: 'de', // Quasar language
     },
     // animations: 'all' --- includes all animations
     animations: [],
