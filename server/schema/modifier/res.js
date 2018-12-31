@@ -1,11 +1,11 @@
 import {Menu} from '../../models'
-import dash from 'lodash'
+import _d from 'lodash'
 const resolvers = {
   RootQuery: {
     async fetchModifiers(_, {input}) {
-      var menu = new Menu(input)
+      let menu = new Menu(input)
       let dataModifiers = await menu.getModifiers()
-      return dash
+      return _d
         .chain(dataModifiers)
         .groupBy('groupTitle')
         .map((data, groupTitle) => ({

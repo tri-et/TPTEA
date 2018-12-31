@@ -4,8 +4,8 @@
     <q-list inset-separator class="q-pa-none listing-modifier">
       <q-item v-for="(modifier,index) in data" :key="index">
         <q-item-main class="text-secondary">
-          <q-radio class="fit" v-if="groupType==='radio'" v-model="modifiers" :val="modifier" :label="modifier.name" color="primary"/>
-          <q-checkbox class="fit" v-else v-model="modifiers" :label="modifier.name" :val="modifier" color="primary"/>
+          <q-radio class="fit" v-if="groupType==='radio'" v-model="defaultModifiers" :val="modifier" :label="modifier.name" color="primary"/>
+          <q-checkbox class="fit" v-else v-model="defaultModifiers" :label="modifier.name" :val="modifier" color="primary"/>
         </q-item-main>
         <q-item-side right class="text-secondary">{{modifier.price|price}}</q-item-side>
       </q-item>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import _ from 'lodash'
+import _d from 'lodash'
 export default {
   props: {
     groupTitle: String,
@@ -25,32 +25,27 @@ export default {
   },
   data() {
     return {
-      modifiers: [],
+      defaultModifiers: [],
     }
   },
   filters: {
     price(val) {
-      var price = ''
+      var formatedPrice = ''
       if (val.includes('-')) {
-        price = '-$' + val.replace('-', '')
+        formatedPrice = '-$' + val.replace('-', '')
       } else if (val === '0') {
-        price = ''
+        formatedPrice = ''
       } else {
-        price = '+$' + val
+        formatedPrice = '+$' + val
       }
-      return price
+      return formatedPrice
     },
   },
-  watch: {
-    data: {
-      handler(newData) {
-        let modifierDedault = _.find(newData, modifier => {
-          return modifier.isDefault
-        })
-        if (modifierDedault) this.modifiers = modifierDedault
-      },
-      immediate: true,
-    },
+  mounted() {
+    let modifierDedault = _d.find(this.data, modifier => {
+      return modifier.isDefault
+    })
+    if (modifierDedault) this.defaultModifiers = modifierDedault
   },
 }
 </script>
