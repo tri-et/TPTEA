@@ -20,10 +20,10 @@
     />
     <q-layout-footer class="max-width-center-h">
       <q-toolbar color="white">
-        <q-btn round outline size="11px" color="secondary" icon="remove"/>
-        <div class="text-black q-mr-md q-ml-md">2</div>
-        <q-btn round size="11px" color="secondary" icon="add" class="q-mr-sm"/>
-        <q-btn color="secondary absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart">{{'+ $9.00'}}</q-btn>
+        <q-btn round outline size="11px" color="secondary" icon="remove" :disable="counter===1" @click="counter--"/>
+        <div class="text-black q-mr-md q-ml-md">{{counter}}</div>
+        <q-btn round size="11px" color="secondary" icon="add" @click="counter++" class="q-mr-sm"/>
+        <q-btn color="secondary absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart">{{'$'+totalPrice()}}</q-btn>
       </q-toolbar>
     </q-layout-footer>
   </q-page>
@@ -38,6 +38,8 @@ export default {
     return {
       opened: true,
       menu: {},
+      number: {},
+      counter: 1,
     }
   },
   components: {
@@ -47,26 +49,33 @@ export default {
   computed: {
     ...mapGetters('menu', ['getRecs', 'getCounter']),
     ...mapGetters('modifier', {getRecsModifier: 'getRecs'}),
+    ...mapGetters('modifier', ['getCurrentMenuModifier']),
   },
   methods: {
     ...mapActions('modifier', ['fetchModifiers']),
     ...mapMutations('menu', ['setCounter']),
-    ...mapMutations('modifier', ['setRecs']),
+    ...mapMutations('modifier', ['setRecs', 'setCurrentMenuModifier']),
     backToMenu() {
       this.setRecs([])
+      this.setCurrentMenuModifier([])
       this.$router.go(-1)
       this.setCounter(1)
     },
+    totalPrice() {
+      let menuModifierPrice =
+        parseFloat(this.menu.price) +
+        _.sumBy(this.getCurrentMenuModifier, ({price}) => {
+          return parseFloat(price)
+        })
+      return this.counter * menuModifierPrice
+    },
   },
   watch: {
-    getRecsModifier(data) {
-      var modifier = _.find(data, menu => {
-        return menu.type === 'size' && menu.price === '0'
-      })
-      this.sizes = modifier !== undefined ? modifier : {}
+    getCurrentMenuModifier() {
+      this.totalPrice()
     },
-    getCounter(val) {
-      this.addToCartPrice = this.calculatePrice()
+    counter() {
+      this.totalPrice()
     },
   },
   mounted() {

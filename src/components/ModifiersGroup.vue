@@ -14,6 +14,7 @@
 </template>
 <script>
 import _d from 'lodash'
+import {mapGetters, mapMutations} from 'vuex'
 export default {
   props: {
     groupTitle: String,
@@ -26,7 +27,11 @@ export default {
   data() {
     return {
       defaultModifiers: [],
+      oldModifiers: [],
     }
+  },
+  computed: {
+    ...mapGetters('modifier', ['getCurrentMenuModifier']),
   },
   filters: {
     formatPrice(val) {
@@ -41,11 +46,43 @@ export default {
       return formatedPrice
     },
   },
+  methods: {
+    ...mapMutations('modifier', ['setCurrentMenuModifier']),
+    getModifierPrice(newVal, oldVal) {
+      if (oldVal) {
+        let modifierIds = []
+        if (_d.isArray(oldVal)) modifierIds = _d.map(oldVal, 'id')
+        else modifierIds = [oldVal.id]
+        let currentModifiers = this.getCurrentMenuModifier
+        _d.remove(currentModifiers, ({id}) => {
+          return modifierIds.includes(id)
+        })
+        this.setCurrentMenuModifier(currentModifiers)
+      }
+
+      let newModifiers = []
+      if (_d.isArray(newVal)) {
+        newModifiers = _d.map(this.defaultModifiers, ({id, price}) => ({
+          id,
+          price,
+        }))
+      } else newModifiers = [_d.pick(this.defaultModifiers, ['id', 'price'])]
+      this.setCurrentMenuModifier(_d.concat(this.getCurrentMenuModifier, newModifiers))
+    },
+  },
   mounted() {
     let modifierDedault = _d.find(this.data, modifier => {
       return modifier.isDefault
     })
     if (modifierDedault) this.defaultModifiers = modifierDedault
+  },
+  watch: {
+    defaultModifiers: {
+      immediate: true,
+      handler(newVal, oldVal) {
+        this.getModifierPrice(newVal, oldVal)
+      },
+    },
   },
 }
 </script>
