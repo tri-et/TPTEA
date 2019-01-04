@@ -23,7 +23,7 @@
         <q-btn round outline size="11px" color="secondary" icon="remove" :disable="counter===1" @click="counter--"/>
         <div class="text-black q-mr-md q-ml-md">{{counter}}</div>
         <q-btn round size="11px" color="secondary" icon="add" @click="counter++" class="q-mr-sm"/>
-        <q-btn color="secondary absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart">{{'$'+totalPrice()}}</q-btn>
+        <q-btn color="secondary absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart" @click="addToCard()">{{'$'+totalMenuPrice}}</q-btn>
       </q-toolbar>
     </q-layout-footer>
   </q-page>
@@ -36,10 +36,10 @@ import modifiersGroup from 'components/ModifiersGroup'
 export default {
   data() {
     return {
-      opened: true,
       menu: {},
-      number: {},
       counter: 1,
+      modifierId: [],
+      totalMenuPrice: 0,
     }
   },
   components: {
@@ -55,27 +55,38 @@ export default {
     ...mapActions('modifier', ['fetchModifiers']),
     ...mapMutations('menu', ['setCounter']),
     ...mapMutations('modifier', ['setRecs', 'setCurrentMenuModifier']),
+    ...mapMutations('customerorder', {setRecsModifier: 'setRecs'}),
     backToMenu() {
       this.setRecs([])
       this.setCurrentMenuModifier([])
       this.$router.go(-1)
       this.setCounter(1)
     },
-    totalPrice() {
+    calculatorMenuPrice() {
+      this.modifierId = _.map(this.getCurrentMenuModifier, 'id')
       let menuModifierPrice =
         parseFloat(this.menu.price) +
         _.sumBy(this.getCurrentMenuModifier, ({price}) => {
           return parseFloat(price)
         })
-      return this.counter * menuModifierPrice
+      this.totalMenuPrice = this.counter * menuModifierPrice
+    },
+    addToCard() {
+      this.setRecsModifier({
+        menuId: this.menu.id,
+        modifierId: this.modifierId.sort(),
+        quantity: this.counter,
+        price: this.totalMenuPrice,
+      })
+      this.backToMenu()
     },
   },
   watch: {
     getCurrentMenuModifier() {
-      this.totalPrice()
+      this.calculatorMenuPrice()
     },
     counter() {
-      this.totalPrice()
+      this.calculatorMenuPrice()
     },
   },
   mounted() {

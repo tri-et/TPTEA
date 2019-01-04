@@ -48,26 +48,25 @@ export default {
   },
   methods: {
     ...mapMutations('modifier', ['setCurrentMenuModifier']),
-    getModifierPrice(newVal, oldVal) {
-      if (oldVal) {
+    upDateModifiers(newModifiers, oldModifiers) {
+      let currentModifiers = this.getCurrentMenuModifier
+      if (oldModifiers) {
         let modifierIds = []
-        if (_d.isArray(oldVal)) modifierIds = _d.map(oldVal, 'id')
-        else modifierIds = [oldVal.id]
-        let currentModifiers = this.getCurrentMenuModifier
+        if (_d.isArray(oldModifiers)) modifierIds = _d.map(oldModifiers, 'id')
+        else modifierIds = [oldModifiers.id]
         _d.remove(currentModifiers, ({id}) => {
           return modifierIds.includes(id)
         })
-        this.setCurrentMenuModifier(currentModifiers)
       }
 
-      let newModifiers = []
-      if (_d.isArray(newVal)) {
-        newModifiers = _d.map(this.defaultModifiers, ({id, price}) => ({
+      let newFormatedModifier = []
+      if (_d.isArray(newModifiers)) {
+        newFormatedModifier = _d.map(this.defaultModifiers, ({id, price}) => ({
           id,
           price,
         }))
-      } else newModifiers = [_d.pick(this.defaultModifiers, ['id', 'price'])]
-      this.setCurrentMenuModifier(_d.concat(this.getCurrentMenuModifier, newModifiers))
+      } else newFormatedModifier = [_d.pick(this.defaultModifiers, ['id', 'price'])]
+      this.setCurrentMenuModifier(_d.concat(currentModifiers, newFormatedModifier))
     },
   },
   mounted() {
@@ -79,8 +78,8 @@ export default {
   watch: {
     defaultModifiers: {
       immediate: true,
-      handler(newVal, oldVal) {
-        this.getModifierPrice(newVal, oldVal)
+      handler(newModifiers, oldModifiers) {
+        this.upDateModifiers(newModifiers, oldModifiers)
       },
     },
   },
