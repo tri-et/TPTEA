@@ -22,7 +22,7 @@ let groupMenuModifiers = data => {
 export const setRecs = (state, payload) => {
   let newModifier = []
   if (state.recs.orderDetail) {
-    newModifier = _d.concat(state.recs.orderDetail, [payload])
+    newModifier = _d.concat(state.recs.orderDetail, payload)
   } else newModifier = [payload]
   state.recs = {
     customerId: store().getters['customer/getCustomer'].id,

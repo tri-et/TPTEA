@@ -23,7 +23,9 @@
         <q-btn round outline size="11px" color="secondary" icon="remove" :disable="counter===1" @click="counter--"/>
         <div class="text-black q-mr-md q-ml-md">{{counter}}</div>
         <q-btn round size="11px" color="secondary" icon="add" @click="counter++" class="q-mr-sm"/>
-        <q-btn color="secondary absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart" @click="addToCard()">{{'$'+totalMenuPrice}}</q-btn>
+        <q-btn color="secondary" class="absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart" @click="addToCard()">
+          <label class="price">{{'+ $'+totalMenuPrice}}</label>
+        </q-btn>
       </q-toolbar>
     </q-layout-footer>
   </q-page>
@@ -63,7 +65,7 @@ export default {
       this.setCounter(1)
     },
     calculatorMenuPrice() {
-      this.modifierId = _.map(this.getCurrentMenuModifier, 'id')
+      this.modifierId = _.map(this.getCurrentMenuModifier, 'id').sort()
       let menuModifierPrice =
         parseFloat(this.menu.price) +
         _.sumBy(this.getCurrentMenuModifier, ({price}) => {
@@ -74,7 +76,7 @@ export default {
     addToCard() {
       this.setRecsModifier({
         menuId: this.menu.id,
-        modifierId: this.modifierId.sort(),
+        modifierId: this.modifierId,
         quantity: this.counter,
         price: this.totalMenuPrice,
       })
@@ -111,4 +113,7 @@ export default {
 
 .q-card-media > img
   max-height 350px
+
+.price
+  font-size 18px
 </style>

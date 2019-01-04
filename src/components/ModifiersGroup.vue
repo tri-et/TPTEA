@@ -66,6 +66,7 @@ export default {
           price,
         }))
       } else newFormatedModifier = [_d.pick(this.defaultModifiers, ['id', 'price'])]
+
       this.setCurrentMenuModifier(_d.concat(currentModifiers, newFormatedModifier))
     },
   },
