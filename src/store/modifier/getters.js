@@ -1,6 +1,6 @@
 export const getRecs = state => {
   return state.recs
 }
-export const getCurrentMenuModifier = state => {
-  return state.currentMenuModifier
+export const getCurrentMenuModifiers = state => {
+  return state.currentMenuModifiers
 }

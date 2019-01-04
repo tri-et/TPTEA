@@ -31,7 +31,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('modifier', ['getCurrentMenuModifier']),
+    ...mapGetters('modifier', ['getCurrentMenuModifiers']),
   },
   filters: {
     formatPrice(val) {
@@ -48,8 +48,8 @@ export default {
   },
   methods: {
     ...mapMutations('modifier', ['setCurrentMenuModifier']),
-    upDateModifiers(newModifiers, oldModifiers) {
-      let currentModifiers = this.getCurrentMenuModifier
+    updateModifiers(newModifiers, oldModifiers) {
+      let currentModifiers = this.getCurrentMenuModifiers
       if (oldModifiers) {
         let modifierIds = []
         if (_d.isArray(oldModifiers)) modifierIds = _d.map(oldModifiers, 'id')
@@ -71,16 +71,16 @@ export default {
     },
   },
   mounted() {
-    let modifierDedault = _d.find(this.data, modifier => {
-      return modifier.isDefault
-    })
-    if (modifierDedault) this.defaultModifiers = modifierDedault
+    this.defaultModifiers =
+      _d.find(this.data, modifier => {
+        return modifier.isDefault
+      }) || []
   },
   watch: {
     defaultModifiers: {
       immediate: true,
       handler(newModifiers, oldModifiers) {
-        this.upDateModifiers(newModifiers, oldModifiers)
+        this.updateModifiers(newModifiers, oldModifiers)
       },
     },
   },

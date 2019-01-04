@@ -51,7 +51,7 @@ export default {
   computed: {
     ...mapGetters('menu', ['getRecs', 'getCounter']),
     ...mapGetters('modifier', {getRecsModifier: 'getRecs'}),
-    ...mapGetters('modifier', ['getCurrentMenuModifier']),
+    ...mapGetters('modifier', ['getCurrentMenuModifiers']),
   },
   methods: {
     ...mapActions('modifier', ['fetchModifiers']),
@@ -64,14 +64,14 @@ export default {
       this.$router.go(-1)
       this.setCounter(1)
     },
-    calculatorMenuPrice() {
-      this.modifierId = _.map(this.getCurrentMenuModifier, 'id').sort()
-      let menuModifierPrice =
+    calculateMenuPrice() {
+      this.modifierId = _.map(this.getCurrentMenuModifiers, 'id').sort()
+      let menuPrice =
         parseFloat(this.menu.price) +
-        _.sumBy(this.getCurrentMenuModifier, ({price}) => {
+        _.sumBy(this.getCurrentMenuModifiers, ({price}) => {
           return parseFloat(price)
         })
-      this.totalMenuPrice = this.counter * menuModifierPrice
+      this.totalMenuPrice = this.counter * menuPrice
     },
     addToCard() {
       this.setRecsModifier({
@@ -84,11 +84,11 @@ export default {
     },
   },
   watch: {
-    getCurrentMenuModifier() {
-      this.calculatorMenuPrice()
+    getCurrentMenuModifiers() {
+      this.calculateMenuPrice()
     },
     counter() {
-      this.calculatorMenuPrice()
+      this.calculateMenuPrice()
     },
   },
   mounted() {

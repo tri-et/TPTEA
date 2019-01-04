@@ -1,4 +1,4 @@
 export default {
   recs: [],
-  currentMenuModifier: [],
+  currentMenuModifiers: [],
 }
