@@ -1,6 +1,6 @@
 export const setRecs = (state, payload) => {
   state.recs = payload
 }
-export const setCurrentMenuModifier = (state, payload) => {
+export const setCurrentMenuModifiers = (state, payload) => {
   state.currentMenuModifiers = payload
 }

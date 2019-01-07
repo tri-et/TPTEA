@@ -7,10 +7,10 @@ let groupMenuModifiers = data => {
     .map((dataMenuId, menuId) =>
       _d
         .chain(dataMenuId)
-        .groupBy('modifierId')
-        .map((dataModifierId, modifierId) => ({
+        .groupBy('modifierIds')
+        .map((dataModifierId, modifierIds) => ({
           menuId,
-          modifierId: modifierId.split(',').map(Number),
+          modifierIds: modifierIds.split(',').map(Number),
           quantity: _d.sumBy(dataModifierId, 'quantity'),
           price: _d.sumBy(dataModifierId, 'price'),
         }))

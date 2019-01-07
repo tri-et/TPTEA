@@ -40,7 +40,7 @@ export default {
     return {
       menu: {},
       counter: 1,
-      modifierId: [],
+      modifierIds: [],
       totalMenuPrice: 0,
     }
   },
@@ -56,16 +56,16 @@ export default {
   methods: {
     ...mapActions('modifier', ['fetchModifiers']),
     ...mapMutations('menu', ['setCounter']),
-    ...mapMutations('modifier', ['setRecs', 'setCurrentMenuModifier']),
-    ...mapMutations('customerorder', {setRecsModifier: 'setRecs'}),
+    ...mapMutations('modifier', ['setRecs', 'setCurrentMenuModifiers']),
+    ...mapMutations('customerorder', {addMenuToOrder: 'setRecs'}),
     backToMenu() {
       this.setRecs([])
-      this.setCurrentMenuModifier([])
+      this.setCurrentMenuModifiers([])
       this.$router.go(-1)
       this.setCounter(1)
     },
     calculateMenuPrice() {
-      this.modifierId = _.map(this.getCurrentMenuModifiers, 'id').sort()
+      this.modifierIds = _.map(this.getCurrentMenuModifiers, 'id').sort()
       let menuPrice =
         parseFloat(this.menu.price) +
         _.sumBy(this.getCurrentMenuModifiers, ({price}) => {
@@ -74,9 +74,9 @@ export default {
       this.totalMenuPrice = this.counter * menuPrice
     },
     addToCart() {
-      this.setRecsModifier({
+      this.addMenuToOrder({
         menuId: this.menu.id,
-        modifierId: this.modifierId,
+        modifierIds: this.modifierIds,
         quantity: this.counter,
         price: this.totalMenuPrice,
       })
