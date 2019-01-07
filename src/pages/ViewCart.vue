@@ -2,7 +2,7 @@
   <q-page>
     <q-layout-header class="max-width-center-h">
       <q-toolbar class="q-pt-none q-pb-none" color="secondary">
-        <q-btn color="white" flat round dense icon="reply" @click="back()"/>
+        <q-btn color="white" flat round dense icon="reply" @click="backToCategoriesMenus()"/>
         <q-toolbar-title>Current Cart</q-toolbar-title>
         <i class="material-icons q-title">shopping_cart</i>
       </q-toolbar>
@@ -23,7 +23,7 @@ export default {
     orderDetails,
   },
   methods: {
-    back() {
+    backToCategoriesMenus() {
       this.$router.go(-1)
     },
   },
