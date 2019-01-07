@@ -20,6 +20,7 @@ import pgTopup from 'pages/Topup'
 import pgMakePayment from 'pages/MakePayment'
 import pgAdminReceivePayment from 'pages/admin/ReceivePayment'
 import pgAdminPushMessage from 'pages/admin/PushMessage'
+import pgViewCart from 'pages/ViewCart'
 const routes = [
   {
     path: '/',
@@ -110,6 +111,10 @@ const routes = [
       {
         path: 'menu-detail/:menuId',
         component: pgMenuDetail,
+      },
+      {
+        path: 'view-card',
+        component: pgViewCart,
       },
     ],
   },
