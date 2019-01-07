@@ -27,7 +27,6 @@ export default {
   data() {
     return {
       defaultModifiers: [],
-      oldModifiers: [],
     }
   },
   computed: {
