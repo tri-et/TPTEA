@@ -15,6 +15,18 @@
 <script>
 import _d from 'lodash'
 import {mapGetters, mapMutations} from 'vuex'
+function updateModifiers(newModifiers, oldModifiers) {
+  let currentModifiers = this.getCurrentMenuModifiers
+  if (oldModifiers) {
+    let oldModifierIds = []
+    if (_d.isArray(oldModifiers)) oldModifierIds = _d.map(oldModifiers, 'id')
+    else oldModifierIds = [oldModifiers.id]
+    _d.remove(currentModifiers, ({id}) => {
+      return oldModifierIds.includes(id)
+    })
+  }
+  this.setCurrentMenuModifier(_d.concat(currentModifiers, newModifiers))
+}
 export default {
   props: {
     groupTitle: String,
@@ -48,27 +60,6 @@ export default {
   },
   methods: {
     ...mapMutations('modifier', ['setCurrentMenuModifier']),
-    updateModifiers(newModifiers, oldModifiers) {
-      let currentModifiers = this.getCurrentMenuModifiers
-      if (oldModifiers) {
-        let modifierIds = []
-        if (_d.isArray(oldModifiers)) modifierIds = _d.map(oldModifiers, 'id')
-        else modifierIds = [oldModifiers.id]
-        _d.remove(currentModifiers, ({id}) => {
-          return modifierIds.includes(id)
-        })
-      }
-
-      let newFormatedModifier = []
-      if (_d.isArray(newModifiers)) {
-        newFormatedModifier = _d.map(this.defaultModifiers, ({id, price}) => ({
-          id,
-          price,
-        }))
-      } else newFormatedModifier = [_d.pick(this.defaultModifiers, ['id', 'price'])]
-
-      this.setCurrentMenuModifier(_d.concat(currentModifiers, newFormatedModifier))
-    },
   },
   mounted() {
     this.defaultModifiers =
@@ -79,9 +70,7 @@ export default {
   watch: {
     defaultModifiers: {
       immediate: true,
-      handler(newModifiers, oldModifiers) {
-        this.updateModifiers(newModifiers, oldModifiers)
-      },
+      handler: updateModifiers,
     },
   },
 }
