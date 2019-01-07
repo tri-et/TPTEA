@@ -23,7 +23,7 @@
         <q-btn round outline size="11px" color="secondary" icon="remove" :disable="counter===1" @click="counter--"/>
         <div class="text-black q-mr-md q-ml-md">{{counter}}</div>
         <q-btn round size="11px" color="secondary" icon="add" @click="counter++" class="q-mr-sm"/>
-        <q-btn color="secondary" class="absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart" @click="addToCard()">
+        <q-btn color="secondary" class="absolute-right q-mt-sm q-mb-sm q-pl-lg q-pr-lg add-to-cart" @click="addToCart()">
           <label class="price">{{'+ $'+totalMenuPrice}}</label>
         </q-btn>
       </q-toolbar>
@@ -73,7 +73,7 @@ export default {
         })
       this.totalMenuPrice = this.counter * menuPrice
     },
-    addToCard() {
+    addToCart() {
       this.setRecsModifier({
         menuId: this.menu.id,
         modifierId: this.modifierId,
