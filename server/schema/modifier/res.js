@@ -1,4 +1,4 @@
-import {Menu} from '../../models'
+import {Menu, Modifier} from '../../models'
 import _d from 'lodash'
 const resolvers = {
   RootQuery: {
@@ -14,6 +14,9 @@ const resolvers = {
           groupType: data[0].groupType,
         }))
         .value()
+    },
+    async fetchAllModifiers() {
+      return await Modifier.findAll()
     },
   },
   RootMutation: {},
