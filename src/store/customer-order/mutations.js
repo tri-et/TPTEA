@@ -31,8 +31,8 @@ export const setRecs = (state, payload) => {
 }
 export const removeOrderMenu = (state, payload) => {
   let currentOrderDetails = state.recs.orderDetail
-  _d.remove(currentOrderDetails, ({menuId}) => {
-    return menuId === payload
+  _d.remove(currentOrderDetails, ({menuId, modifierIds}) => {
+    return menuId === payload.menuId && modifierIds === payload.modifierIds
   })
   state.recs = {
     customerId: store().getters['customer/getCustomer'].id,

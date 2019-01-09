@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-toolbar color="primary" class="q-pr-md q-pt-none q-pb-none q-pl-none">
-      <q-btn icon="clear" flat round @click="removeOrderMenu(rawData.menuId)"/>
+      <q-btn icon="clear" flat round @click="removeOrderMenu({menuId:rawData.menuId,modifierIds:rawData.modifierIds})"/>
       <div class="quantity">{{rawData.quantity}}</div>
       <q-toolbar-title class="text-weight-regular q-subheading">{{menu.name}}</q-toolbar-title>
       <label>{{'$'+menu.price}}</label>

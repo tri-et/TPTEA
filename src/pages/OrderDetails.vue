@@ -7,10 +7,10 @@
         <i class="material-icons q-title">shopping_cart</i>
       </q-toolbar>
     </q-layout-header>
-    <order-menu-detail v-for="(menu,index) in getRecs.orderDetail" :rawData="menu" :key="index"/>
+    <order-menu-detail v-for="menu in getRecs.orderDetail" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
     <q-layout-footer class="max-width-center-h">
       <q-toolbar color="secondary" class="row inline items-center">
-        <q-btn label="Place Holder" color="primary" icon="payment"/>
+        <q-btn label="Place Order" color="primary" icon="payment"/>
         <q-toolbar-title class="text-right">{{'$'+calculateOrderPrice}}</q-toolbar-title>
       </q-toolbar>
     </q-layout-footer>
