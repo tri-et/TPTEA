@@ -6,7 +6,7 @@
       <q-toolbar-title class="text-weight-regular q-subheading">{{menu.name}}</q-toolbar-title>
       <label>{{'$'+menu.price}}</label>
     </q-toolbar>
-    <q-list no-border class="q-ml-md">
+    <q-list no-border class="q-ml-md" v-show="groupModifiers.length!==0">
       <q-item class="q-ml-xl" v-for="(modifier,index) in groupModifiers" :key="index">
         <q-item-main :label="modifier.name" label-lines="1"/>
         <q-item-side right class="text-secondary">{{'$'+modifier.price}}</q-item-side>
