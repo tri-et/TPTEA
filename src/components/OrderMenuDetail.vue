@@ -4,7 +4,7 @@
       <q-btn icon="clear" flat round @click="removeOrderMenu({menuId:rawData.menuId,modifierIds:rawData.modifierIds})"/>
       <div class="quantity">{{rawData.quantity}}</div>
       <q-toolbar-title class="text-weight-regular q-subheading">{{menu.name}}</q-toolbar-title>
-      <label>{{'$'+menu.price}}</label>
+      <label class="text-weight-bold">{{'$'+menu.price}}</label>
     </q-toolbar>
     <q-list no-border class="q-ml-md" v-show="groupModifiers.length!==0">
       <q-item class="q-ml-xl" v-for="(modifier,index) in groupModifiers" :key="index">
@@ -13,8 +13,7 @@
       </q-item>
     </q-list>
     <div class="total-price text-secondary bg-brown-1">
-      <label>Price</label>
-      <label>{{`${this.rawData.quantity} x $${calculateMenuPrice}`}}</label>
+      <label>{{`Price: ${this.rawData.quantity} x $${calculateMenuPrice}`}}</label>
     </div>
   </div>
 </template>
@@ -71,8 +70,5 @@ export default {
   padding 5px 16px
   align-items center
   font-weight bold
-
-  label:first-child
-    flex 1
-    font-size 14px
+  justify-content flex-end
 </style>
