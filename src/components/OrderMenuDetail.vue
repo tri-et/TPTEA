@@ -1,19 +1,20 @@
 <template>
   <div>
     <q-toolbar color="primary" class="q-pr-md q-pt-none q-pb-none q-pl-none">
-      <q-btn icon="clear" flat round @click="removeOrderMenu({menuId:rawData.menuId,modifierIds:rawData.modifierIds})"/>
+      <q-btn icon="remove_circle_outline" size="15px" flat round @click="removeOrderMenu({menuId:rawData.menuId,modifierIds:rawData.modifierIds})"/>
       <div class="quantity">{{rawData.quantity}}</div>
       <q-toolbar-title class="text-weight-regular q-subheading">{{menu.name}}</q-toolbar-title>
       <label class="text-weight-bold">{{'$'+menu.price}}</label>
     </q-toolbar>
     <q-list no-border class="q-ml-md" v-show="groupModifiers.length!==0">
-      <q-item class="q-ml-xl" v-for="(modifier,index) in groupModifiers" :key="index">
+      <q-item class="q-ml-xl text-italic text-secondary" v-for="(modifier,index) in groupModifiers" :key="index">
         <q-item-main :label="modifier.name" label-lines="1"/>
         <q-item-side right class="text-secondary">{{'$'+modifier.price}}</q-item-side>
       </q-item>
     </q-list>
     <div class="total-price text-secondary bg-brown-1">
-      <label>{{`Price: ${this.rawData.quantity} x $${calculateMenuPrice}`}}</label>
+      <label>Price:</label>
+      <label>{{`${this.rawData.quantity} x $${calculateMenuPrice}`}}</label>
     </div>
   </div>
 </template>
@@ -54,7 +55,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .q-toolbar
-  min-height 42px !important
+  min-height 45px !important
 
 .quantity
   width 20px
@@ -71,4 +72,9 @@ export default {
   align-items center
   font-weight bold
   justify-content flex-end
+  font-style italic
+
+  label:last-child
+    min-width 75px
+    text-align right
 </style>
