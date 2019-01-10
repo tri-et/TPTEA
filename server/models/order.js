@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     'Order',
     {
       customerId: DataTypes.INTEGER,
-      storeId: DataTypes.STRING,
-      deliveryAddress: DataTypes.STRING,
+      storeId: DataTypes.INTEGER,
+      deliveryAddress: DataTypes.STRING(500),
     },
     {}
   )
@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Order.belongsTo(models.Customer, {
       foreignKey: 'customerId',
+    })
+    Order.belongsTo(models.Stores, {
+      foreignKey: 'storeId',
     })
     Order.hasMany(models.OrderDetail, {
       foreignKey: 'orderId',
