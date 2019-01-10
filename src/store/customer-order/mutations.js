@@ -10,7 +10,7 @@ let groupMenuModifiers = data => {
         .groupBy('modifierIds')
         .map((dataModifierId, modifierIds) => ({
           menuId: parseInt(menuId),
-          modifierIds: modifierIds.split(',').map(Number),
+          modifierIds: modifierIds === '' ? [] : modifierIds.split(',').map(Number),
           quantity: _d.sumBy(dataModifierId, 'quantity'),
           price: _d.sumBy(dataModifierId, 'price'),
         }))
@@ -29,18 +29,17 @@ export const setRecs = (state, payload) => {
       customerId: store().getters['customer/getCustomer'].id,
       orderDetails: groupMenuModifiers(newModifier),
     }
-  } else state.recs = {}
+  } else state.recs = payload
 }
 export const removeOrderMenu = (state, payload) => {
   let currentOrderDetails = state.recs.orderDetails
   _d.remove(currentOrderDetails, ({menuId, modifierIds}) => {
     return menuId === payload.menuId && modifierIds === payload.modifierIds
   })
-  let newOrderDeatils = {
+  state.recs = {
     customerId: store().getters['customer/getCustomer'].id,
     orderDetails: currentOrderDetails,
   }
-  state.recs = !_d.isEmpty(currentOrderDetails) ? newOrderDeatils : {}
 }
 export const setIsLoading = (state, payload) => {
   state.isLoading = payload
