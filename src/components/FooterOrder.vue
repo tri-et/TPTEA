@@ -1,8 +1,9 @@
 <template>
   <q-layout-footer class="max-width-center-h">
     <q-toolbar color="secondary" class="row inline items-center">
-      <div class="quantity">{{quantity}}</div>
-      <q-btn :disabled="totalPrice===0" label="View Carts" color="primary" class="absolute-center" icon="shopping_cart" @click="openViewCard()"/>
+      <q-btn :disabled="quantity===0" label="View Carts" color="primary" class="absolute-center" icon="shopping_cart" @click="openViewCart()">
+        <q-chip v-show="quantity>0" floating color="brown-8">{{quantity}}</q-chip>
+      </q-btn>
       <q-toolbar-title class="text-right">{{'$'+totalPrice}}</q-toolbar-title>
     </q-toolbar>
   </q-layout-footer>
@@ -21,19 +22,11 @@ export default {
     },
   },
   methods: {
-    openViewCard() {
+    openViewCart() {
       this.$router.push('/order/order-details')
     },
   },
 }
 </script>
 <style lang="stylus" scoped>
-.quantity
-  border 1px solid #fff
-  width 22px
-  height 22px
-  font-size 15px
-  display flex
-  align-items center
-  justify-content center
 </style>

@@ -1,5 +1,5 @@
 import {Order, OrderDetail, Menu, Modifier, sequelize} from '../../models'
-// import {_auth} from '../../util'
+import {_auth} from '../../util'
 
 async function createOrderDetail(orderDetails, orderId) {
   try {
@@ -38,8 +38,7 @@ const resolvers = {
   RootQuery: {},
   RootMutation: {
     async placeOrder(_, {input}, {loggedInUser}) {
-      // _auth(loggedInUser)
-      console.log(input)
+      _auth(loggedInUser)
       try {
         return sequelize
           .transaction(async t => {

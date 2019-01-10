@@ -5,17 +5,17 @@
         <q-btn color="white" flat round dense icon="reply" @click="backToCategoriesMenus()"/>
         <q-toolbar-title>Current Cart</q-toolbar-title>
         <q-btn round dense flat icon="shopping_cart">
-          <q-chip floating color="primary">{{calculateOrderQuantity}}</q-chip>
+          <q-chip floating color="primary">{{quantity}}</q-chip>
         </q-btn>
       </q-toolbar>
     </q-layout-header>
     <order-menu-detail v-for="menu in getRecs.orderDetails" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
-    <label v-show="calculateOrderPrice===0" class="q-title text-weight-thin text-secondary absolute-center">Your cart is empty</label>
+    <label v-show="quantity===0" class="q-title text-weight-thin text-secondary absolute-center">Your cart is empty</label>
     <q-layout-footer class="max-width-center-h">
       <q-toolbar color="secondary" class="row inline items-center">
         <q-btn
           :loading="getIsLoading"
-          :disabled="calculateOrderPrice===0"
+          :disabled="quantity===0"
           label="Place Order"
           color="primary"
           icon="payment"
@@ -44,7 +44,7 @@ export default {
     calculateOrderPrice() {
       return _d.sumBy(this.getRecs.orderDetails, 'price')
     },
-    calculateOrderQuantity() {
+    quantity() {
       return _d.sumBy(this.getRecs.orderDetails, 'quantity')
     },
   },
