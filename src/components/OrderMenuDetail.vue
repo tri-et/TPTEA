@@ -6,8 +6,8 @@
       <q-toolbar-title class="text-weight-regular q-subheading">{{menu.name}}</q-toolbar-title>
       <label class="text-weight-bold">{{'$'+menu.price}}</label>
     </q-toolbar>
-    <q-list no-border class="q-ml-md" v-show="groupModifiers.length!==0">
-      <q-item class="q-ml-xl text-italic text-secondary" v-for="(modifier,index) in groupModifiers" :key="index">
+    <q-list no-border class="q-ml-md" v-show="modifiers.length!==0">
+      <q-item class="q-ml-xl text-italic text-secondary" v-for="(modifier,index) in modifiers" :key="index">
         <q-item-main :label="modifier.name" label-lines="1"/>
         <q-item-side right class="text-secondary">{{'$'+modifier.price}}</q-item-side>
       </q-item>
@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      groupModifiers: [],
+      modifiers: [],
       menu: {},
     }
   },
@@ -38,7 +38,7 @@ export default {
     ...mapGetters('menu', ['getMenu']),
     ...mapGetters('modifier', ['getModifiers']),
     calculateMenuPrice() {
-      let modifiersPrice = _d.sumBy(this.groupModifiers, ({price}) => {
+      let modifiersPrice = _d.sumBy(this.modifiers, ({price}) => {
         return parseFloat(price)
       })
       return modifiersPrice + parseFloat(this.menu.price)
@@ -49,7 +49,7 @@ export default {
   },
   mounted() {
     this.menu = this.getMenu(this.rawData.menuId)
-    this.groupModifiers = this.getModifiers(this.rawData.modifierIds)
+    this.modifiers = this.getModifiers(this.rawData.modifierIds)
   },
 }
 </script>

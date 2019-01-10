@@ -2,7 +2,7 @@
   <q-page>
     <q-layout-header class="max-width-center-h">
       <q-toolbar class="q-pt-none q-pb-none" color="secondary">
-        <q-btn color="white" flat round dense icon="reply" @click="backToCategoriesMenus()"/>
+        <q-btn color="white" flat round dense icon="reply" @click="back()"/>
         <q-toolbar-title>Current Cart</q-toolbar-title>
         <q-btn round dense flat icon="shopping_cart">
           <q-chip floating color="primary">{{quantity}}</q-chip>
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     ...mapActions('customerorder', ['placeOrder']),
-    backToCategoriesMenus() {
+    back() {
       this.$router.go(-1)
     },
   },
