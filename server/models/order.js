@@ -4,6 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     'Order',
     {
       customerId: DataTypes.INTEGER,
+      storeId: DataTypes.STRING,
+      deliveryAddress: DataTypes.STRING,
     },
     {}
   )

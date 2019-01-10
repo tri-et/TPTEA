@@ -14,10 +14,10 @@ export default {
   computed: {
     ...mapGetters('customerorder', ['getRecs']),
     totalPrice() {
-      return _d.sumBy(this.getRecs.orderDetail, 'price')
+      return _d.sumBy(this.getRecs.orderDetails, 'price')
     },
     quantity() {
-      return _d.sumBy(this.getRecs.orderDetail, 'quantity')
+      return _d.sumBy(this.getRecs.orderDetails, 'quantity')
     },
   },
   methods: {

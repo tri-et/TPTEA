@@ -20,22 +20,28 @@ let groupMenuModifiers = data => {
   return [].concat(...groupByMenuId)
 }
 export const setRecs = (state, payload) => {
-  let newModifier = []
-  if (state.recs.orderDetail) {
-    newModifier = _d.concat(state.recs.orderDetail, payload)
-  } else newModifier = [payload]
-  state.recs = {
-    customerId: store().getters['customer/getCustomer'].id,
-    orderDetail: groupMenuModifiers(newModifier),
-  }
+  if (!_d.isEmpty(payload)) {
+    let newModifier = []
+    if (state.recs.orderDetails) {
+      newModifier = _d.concat(state.recs.orderDetails, payload)
+    } else newModifier = [payload]
+    state.recs = {
+      customerId: store().getters['customer/getCustomer'].id,
+      orderDetails: groupMenuModifiers(newModifier),
+    }
+  } else state.recs = {}
 }
 export const removeOrderMenu = (state, payload) => {
-  let currentOrderDetails = state.recs.orderDetail
+  let currentOrderDetails = state.recs.orderDetails
   _d.remove(currentOrderDetails, ({menuId, modifierIds}) => {
     return menuId === payload.menuId && modifierIds === payload.modifierIds
   })
-  state.recs = {
+  let newOrderDeatils = {
     customerId: store().getters['customer/getCustomer'].id,
-    orderDetail: currentOrderDetails,
+    orderDetails: currentOrderDetails,
   }
+  state.recs = !_d.isEmpty(currentOrderDetails) ? newOrderDeatils : {}
+}
+export const setIsLoading = (state, payload) => {
+  state.isLoading = payload
 }

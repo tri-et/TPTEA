@@ -9,8 +9,8 @@ const Order = `
   }
   input OrderInput {
     customerId: Int!
-    storeId: Int!
-    deliveryAddress: String!
+    storeId: Int
+    deliveryAddress: String
     orderDetails: [OrderDetailInput]
   }
 `

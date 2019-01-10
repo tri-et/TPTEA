@@ -1,5 +1,5 @@
 import {Order, OrderDetail, Menu, Modifier, sequelize} from '../../models'
-import {_auth} from '../../util'
+// import {_auth} from '../../util'
 
 async function createOrderDetail(orderDetails, orderId) {
   try {
@@ -38,11 +38,12 @@ const resolvers = {
   RootQuery: {},
   RootMutation: {
     async placeOrder(_, {input}, {loggedInUser}) {
-      _auth(loggedInUser)
-      try { 
+      // _auth(loggedInUser)
+      console.log(input)
+      try {
         return sequelize
           .transaction(async t => {
-            return await Order.create(input, {transaction: t}).then(async createdOrder => {  
+            return await Order.create(input, {transaction: t}).then(async createdOrder => {
               await OrderDetail.bulkCreate(await createOrderDetail(input.orderDetails, createdOrder.orderId), {transaction: t})
               return createdOrder
             })

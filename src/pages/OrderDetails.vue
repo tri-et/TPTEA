@@ -7,10 +7,14 @@
         <i class="material-icons q-title">shopping_cart</i>
       </q-toolbar>
     </q-layout-header>
-    <order-menu-detail v-for="menu in getRecs.orderDetail" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
+    <order-menu-detail v-for="menu in getRecs.orderDetails" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
     <q-layout-footer class="max-width-center-h">
       <q-toolbar color="secondary" class="row inline items-center">
-        <q-btn label="Place Order" color="primary" icon="payment" class="q-ml-sm"/>
+        <q-btn :loading="getIsLoading" label="Place Order" color="primary" icon="payment" class="q-ml-sm" @click="placeOrder()">
+          <span slot="loading">
+            <q-spinner-pie size="25px" class="q-mr-md"/>Place Order
+          </span>
+        </q-btn>
         <q-toolbar-title class="text-right">{{'$'+calculateOrderPrice}}</q-toolbar-title>
       </q-toolbar>
     </q-layout-footer>
@@ -19,20 +23,26 @@
 <script>
 import _d from 'lodash'
 import orderMenuDetail from '../components/OrderMenuDetail'
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   components: {
     orderMenuDetail,
   },
   computed: {
-    ...mapGetters('customerorder', ['getRecs']),
+    ...mapGetters('customerorder', ['getRecs', 'getIsLoading']),
     calculateOrderPrice() {
-      return _d.sumBy(this.getRecs.orderDetail, 'price')
+      return _d.sumBy(this.getRecs.orderDetails, 'price')
     },
   },
   methods: {
+    ...mapActions('customerorder', ['placeOrder']),
     backToCategoriesMenus() {
       this.$router.go(-1)
+    },
+  },
+  watch: {
+    getRecs(newValue) {
+      if (_d.isEmpty(newValue)) this.backToCategoriesMenus()
     },
   },
 }
