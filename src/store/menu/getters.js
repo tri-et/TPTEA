@@ -4,3 +4,11 @@ export const getRecs = state => {
 export const getCounter = state => {
   return state.counter
 }
+export const getAllMenus = state => {
+  return state.allMenus
+}
+export const getMenu = state => menuId => {
+  return state.allMenus.find(({id}) => {
+    return id === menuId
+  })
+}

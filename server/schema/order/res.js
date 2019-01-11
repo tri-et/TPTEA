@@ -39,10 +39,10 @@ const resolvers = {
   RootMutation: {
     async placeOrder(_, {input}, {loggedInUser}) {
       _auth(loggedInUser)
-      try { 
+      try {
         return sequelize
           .transaction(async t => {
-            return await Order.create(input, {transaction: t}).then(async createdOrder => {  
+            return await Order.create(input, {transaction: t}).then(async createdOrder => {
               await OrderDetail.bulkCreate(await createOrderDetail(input.orderDetails, createdOrder.orderId), {transaction: t})
               return createdOrder
             })

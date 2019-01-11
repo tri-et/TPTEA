@@ -1,4 +1,4 @@
-import {_post, _procError} from '../../util/common'
+import {_post, _get, _procError} from '../../util/common'
 import _ from 'lodash'
 export const fetchModifiers = ({commit}, payload) => {
   _post(
@@ -23,6 +23,22 @@ export const fetchModifiers = ({commit}, payload) => {
           return modifier.groupTitle
         })
       )
+    })
+    .catch(err => {
+      _procError(err)
+    })
+}
+export const fetchAllModifiers = ({commit}) => {
+  _get(`{
+    fetchAllModifiers {
+      id
+      name
+      price
+      isDefault
+    }
+  }`)
+    .then(({data}) => {
+      commit('setAllModifiers', data.fetchAllModifiers)
     })
     .catch(err => {
       _procError(err)

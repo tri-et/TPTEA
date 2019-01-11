@@ -38,6 +38,8 @@ const RootQuery = `
     verifyCustomerPaymentId(input:String): Customer
     registerPushSubscription(input:PushSubscriptionInput): String
     fetchMainCategories:[MainCategory]
+    fetchAllMenus:[Menu]
+    fetchAllModifiers:[Modifier]
   }
 `
 
