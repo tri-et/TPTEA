@@ -84,12 +84,9 @@ export default {
     },
   },
   watch: {
-    getCurrentMenuModifiers() {
-      this.calculateMenuPrice()
-    },
-    counter() {
-      this.calculateMenuPrice()
-    },
+    getCurrentMenuModifiers: 'calculateMenuPrice',
+    counter: 'calculateMenuPrice',
+    menu: 'calculateMenuPrice',
   },
   mounted() {
     this.menu = this.getRecs.find(item => item.id === parseFloat(this.$route.params.menuId))
