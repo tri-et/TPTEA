@@ -9,6 +9,7 @@ import modifier from './modifier'
 import admin from './admin'
 import giftcard from './giftcard'
 import customerorder from './customer-order'
+import store from './store'
 Vue.use(Vuex)
 
 /*
@@ -27,6 +28,7 @@ export default function(/* { ssrContext } */) {
       giftcard,
       maincategory,
       customerorder,
+      store,
     },
   })
 
