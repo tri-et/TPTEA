@@ -79,5 +79,5 @@ export default {
   align-items center
 
 .max-width
-  min-width 300px
+  min-width 250px
 </style>
