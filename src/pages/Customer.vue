@@ -81,7 +81,7 @@ export default {
     ...mapGetters('customer', ['getCustomer']),
   },
   methods: {
-    ...mapActions('customer', ['fetchCustomer']),
+    ...mapActions('customer', ['fetchCustomer', 'placeOrder']),
     signOut() {
       localStorage.removeItem('auth-token')
       this.$router.push('/')
