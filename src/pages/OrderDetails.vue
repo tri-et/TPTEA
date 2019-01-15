@@ -9,7 +9,12 @@
         </q-btn>
       </q-toolbar>
     </q-layout-header>
-    <place-order-methods :rawData="getPlaceOrderMethod"/>
+    <place-order-methods
+      :rawData="{
+      deliveryAddress: this.getCustomer.address,
+      deliveryContact: this.getCustomer.name + ' - ' + this.getCustomer.phone,
+    }"
+    />
     <order-menu-detail v-for="menu in getRecs.orderDetails" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
     <label v-show="quantity===0" class="q-title text-weight-thin text-secondary absolute-center">Your cart is empty</label>
     <q-layout-footer class="max-width-center-h">
@@ -58,12 +63,6 @@ export default {
     back() {
       this.$router.go(-1)
     },
-  },
-  created() {
-    this.setPlaceOrderMethod({
-      deliveryAddress: this.getCustomer.address,
-      deliveryContact: this.getCustomer.name + ' - ' + this.getCustomer.phone,
-    })
   },
   watch: {
     getRecs(newValue) {

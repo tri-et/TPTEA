@@ -6,6 +6,7 @@ export default {
     deliveryAddress: '',
     deliveryContact: '',
     pickUpStoreId: 0,
-    pickUpTime: '123',
+    pickUpTime: new Date().setMinutes(new Date().getMinutes() + 30),
+    isStorePickUp: false,
   },
 }
