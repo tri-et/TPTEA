@@ -4,8 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     'Order',
     {
       customerId: DataTypes.INTEGER,
-      storeId: DataTypes.INTEGER,
+      deliveryStoreId: DataTypes.INTEGER,
       deliveryAddress: DataTypes.STRING(500),
+      deliveryContact: DataTypes.STRING(50),
+      deliveryTime: DataTypes.DATE,
+      pickUpStoreId: DataTypes.INTEGER,
+      pickUpTime: DataTypes.DATE,
+      isStorePickUp: DataTypes.BOOLEAN,
     },
     {}
   )
@@ -15,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'customerId',
     })
     Order.belongsTo(models.Stores, {
-      foreignKey: 'storeId',
+      foreignKey: 'deliveryStoreId',
+    })
+    Order.belongsTo(models.Stores, {
+      foreignKey: 'pickupStoreId',
     })
     Order.hasMany(models.OrderDetail, {
       foreignKey: 'orderId',
