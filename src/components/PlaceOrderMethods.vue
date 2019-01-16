@@ -2,11 +2,11 @@
   <div>
     <div class="title bg-primary">place order methods</div>
     <div class="row q-ma-md text-primary text-weight-bold">
-      <q-radio v-model="method" class="col-12 q-mb-sm" val="delivery" label="COD Delivery" @input="validateMethod"/>
+      <q-radio v-model="orderMethod" class="col-12 q-mb-sm" val="delivery" label="COD Delivery" @input="checkOrderMethod"/>
       <div class="q-ml-lg text-weight-regular">
         <q-field icon="home">
           <q-input
-            :disable="method!=='delivery'"
+            :disable="orderMethod!=='delivery'"
             v-model="placeOrderMothod.deliveryAddress"
             type="textarea"
             class="max-width"
@@ -16,7 +16,7 @@
         </q-field>
         <q-field icon="contact_phone">
           <q-input
-            :disable="method!=='delivery'"
+            :disable="orderMethod!=='delivery'"
             v-model="placeOrderMothod.deliveryContact"
             type="textarea"
             class="max-width"
@@ -24,15 +24,18 @@
             hide-underline
           />
         </q-field>
+        <q-field icon="access_time">
+          <q-datetime :disable="orderMethod!=='delivery'" v-model="placeOrderMothod.deliveryTime" type="time" hide-underline/>
+        </q-field>
       </div>
     </div>
     <div class="row q-ma-md text-primary text-weight-bold">
-      <q-radio v-model="method" class="col-12 q-mb-sm" val="store" label="Store Pick-up" @input="validateMethod"/>
+      <q-radio v-model="orderMethod" class="col-12 q-mb-sm" val="store" label="Store Pick-up" @input="checkOrderMethod"/>
       <div class="q-ml-lg text-weight-regular">
         <q-field icon="store">
           <q-select
             v-model="placeOrderMothod.pickUpStoreId"
-            :disable="method!=='store'"
+            :disable="orderMethod!=='store'"
             placeholder="Please select store"
             :options="getRecs.map(opt=>({label:opt.name,value:opt.id}))"
             hide-underline
@@ -40,7 +43,7 @@
           />
         </q-field>
         <q-field icon="access_time">
-          <q-datetime :disable="method!=='store'" v-model="placeOrderMothod.pickUpTime" type="time" hide-underline/>
+          <q-datetime :disable="orderMethod!=='store'" v-model="placeOrderMothod.pickUpTime" type="time" hide-underline/>
         </q-field>
       </div>
     </div>
@@ -58,7 +61,7 @@ export default {
   },
   data() {
     return {
-      method: 'delivery',
+      orderMethod: 'delivery',
       placeOrderMothod: {},
     }
   },
@@ -69,14 +72,12 @@ export default {
   methods: {
     ...mapActions('store', ['fetchRecs']),
     ...mapMutations('customerorder', ['setPlaceOrderMethod']),
-    validateMethod() {
-      this.placeOrderMothod.isStorePickUp = this.method !== 'delivery'
+    checkOrderMethod() {
+      this.placeOrderMothod.isStorePickUp = this.orderMethod !== 'delivery'
     },
   },
   mounted() {
-    this.placeOrderMothod = _d.cloneDeep(this.getPlaceOrderMethod)
-    this.placeOrderMothod.deliveryAddress = this.rawData.deliveryAddress
-    this.placeOrderMothod.deliveryContact = this.rawData.deliveryContact
+    this.placeOrderMothod = _d.cloneDeep({...this.getPlaceOrderMethod, ...this.rawData})
     this.fetchRecs()
   },
   watch: {

@@ -2,7 +2,10 @@ import {_post, _procError, _procAlert} from '../../util/common'
 export const placeOrder = ({commit, getters}) => {
   commit('setIsLoading', true)
   _post(
-    getters.getRecs,
+    {
+      ...getters.getRecs,
+      placeOrderMethod: getters.getPlaceOrderMethod,
+    },
     `mutation ($input: OrderInput) {
       placeOrder(input: $input)
     }`

@@ -43,7 +43,7 @@ const resolvers = {
   RootQuery: {},
   RootMutation: {
     async placeOrder(_, {input}, {loggedInUser}) {
-      _auth(loggedInUser)
+      // _auth(loggedInUser)
       try {
         return sequelize
           .transaction(async t => {
