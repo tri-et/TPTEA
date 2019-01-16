@@ -12,7 +12,7 @@
     <place-order-methods
       :rawData="{
       deliveryAddress: this.getCustomer.address,
-      deliveryContact: this.getCustomer.name + ' - ' + this.getCustomer.phone,
+      deliveryContact: this.getCustomer.name+ ' - ' + this.getCustomer.phone,
     }"
     />
     <order-menu-detail v-for="menu in getRecs.orderDetails" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>

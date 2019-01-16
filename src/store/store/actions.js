@@ -1,6 +1,7 @@
 import {_get, _procError} from '../../util/common'
-export const fetchRecs = ({commit}) => {
-  _get(`{
+export const fetchRecs = ({commit, getters}) => {
+  if (getters.getRecs.length === 0) {
+    _get(`{
     fetchAllStores {
       id
       name
@@ -10,10 +11,11 @@ export const fetchRecs = ({commit}) => {
       lng
     }
   }`)
-    .then(({data}) => {
-      commit('setRecs', data.fetchAllStores)
-    })
-    .catch(err => {
-      _procError(err)
-    })
+      .then(({data}) => {
+        commit('setRecs', data.fetchAllStores)
+      })
+      .catch(err => {
+        _procError(err)
+      })
+  }
 }
