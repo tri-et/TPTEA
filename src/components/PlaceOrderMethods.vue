@@ -100,5 +100,6 @@ export default {
   align-items center
 
 .max-width
-  min-width 250px
+  min-width 200px
+  max-width calc(100vw - 100px)
 </style>
