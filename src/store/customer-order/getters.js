@@ -5,5 +5,5 @@ export const getIsLoading = state => {
   return state.isLoading
 }
 export const getPlaceOrderMethod = state => {
-  return state.placeOrderMothod
+  return state.placeOrderMethod
 }

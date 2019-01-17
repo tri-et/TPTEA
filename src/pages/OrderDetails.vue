@@ -12,7 +12,7 @@
     <place-order-methods
       :rawData="{
       deliveryAddress: this.getCustomer.address,
-      deliveryContact: formatedContact(this.getCustomer.name,this.getCustomer.phone),
+      deliveryContact: formatContactInfo(this.getCustomer.name,this.getCustomer.phone),
     }"
     />
     <order-menu-detail v-for="menu in getRecs.orderDetails" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
@@ -63,7 +63,7 @@ export default {
     back() {
       this.$router.go(-1)
     },
-    formatedContact(name, phone) {
+    formatContactInfo(name, phone) {
       return _d.includes([name, phone], undefined) ? '' : name + '- ' + phone
     },
   },

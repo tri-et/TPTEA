@@ -1,7 +1,7 @@
 export default {
   recs: {},
   isLoading: false,
-  placeOrderMothod: {
+  placeOrderMethod: {
     deliveryStoreId: null,
     deliveryAddress: '',
     deliveryContact: '',
