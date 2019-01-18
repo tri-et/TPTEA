@@ -9,6 +9,12 @@
         </q-btn>
       </q-toolbar>
     </q-layout-header>
+    <place-order-methods
+      :rawData="{
+      deliveryAddress: this.getCustomer.address,
+      deliveryContact: formatContactInfo(this.getCustomer.name,this.getCustomer.phone),
+    }"
+    />
     <order-menu-detail v-for="menu in getRecs.orderDetails" :rawData="menu" :key="menu.menuId+menu.modifierIds.toString()"/>
     <label v-show="quantity===0" class="q-title text-weight-thin text-secondary absolute-center">Your cart is empty</label>
     <q-layout-footer class="max-width-center-h">
@@ -34,13 +40,16 @@
 <script>
 import _d from 'lodash'
 import orderMenuDetail from '../components/OrderMenuDetail'
-import {mapGetters, mapActions} from 'vuex'
+import placeOrderMethods from '../components/PlaceOrderMethods'
+import {mapGetters, mapActions, mapMutations} from 'vuex'
 export default {
   components: {
     orderMenuDetail,
+    placeOrderMethods,
   },
   computed: {
-    ...mapGetters('customerorder', ['getRecs', 'getIsLoading']),
+    ...mapGetters('customerorder', ['getRecs', 'getIsLoading', 'getPlaceOrderMethod']),
+    ...mapGetters('customer', ['getCustomer']),
     calculateOrderPrice() {
       return _d.sumBy(this.getRecs.orderDetails, 'price')
     },
@@ -50,8 +59,12 @@ export default {
   },
   methods: {
     ...mapActions('customerorder', ['placeOrder']),
+    ...mapMutations('customerorder', ['setPlaceOrderMethod']),
     back() {
       this.$router.go(-1)
+    },
+    formatContactInfo(name, phone) {
+      return _d.includes([name, phone], undefined) ? '' : name + '- ' + phone
     },
   },
   watch: {

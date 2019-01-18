@@ -132,6 +132,8 @@ export const fetchCustomer = ({commit}) => {
       name
       balance
       points
+      phone
+      address
     }
   }`)
     .then(({data}) => {
