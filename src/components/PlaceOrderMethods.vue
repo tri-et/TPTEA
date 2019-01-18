@@ -20,7 +20,7 @@
             v-model="placeOrderMethod.deliveryContact"
             type="textarea"
             class="max-width"
-            placeholder="Name - Phone"
+            placeholder="Contact Name - Phone"
             hide-underline
           />
         </q-field>
