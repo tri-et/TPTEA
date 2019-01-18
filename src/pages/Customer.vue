@@ -62,7 +62,7 @@
   </q-page>
 </template>
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters, mapActions, mapMutations} from 'vuex'
 import appVersion from 'components/AppVersion'
 export default {
   name: 'PageCustomer',
@@ -81,9 +81,11 @@ export default {
     ...mapGetters('customer', ['getCustomer']),
   },
   methods: {
-    ...mapActions('customer', ['fetchCustomer', 'placeOrder']),
+    ...mapActions('customer', ['fetchCustomer']),
+    ...mapMutations('customer', ['setCustomer']),
     signOut() {
       localStorage.removeItem('auth-token')
+      this.setCustomer({})
       this.$router.push('/')
     },
     showSignOutModal() {

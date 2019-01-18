@@ -44,3 +44,6 @@ export const removeOrderMenu = (state, payload) => {
 export const setIsLoading = (state, payload) => {
   state.isLoading = payload
 }
+export const setPlaceOrderMethod = (state, payload) => {
+  state.placeOrderMethod = payload
+}
