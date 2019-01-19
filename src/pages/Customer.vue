@@ -28,7 +28,7 @@
         <q-item-main label="Make Payment"/>
         <q-item-side right icon="keyboard_arrow_right"/>
       </q-item>
-      <q-item class="q-pt-md q-pb-md" link>
+      <q-item class="q-pt-md q-pb-md" link to="/order/order-history">
         <q-item-side icon="hourglass_empty"/>
         <q-item-main label="Order History"/>
         <q-item-side right icon="keyboard_arrow_right"/>
