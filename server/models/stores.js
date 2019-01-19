@@ -1,10 +1,11 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
-  const Stores = sequelize.define(
-    'Stores',
+  const Store = sequelize.define(
+    'Store',
     {
       name: DataTypes.STRING,
       address: DataTypes.STRING,
+      gmapAddress: DataTypes.STRING,
       phone: DataTypes.STRING,
       lat: DataTypes.FLOAT,
       lng: DataTypes.FLOAT,
@@ -13,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   )
-  Stores.associate = function(models) {
+  Store.associate = function(models) {
     // associations can be defined here
-    Stores.hasMany(models.Order, {
+    Store.hasMany(models.Order, {
       foreignKey: 'storeId',
     })
   }
-  return Stores
+  return Store
 }
