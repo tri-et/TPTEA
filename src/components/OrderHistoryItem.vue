@@ -1,22 +1,28 @@
 <template>
   <div class="order-item">
     <q-item>
-      <q-item-side :icon="rawData.isStorePickup?'store':'local_shipping'"/>
+      <q-item-side :icon="rawData.isStorePickUp?'store':'local_shipping'"/>
       <q-item-main>
         <q-item-tile label class="text-weight-bold" text-color="primary">{{rawData.address}}</q-item-tile>
         <q-item-tile sublabel>{{rawData.statusName}}</q-item-tile>
-        <q-item-tile sublabel text-color="secondary">12:26 13/01/2019</q-item-tile>
+        <q-item-tile sublabel text-color="secondary">{{rawData.orderDateTime|formatedDate}}</q-item-tile>
       </q-item-main>
       <q-item-side class="text-weight-bold">{{'$'+rawData.totalAmount}}</q-item-side>
     </q-item>
   </div>
 </template>
 <script>
+import {date} from 'quasar'
 export default {
   props: {
     rawData: {
       type: Object,
       default: () => {},
+    },
+  },
+  filters: {
+    formatedDate(val) {
+      return date.formatDate(val, 'HH:mm D/MM/YYYY')
     },
   },
 }

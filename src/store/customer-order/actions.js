@@ -26,3 +26,24 @@ export const placeOrder = ({commit, getters}) => {
       })
   } else _alert('Please login first!', 'warning')
 }
+export const fetchCustomerOrder = ({commit}) => {
+  _post(
+    store().getters['customer/getCustomer'].id,
+    `mutation ($input: Int) {
+      fetchCustomerOrder(input: $input){
+        address
+        orderDateTime
+        statusName
+        totalAmount
+        isStorePickUp
+      }
+    }`
+  )
+    .then(({data}) => {
+      _procAlert(data, true)
+      commit('setCustomerOrder', data.fetchCustomerOrder)
+    })
+    .catch(err => {
+      _procError(err)
+    })
+}
