@@ -20,13 +20,13 @@ export default {
     ...mapGetters('customerorder', ['getCustomerOrders']),
   },
   methods: {
-    ...mapActions('customerorder', ['fetchCustomerOrder']),
+    ...mapActions('customerorder', ['fetchCustomerOrders']),
     back() {
       this.$router.go(-1)
     },
   },
   mounted() {
-    this.fetchCustomerOrder()
+    this.fetchCustomerOrders()
   },
 }
 </script>

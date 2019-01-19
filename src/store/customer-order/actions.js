@@ -26,11 +26,11 @@ export const placeOrder = ({commit, getters}) => {
       })
   } else _alert('Please login first!', 'warning')
 }
-export const fetchCustomerOrder = ({commit}) => {
+export const fetchCustomerOrders = ({commit}) => {
   _post(
     store().getters['customer/getCustomer'].id,
     `mutation ($input: Int) {
-      fetchCustomerOrder(input: $input){
+      fetchCustomerOrders(input: $input){
         address
         orderDate
         orderStatus
