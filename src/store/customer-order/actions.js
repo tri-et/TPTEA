@@ -32,8 +32,8 @@ export const fetchCustomerOrder = ({commit}) => {
     `mutation ($input: Int) {
       fetchCustomerOrder(input: $input){
         address
-        orderDateTime
-        statusName
+        orderDate
+        orderStatus
         totalAmount
         isStorePickUp
       }
@@ -41,7 +41,7 @@ export const fetchCustomerOrder = ({commit}) => {
   )
     .then(({data}) => {
       _procAlert(data, true)
-      commit('setCustomerOrder', data.fetchCustomerOrder)
+      commit('setCustomerOrders', data.fetchCustomerOrder)
     })
     .catch(err => {
       _procError(err)

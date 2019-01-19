@@ -4,8 +4,8 @@
       <q-item-side :icon="rawData.isStorePickUp?'store':'local_shipping'"/>
       <q-item-main>
         <q-item-tile label class="text-weight-bold" text-color="primary">{{rawData.address}}</q-item-tile>
-        <q-item-tile sublabel>{{rawData.statusName}}</q-item-tile>
-        <q-item-tile sublabel text-color="secondary">{{rawData.orderDateTime|formatedDate}}</q-item-tile>
+        <q-item-tile sublabel>{{rawData.orderStatus}}</q-item-tile>
+        <q-item-tile sublabel text-color="secondary">{{rawData.orderDate|formatOrderDate}}</q-item-tile>
       </q-item-main>
       <q-item-side class="text-weight-bold">{{'$'+rawData.totalAmount}}</q-item-side>
     </q-item>
@@ -17,11 +17,17 @@ export default {
   props: {
     rawData: {
       type: Object,
-      default: () => {},
+      default: () => ({
+        address: '',
+        orderDate: '',
+        orderStatus: '',
+        totalAmount: 0,
+        isStorePickUp: false,
+      }),
     },
   },
   filters: {
-    formatedDate(val) {
+    formatOrderDate(val) {
       return date.formatDate(val, 'HH:mm D/MM/YYYY')
     },
   },

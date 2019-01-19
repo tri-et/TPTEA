@@ -6,7 +6,7 @@
         <q-toolbar-title>Order History</q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
-    <order-history-item v-for="(item,index) in getCustomerOrder" :rawData="item" :key="index"/>
+    <order-history-item v-for="(item,index) in getCustomerOrders" :rawData="item" :key="index"/>
   </q-page>
 </template>
 <script>
@@ -17,7 +17,7 @@ export default {
     orderHistoryItem,
   },
   computed: {
-    ...mapGetters('customerorder', ['getCustomerOrder']),
+    ...mapGetters('customerorder', ['getCustomerOrders']),
   },
   methods: {
     ...mapActions('customerorder', ['fetchCustomerOrder']),

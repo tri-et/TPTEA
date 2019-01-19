@@ -7,6 +7,6 @@ export const getIsLoading = state => {
 export const getPlaceOrderMethod = state => {
   return state.placeOrderMethod
 }
-export const getCustomerOrder = state => {
-  return state.customerOrder
+export const getCustomerOrders = state => {
+  return state.customerOrders
 }

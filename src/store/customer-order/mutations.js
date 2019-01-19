@@ -47,6 +47,6 @@ export const setIsLoading = (state, payload) => {
 export const setPlaceOrderMethod = (state, payload) => {
   state.placeOrderMethod = payload
 }
-export const setCustomerOrder = (state, payload) => {
-  state.customerOrder = payload
+export const setCustomerOrders = (state, payload) => {
+  state.customerOrders = payload
 }
