@@ -1,7 +1,11 @@
 const CustomerOrder = `
   type CustomerOrder {
     id: Int
-    storeAddress: String
+    address: String
+    orderDate: Date
+    orderStatus: String
+    totalAmount: String
+    isStorePickUp: Boolean
   }
 `
 export default CustomerOrder
