@@ -1,11 +1,20 @@
 import {_auth} from '../../util'
-import {Customer} from '../../models'
+import {Customer, Order} from '../../models'
 const resolvers = {
   RootQuery: {
     async fetchCustomerOrders(_, {input}, {loggedInUser}) {
       _auth(loggedInUser)
       let customer = new Customer({id: input})
       return await customer.getOrders({order: [['createdAt', 'DESC']]})
+    },
+    async fetchCustomerOrderDetail(_, {input}) {
+      let order = new Order({id: input})
+      let placeOrderMethod = await Order.findOne({where: {id: input}})
+      let customerOrder = await order.getOrderDetails()
+      return {
+        placeOrderMethod,
+        customerOrder,
+      }
     },
   },
   RootMutation: {},
@@ -18,6 +27,16 @@ const resolvers = {
     },
     orderDate({createdAt}) {
       return createdAt
+    },
+  },
+  OrderDetail: {
+    modifierIds({modifierIds}) {
+      return modifierIds.split(',').map(Number)
+    },
+  },
+  HistoryPlaceOrderMethod: {
+    async address(orderHistory) {
+      return orderHistory.isStorePickUp ? await orderHistory.getStore().get('address') : orderHistory.deliveryAddress
     },
   },
 }
