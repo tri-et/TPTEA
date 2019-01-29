@@ -46,7 +46,7 @@ const RootQuery = `
     fetchAllModifiers:[Modifier]
     fetchAllStores:[Store]
     fetchCustomerOrders(input:Int):[CustomerOrder]
-    fetchCustomerOrderDetail(input:Int):CustomerOrderHistory
+    fetchCustomerOrderDetail(input:Int):HistoryCustomerOrder
   }
 `
 

@@ -35,8 +35,8 @@ const resolvers = {
     },
   },
   HistoryPlaceOrderMethod: {
-    async address(orderHistory) {
-      return orderHistory.isStorePickUp ? await orderHistory.getStore().get('address') : orderHistory.deliveryAddress
+    async address(historyOrder) {
+      return historyOrder.isStorePickUp ? await historyOrder.getStore().get('address') : historyOrder.deliveryAddress
     },
   },
 }

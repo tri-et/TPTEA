@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title bg-primary">history place order methods</div>
+    <div class="title bg-primary">chosen place order method</div>
     <div class="row q-ma-md text-primary">
       <label class="col-12 q-mb-sm text-weight-bold">{{rawData.isStorePickUp?'Store Pick-up':'COD Delivery'}}</label>
       <q-field :icon="rawData.isStorePickUp?'store':'home'" class="col-12 q-ml-md">
