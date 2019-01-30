@@ -7,12 +7,12 @@ const resolvers = {
       let customer = new Customer({id: input})
       return await customer.getOrders({order: [['createdAt', 'DESC']]})
     },
-    async fetchCustomerOrderDetail(_, {input}) {
-      let order = new Order({id: input})
-      let placeOrderMethod = await Order.findOne({where: {id: input}})
+    async fetchCustomerOrderDetail(_, {input}, {loggedInUser}) {
+      _auth(loggedInUser)
+      let order = await Order.findOne({where: {id: input}})
       let customerOrder = await order.getOrderDetails()
       return {
-        placeOrderMethod,
+        placeOrderMethod: order,
         customerOrder,
       }
     },
