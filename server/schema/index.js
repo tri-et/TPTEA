@@ -18,6 +18,8 @@ import orderDef from './order/def'
 import orderRes from './order/res'
 import orderDetailDef from './orderdetail/def'
 import orderDetailRes from './orderdetail/res'
+import orderStatusDef from './orderstatus/def'
+import orderStatusRes from './orderstatus/res'
 import storeDef from './store/def'
 import storeRes from './store/res'
 import customerOrderDef from './customer-order/def'
@@ -46,7 +48,10 @@ const RootQuery = `
     fetchAllModifiers:[Modifier]
     fetchAllStores:[Store]
     fetchCustomerOrders(input:Int):[CustomerOrder]
+    fetchOrders:[Order]
+    fetchOrdersByStoreId(input:Int):[Order]
     fetchCustomerOrderDetail(input:Int):HistoryCustomerOrder
+    fetchOrderStatuses:[OrderStatus]
   }
 `
 
@@ -67,6 +72,7 @@ const RootMutation = `
     receivePayment(input:ReceivePaymentInput): ReceivePayment
     pushMessage(input:String): String
     placeOrder(input:OrderInput): Int
+    updateOrderStatus(input: UpdateOrderStatusInput) : Int
   }
 `
 
@@ -84,6 +90,7 @@ export default makeExecutableSchema({
     mainCategoryDef,
     orderDef,
     orderDetailDef,
+    orderStatusDef,
     storeDef,
     customerOrderDef,
   ],
@@ -97,6 +104,7 @@ export default makeExecutableSchema({
     mainCategoryRes,
     orderRes,
     orderDetailRes,
+    orderStatusRes,
     storeRes,
     customerOrderRes,
   ],

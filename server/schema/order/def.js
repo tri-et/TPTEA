@@ -15,14 +15,26 @@ const Order = `
   }
   type Order {
     id: Int
-    customerId: Int
-    placeOrderMethod: PlaceOrderMethod 
-    orderDetails: [OrderDetail]
+    isStorePickUp: Boolean
+    receivingTime: Date
+    deliveryAddress: String
+    deliveryContact: String
+    totalAmount: Float
+    orderStatusId: Int
+    Store : Store
+    Customer: Customer
+    OrderStatus: OrderStatus
+    OrderDetails: [OrderDetail]
+    createdAt: Date
   }
   input OrderInput {
     customerId: Int!
     placeOrderMethod: PlaceOrderMethodInput
     orderDetails: [OrderDetailInput]
+  }
+  input UpdateOrderStatusInput {
+    orderId: Int!
+    orderStatusId: Int!
   }
   type HistoryPlaceOrderMethod {
     storeId: Int
