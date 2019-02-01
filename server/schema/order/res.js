@@ -1,11 +1,11 @@
-import {Order, OrderDetail, Menu, Modifier, sequelize, Store} from '../../models'
-import {_auth} from '../../util'
+import {Order, OrderDetail, Menu, Modifier, sequelize, Store, Customer, OrderStatus} from '../../models'
+import {_auth, _authAdmin} from '../../util'
 import _d from 'lodash'
 const fetch = require('node-fetch')
 const apiKey = 'AIzaSyCEUChDraEFCd3f79AK2xSh1FFDDJUpnWw'
 const MAX_STORE_DISTANCE = 20000
 const DEFAULT_ORDER_STATUS = 1
-
+//#region function support for "placeOrder" resolver
 function formatOrderInput(input) {
   let formatedInput = {...input, ...input.placeOrderMethod}
   delete formatedInput.placeOrderMethod
@@ -93,9 +93,26 @@ function findNearestStoreName(distances) {
 function getStoreAddresses(stores) {
   return _d.map(stores, 'dataValues.gmapAddress').join('|')
 }
+//#endregion function support for "placeOrder" resolver
 
 const resolvers = {
-  RootQuery: {},
+  RootQuery: {
+    async fetchOrders(_, __, {loggedInUser}) {
+      _authAdmin(loggedInUser)
+      let orders = await Order.findAll({
+        include: [Store, Customer, OrderDetail, OrderStatus],
+      })
+      return orders
+    },
+    async fetchOrdersByStoreId(_, {input}, {loggedInUser}) {
+      _authAdmin(loggedInUser)
+      let orders = await Order.findAll({
+        include: [Store, Customer, OrderDetail, OrderStatus],
+        where: {storeId: input},
+      })
+      return orders
+    },
+  },
   RootMutation: {
     async placeOrder(_, {input}, {loggedInUser}) {
       _auth(loggedInUser)
@@ -118,6 +135,27 @@ const resolvers = {
         throw new Error(error.message)
       }
     },
+    async updateOrderStatus(_, {input}, {loggedInUser}) {
+      _authAdmin(loggedInUser)
+      try {
+        return sequelize
+          .transaction(async t => {
+            return await Order.update({orderStatusId: input.orderStatusId}, {where: {id: input.orderId}}, {transaction: t}).then(async rowUpdated => {
+              return rowUpdated
+            })
+          })
+          .then(rowUpdated => {
+            console.log(rowUpdated)
+            return rowUpdated
+          })
+          .catch(err => {
+            throw new Error(err)
+          })
+      } catch (error) {
+        throw new Error(error.message)
+      }
+    },
   },
 }
+
 export default resolvers
