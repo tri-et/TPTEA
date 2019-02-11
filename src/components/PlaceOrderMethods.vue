@@ -74,7 +74,9 @@ export default {
   },
   mounted() {
     this.placeOrderMethod = _d.cloneDeep({...this.getPlaceOrderMethod, ...this.rawData})
-    this.fetchRecs()
+    this.fetchRecs().then(() => {
+      this.placeOrderMethod.storeId = this.getRecs.length > 0 ? this.getRecs[0].id : null
+    })
   },
   watch: {
     placeOrderMethod: {
