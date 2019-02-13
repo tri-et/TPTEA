@@ -33,6 +33,7 @@
         v-show="!comboFilter.hidden"
         class="combo-filter"
         filter
+        :filter-placeholder="comboFilter.filterPlaceHolder"
         inverted
         color="secondary"
         v-model="comboFilter.selectedValue"
@@ -129,7 +130,17 @@ export default {
               value: 1,
             },
           ],
-          fetchRecsName: 'fetchOrdersByStoreId',
+          filterPlaceHolder: 'Type text',
+          fetchRecsByFilterName: 'fetchOrdersByStoreId',
+        }
+      },
+      type: Object,
+    },
+    pagingOptions: {
+      default: () => {
+        return {
+          sortBy: null,
+          descending: true,
         }
       },
       type: Object,
@@ -139,8 +150,8 @@ export default {
     return {
       filter: '',
       pagination: {
-        sortBy: null, // String, column "name" property value
-        descending: false,
+        sortBy: this.pagingOptions.sortBy, // String, column "name" property value
+        descending: this.pagingOptions.descending,
         page: 1,
         rowsPerPage: 25, // current rows per page being displayed
       },
@@ -179,13 +190,15 @@ export default {
   methods: {
     ...mapActions({
       fetchRecs(dispatch, payload) {
+        if (this.comboFilter && this.comboFilter.selectedValue) this.comboFilter.selectedValue = 0
         return dispatch(`${this.type}/fetch${upperFirst(this.type)}s`, payload)
       },
       delRecs(dispatch, payload) {
         return dispatch(`${this.type}/del${upperFirst(this.type)}s`, payload)
       },
       fetchRecsByComboFilter(dispatch, payload) {
-        return dispatch(`${this.type}/${this.comboFilter.fetchRecsName}`, payload)
+        if (this.comboFilter && this.comboFilter.selectedValue === 0) return this.fetchRecs()
+        return dispatch(`${this.type}/${this.comboFilter.fetchRecsByFilterName}`, payload)
       },
     }),
     ...mapMutations({
