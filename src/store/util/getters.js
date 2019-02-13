@@ -1,3 +1,3 @@
-export const getCurrentImageData = state => {
-  return state.currentImageData
+export const getCurrentUploadImageData = state => {
+  return state.currentUploadImageData
 }

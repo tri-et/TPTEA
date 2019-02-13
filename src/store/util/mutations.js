@@ -1,3 +1,3 @@
-export const setCurrentImageData = (state, payload) => {
-  state.currentImageData = payload
+export const setCurrentUploadImageData = (state, payload) => {
+  state.currentUploadImageData = payload
 }

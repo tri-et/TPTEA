@@ -22,7 +22,7 @@ export default {
     },
     url: {
       type: String,
-      default: 'statics/size-image.svg',
+      default: 'statics/upload-image-size.svg',
     },
   },
   data() {
@@ -31,12 +31,12 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('util', ['setCurrentImageData']),
+    ...mapMutations('util', ['setCurrentUploadImageData']),
     readImgData(event) {
       let reader = new FileReader()
       reader.onload = () => {
         this.urlImg = reader.result
-        this.setCurrentImageData(reader.result)
+        this.setCurrentUploadImageData(reader.result)
       }
       reader.readAsDataURL(event.target.files[0])
     },
