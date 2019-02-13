@@ -4,6 +4,7 @@ const Category = `
     name: String
     desc: String
     img: String
+    mainCategory: String
   }
   input CategoryInput {
     id: Int

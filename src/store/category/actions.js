@@ -2,7 +2,7 @@
 export function someAction (context) {
 }
 */
-import {_post, _procError} from '../../util/common'
+import {_post, _get, _procError} from '../../util/common'
 
 export const fetchRecs = ({commit}, payload) => {
   _post(
@@ -21,5 +21,25 @@ export const fetchRecs = ({commit}, payload) => {
     })
     .catch(err => {
       _procError(err)
+    })
+}
+export const fetchCategorys = ({commit}) => {
+  commit('setIsLoading', true)
+  _get(`{
+    fetchAllCategoriesAdmin {
+      id
+      name
+      desc
+      img
+      mainCategory
+    }
+  }`)
+    .then(({data}) => {
+      commit('setRecs', data.fetchAllCategoriesAdmin)
+      commit('setIsLoading', false)
+    })
+    .catch(err => {
+      _procError(err)
+      commit('setIsLoading', false)
     })
 }

@@ -24,6 +24,7 @@ import pgAdminPushMessage from 'pages/admin/PushMessage'
 import pgOrderDetails from 'pages/OrderDetails'
 import pgOrderHistory from 'pages/OrderHistory'
 import pgHistoryOrderDetail from 'pages/HistoryOrderDetail'
+import pgAdminCategories from 'pages/admin/Categories'
 const routes = [
   {
     path: '/',
@@ -96,6 +97,10 @@ const routes = [
       {
         path: 'pushmessage',
         component: pgAdminPushMessage,
+      },
+      {
+        path: 'categories',
+        component: pgAdminCategories,
       },
     ],
   },

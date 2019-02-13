@@ -46,6 +46,10 @@
           <q-item-side icon="notification_important"/>
           <q-item-main label="Push Message"/>
         </q-item>
+        <q-item to="/admin/categories">
+          <q-item-side icon="list"/>
+          <q-item-main label="Categories"/>
+        </q-item>
       </q-list>
     </q-layout-drawer>
     <q-page-container>
