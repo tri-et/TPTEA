@@ -9,7 +9,11 @@ const resolvers = {
       return await Category.findAll()
     },
   },
-  RootMutation: {},
+  RootMutation: {
+    async createCategory(_, {input}) {
+      
+    },
+  },
   Category: {
     async nameMainCategory({mainCategoryId}) {
       return await MainCategory.findOne({where: {id: mainCategoryId}}).get('name')

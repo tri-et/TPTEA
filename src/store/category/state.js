@@ -33,10 +33,10 @@ export default {
       sortable: true,
     },
     {
-      name: 'mainCategory',
+      name: 'nameMainCategory',
       label: 'Main Category',
       align: 'left',
-      field: 'mainCategory',
+      field: 'nameMainCategory',
       sortable: true,
     },
   ],

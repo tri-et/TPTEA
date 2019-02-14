@@ -12,6 +12,7 @@ const Category = `
     name: String
     desc: String
     img: String
+    mainCategoryId: Int
   }
 `
 export default Category

@@ -74,6 +74,7 @@ const RootMutation = `
     pushMessage(input:String): String
     placeOrder(input:OrderInput): Int
     updateOrderStatus(input: UpdateOrderStatusInput) : Int
+    createCategory(input:CategoryInput): Category
   }
 `
 
