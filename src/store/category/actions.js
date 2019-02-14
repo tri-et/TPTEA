@@ -31,7 +31,8 @@ export const fetchCategorys = ({commit}) => {
       name
       desc
       img
-      mainCategory
+      nameMainCategory
+      mainCategoryId
     }
   }`)
     .then(({data}) => {

@@ -11,7 +11,7 @@ const resolvers = {
   },
   RootMutation: {},
   Category: {
-    async mainCategory({mainCategoryId}) {
+    async nameMainCategory({mainCategoryId}) {
       return await MainCategory.findOne({where: {id: mainCategoryId}}).get('name')
     },
   },
