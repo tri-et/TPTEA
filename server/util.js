@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import {GiftCard, Customer} from './models'
+import fs from 'fs'
 export const _auth = loggedInUser => {
   if (!loggedInUser) {
     throw new Error('Please login first!')
@@ -45,4 +46,18 @@ export const verifyCustomerPaymentId = async jwtPayment => {
     .map(number => parseInt(number))
   if (new Date().getTime() - jwtDecode[1] > 30000) throw new Error('Customer Payment Id is expired!')
   else return (await Customer.findById(jwtDecode[0])) || new Error('Customer not found!')
+}
+
+export const saveImage = async imageUploadData => {
+  if (!fs.existsSync('statics')) {
+    fs.mkdirSync('statics')
+  }
+  let ext = imageUploadData.split(';')[0].match(/jpeg|png/)[0]
+  let img = imageUploadData.replace(/^data:image\/\w+;base64,/, '')
+  return new Promise(resolve => {
+    fs.writeFile('statics/' + new Date().getTime() + '.' + ext, img, 'base64', err => {
+      if (err) throw err
+      resolve('saved')
+    })
+  })
 }
