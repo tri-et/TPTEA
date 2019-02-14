@@ -54,10 +54,11 @@ export const saveImage = async imageUploadData => {
   }
   let ext = imageUploadData.split(';')[0].match(/jpeg|png/)[0]
   let img = imageUploadData.replace(/^data:image\/\w+;base64,/, '')
+  let imgName = new Date().getTime() + '.' + ext
   return new Promise(resolve => {
-    fs.writeFile('statics/' + new Date().getTime() + '.' + ext, img, 'base64', err => {
+    fs.writeFile('statics/' + imgName, img, 'base64', err => {
       if (err) throw err
-      resolve('saved')
+      resolve(imgName)
     })
   })
 }
