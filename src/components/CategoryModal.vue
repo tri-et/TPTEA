@@ -1,16 +1,21 @@
 <template>
-  <q-modal no-backdrop-dismiss no-esc-dismiss v-model="isModalOpened">
-    <q-modal-layout class="style-modal">
+  <q-modal no-backdrop-dismiss no-esc-dismiss v-model="isModalOpened" :content-css="{maxWidth:'885px', minHeight:'30vh',width:'100%'}">
+    <q-modal-layout>
       <q-toolbar slot="header" color="secondary">
         <q-btn @click="isModalOpened = false" icon="keyboard_arrow_left" class="q-mr-md" :disabled="getIsLoading" wait-for-ripple color="primary"/>
-        <q-btn :loading="getIsLoading" :color="getEditingRec.id?'primary':'secondary'" @click="getEditingRec.id?updateCategory():createCategory()">
+        <q-btn
+          :loading="getIsLoading"
+          :disable="!getEditingRec.mainCategoryId"
+          :color="getEditingRec.id?'primary':'secondary'"
+          @click="getEditingRec.id?updateCategory():createCategory()"
+        >
           <q-icon :name="getEditingRec.id?'save':'add'" size="25px"/>
           <q-spinner-pie slot="loading" size="25px"/>
         </q-btn>
         <q-toolbar-title>{{getEditingRec.name}}</q-toolbar-title>
       </q-toolbar>
-      <div class="q-ma-md category-content">
-        <div class="category">
+      <div class="q-ma-md row">
+        <div class="col-12 col-md-12 col-lg-8">
           <q-field icon="menu" label="Main Category" label-width="3">
             <q-select
               v-model="getEditingRec.mainCategoryId"
@@ -21,11 +26,11 @@
           <q-field icon="label" label="Name" label-width="3">
             <q-input v-model="getEditingRec.name"/>
           </q-field>
-          <q-field icon="description" label="Description" label-width="3">
+          <q-field icon="description" label="Description" class="q-mb-md" label-width="3">
             <q-input v-model="getEditingRec.desc" type="textarea" rows="4"/>
           </q-field>
         </div>
-        <div class="q-pl-md">
+        <div class="col-12 col-md-12 col-lg-4 img-container">
           <et-img-upload :url="'statics/'+getEditingRec.img"/>
         </div>
       </div>
@@ -62,7 +67,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .style-modal
-  min-width 55vw !important
+  max-width 600px !important
   min-height 30vh !important
 
 .category-content
@@ -70,4 +75,9 @@ export default {
 
 .category
   flex 1
+
+.img-container
+  display inline-flex
+  justify-content center
+  padding-left 15px
 </style>

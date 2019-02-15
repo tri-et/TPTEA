@@ -17,7 +17,7 @@ const auth = jwt({
 app.use(ServeStatic(__dirname))
 app.use(
   '/api',
-  bodyParser.json(),
+  bodyParser.json({limit: '5mb'}),
   auth,
   graphqlExpress(req => ({
     schema,
