@@ -13,3 +13,6 @@ export const getIsModalOpened = state => {
 export const getEditingRec = state => {
   return state.editingRec
 }
+export const getSelected = state => {
+  return state.selected
+}

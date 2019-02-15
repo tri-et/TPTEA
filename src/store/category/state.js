@@ -4,6 +4,7 @@ export default {
   isModalOpened: false,
   editingRec: {},
   backupRec: {},
+  selected: [],
   cols: [
     {
       name: 'edit',

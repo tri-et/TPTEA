@@ -13,3 +13,6 @@ export const setEditingRec = (state, payload) => {
   state.backupRec = _d.clone(payload)
   state.isModalOpened = true
 }
+export const setSelected = (state, payload) => {
+  state.selected = payload
+}

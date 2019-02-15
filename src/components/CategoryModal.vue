@@ -3,14 +3,14 @@
     <q-modal-layout class="style-modal">
       <q-toolbar slot="header" color="secondary">
         <q-btn @click="isModalOpened = false" icon="keyboard_arrow_left" class="q-mr-md" :disabled="getIsLoading" wait-for-ripple color="primary"/>
-        <q-btn :loading="getIsLoading" :color="getEditingRec.id?'primary':'secondary'">
+        <q-btn :loading="getIsLoading" :color="getEditingRec.id?'primary':'secondary'" @click="getEditingRec.id?updateCategory():createCategory()">
           <q-icon :name="getEditingRec.id?'save':'add'" size="25px"/>
           <q-spinner-pie slot="loading" size="25px"/>
         </q-btn>
         <q-toolbar-title>{{getEditingRec.name}}</q-toolbar-title>
       </q-toolbar>
-      <div class="row q-ma-md">
-        <div class="col-6">
+      <div class="q-ma-md category-content">
+        <div class="category">
           <q-field icon="menu" label="Main Category" label-width="3">
             <q-select
               v-model="getEditingRec.mainCategoryId"
@@ -21,11 +21,11 @@
           <q-field icon="label" label="Name" label-width="3">
             <q-input v-model="getEditingRec.name"/>
           </q-field>
-          <q-field icon="description" label="Desc" label-width="3">
+          <q-field icon="description" label="Description" label-width="3">
             <q-input v-model="getEditingRec.desc" type="textarea" rows="4"/>
           </q-field>
         </div>
-        <div class="col-6 q-pl-md">
+        <div class="q-pl-md">
           <et-img-upload :url="'statics/'+getEditingRec.img"/>
         </div>
       </div>
@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     ...mapActions('maincategory', ['fetchRecs']),
+    ...mapActions('category', ['createCategory', 'updateCategory']),
   },
   mounted() {
     if (this.getRecs.length === 0) this.fetchRecs()
@@ -61,6 +62,12 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .style-modal
-  min-width 56vw !important
+  min-width 55vw !important
   min-height 30vh !important
+
+.category-content
+  display flex
+
+.category
+  flex 1
 </style>

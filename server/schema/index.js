@@ -75,6 +75,8 @@ const RootMutation = `
     placeOrder(input:OrderInput): Int
     updateOrderStatus(input: UpdateOrderStatusInput) : Int
     createCategory(input:CategoryInput): Category
+    deleteCategories(input:[Int]): Int
+    updateCategory(input:CategoryInput): Category
   }
 `
 
