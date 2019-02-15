@@ -1,5 +1,7 @@
 import {_post, _get, _procError} from '../../util/common'
 import _ from 'lodash'
+
+// #region functions used for customer
 export const fetchModifiers = ({commit}, payload) => {
   _post(
     payload,
@@ -44,3 +46,4 @@ export const fetchAllModifiers = ({commit}) => {
       _procError(err)
     })
 }
+// #endregion functions used for customer
