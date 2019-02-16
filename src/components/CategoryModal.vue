@@ -2,7 +2,7 @@
   <q-modal no-backdrop-dismiss no-esc-dismiss v-model="isModalOpened" :content-css="{maxWidth:'885px', minHeight:'30vh',width:'100%'}">
     <q-modal-layout>
       <q-toolbar slot="header" color="secondary">
-        <q-btn @click="isModalOpened = false" icon="keyboard_arrow_left" class="q-mr-md" :disabled="getIsLoading" wait-for-ripple color="primary"/>
+        <q-btn @click="discardEditingRec" icon="keyboard_arrow_left" class="q-mr-md" :disabled="getIsLoading" wait-for-ripple color="primary"/>
         <q-btn
           :loading="getIsLoading"
           :disable="!getEditingRec.mainCategoryId"
@@ -38,7 +38,7 @@
   </q-modal>
 </template>
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters, mapActions, mapMutations} from 'vuex'
 import etImgUpload from './EtImgUpload'
 export default {
   components: {
@@ -59,6 +59,7 @@ export default {
   methods: {
     ...mapActions('maincategory', ['fetchRecs']),
     ...mapActions('category', ['createCategory', 'updateCategory']),
+    ...mapMutations('category', ['discardEditingRec']),
   },
   mounted() {
     if (this.getRecs.length === 0) this.fetchRecs()
