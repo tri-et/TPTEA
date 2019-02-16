@@ -4,7 +4,7 @@ const Category = `
     name: String
     desc: String
     img: String
-    nameMainCategory: String
+    mainCategoryName: String
     mainCategoryId: Int
   }
   input CategoryInput {

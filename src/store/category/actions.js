@@ -32,7 +32,7 @@ export const fetchCategorys = ({commit}) => {
       name
       desc
       img
-      nameMainCategory
+      mainCategoryName
       mainCategoryId
     }
   }`)
@@ -57,7 +57,7 @@ export function createCategory({commit, getters}) {
         desc
         img
         mainCategoryId
-        nameMainCategory
+        mainCategoryName
       }
     }`
   )
@@ -94,7 +94,7 @@ export function delCategorys({commit, getters}) {
 }
 export function updateCategory({commit, getters}) {
   commit('setIsLoading', true)
-  let category = _d.omit(getters.getEditingRec, ['__index', 'nameMainCategory'])
+  let category = _d.omit(getters.getEditingRec, ['__index', 'mainCategoryName'])
   let imgUploadData = store().getters['util/getCurrentUploadImageData']
   if (imgUploadData !== '') {
     category.img = imgUploadData
@@ -108,7 +108,7 @@ export function updateCategory({commit, getters}) {
         desc
         img
         mainCategoryId
-        nameMainCategory
+        mainCategoryName
       }
     }`
   ).then(({data}) => {
