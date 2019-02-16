@@ -24,7 +24,7 @@ export const fetchRecs = ({commit}, payload) => {
       _procError(err)
     })
 }
-export const fetchCategorys = ({commit}) => {
+export const fetchCategories = ({commit}) => {
   commit('setIsLoading', true)
   _get(`{
     fetchAllCategoriesAdmin {
@@ -74,7 +74,7 @@ export function createCategory({commit, getters}) {
       commit('setIsLoading', false)
     })
 }
-export function delCategorys({commit, getters}) {
+export function delCategories({commit, getters}) {
   commit('setIsLoading', true)
   let ids = Array.from(getters.getSelected, category => category.id)
   _post(

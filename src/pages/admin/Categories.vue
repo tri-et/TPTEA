@@ -1,6 +1,6 @@
 <template>
   <div>
-    <et-grid type="category"/>
+    <et-grid type="category" aliasType="Categorie"/>
     <category-modal/>
   </div>
 </template>
