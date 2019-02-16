@@ -65,7 +65,6 @@ img
 
 .bt-edit
   background-color #f2f2f2
-  width min-content
   display flex
   border-radius 6px
   font-size 18px
