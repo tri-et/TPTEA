@@ -53,6 +53,7 @@ const RootQuery = `
     fetchOrdersByStoreId(input:Int):[Order]
     fetchCustomerOrderDetail(input:Int):HistoryCustomerOrder
     fetchOrderStatuses:[OrderStatus]
+    fetchAllCategoriesAdmin:[Category]
   }
 `
 
@@ -77,6 +78,9 @@ const RootMutation = `
     createAdminModifier(input : AdminModifierInput): AdminModifier
     updateAdminModifier(input : AdminModifierInput): AdminModifier
     deleteAdminModifiers(input:[Int]): Int
+    createCategory(input:CategoryInput): Category
+    deleteCategories(input:[Int]): Int
+    updateCategory(input:CategoryInput): Category
   }
 `
 
