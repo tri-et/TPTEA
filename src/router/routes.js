@@ -8,6 +8,7 @@ import pgHome from 'pages/Home'
 import pgAdminHome from 'pages/admin/Home'
 import pgAdminGiftCards from 'pages/admin/GiftCards'
 import pgAdminOrders from 'pages/admin/Orders'
+import pgAdminModifiers from 'pages/admin/Modifiers'
 import pgCategories from 'pages/Categories'
 import pgMainCategories from 'pages/MainCategories'
 import pgStores from 'pages/Stores'
@@ -24,6 +25,7 @@ import pgAdminPushMessage from 'pages/admin/PushMessage'
 import pgOrderDetails from 'pages/OrderDetails'
 import pgOrderHistory from 'pages/OrderHistory'
 import pgHistoryOrderDetail from 'pages/HistoryOrderDetail'
+import pgAdminCategories from 'pages/admin/Categories'
 const routes = [
   {
     path: '/',
@@ -82,6 +84,10 @@ const routes = [
         component: pgAdminOrders,
       },
       {
+        path: 'modifiers',
+        component: pgAdminModifiers,
+      },
+      {
         path: 'giftcards',
         component: pgAdminGiftCards,
       },
@@ -96,6 +102,10 @@ const routes = [
       {
         path: 'pushmessage',
         component: pgAdminPushMessage,
+      },
+      {
+        path: 'categories',
+        component: pgAdminCategories,
       },
     ],
   },

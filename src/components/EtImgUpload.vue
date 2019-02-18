@@ -3,7 +3,6 @@
     <input type="file" @change="readImgData" ref="inputFile" class="hidden">
     <div class="bt-edit" @click="edit">
       <i class="material-icons">edit</i>
-      <span>Edit</span>
     </div>
     <img :src="urlImg" :style="{'height':height,'width':width}">
   </div>
@@ -44,6 +43,15 @@ export default {
       this.$refs.inputFile.click()
     },
   },
+  watch: {
+    url: {
+      immediate: true,
+      handler(url) {
+        if (url.indexOf('undefined') > 0) this.urlImg = 'statics/upload-image-size.svg'
+        else this.urlImg = url
+      },
+    },
+  },
 }
 </script>
 <style lang="stylus" scoped>
@@ -57,13 +65,12 @@ img
 
 .bt-edit
   background-color #f2f2f2
-  width min-content
   display flex
   border-radius 6px
-  font-size 16px
+  font-size 18px
   position absolute
   right 10px
   top 10px
-  padding 5px
+  padding 6px
   cursor pointer
 </style>

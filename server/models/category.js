@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   )
-  Category.associate = function(models) {
+  Category.associate = models => {
     // associations can be defined here
     Category.belongsToMany(models.Menu, {
       through: 'menucategory',
