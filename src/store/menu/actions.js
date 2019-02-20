@@ -45,6 +45,7 @@ export const fetchAllMenus = ({commit}) => {
     })
 }
 export const fetchMenus = ({commit}) => {
+  commit('setIsLoading', true)
   _get(`{
     fetchAllMenusAdmin {
       id
@@ -58,10 +59,12 @@ export const fetchMenus = ({commit}) => {
     }
   }`)
     .then(({data}) => {
+      commit('setIsLoading', false)
       commit('setRecs', data.fetchAllMenusAdmin.reverse())
     })
     .catch(err => {
       _procError(err)
+      commit('setIsLoading', false)
     })
 }
 export const createMenu = ({commit, getters}, payload) => {

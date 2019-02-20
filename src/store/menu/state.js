@@ -6,6 +6,7 @@ export default {
   backupRec: {},
   selected: [],
   isModalOpened: false,
+  isLoading: false,
   cols: [
     {
       name: 'edit',
