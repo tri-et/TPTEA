@@ -35,7 +35,7 @@ const RootQuery = `
   type RootQuery {
     getCustomer(input:Int): Customer
     listCategories(input:Int): [Category]
-    listMenus(input:CategoryInput): [Menu]
+    listMenus(input:Int): [Menu]
     fetchModifiers(input:MenuInput): [ModifierGroup]
     fetchAdmin(input:Int): Admin
     fetchCustomers: [Customer]
@@ -54,6 +54,7 @@ const RootQuery = `
     fetchCustomerOrderDetail(input:Int):HistoryCustomerOrder
     fetchOrderStatuses:[OrderStatus]
     fetchAllCategoriesAdmin:[Category]
+    fetchAllMenusAdmin: [Menu]
   }
 `
 
@@ -81,6 +82,9 @@ const RootMutation = `
     createCategory(input:CategoryInput): Category
     deleteCategories(input:[Int]): Int
     updateCategory(input:CategoryInput): Category
+    createMenu(input:MenuInput): Menu
+    deleteMenus(input:[Int]): Int
+    updateMenu(input:MenuInput): Menu
   }
 `
 

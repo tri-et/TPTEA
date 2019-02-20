@@ -54,6 +54,10 @@
           <q-item-side icon="list"/>
           <q-item-main label="Categories"/>
         </q-item>
+        <q-item to="/admin/menus">
+          <q-item-side icon="menu"/>
+          <q-item-main label="Menus"/>
+        </q-item>
       </q-list>
     </q-layout-drawer>
     <q-page-container>
