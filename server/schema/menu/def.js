@@ -11,11 +11,11 @@ const Menu = `
   }
   input MenuInput {
     id: Int
-    name: String
-    price: String
+    name: String!
+    price: String!
     desc: String
     img: String
-    categoryId: Int
+    categoryId: Int!
     modifierIds: [Int]
   }
 `

@@ -3,8 +3,8 @@
     <q-modal-layout>
       <q-toolbar slot="header" color="secondary">
         <q-btn @click="discardEditingRec" icon="keyboard_arrow_left" class="q-mr-md" wait-for-ripple color="primary"/>
-        <q-btn @click="getEditingRec.id?updateMenu(modifierIds):createMenu(modifierIds)" :disable="!getEditingRec.categoryId">
-          <q-icon :name="getEditingRec.id?'save':'add'" size="25px"/>
+        <q-btn :loading="getIsLoading" @click="upsertMenu" :disable="!getEditingRec.categoryId">
+          <q-icon :loading="getIsLoading" :name="getEditingRec.id?'save':'add'" size="25px"/>
           <q-spinner-pie slot="loading" size="25px"/>
         </q-btn>
         <q-toolbar-title>{{getEditingRec.name}}</q-toolbar-title>
@@ -27,10 +27,10 @@
             />
           </q-field>
           <q-field icon="label" label="Name" label-width="3">
-            <q-input v-model="getEditingRec.name"/>
+            <q-input v-model="getEditingRec.name" :error="$v.getEditingRec.name.$error"/>
           </q-field>
           <q-field icon="attach_money" label="Price" label-width="3">
-            <q-input v-model="getEditingRec.price" type="number"/>
+            <q-input v-model="getEditingRec.price" type="number" :error="$v.getEditingRec.price.$error"/>
           </q-field>
           <q-field icon="description" label="Description" class="q-mb-md" label-width="3">
             <q-input v-model="getEditingRec.desc" type="textarea" rows="2"/>
@@ -53,12 +53,23 @@
 import {mapGetters, mapActions, mapMutations} from 'vuex'
 import etImgUpload from './EtImgUpload'
 import _d from 'lodash'
+import {required} from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
       categories: [],
       modifierIds: [],
     }
+  },
+  validations: {
+    getEditingRec: {
+      name: {
+        required,
+      },
+      price: {
+        required,
+      },
+    },
   },
   components: {
     etImgUpload,
@@ -98,6 +109,12 @@ export default {
       this.categories = this.getRecsCategories.filter(category => {
         return category.mainCategoryId === mainCategoryId
       })
+    },
+    upsertMenu() {
+      this.$v.getEditingRec.$touch()
+      if (this.$v.getEditingRec.$error) return
+      if (this.getEditingRec.id) this.updateMenu(this.modifierIds)
+      else this.createMenu(this.modifierIds)
     },
   },
   watch: {
