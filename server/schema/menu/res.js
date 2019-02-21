@@ -50,9 +50,6 @@ const resolvers = {
         .then(menu => {
           return menu
         })
-        .catch(err => {
-          console.log(err)
-        })
     },
     async deleteMenus(_, {input}, {loggedInUser}) {
       return await Menu.destroy({
@@ -61,6 +58,9 @@ const resolvers = {
             $in: input,
           },
         },
+      }).catch(err => {
+        if (err.parent.errno === 1451) throw new Error('This menu linked to another table')
+        else throw new Error(err)
       })
     },
   },

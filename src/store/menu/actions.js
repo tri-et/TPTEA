@@ -144,10 +144,12 @@ export function delMenus({commit, getters}) {
   ).then(({data}) => {
     _procAlert(data, true)
     commit('setIsLoading', false)
-    _d.remove(getters.getRecs, rec => {
-      return ids.includes(rec.id)
-    })
-    commit('setSelected', [])
-    commit('setRecs', _d.clone(getters.getRecs))
+    if (!data.errors) {
+      _d.remove(getters.getRecs, rec => {
+        return ids.includes(rec.id)
+      })
+      commit('setSelected', [])
+      commit('setRecs', _d.clone(getters.getRecs))
+    }
   })
 }
