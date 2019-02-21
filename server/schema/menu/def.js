@@ -15,7 +15,7 @@ const Menu = `
     price: String!
     desc: String
     img: String
-    categoryId: Int!
+    categoryId: Int
     modifierIds: [Int]
   }
 `
