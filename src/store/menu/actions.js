@@ -47,7 +47,7 @@ export const fetchAllMenus = ({commit}) => {
 export const fetchMenus = ({commit}) => {
   commit('setIsLoading', true)
   _get(`{
-    fetchAllMenusAdmin {
+    fetchAllMenus {
       id
       name
       desc
@@ -60,7 +60,7 @@ export const fetchMenus = ({commit}) => {
   }`)
     .then(({data}) => {
       commit('setIsLoading', false)
-      commit('setRecs', data.fetchAllMenusAdmin.reverse())
+      commit('setRecs', data.fetchAllMenus.reverse())
     })
     .catch(err => {
       _procError(err)
