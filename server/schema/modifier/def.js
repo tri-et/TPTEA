@@ -9,6 +9,8 @@ const Modifier = `
     name: String
     price: String
     isDefault: Boolean
+    groupType: String
+    groupTitle: String
   }
   type AdminModifier {
     id: Int
@@ -25,6 +27,11 @@ const Modifier = `
     isDefault: Boolean!
     groupType: String!
     groupTitle: String!
+  }
+  type MenuModifier {
+    id: Int
+    menuId: Int
+    modifierId: Int
   }
 `
 export default Modifier

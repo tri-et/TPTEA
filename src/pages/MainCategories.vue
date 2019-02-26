@@ -1,22 +1,20 @@
 <template>
   <q-page class="row">
-    <main-category v-for="mainCat in getRecs" :key="mainCat.id" :name="mainCat.name" :img="mainCat.img" :id="mainCat.id"/>
+    <main-category v-for="mainCat in getMainCategoriesData" :key="mainCat.id" :name="mainCat.name" :img="mainCat.img" :id="mainCat.id"/>
+    <q-inner-loading dark :visible="getIsOrderSystemLoading">
+      <q-spinner size="50px" color="white"/>
+    </q-inner-loading>
   </q-page>
 </template>
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
 import mainCategory from 'components/MainCategory'
 export default {
   name: 'MainCategories',
   components: {mainCategory},
   computed: {
-    ...mapGetters('maincategory', ['getRecs']),
-  },
-  methods: {
-    ...mapActions('maincategory', ['fetchRecs']),
-  },
-  mounted() {
-    this.fetchRecs()
+    ...mapGetters('maincategory', ['getMainCategoriesData']),
+    ...mapGetters('util', ['getIsOrderSystemLoading']),
   },
 }
 </script>

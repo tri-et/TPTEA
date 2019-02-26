@@ -105,6 +105,7 @@ module.exports = function(ctx) {
         'QDialog',
         'QOptionGroup',
         'QDatetime',
+        'QInnerLoading',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
