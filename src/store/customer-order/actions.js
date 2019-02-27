@@ -1,7 +1,9 @@
 import {_post, _procError, _procAlert, _alert} from '../../util/common'
 import store from '../index'
 import _d from 'lodash'
-export const placeOrder = ({commit, getters}) => {
+import {Dialog} from 'quasar'
+
+export const placeOrder = ({commit, getters, dispatch}) => {
   let customer = store().getters['customer/getCustomer']
   if (!_d.isEmpty(customer)) {
     commit('setIsLoading', true)
@@ -16,14 +18,46 @@ export const placeOrder = ({commit, getters}) => {
       }`
     )
       .then(({data}) => {
-        _procAlert(data, true)
-        commit('setRecs', {})
-        commit('setIsLoading', false)
+        if (data.placeOrder) {
+          if (customer.balance >= _d.sumBy(getters.getRecs.orderDetails, 'price')) {
+            Dialog.create({
+              title: 'Confirm',
+              message: 'Your order has been placed. Do you want pay now?',
+              ok: 'Now',
+              cancel: 'Later',
+            })
+              .then(() => {
+                console.log('agree')
+                dispatch('payNow', data.placeOrder)
+              })
+              .catch(() => {
+                console.log('disagree')
+              })
+              .finally(() => {
+                _procAlert(data, true)
+                commit('setRecs', {})
+              })
+          } else {
+            commit('setRecs', {})
+          }
+        } else if (data.errors) {
+          // trim 'Error: Error:' from msg render by server
+          let message = _d.get(data, 'errors[0].message')
+          if (typeof message === 'string') {
+            let index = message.indexOf('Error: Error: ') === 0 ? 13 : 0
+            message = message.substring(index, message.length)
+          }
+          Dialog.create({
+            title: 'Alert',
+            message: message,
+            color: 'primary',
+          })
+        }
       })
       .catch(err => {
         _procError(err)
-        commit('setIsLoading', false)
       })
+      .finally(() => commit('setIsLoading', false))
   } else _alert('Please login first!', 'warning')
 }
 export const fetchCustomerOrders = ({commit}) => {
@@ -77,4 +111,37 @@ export const fetchCustomerOrderDetail = ({commit}, payload) => {
     .catch(err => {
       _procError(err)
     })
+}
+
+export const payNow = ({commit, getters}, orderId) => {
+  let customer = store().getters['customer/getCustomer']
+  commit('setIsLoading', true)
+  if (!_d.isEmpty(customer)) {
+    return _post(
+      orderId,
+      `mutation ($input: Int) {
+        payNow(input: $input){
+          totalAmount
+          balance
+        }
+      }`
+    )
+      .then(({data}) => {
+        let msg = ''
+        if (data.payNow) {
+          msg = `You paid ${data.payNow.totalAmount}$. Current Balance is ${data.payNow.balance}$ `
+        } else if (data.errors) {
+          msg = data.errors[0].message
+        }
+        Dialog.create({
+          title: 'Alert',
+          message: msg,
+        })
+        return data
+      })
+      .catch(err => {
+        _procError(err)
+      })
+      .finally(() => commit('setIsLoading', false))
+  } else _alert('Please login first!', 'warning')
 }

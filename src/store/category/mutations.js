@@ -22,3 +22,6 @@ export const discardEditingRec = state => {
   state.isModalOpened = false
   store().commit('util/setCurrentUploadImageData', '')
 }
+export const setCategoriesData = (state, payload) => {
+  state.categoriesData = payload
+}

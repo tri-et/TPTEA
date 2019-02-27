@@ -6,12 +6,12 @@
         <q-toolbar-title>{{mainCategoryName}}</q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
-    <et-category v-for="(cat,index) in getRecs" :key="index" :cat="cat"></et-category>
+    <et-category v-for="(cat,index) in categories" :key="index" :cat="cat"></et-category>
     <footer-order/>
   </q-page>
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapGetters} from 'vuex'
 import etCategory from 'components/Category'
 import footerOrder from 'components/FooterOrder'
 export default {
@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       mainCategoryName: '',
+      categories: [],
     }
   },
   components: {
@@ -26,19 +27,18 @@ export default {
     footerOrder,
   },
   computed: {
-    ...mapGetters('category', ['getRecs']),
-    ...mapGetters({getMainCategory: 'maincategory/getRecs'}),
+    ...mapGetters('category', ['getCategoriesData']),
+    ...mapGetters('maincategory', ['getMainCategoriesData']),
   },
   methods: {
-    ...mapActions('category', ['fetchRecs']),
     backToMainCategory() {
       this.$router.go(-1)
     },
   },
   mounted() {
-    let mainCatId = this.$route.params.mainCatId
-    this.mainCategoryName = this.getMainCategory.find(item => item.id === parseInt(mainCatId)).name
-    this.fetchRecs(parseInt(mainCatId))
+    let mainCatId = parseInt(this.$route.params.mainCatId)
+    this.mainCategoryName = this.getMainCategoriesData.find(item => item.id === mainCatId).name
+    this.categories = this.getCategoriesData.filter(({mainCategoryId}) => mainCategoryId === mainCatId)
   },
 }
 </script>

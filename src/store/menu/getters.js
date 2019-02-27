@@ -27,3 +27,6 @@ export const getIsModalOpened = state => {
 export const getSelected = state => {
   return state.selected
 }
+export const getMenusData = state => {
+  return state.menusData
+}

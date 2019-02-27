@@ -5,6 +5,7 @@ export default {
   editingRec: {},
   backupRec: {},
   selected: [],
+  categoriesData: [],
   cols: [
     {
       name: 'edit',

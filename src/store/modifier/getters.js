@@ -14,3 +14,6 @@ export const getModifiers = state => modifierIds => {
     return modifierIds.includes(modifier.id)
   })
 }
+export const getModifiersData = state => {
+  return state.modifiersData
+}

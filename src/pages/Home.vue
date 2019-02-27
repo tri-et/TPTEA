@@ -8,6 +8,7 @@
 <script>
 import etNews from '../components/News'
 import etNewsDetail from '../components/NewsDetail'
+import {mapActions} from 'vuex'
 export default {
   name: 'PageIndex',
   components: {
@@ -48,6 +49,12 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    ...mapActions('util', ['fetchOrderSystemData']),
+  },
+  mounted() {
+    this.fetchOrderSystemData()
   },
 }
 </script>

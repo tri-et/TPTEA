@@ -105,10 +105,11 @@ module.exports = function(ctx) {
         'QDialog',
         'QOptionGroup',
         'QDatetime',
+        'QInnerLoading',
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
-      plugins: ['Notify', 'AddressbarColor'],
+      plugins: ['Notify', 'AddressbarColor', 'Dialog'],
       iconSet: 'material-icons',
       // i18n: 'de', // Quasar language
     },

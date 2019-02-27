@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters, mapMutations} from 'vuex'
+import {mapGetters} from 'vuex'
 import etMenu from 'components/Menu'
 import footerOrder from 'components/FooterOrder'
 export default {
@@ -24,6 +24,7 @@ export default {
       opened: true,
       search: '',
       cat: {},
+      menus: [],
     }
   },
   components: {
@@ -31,29 +32,23 @@ export default {
     footerOrder,
   },
   computed: {
-    ...mapGetters({
-      getRecsCategory: 'category/getRecs',
-    }),
-    ...mapGetters({
-      getRecsMenu: 'menu/getRecs',
-    }),
+    ...mapGetters('category', ['getCategoriesData']),
+    ...mapGetters('menu', ['getMenusData']),
     filterMenu() {
-      if (this.getRecsMenu != null) {
-        return this.getRecsMenu.filter(({name}) => name.match(new RegExp(this.search, 'gi')))
+      if (this.menus != null) {
+        return this.menus.filter(({name}) => name.match(new RegExp(this.search, 'gi')))
       }
     },
   },
   methods: {
-    ...mapActions('menu', ['fetchRecs']),
-    ...mapMutations('menu', ['setRecs']),
     backToCategories() {
-      this.setRecs([])
+      this.menus = []
       this.$router.go(-1)
     },
   },
   mounted() {
-    this.cat = this.getRecsCategory.find(item => item.id === parseInt(this.$route.params.catId))
-    this.fetchRecs(this.cat)
+    this.cat = this.getCategoriesData.find(item => item.id === parseInt(this.$route.params.catId))
+    this.menus = this.getMenusData.filter(({categoryId}) => categoryId === this.cat.id)
   },
 }
 </script>
