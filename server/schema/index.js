@@ -87,6 +87,7 @@ const RootMutation = `
     createMenu(input:MenuInput): Menu
     deleteMenus(input:[Int]): Int
     updateMenu(input:MenuInput): Menu
+    payNow(input: Int): PayNowOutput
   }
 `
 
