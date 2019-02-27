@@ -24,6 +24,8 @@ import storeDef from './store/def'
 import storeRes from './store/res'
 import customerOrderDef from './customer-order/def'
 import customerOrderRes from './customer-order/res'
+import orderSystemDef from './ordersystem/def'
+import orderSystemRes from './ordersystem/res'
 const SchemaDefinition = `
   schema {
     query: RootQuery,
@@ -54,6 +56,7 @@ const RootQuery = `
     fetchCustomerOrderDetail(input:Int):HistoryCustomerOrder
     fetchOrderStatuses:[OrderStatus]
     fetchAllCategoriesAdmin:[Category]
+    fetchOrderSystemData: OrderSystemData
   }
 `
 
@@ -104,6 +107,7 @@ export default makeExecutableSchema({
     orderStatusDef,
     storeDef,
     customerOrderDef,
+    orderSystemDef,
   ],
   resolvers: [
     customerRes,
@@ -118,5 +122,6 @@ export default makeExecutableSchema({
     orderStatusRes,
     storeRes,
     customerOrderRes,
+    orderSystemRes,
   ],
 })

@@ -12,7 +12,7 @@
       <div class="desc">{{menu.desc}}</div>
     </q-collapsible>
     <modifiers-group
-      v-for="(group,index) in getRecsModifier"
+      v-for="(group,index) in groupModifiers"
       :data="group.data"
       :groupTitle="group.groupTitle"
       :groupType="group.groupType"
@@ -32,7 +32,7 @@
 </template>
 <script>
 import _ from 'lodash'
-import {mapGetters, mapActions, mapMutations} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 import etCounter from 'components/Counter'
 import modifiersGroup from 'components/ModifiersGroup'
 export default {
@@ -42,6 +42,7 @@ export default {
       counter: 1,
       modifierIds: [],
       totalMenuPrice: 0,
+      groupModifiers: [],
     }
   },
   components: {
@@ -49,12 +50,11 @@ export default {
     modifiersGroup,
   },
   computed: {
-    ...mapGetters('menu', ['getRecs', 'getCounter']),
-    ...mapGetters('modifier', {getRecsModifier: 'getRecs'}),
+    ...mapGetters('menu', ['getMenusData', 'getCounter']),
+    ...mapGetters('modifier', ['getModifiersData']),
     ...mapGetters('modifier', ['getCurrentMenuModifiers']),
   },
   methods: {
-    ...mapActions('modifier', ['fetchModifiers']),
     ...mapMutations('menu', ['setCounter']),
     ...mapMutations('modifier', ['setRecs', 'setCurrentMenuModifiers']),
     ...mapMutations('customerorder', {addMenuToOrder: 'setRecs'}),
@@ -89,8 +89,16 @@ export default {
     menu: 'calculateMenuPrice',
   },
   mounted() {
-    this.menu = this.getRecs.find(item => item.id === parseFloat(this.$route.params.menuId))
-    this.fetchModifiers(this.menu)
+    this.menu = this.getMenusData.find(item => item.id === parseFloat(this.$route.params.menuId))
+    let modifiers = this.getModifiersData.filter(({id}) => this.menu.modifierIds.includes(id))
+    this.groupModifiers = _.chain(modifiers)
+      .groupBy('groupTitle')
+      .map((data, groupTitle) => ({
+        data,
+        groupTitle,
+        groupType: data[0].groupType,
+      }))
+      .value()
   },
 }
 </script>

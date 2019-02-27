@@ -28,3 +28,6 @@ export const discardEditingRec = state => {
   state.isModalOpened = false
   store().commit('util/setCurrentUploadImageData', '')
 }
+export const setMenusData = (state, payload) => {
+  state.menusData = payload
+}

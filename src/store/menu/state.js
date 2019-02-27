@@ -7,6 +7,7 @@ export default {
   selected: [],
   isModalOpened: false,
   isLoading: false,
+  menusData: [],
   cols: [
     {
       name: 'edit',

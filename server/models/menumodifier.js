@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   )
-  MenuModifier.associate = function(models) {
+  MenuModifier.associate = models => {
     // associations can be defined here
   }
   return MenuModifier

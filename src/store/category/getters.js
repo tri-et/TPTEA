@@ -16,3 +16,6 @@ export const getEditingRec = state => {
 export const getSelected = state => {
   return state.selected
 }
+export const getCategoriesData = state => {
+  return state.categoriesData
+}
