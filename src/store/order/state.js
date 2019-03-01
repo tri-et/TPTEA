@@ -33,10 +33,17 @@ export default {
       sortable: true,
     },
     {
-      name: 'isStorePickUp',
+      name: 'storePickUp',
       label: 'Delivery/PickUp',
       align: 'left',
-      field: 'isStorePickUp',
+      field: 'storePickUp',
+      sortable: true,
+    },
+    {
+      name: 'receivingTime',
+      label: 'Time',
+      align: 'left',
+      field: 'receivingTime',
       sortable: true,
     },
     {
@@ -51,13 +58,6 @@ export default {
       label: 'Delivery Contact',
       align: 'left',
       field: 'deliveryContact',
-      sortable: true,
-    },
-    {
-      name: 'receivingTime',
-      label: 'Receiving Time',
-      align: 'left',
-      field: 'receivingTime',
       sortable: true,
     },
     {
