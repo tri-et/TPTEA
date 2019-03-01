@@ -1,5 +1,6 @@
 import {_procError, _ax, _post, _get, _procAlert, getUserFbInfo, getFbToken} from '../../util/common'
 import _ from 'lodash'
+import {Dialog} from 'quasar'
 export function loginCustomer({commit}, payload) {
   commit('setIsLoading', true)
   _post(
@@ -266,7 +267,13 @@ export const applyGiftCard = ({commit}, payload) => {
       if (typeof message === 'string' && message.indexOf('jwt malformed') > -1) {
         data.errors[0].message = 'The Code is invalid! Please try again!'
       }
-      _procAlert(data, `$${amount} has just been applied successfully`)
+      _procAlert(data, true)
+      if (!data.errors) {
+        Dialog.create({
+          title: 'Alert',
+          message: `$${amount} has just been applied successfully`,
+        })
+      }
       if (data.applyGiftCard) commit('setCustomerBalance', data.applyGiftCard.balance)
     })
     .catch(err => {
