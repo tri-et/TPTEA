@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ## 0.0.2za - 2018-12-12
+### Fix bugs
+- Fix responsive for grid in admin page
 ### Added
 - Menus Listing after clicking a single Catefory
 - Register link at login page
