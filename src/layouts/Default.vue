@@ -23,10 +23,12 @@ export default {
   methods: {
     ...mapActions('menu', ['fetchAllMenus']),
     ...mapActions('modifier', ['fetchAllModifiers']),
+    ...mapActions('util', ['fetchOrderSystemData']),
   },
   mounted() {
     this.fetchAllMenus()
     this.fetchAllModifiers()
+    this.fetchOrderSystemData()
   },
 }
 </script>
