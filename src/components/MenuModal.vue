@@ -37,7 +37,7 @@
           </q-field>
         </div>
         <div class="col-12 col-md-12 col-lg-4 img-container">
-          <et-img-upload :url="'statics/'+getEditingRec.img"/>
+          <cloudinary-uploader :url="getEditingRec.img"/>
         </div>
         <div class="row col-12">
           <div class="q-mr-md" v-for="(modifier,index) in groupModifiers" :key="index">
@@ -51,7 +51,7 @@
 </template>
 <script>
 import {mapGetters, mapActions, mapMutations} from 'vuex'
-import etImgUpload from './EtImgUpload'
+import cloudinaryUploader from './CloudinaryUploader'
 import _d from 'lodash'
 import {required} from 'vuelidate/lib/validators'
 export default {
@@ -72,7 +72,7 @@ export default {
     },
   },
   components: {
-    etImgUpload,
+    cloudinaryUploader,
   },
   computed: {
     ...mapGetters('menu', ['getIsLoading', 'getEditingRec']),

@@ -1,0 +1,96 @@
+<template>
+  <div class="et-img-upload" :style="{'height':height,'width':width}">
+    <div class="bt-edit" @click="edit">
+      <i class="material-icons">edit</i>
+    </div>
+    <img :src="urlImg" :style="{'height':height,'width':width}">
+  </div>
+</template>
+<script>
+import {mapMutations} from 'vuex'
+export default {
+  props: {
+    height: {
+      type: String,
+      default: '200px',
+    },
+    width: {
+      type: String,
+      default: '280px',
+    },
+    url: {
+      type: String,
+      default: 'statics/upload-image-size.svg',
+    },
+  },
+  data() {
+    return {
+      urlImg: this.url,
+      widgetUpload: null,
+    }
+  },
+  methods: {
+    ...mapMutations('util', ['setCurrentUploadImageData']),
+    readImgData(event) {
+      let reader = new FileReader()
+      reader.onload = () => {
+        this.urlImg = reader.result
+        this.setCurrentUploadImageData(reader.result)
+      }
+      reader.readAsDataURL(event.target.files[0])
+    },
+    edit() {
+      this.widgetUpload.open()
+    },
+  },
+  watch: {
+    url: {
+      immediate: true,
+      handler(url) {
+        if (url.indexOf('undefined') > 0) this.urlImg = 'statics/upload-image-size.svg'
+        else this.urlImg = url
+      },
+    },
+  },
+  mounted() {
+    this.widgetUpload = cloudinary.createUploadWidget(
+      {
+        cloudName: 'hriwalxwi',
+        uploadPreset: 'kynztq5c',
+        folder: 'ordersytem',
+      },
+      (error, result) => {
+        if (error) {
+          console.log(error)
+        } else {
+          if (result.event === 'success') {
+            this.urlImg = result.info.secure_url
+            this.setCurrentUploadImageData(result.info.secure_url)
+            this.widgetUpload.close({quiet: true})
+          }
+        }
+      }
+    )
+  },
+}
+</script>
+<style lang="stylus" scoped>
+.et-img-upload
+  border-radius 10px
+  background-color #d9d9d9
+  position relative
+
+img
+  border-radius 10px
+
+.bt-edit
+  background-color #f2f2f2
+  display flex
+  border-radius 6px
+  font-size 18px
+  position absolute
+  right 10px
+  top 10px
+  padding 6px
+  cursor pointer
+</style>
