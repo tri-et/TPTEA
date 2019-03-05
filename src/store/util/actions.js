@@ -1,7 +1,7 @@
 import {_get, _procError} from '../../util/common'
 import store from '../index'
-let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/elitetech/upload'
-let CLOUDINARY_UPLOAD_PRESET = 'wksnxk94'
+let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/hriwalxwi/upload'
+let CLOUDINARY_UPLOAD_PRESET = 'kynztq5c'
 export const fetchOrderSystemData = ({commit}) => {
   if (!store().getters['maincategory/getMainCategoriesData'].length) {
     commit('setIsOrderSystemLoading', true)

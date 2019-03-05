@@ -39,7 +39,7 @@
         <div class="col-12 col-md-12 col-lg-4 img-container">
           <cloudinary-uploader :url="getEditingRec.img"/>
         </div>
-        <div class="row col-12">
+        <div class="row col-12 q-mt-md">
           <div class="q-mr-md" v-for="(modifier,index) in groupModifiers" :key="index">
             <span class="label">{{modifier[0].groupTitle}}</span>
             <q-option-group type="checkbox" color="secondary" v-model="modifierIds" :options="modifier.map(opt=>({label:opt.name,value:opt.id}))"/>
