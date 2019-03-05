@@ -1,5 +1,7 @@
 import {_get, _procError} from '../../util/common'
 import store from '../index'
+let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/elitetech/upload'
+let CLOUDINARY_UPLOAD_PRESET = 'wksnxk94'
 export const fetchOrderSystemData = ({commit}) => {
   if (!store().getters['maincategory/getMainCategoriesData'].length) {
     commit('setIsOrderSystemLoading', true)
@@ -52,4 +54,27 @@ export const fetchOrderSystemData = ({commit}) => {
         commit('setIsOrderSystemLoading', false)
       })
   }
+}
+export async function cloudinaryUpload({commit}, file) {
+  let xhr = new XMLHttpRequest()
+  let fd = new FormData()
+  xhr.open('POST', CLOUDINARY_URL, true)
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+  fd.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+  fd.append('tags', 'browser_upload')
+  fd.append('file', file)
+  return new Promise(resolve => {
+    xhr.upload.addEventListener('progress', function(e) {
+      let progress = Math.round((e.loaded * 100.0) / e.total)
+      commit('setUploadPercentage', progress)
+    })
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        let response = JSON.parse(xhr.responseText)
+        commit('setUploadPercentage', 0)
+        resolve(response.secure_url)
+      }
+    }
+    xhr.send(fd)
+  })
 }

@@ -1,13 +1,17 @@
 <template>
   <div class="et-img-upload" :style="{'height':height,'width':width}">
+    <input type="file" @change="readImgData" ref="inputFile" class="hidden">
     <div class="bt-edit" @click="edit">
       <i class="material-icons">edit</i>
     </div>
     <img :src="urlImg" :style="{'height':height,'width':width}">
+    <q-inner-loading :visible="getUploadPercentage!=0">
+      <q-progress :percentage="getUploadPercentage" stripe animate height="7px" class="progress"/>
+    </q-inner-loading>
   </div>
 </template>
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapGetters} from 'vuex'
 export default {
   props: {
     height: {
@@ -29,18 +33,22 @@ export default {
       widgetUpload: null,
     }
   },
+  computed: {
+    ...mapGetters('util', ['getUploadPercentage']),
+  },
   methods: {
     ...mapMutations('util', ['setCurrentUploadImageData']),
     readImgData(event) {
       let reader = new FileReader()
       reader.onload = () => {
         this.urlImg = reader.result
-        this.setCurrentUploadImageData(reader.result)
       }
+      this.setCurrentUploadImageData(event.target.files[0])
       reader.readAsDataURL(event.target.files[0])
     },
     edit() {
-      this.widgetUpload.open()
+      // this.widgetUpload.open()
+      this.$refs.inputFile.click()
     },
   },
   watch: {
@@ -52,26 +60,26 @@ export default {
       },
     },
   },
-  mounted() {
-    this.widgetUpload = cloudinary.createUploadWidget(
-      {
-        cloudName: 'hriwalxwi',
-        uploadPreset: 'kynztq5c',
-        folder: 'ordersytem',
-      },
-      (error, result) => {
-        if (error) {
-          console.log(error)
-        } else {
-          if (result.event === 'success') {
-            this.urlImg = result.info.secure_url
-            this.setCurrentUploadImageData(result.info.secure_url)
-            this.widgetUpload.close({quiet: true})
-          }
-        }
-      }
-    )
-  },
+  // mounted() {
+  //   this.widgetUpload = cloudinary.createUploadWidget(
+  //     {
+  //       cloudName: 'hriwalxwi',
+  //       uploadPreset: 'kynztq5c',
+  //       folder: 'ordersytem',
+  //     },
+  //     (error, result) => {
+  //       if (error) {
+  //         console.log(error)
+  //       } else {
+  //         if (result.event === 'success') {
+  //           this.urlImg = result.info.secure_url
+  //           this.setCurrentUploadImageData(result.info.secure_url)
+  //           this.widgetUpload.close({quiet: true})
+  //         }
+  //       }
+  //     }
+  //   )
+  // },
 }
 </script>
 <style lang="stylus" scoped>
@@ -93,4 +101,8 @@ img
   top 10px
   padding 6px
   cursor pointer
+
+.progress
+  width 92%
+  border-radius 10px
 </style>
