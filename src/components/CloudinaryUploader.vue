@@ -47,7 +47,6 @@ export default {
       reader.readAsDataURL(event.target.files[0])
     },
     edit() {
-      // this.widgetUpload.open()
       this.$refs.inputFile.click()
     },
   },
@@ -60,26 +59,6 @@ export default {
       },
     },
   },
-  // mounted() {
-  //   this.widgetUpload = cloudinary.createUploadWidget(
-  //     {
-  //       cloudName: 'hriwalxwi',
-  //       uploadPreset: 'kynztq5c',
-  //       folder: 'ordersytem',
-  //     },
-  //     (error, result) => {
-  //       if (error) {
-  //         console.log(error)
-  //       } else {
-  //         if (result.event === 'success') {
-  //           this.urlImg = result.info.secure_url
-  //           this.setCurrentUploadImageData(result.info.secure_url)
-  //           this.widgetUpload.close({quiet: true})
-  //         }
-  //       }
-  //     }
-  //   )
-  // },
 }
 </script>
 <style lang="stylus" scoped>
