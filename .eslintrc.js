@@ -23,7 +23,6 @@ module.exports = {
     importScripts: true,
     workbox: true,
     clients: true,
-    cloudinary: true,
   },
   // add your custom rules here
   rules: {

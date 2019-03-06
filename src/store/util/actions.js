@@ -61,7 +61,6 @@ export async function cloudinaryUpload({commit}, file) {
   xhr.open('POST', CLOUDINARY_URL, true)
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
   fd.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-  fd.append('tags', 'browser_upload')
   fd.append('file', file)
   return new Promise(resolve => {
     xhr.upload.addEventListener('progress', function(e) {
