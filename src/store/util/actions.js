@@ -63,7 +63,7 @@ export async function cloudinaryUpload({commit}, file) {
   fd.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
   fd.append('file', file)
   return new Promise(resolve => {
-    xhr.upload.addEventListener('progress', function(e) {
+    xhr.upload.addEventListener('progress', e => {
       let progress = Math.round((e.loaded * 100.0) / e.total)
       commit('setUploadPercentage', progress)
     })

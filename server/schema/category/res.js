@@ -14,7 +14,7 @@ const resolvers = {
   RootMutation: {
     async createCategory(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
-      return await Category.create(input).then(catefgory => catefgory)
+      return await Category.create(input).then(category => category)
     },
     async updateCategory(_, {input}, {loggedInUser}) {
       _authAdmin(loggedInUser)
